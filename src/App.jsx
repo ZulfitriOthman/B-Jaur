@@ -12,8 +12,8 @@ function App() {
     <div>
       {/* <Navbar /> */}
       <HeroSection />
-      Test
       <ImageSection />
+      test
       <AboutSection />
       <CarouselSection />
       <CardDropDownSection />
