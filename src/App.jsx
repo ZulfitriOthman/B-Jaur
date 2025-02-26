@@ -12,6 +12,7 @@ function App() {
     <div>
       {/* <Navbar /> */}
       <HeroSection />
+      Test
       <ImageSection />
       <AboutSection />
       <CarouselSection />
