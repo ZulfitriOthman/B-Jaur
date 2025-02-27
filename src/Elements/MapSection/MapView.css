@@ -1,0 +1,31 @@
+/* MapView.css */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Full-screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C1B1F; /* Light gray background */
+  }
+
+/* SVG styling */
+.svg-container {
+    width: 800px;
+    height: 600px;
+  }
+  
+  /* Scoped styles for SVG paths */
+  .svg-container path {
+    cursor: pointer;
+    fill: #f3f2ec; 
+    transition: fill 0.3s ease;
+  }
+  
+  .svg-container path:hover {
+    fill: #D2A034; 
+  }
+  
+  .svg-container .active path {
+    fill: #D2A034;
+  }

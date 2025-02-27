@@ -1,0 +1,54 @@
+.map-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .featured-properties-box {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .content-overlay {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .content-left {
+    flex: 1; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #121212;
+    color: white;
+  }
+  
+  .map-title {
+    color: #d2a034;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .map-description {
+    color: #f3f2ec;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .map-container {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+  }
+  
