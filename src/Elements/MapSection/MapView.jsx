@@ -11,7 +11,6 @@ const MapView = ({ onDistrictClick, activeDistrict }) => {
         className="svg-container"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="220000 500000 55000 175000"
-
       >
         <g transform="scale(1.0,-1.0) translate(0,-1085152.501782)">
           <rect
