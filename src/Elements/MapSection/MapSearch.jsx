@@ -3,9 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import './MapSearch.css';
-// import { Outfit } from 'next/font/google';
-
-// const outfit = Outfit({ weight: '500', subsets: ['latin'] });
 
 const placesData = {
   'Brunei-Muara': ['Mentiri', 'Salambigar', 'Tagap', 'Tanjong Nangka', 'Katok', 'Serasa', 'Kapok', 'Tanah Jambu', 'Kiulap', 'Gadong', 'Lambak kiri', 'Jerudong', 'Rimba', 'Lambak kanan', 'Mulaut', 'Lumapas'],

@@ -10,7 +10,7 @@ const MapView = ({ onDistrictClick, activeDistrict }) => {
       <svg
         className="svg-container"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="230000 525000 40000 120000"
+        viewBox="220000 500000 55000 175000"
 
       >
         <g transform="scale(1.0,-1.0) translate(0,-1085152.501782)">
@@ -22,9 +22,16 @@ const MapView = ({ onDistrictClick, activeDistrict }) => {
           {/* Brunei-Muara District */}
           <g
             id="Brunei-Muara_svg"
-            className={activeDistrict === 'Brunei-Muara' ? 'active' : ''}
-            style={{ fill: 'none', stroke: '#1C1B1F', strokeWidth: '400', strokeLinecap: 'round' }}
-            onClick={() => onDistrictClick('Brunei-Muara')}
+            className={activeDistrict === "Brunei-Muara" ? "active" : ""}
+            style={{
+              fill: "none",
+              stroke: "#1C1B1F",
+              strokeWidth: "400",
+              strokeLinecap: "round",
+              pointerEvents: "all",
+              cursor: "pointer",
+            }}
+            onClick={() => onDistrictClick("Brunei-Muara")}
           >
             <path 
               id="23" 

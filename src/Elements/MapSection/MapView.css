@@ -1,18 +1,20 @@
 /* MapView.css */
 .map-container {
     position: relative;
-    width: 100%;
-    height: 100%; /* Full-screen height */
+    width: 50%;
+    height: 50%; /* Full-screen height */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1C1B1F; /* Light gray background */
+    background-color: #776AFB; /* Light gray background */
   }
 
 /* SVG styling */
 .svg-container {
-    width: 800px;
-    height: 600px;
+    width: 100%;
+    height: 500px;
+    background-color: #776AFB; /* Light gray background */
+    border-radius: 25px;
   }
   
   /* Scoped styles for SVG paths */
