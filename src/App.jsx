@@ -14,10 +14,10 @@ function App() {
       {/* <Navbar /> */}
       <HeroSection />
       <MapSection />
-      <ImageSection />  
+      {/* <ImageSection />  
       <AboutSection />
       <CarouselSection />
-      <CardDropDownSection />
+      <CardDropDownSection /> */}
       <Footer />
     </div>
   );
