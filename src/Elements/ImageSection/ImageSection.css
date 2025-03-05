@@ -1,0 +1,92 @@
+/* Controls: Search Bar, Category Dropdown, and Price Range */
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar,
+.filter-dropdown,
+.price-range {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-bar {
+  width: 200px;
+}
+
+.filter-dropdown {
+  width: 150px;
+}
+
+.price-range {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price-slider {
+  width: 150px;
+  margin-top: 5px;
+}
+
+/* Image Row Layout */
+.image-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  max-width: 100%;
+}
+
+/* Image Cards */
+.image-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 250px;
+  text-align: center;
+}
+
+.image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image-title {
+  font-weight: bold;
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+.image-category {
+  font-size: 14px;
+  color: #666;
+}
+
+.image-price {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}

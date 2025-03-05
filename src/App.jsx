@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import HeroSection from './components/HeroSection/HeroSection'
-import ImageSection from './components/ImageSection/ImageSection'
-import AboutSection from './components/AboutSection/AboutSection'
-import CarouselSection from './components/CarouselSection/CarouselSection'
-import CardDropDownSection from './components/CardDropDownSection/CardDropDownSection'
-import Footer from './components/Footer/Footer'
+import HeroSection from './Elements/HeroSection/HeroSection'
+import MapSection from './Elements/MapSection/MapSection'
+import ImageSection from './Elements/ImageSection/ImageSection'
+import AboutSection from './Elements/AboutSection/AboutSection'
+import CarouselSection from './Elements/CarouselSection/CarouselSection'
+import CardDropDownSection from './Elements/CardDropDownSection/CardDropDownSection'
+import Footer from './Elements/Footer/Footer'
 import './App.css';
 
 function App() {
@@ -12,8 +13,8 @@ function App() {
     <div>
       {/* <Navbar /> */}
       <HeroSection />
-      <ImageSection />
-      test
+      <MapSection />
+      <ImageSection />  
       <AboutSection />
       <CarouselSection />
       <CardDropDownSection />
