@@ -31,16 +31,18 @@ function MapSection() {
   return (
     <div className="map-box" id="map-section"> {/* Ani for the arrow button, just modify the id to where you leading too.. */}
       <div className="featured-properties-box">
+        <header className="map-header">
+          {/* Content - Map Search Heading */}
+          <h1 className="map-title">Don’t know where to eat? We’ll assist you!</h1>
+        </header>
+        
         <div className="content-overlay">
-          {/* Left Content - Map Search Heading */}
           <div className="content-left">
-            <div>
-              <h1 className="map-title">Map Search</h1>
-              <p className="map-description">
-                Click on the map or buttons below to select your district!
-              </p>
-            </div>
-
+            <h1 className="map-description">
+              <span>Click on the map or</span>  
+              <span>buttons below to</span>  
+              <span>select your district!</span>
+            </h1>
             {/* 🏷️ Filter Buttons */}
             <div className="filter-container">
               {/* Primary Filter Buttons */}
@@ -70,7 +72,7 @@ function MapSection() {
                 )}
               </AnimatePresence>
 
-              {/* Secondary Filter Buttons */}
+              {/* Secondary Filter Images */}
               <AnimatePresence>
                 {showSecondaryFilters && (
                   <motion.div
@@ -88,28 +90,32 @@ function MapSection() {
                       exit={{ opacity: 0, y: 50 }}
                       transition={{ duration: 0.5 }}
                     >
-                      {selectedFilter}
+                      {`${selectedFilter} - Ramadhan eats & treats`}
                     </motion.h3>
 
-                    {/* Filter Buttons */}
+                    {/* Image Grid */}
                     <motion.div
-                      className="filter-buttons-row"
+                      className="image-grid"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      {["All", "Sungkai", "Sahur", "Moreh"].map((filter) => (
+                      {["Sahur.jpg", "Sungkai.jpg", "Mureh.jpg"].map((image, index) => (
                         <motion.button
-                          key={filter}
-                          className="filter-button"
-                          onClick={() => {}}
+                          key={index}
+                          className="filter-image-button"
+                          onClick={() => handleImageClick(image)} // Handle image click here
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          {filter}
+                          <img
+                            src={`/src/assets/${selectedFilter.toLowerCase()}/${image}`}
+                            alt={`Location ${index + 1}`}
+                            className="filter-image"
+                          />
                         </motion.button>
                       ))}
                     </motion.div>

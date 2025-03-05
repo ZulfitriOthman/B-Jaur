@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #fff;
   }
   
   .featured-properties-box {
@@ -12,6 +13,11 @@
     border-radius: 10px;
     overflow: hidden;
   }
+
+  .map-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }  
   
   .content-overlay {
     display: flex;
@@ -26,23 +32,28 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: #121212;
+    background-color: #ffffff;
     color: white;
   }
   
   .map-title {
-    color: #d2a034;
+    color: #FF6131;
     font-weight: bold;
     font-size: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2.5rem;
   }
   
   .map-description {
-    color: #f3f2ec;
-    font-size: 1rem;
+    color: #000000;
+    text-align: left;
+    font-weight: bold;
+    font-size: 3rem;
     margin-bottom: 2.5rem;
   }
+
+  .map-description span {
+    display: block; /* Ensures each span is on a new line */
+  }  
     
   .map-container {
     flex: 1; 
@@ -83,40 +94,53 @@
   .filter-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
   }
 
-  /* Primary Filter Buttons */
+/* Primary Filter Buttons */
   .primary-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for the grid */
-    gap: 20px;  /* Space between the buttons */
-    width: 100%;
-    max-width: 400px;  /* Optional: to prevent it from stretching too wide */
-  }
+    grid-template-columns: repeat(2, auto); /* Auto-sizing columns */
+    gap: 5px; /* Space between buttons */
+    justify-content: start; /* Aligns buttons to the left */
+    align-items: start; /* Ensures vertical alignment */
+    width: fit-content; /* Ensures it only takes the necessary width */
+    max-width: 400px; /* Optional: to prevent it from stretching too wide */
+}
 
   /* Button Styles */
   .filter-button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #FF6131;
-    border: none;
+    background-color: #FFB89E; 
+    border: 2px solid #F26339; 
     border-radius: 5px;
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 25px;
   }
 
   .filter-button:hover {
-    background: #d2a034;
-    color: white;
+    background: #F26339;
+    color: rgb(255, 255, 255);
   }
 
   .filter-button.active {
-    background: #d2a034;
+    background: #F26339;
     color: white;
     font-weight: bold;
+  }
+
+  .filter-image {
+    width: 150px; 
+    height: 200px;  
+  } 
+
+  .image-grid {
+    display: flex;            /* This sets the container as a flex container */
+    flex-direction: row;      /* Align items horizontally (row direction is the default) */
+    gap: 15px;                /* Optional: Adds space between the images */
+    justify-content: center;  /* Optional: Centers images within the container */
   }
 
   /* Secondary Filter Buttons */
@@ -124,7 +148,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;  /* Space between title and buttons */
+    margin-top: -35px;
+    background: radial-gradient(ellipse at center, 
+    #FFA657 5%, 
+    rgba(255, 165, 87, 0.7) 5%, 
+    rgba(255, 165, 87, 0) 100%);
   }
 
   /* Heading Style for Secondary Filters */
@@ -139,7 +167,6 @@
   .primary-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 20px;
     width: 100%;
     max-width: 400px;  /* Optional: ensures buttons don't stretch too wide */
   }
@@ -176,15 +203,17 @@
   }
 
   .search-button {
-    width: 100%;
+    width: 95%;
     padding: 10px 20px;
     font-size: 16px;
-    border: 2px solid #776AFB;
     background-color: #776AFB; /* Slightly light background */
     color: #000000;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    text-align: center; /* Ensures text inside is aligned left */
+    display: block; /* Makes sure it behaves like a block element */
+    margin-left: 0; /* Aligns to the left edge */
   }
 
   .search-button:hover {
