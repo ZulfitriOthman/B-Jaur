@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #fff;
+    background: url('../../assets/Orange.svg') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the element */
   }
   
   .featured-properties-box {
@@ -32,12 +33,11 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: #ffffff;
     color: white;
   }
   
   .map-title {
-    color: #FF6131;
+    color: #000000;
     font-weight: bold;
     font-size: 2rem;
     margin-bottom: 2.5rem;
@@ -132,9 +132,84 @@
   }
 
   .filter-image {
-    width: 150px; 
-    height: 200px;  
+    width: 250px; 
+    height: 300px; 
+    border-radius: 25px; 
+    object-fit: cover; /* Scale the image to cover the button while maintaining aspect ratio */
   } 
+
+  .filter-image-button::before {
+    content: ''; /* Create the overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 25px; 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0)); /* Dark to light gradient */
+    z-index: 1; /* Ensure the overlay is on top of the image */
+  }
+
+  .filter-image-button {
+    position: relative; /* Ensure the button has a defined size */
+    width: 100%; /* Make sure the button is fully stretched */
+    height: 100%; /* Make sure the button is fully stretched */
+    padding: 0; /* Remove any default padding */
+    border-radius: 25px; 
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 20%; /* Adjust the position as needed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Text color */
+    font-size: 20px; /* Font size */
+    font-weight: bold; /* Optional */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional text shadow */
+    z-index: 1;
+  }
+
+  .image-title-section {
+    margin-bottom: 10px; /* Adds space between title and button */
+    font-size: 27px; /* Font size */
+  }
+
+  .image-description {
+    position: absolute;
+    top: 35%; /* Adjust the position as needed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: normal;
+    color: #f0f0f0; /* Light text color */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-top: 5px; /* Adds space between title and description */
+    text-align: center;
+    max-width: 80%; /* Adjust width for readability */
+    z-index: 1;
+  }
+  
+  .explore-button {
+    position: absolute;
+    bottom: 5%; /* Adjust the position as needed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8px 16px;
+    background-color: #fff;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 1;
+  }
+  
+  .explore-button:hover {
+    background-color: rgba(255, 140, 0, 1); /* Darker orange on hover */
+  }
 
   .image-grid {
     display: flex;            /* This sets the container as a flex container */
@@ -148,17 +223,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -35px;
-    background: radial-gradient(ellipse at center, 
-    #FFA657 5%, 
-    rgba(255, 165, 87, 0.7) 5%, 
-    rgba(255, 165, 87, 0) 100%);
   }
 
   /* Heading Style for Secondary Filters */
   .secondary-buttons h3 {
     font-size: 24px;
-    color: #FF6131;
+    color: #000000;
     font-weight: bold;
     margin-bottom: 20px;
   }
@@ -220,6 +290,7 @@
     background-color: #776AFB;
     color: white;
   }
+
 
 
     

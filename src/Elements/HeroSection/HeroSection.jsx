@@ -24,7 +24,7 @@ function HeroSection() {
           stroke="white"
           strokeWidth="8"
         />
-        <foreignObject x="50" y="100" width="700" height="400">
+        <foreignObject x="50" y="100" width="700" height="475">
           <div className="hero-content">
             <h1 className="hero-year">٢٠٢٥</h1>
 

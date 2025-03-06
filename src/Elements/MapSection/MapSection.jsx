@@ -11,6 +11,7 @@ function MapSection() {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState(null);
   const [showSecondaryFilters, setShowSecondaryFilters] = useState(false);
+  const [isDistrictSelected, setIsDistrictSelected] = useState(false);
 
   const handleDistrictClick = (district) => {
     setActiveDistrict(district);
@@ -19,13 +20,20 @@ function MapSection() {
 
   const handleFilterClick = (filter) => {
     setSelectedFilter(filter);
-    console.log(`Filtering properties in ${activeDistrict || "all locations"} for: ${filter}`);
-    setShowPropertyList(true);
-    setShowSecondaryFilters(true); // Show the secondary buttons
-  };
+    setIsDistrictSelected(true); // Hide the other content
+    setShowSecondaryFilters(true); // Show secondary filters
+  };  
 
-  const handleSearchClick = () => {
-    console.log("Search button clicked");
+  const randomMessages = [
+    "Lapar ku eh Maghrib pukul berapa?",
+    "Bah, ke stadium tani?",
+    "Lepas terawih moreh mana?",
+    "Makan apa karang?",
+    "Elek, chill, kami makan sini lah",
+  ];
+  
+  const getRandomMessage = () => {
+    return randomMessages[Math.floor(Math.random() * randomMessages.length)];
   };
 
   return (
@@ -38,16 +46,20 @@ function MapSection() {
         
         <div className="content-overlay">
           <div className="content-left">
-            <h1 className="map-description">
-              <span>Click on the map or</span>  
-              <span>buttons below to</span>  
-              <span>select your district!</span>
-            </h1>
+            {/* Conditionally render the map description */}
+            {!showSecondaryFilters && (
+              <h1 className="map-description">
+                <span>Click on the map or</span>  
+                <span>buttons below to</span>  
+                <span>select your district!</span>
+              </h1>
+            )}
+
             {/* 🏷️ Filter Buttons */}
             <div className="filter-container">
               {/* Primary Filter Buttons */}
               <AnimatePresence>
-                {!showSecondaryFilters && (
+                {!showSecondaryFilters && !isDistrictSelected && (  // Only show this if district is not selected
                   <motion.div
                     className="primary-buttons"
                     initial={{ opacity: 0 }}
@@ -71,71 +83,10 @@ function MapSection() {
                   </motion.div>
                 )}
               </AnimatePresence>
-
-              {/* Secondary Filter Images */}
-              <AnimatePresence>
-                {showSecondaryFilters && (
-                  <motion.div
-                    className="secondary-buttons"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {/* Title (Header) */}
-                    <motion.h3
-                      className="secondary-title"
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 50 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      {`${selectedFilter} - Ramadhan eats & treats`}
-                    </motion.h3>
-
-                    {/* Image Grid */}
-                    <motion.div
-                      className="image-grid"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {["Sahur.jpg", "Sungkai.jpg", "Mureh.jpg"].map((image, index) => (
-                        <motion.button
-                          key={index}
-                          className="filter-image-button"
-                          onClick={() => handleImageClick(image)} // Handle image click here
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <img
-                            src={`/src/assets/${selectedFilter.toLowerCase()}/${image}`}
-                            alt={`Location ${index + 1}`}
-                            className="filter-image"
-                          />
-                        </motion.button>
-                      ))}
-                    </motion.div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* New Search Button */}
-            <div className="search-button-container">
-              <button 
-                className="search-button"
-                onClick={handleSearchClick}
-              >
-                Search Properties
-              </button>
             </div>
 
             {/* Search Bar for Selected District */}
-            {showSearchBar && activeDistrict && (
+            {showSearchBar && activeDistrict && isDistrictSelected && (
               <div>
                 <h3 className="district-title">{activeDistrict} District</h3>
                 <MapSearch 
@@ -147,13 +98,15 @@ function MapSection() {
             )}
           </div>
 
-          {/* 🗺️ Map Section */}
-          <div className="map-container">
-            <MapView 
-              onDistrictClick={handleDistrictClick} 
-              activeDistrict={activeDistrict} 
-            />
-          </div>
+          {/* 🗺️ Map Section - Conditionally Rendered */}
+          {!showSecondaryFilters && (
+            <div className="map-container">
+              <MapView 
+                onDistrictClick={handleDistrictClick} 
+                activeDistrict={activeDistrict} 
+              />
+            </div>
+          )}
         </div>
 
         {/* Hidden Section - Animate Presence */}
@@ -178,6 +131,64 @@ function MapSection() {
               </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Secondary Filter Images */}
+        <AnimatePresence>
+            {showSecondaryFilters && isDistrictSelected && (  // Show this only when district is selected
+              <motion.div
+                className="secondary-buttons"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {/* Title (Header) */}
+                <motion.h3
+                  className="secondary-title"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 50 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {`${selectedFilter} - Ramadhan eats & treats`}
+                </motion.h3>
+
+                {/* Image Grid */}
+                <motion.div
+                  className="image-grid"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {["Buffet.jpg", "Bazzar.jpg", "Mureh.jpg"].map((image, index) => (
+                    <motion.button
+                      key={index}
+                      className="filter-image-button"
+                      onClick={() => handleImageClick(image)} // Handle image click here
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                    <div className="image-container">
+                      <img
+                        src={`/src/assets/${selectedFilter.toLowerCase()}/${image}`}
+                        alt={`Location ${index + 1}`}
+                        className="filter-image"
+                      />
+                      <div className="overlay-text">
+                        <div className="image-title-section">{image.replace(/\.[^/.]+$/, '')}</div>
+                      </div>
+                        <div className="image-description">{getRandomMessage()}</div>
+                          <button className="explore-button">Explore</button>
+                    </div>
+                    </motion.button>
+                  ))}
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
       </div>
     </div>
   );
