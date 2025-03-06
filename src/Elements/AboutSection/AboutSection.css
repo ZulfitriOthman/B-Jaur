@@ -1,41 +1,282 @@
 .about-section {
     display: flex;
-    justify-content: center;
+    height: 100vh;
     align-items: center;
     text-align: center;
+    justify-content: center;
     padding: 80px 20px;
-    background: linear-gradient(to right, #ff5733, #fad0c4);
-    position: relative;
-}
-
-/* Adding a subtle wave effect */
-.about-section::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 150px;
-    /* background: url('../../assets/layered-triangle.svg'); */
+    background: url('../../assets/Purple.svg') no-repeat;
     background-size: cover;
-    z-index: 0;
-    top: 0px;
-    left: 0;
+    position: relative;
 }
 
 .about-content {
     max-width: 700px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: black;
+    position: absolute;
+    left: 150px; /* Moves the box to the left */
+    top: 25%;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+    transform: translateY(-50%);
+}
+
+.form-content {
+    background: rgb(255, 255, 255);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    color: black;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.6;
 }
+
+.about-btn {
+    background-color: #776AFB;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+    border-radius: 25px;
+}
+
+.about-btn:hover {
+    background-color: #776AFB;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.5rem;
+    color: black;
+}
+
+button {
+    padding: 10px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header-form{
+    margin-top: -20px;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+}
+
+.category-header{
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+}
+
+.category-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.category-buttons button {
+    background-color: #776AFB;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    color: black;
+}
+
+.category-buttons button:hover {
+    background-color: #5a52d9;
+}
+
+.category-buttons button.active {
+  background-color: #ffffff; /* Active button background */
+  color: #F26339; /* Active button text color */
+  border: 1px solid #F26339;
+}
+
+.category-divider {
+    border: none;
+    height: 2px;
+    background-color: #ccc; /* Light gray */
+    margin: 50px 0; /* Adds space above and below */
+  }
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+  }
+  
+  /* Labels */
+  form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 23px;
+  }
+  
+  /* Inputs */
+  form input {
+    padding: 10px;
+    border: 1px solid #00000049;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #766afb60;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  input::placeholder {
+    color: rgb(0, 0, 0);  /* Change to any color you'd like */
+    opacity: 0.5;
+  }
+  
+  /* Add a stronger shadow when focused */
+  form input:focus {
+    outline: none;
+    border-color: #776AFB;
+  }  
+
+  .form-group {
+    position: relative;
+    display: flex;
+    gap: 10px; /* Adds spacing between inputs */
+    align-items: center;
+  }
+  
+  .form-group input {
+    flex: 1; /* Ensures inputs take equal width */
+    padding: 10px;
+    border: 1px solid #00000049;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #766afb60;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    padding-right: 30px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #776AFB;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 20px; 
+    align-items: center;
+  }
+  
+  .calendar-icon {
+    position: absolute;
+    right: 10px; /* Place the icon inside the input box on the right */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem; /* Adjust the size of the icon */
+    color: #776AFB; /* Icon color */
+    cursor: pointer; /* Makes the icon clickable */
+  }
+  
+  /* Submit & Cancel Buttons */
+  form button {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px; /* Adjust the space between the buttons */
+    justify-content: center; /* Align buttons to the center */
+    margin-top: 20px; /* Optional, adjust as needed */
+  }
+  
+  .button-container button {
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 1rem; /* Button text size */
+    background-color: #776AFB; /* Button color */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-container button:hover {
+    background-color: #776AFB; /* Darker green on hover */
+  }
+  
+  .button-container button[type="button"] {
+    background-color: #bbb; /* Cancel button color */
+  }
+  
+  .button-container button[type="button"]:hover {
+    background-color: #bbb; /* Darker red on hover */
+  }
+  
+  .form-group-days {
+    display: flex;
+    flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+    gap: 10px; /* Adds space between buttons */
+  }
+  
+  .day-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .day-button:hover {
+    background-color: #776afb;
+    color: white;
+  }
+  
+  .day-button:focus {
+    outline: none;
+    border-color: #776afb;
+  }
+  
