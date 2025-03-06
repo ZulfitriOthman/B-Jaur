@@ -173,7 +173,7 @@ function MapSection() {
                     >
                     <div className="image-container">
                       <img
-                        src={`/b-jaur.com/src/assets/${selectedFilter.toLowerCase()}/${image}`}
+                        src={`/https://zulfitriothman.github.io/B-Jaur/src/assets/${selectedFilter.toLowerCase()}/${image}`}
                         alt={`Location ${index + 1}`}
                         className="filter-image"
                       />
