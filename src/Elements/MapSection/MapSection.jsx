@@ -161,7 +161,7 @@ function MapSection() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {["Buffet.jpg", "Bazzar.jpg", "Mureh.jpg"].map((image, index) => (
+                  {["Buffet.jpg", "Bazaar.jpg", "Mureh.jpg"].map((image, index) => (
                     <motion.button
                       key={index}
                       className="filter-image-button"
