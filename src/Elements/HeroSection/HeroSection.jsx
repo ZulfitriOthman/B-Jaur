@@ -1,6 +1,7 @@
 import { FaChevronDown } from "react-icons/fa";
 import "./HeroSection.css";
-import img from '../../assets/Small-Design-Hero-Section.png';
+import { Link } from "react-router-dom";
+//import img from '../../assets/Small-Design-Hero-Section.png';
 
 function HeroSection() {
   const scrollToMapSection = () => {
@@ -43,6 +44,12 @@ function HeroSection() {
               <input type="text" placeholder="Search for restaurants, stalls..." className="search-restaurant" />
               <button className="look-button">🔍</button>
             </div>
+
+            <button className="Buffet-button">
+              <Link to="/BuffetSection">
+                <button className="Buffet-button">Buffet</button>
+              </Link>
+            </button>
 
             <button className="down-arrow" onClick={scrollToMapSection}>
               <FaChevronDown />
