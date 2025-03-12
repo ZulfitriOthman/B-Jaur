@@ -12,6 +12,10 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@mui/icons-material": "^6.4.7",
+    "@mui/material": "^6.4.7",
+    "@mui/x-date-pickers": "^7.27.3",
+    "dayjs": "^1.11.13",
     "framer-motion": "^12.4.7",
     "nouislider": "^15.8.1",
     "react": "^19.0.0",

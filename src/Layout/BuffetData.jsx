@@ -57,10 +57,12 @@ export const initialCards = [
         image: restaurant1,
         title: "The Empire Brunei",
         priceDisplay: "Adult: $48 | Child: $24",
-        time: "6.30 pm - 9 pm",
+        time: "6.30 pm - 9.00 pm",
         district: "Brunei-Muara",
         price: "$48.00",
         option: "Sungkai Buffet",
+        openTime: "6.30 pm",
+        closeTime: "9.00 pm",
         link: "https://www.instagram.com/p/DGci30dyVZ8/?igsh=cnZzZzY0dHhpcGEy"
     },
     {
@@ -68,7 +70,7 @@ export const initialCards = [
         image: restaurant2,
         title: "Rizqun Hotel",
         priceDisplay: "Adult: $35 | Child: $20",
-        time: "6 pm",
+        time: "6.00 pm",
         district: "Brunei-Muara",
         price: "$35.00",
         option: "Sungkai Buffet",

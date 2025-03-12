@@ -7,7 +7,6 @@ import { initialCards } from "./BuffetData.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
 import "./TimePicker.css";
 
-
 function Buffet() {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortedCards, setSortedCards] = useState(initialCards);
@@ -23,8 +22,31 @@ function Buffet() {
   const [showHoursButtons, setShowHoursButtons] = useState(false);
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [showDistrictButtons, setShowDistrictButtons] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   
   const cardsPerPage = 15;
+
+  // Handle Search Input Change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Filter cards based on search query
+  useEffect(() => {
+    const filteredCards = initialCards.filter((card) => {
+      const queryLower = searchQuery.toLowerCase();
+      return (
+        card.title.toLowerCase().includes(queryLower) ||
+        card.priceDisplay.toLowerCase().includes(queryLower) ||
+        card.option.toLowerCase().includes(queryLower) ||
+        card.openTime.toLowerCase().includes(queryLower) ||
+        card.closeTime.toLowerCase().includes(queryLower)
+      );
+    });
+    setSortedCards(filteredCards); // Update the displayed cards
+  }, [searchQuery]); // Trigger the filter when the search query changes
+  
+  
 
   // Handle sorting order change
   const handleSortChange = (sortOrder) => {
@@ -162,7 +184,13 @@ function Buffet() {
 
         {/* Search Bar */}
         <div className="buffet-search">
-          <input type="text" className="search-input" placeholder="Find buffets or bazaars!" />
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Find buffets or bazaars!"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
           <button className="search-button">Search</button>
         </div>
 
@@ -356,7 +384,61 @@ function Buffet() {
                       <span className="arrow">{showHoursButtons ? "▲" : "▼"}</span>
                     </button>
 
-                    
+                    {showHoursButtons && (
+                      <div className="time-picker">
+                        <div className="time-dropdown">
+                          <select
+                            value={hour}
+                            onChange={(e) => setHour(e.target.value)}
+                            className="time-select"
+                          >
+                            {hours.map((hour) => (
+                              <option key={hour} value={hour}>
+                                {hour}
+                              </option>
+                            ))}
+                          </select>
+
+                          <select
+                            value={minute}
+                            onChange={(e) => setMinute(e.target.value)}
+                            className="time-select"
+                          >
+                            {minutes.map((minute) => (
+                              <option key={minute} value={minute}>
+                                {minute}
+                              </option>
+                            ))}
+                          </select>
+
+                          <select
+                            value={ampm}
+                            onChange={(e) => setAmpm(e.target.value)}
+                            className="time-select"
+                          >
+                            {ampmOptions.map((option) => (
+                              <option key={option} value={option}>
+                                {option}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+
+                        <p>
+                          Selected Time: {hour}:{minute} {ampm}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="hour-filter">
+                    <button
+                      className="hour-select"
+                      onClick={() => setShowHoursButtons(!showHoursButtons)}
+                    >
+                      Closing Hours
+                      <span className="arrow">{showHoursButtons ? "▲" : "▼"}</span>
+                    </button>
 
                     {showHoursButtons && (
                       <div className="time-picker">

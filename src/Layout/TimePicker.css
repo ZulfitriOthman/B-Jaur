@@ -32,7 +32,7 @@
   /* Control the scroll behavior and look of the dropdown */
   .time-select option {
     padding: 10px;
-    height: 10px;
+    height: 10%;
   }
   
   /* Scroll styling */
@@ -44,7 +44,7 @@
   .time-select::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 10px;
-    height: 10px;
+    height: 20px;
   }
   
   .time-select::-webkit-scrollbar-track {
