@@ -657,7 +657,7 @@ hr {
 
   .card-image-container {
     width: 100%; /* Make the image container span the full width of the card */
-    height: 300px; /* Set a fixed height for the image container */
+    height: 250px; /* Set a fixed height for the image container */
     overflow: hidden;
     border-radius: 20px; /* Rounded corners for the top of the image container */
     display: flex;

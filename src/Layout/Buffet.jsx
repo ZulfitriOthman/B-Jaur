@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Buffet.css";
 import HeaderBG from "../assets/PurpleSky.png";
 import HeaderIcon from "../assets/HeaderIcon.png";
 import { initialCards } from "./BuffetData.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
+import "./TimePicker.css";
 
 
 function Buffet() {
@@ -20,9 +21,6 @@ function Buffet() {
   const [minPrice, setMinPrice] = useState(priceRange[0]);
   const [maxPrice, setMaxPrice] = useState(priceRange[1]);
   const [showHoursButtons, setShowHoursButtons] = useState(false);
-  const [hourRange, setHourRange] = useState([0, 100]);
-  const [minHour, setMinHour] = useState(hourRange[0]);
-  const [maxHour, setMaxHour] = useState(hourRange[1]);
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [showDistrictButtons, setShowDistrictButtons] = useState(false);
   
@@ -49,18 +47,6 @@ function Buffet() {
     setShowPriceSort(false); // Close the dropdown after selection
   };
 
-  // Pagination logic
-  const indexOfLastCard = currentPage * cardsPerPage;
-  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
-  const currentCards = sortedCards.slice(indexOfFirstCard, indexOfLastCard);
-
-  // Handle page navigation
-  const totalPages = Math.ceil(initialCards.length / cardsPerPage);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
   // Handle category filter change
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
@@ -75,7 +61,7 @@ function Buffet() {
     setCurrentPage(1); // Reset pagination
   };
 
-  // Slider Handler
+  // Price Slider Handler
   const handlePriceSliderChange = (e) => {
     const { name, value } = e.target;
     const numericValue = Number(value);
@@ -108,29 +94,17 @@ function Buffet() {
     });
   };
 
-   // Slider Handler
-   const handleHourSliderChange = (e) => {
-    const { name, value } = e.target;
-    const numericValue = Number(value);
-  
-    setHourRange((prev) => {
-      const newRange = [...prev];
-  
-      if (name === "min") {
-        if (numericValue < newRange[1]) {
-          newRange[0] = numericValue;
-        }
-      } else if (name === "max") {
-        if (numericValue > newRange[0]) {
-          newRange[1] = numericValue;
-        }
-      }
-  
-      setMinHour(newRange[0]);
-      setMaxHour(newRange[1]);
-      return newRange;
-    });
-  };
+   // Hour Slider Handler 
+   const [hour, setHour] = useState("12");
+  const [minute, setMinute] = useState("00");
+  const [ampm, setAmpm] = useState("AM");
+
+  const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
+  const minutes = Array.from({ length: 60 }, (_, i) =>
+    i < 10 ? `0${i}` : i.toString()
+  );
+  const ampmOptions = ["AM", "PM"];
+
 
   // Handle district filter change
   const handleDistrictFilter = (district) => {
@@ -145,6 +119,24 @@ function Buffet() {
 
     setCurrentPage(1); // Reset pagination
   };
+
+  // Pagination logic
+  // Get the current slice of cards for the page
+  const indexOfLastCard = currentPage * cardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const currentCards = sortedCards.slice(indexOfFirstCard, indexOfLastCard);
+  const totalPages = Math.ceil(initialCards.length / cardsPerPage);
+
+  // Scroll to top of the card section when changing pages
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+
 
   return (
     <div className="buffet-container">
@@ -364,84 +356,52 @@ function Buffet() {
                       <span className="arrow">{showHoursButtons ? "▲" : "▼"}</span>
                     </button>
 
+                    
+
                     {showHoursButtons && (
-                      <>
-                        <div className="hour-double-slider-box">
-                          <div className="hour-input-box">
-                            <div
-                              className="hour-min-box"
-                              style={{
-                                left: `calc(${(minHour / 24) * 100}%)`, // Assuming min/max range is from 0 to 24 hours
-                                transform: "translateX(0%)",
-                              }}
-                            >
-                              {/* Input box for min hour */}
-                            </div>
+                      <div className="time-picker">
+                        <div className="time-dropdown">
+                          <select
+                            value={hour}
+                            onChange={(e) => setHour(e.target.value)}
+                            className="time-select"
+                          >
+                            {hours.map((hour) => (
+                              <option key={hour} value={hour}>
+                                {hour}
+                              </option>
+                            ))}
+                          </select>
 
-                            <div
-                              className="hour-max-box"
-                              style={{
-                                left: `calc(${(maxHour / 24) * 100}%)`,
-                                transform: "translateX(-50%)",
-                              }}
-                            >
-                              {/* Input box for max hour */}
-                            </div>
-                          </div>
-                          
-                          <div className="hour-range-slider">
-                            <div
-                              className="hour-slider-track"
-                              style={{
-                                left: `${(minHour / 24) * 100}%`,
-                                width: `${((maxHour - minHour) / 24) * 100}%`, // Width adjusted for 24-hour range
-                              }}
-                            ></div>
+                          <select
+                            value={minute}
+                            onChange={(e) => setMinute(e.target.value)}
+                            className="time-select"
+                          >
+                            {minutes.map((minute) => (
+                              <option key={minute} value={minute}>
+                                {minute}
+                              </option>
+                            ))}
+                          </select>
 
-                            <input
-                              type="range"
-                              min="0"
-                              max="24"
-                              value={minHour}
-                              name="min"
-                              onChange={handleHourSliderChange}
-                              className="hour-min-val"
-                            />
-                            <input
-                              type="range"
-                              min="0"
-                              max="24"
-                              value={maxHour}
-                              name="max"
-                              onChange={handleHourSliderChange}
-                              className="hour-max-val"
-                            />
-
-                            {/* Tooltip for opening hours */}
-                            <div
-                              className="hour-tooltip min-tooltip"
-                              style={{
-                                left: `calc(${(minHour / 24) * 100}%)`,
-                                transform: "translateX(-50%)", // Ensures the tooltip is centered above the thumb
-                                top: "-40px",
-                              }}
-                            >
-                              {minHour}:00
-                            </div>
-                            <div
-                              className="hour-tooltip max-tooltip"
-                              style={{
-                                left: `calc(${(maxHour / 24) * 100}%)`,
-                                transform: "translateX(-50%)", // Ensures the tooltip is centered above the thumb
-                                top: "-40px", 
-                              }}
-                            >
-                              {maxHour}:00
-                            </div>
-                          </div>
-                          <hr/>
+                          <select
+                            value={ampm}
+                            onChange={(e) => setAmpm(e.target.value)}
+                            className="time-select"
+                          >
+                            {ampmOptions.map((option) => (
+                              <option key={option} value={option}>
+                                {option}
+                              </option>
+                            ))}
+                          </select>
                         </div>
-                      </>
+
+                        <p>
+                          Selected Time: {hour}:{minute} {ampm}
+                        </p>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -529,36 +489,35 @@ function Buffet() {
             ))}
           </div>
         </section>
-
-
+        
         {/* Pagination */}
-        <div className="card-pagination">
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            Prev
-          </button>
-
-          {/* Page Numbers */}
-          {[...Array(totalPages)].map((_, index) => (
+        {totalPages > 1 && (
+          <div className="card-pagination">
             <button
-              key={index}
-              className={currentPage === index + 1 ? "active" : ""}
-              onClick={() => handlePageChange(index + 1)}
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
             >
-              {index + 1}
+              Prev
             </button>
-          ))}
 
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </button>
-        </div>
+            {[...Array(totalPages)].map((_, index) => (
+              <button
+                key={index}
+                className={currentPage === index + 1 ? "active" : ""}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
 
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
       
       {/* AboutSection */}
