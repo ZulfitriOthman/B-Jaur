@@ -61,18 +61,16 @@ function MapSection() {
           <div className="content-left">
             {!showSecondaryFilters && (
               <h1 className="map-description">
-                <span>Click on the map or</span>
-                <span>buttons below to</span>
-                <span>select your district!</span>
+                <span>Click on the map or buttons below to select your district!</span>
               </h1>
             )}
 
             {/* Filter Buttons */}
-            <div className="filter-container">
+            <div className="MapFilter-container">
               <AnimatePresence>
                 {!showSecondaryFilters && !isDistrictSelected && (
                   <motion.div
-                    className="primary-buttons"
+                    className="MapPrimary-buttons"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -82,7 +80,7 @@ function MapSection() {
                       (filter) => (
                         <motion.button
                           key={filter}
-                          className={`filter-button ${
+                          className={`MapFilter-button ${
                             selectedFilter === filter ? "active" : ""
                           }`}
                           onClick={() => handleFilterClick(filter)}
@@ -113,7 +111,7 @@ function MapSection() {
 
           {/* Map Section */}
           {!showSecondaryFilters && (
-            <div className="map-container">
+            <div className="DistrictMap-container">
               <MapView
                 onDistrictClick={handleDistrictClick}
                 activeDistrict={activeDistrict}

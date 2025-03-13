@@ -8,7 +8,7 @@
   }
   
   .featured-properties-box {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     /* background-color: #1a1a1a; */
     border-radius: 10px;
@@ -33,13 +33,16 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: 30px;
     color: white;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
   }
-  
+
   .map-title {
-    color: #000000;
+    color: #ff6131;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2.65rem;
     margin-bottom: 2.5rem;
   }
   
@@ -54,25 +57,25 @@
   .map-description span {
     display: block; /* Ensures each span is on a new line */
   }  
-    
-  .map-container {
+ 
+  /* .map-container {
     flex: 1; 
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Needed for the pseudo-element */
-    border: 2px solid #FF6131; /* Inner border color */
+    position: relative; 
+    border: 2px solid #FF6131; 
     border-radius: 25px;
-    background-color: #fff; /* Optional: Background for the content */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15), -5px -5px 15px rgba(255, 255, 255, 0.3); /* 3D floating effect */
-    transform: perspective(300px) rotateX(0deg) rotateY(0deg); /* Creates the 3D effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  }
+    background-color: #fff; 
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15), -5px -5px 15px rgba(255, 255, 255, 0.3);
+    transform: perspective(300px) rotateX(0deg) rotateY(0deg); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  } */
 
-  .map-container:hover {
-    transform: perspective(300px) rotateX(0deg) rotateY(-5deg) translateZ(-10px); /* Pushes back slightly */
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2), -3px -3px 10px rgba(255, 255, 255, 0.2); /* Adjust shadow */
-  }
+  /* .map-container:hover {
+    transform: perspective(300px) rotateX(0deg) rotateY(-5deg) translateZ(-10px); 
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2), -3px -3px 10px rgba(255, 255, 255, 0.2); 
+  } */
 
   .map-container::before {
     content: '';
@@ -91,16 +94,16 @@
   }
 
   /* 🎯 Filter Buttons */
-  .filter-container {
+  .MapFilter-container {
     display: flex;
     flex-direction: column;
   }
 
 /* Primary Filter Buttons */
-  .primary-buttons {
+  .MapPrimary-buttons {
     display: grid;
     grid-template-columns: repeat(2, auto); /* Auto-sizing columns */
-    gap: 5px; /* Space between buttons */
+    gap: 10px; /* Space between buttons */
     justify-content: start; /* Aligns buttons to the left */
     align-items: start; /* Ensures vertical alignment */
     width: fit-content; /* Ensures it only takes the necessary width */
@@ -108,24 +111,27 @@
 }
 
   /* Button Styles */
-  .filter-button {
-    padding: 10px 20px;
+  .MapFilter-button {
+    padding: 12px 30px;
+    width: 200px;
     font-size: 16px;
-    background-color: #FFB89E; 
-    border: 2px solid #F26339; 
-    border-radius: 5px;
+    font-weight: bold;
+    background-color: #FFF0EC; 
+    border: 3px solid #F26339; 
+    border-radius: 20px;
     color: rgb(0, 0, 0);
     cursor: pointer;
     transition: background-color 0.3s ease;
-    border-radius: 25px;
+    border-radius: 20px;
   }
 
-  .filter-button:hover {
+  .MapFilter-button:hover {
     background: #F26339;
+    border: 3px solid #F26339; 
     color: rgb(255, 255, 255);
   }
 
-  .filter-button.active {
+  .MapFilter-button.active {
     background: #F26339;
     color: white;
     font-weight: bold;

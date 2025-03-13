@@ -1,6 +1,8 @@
 import { FaChevronDown } from "react-icons/fa";
 import "./HeroSection.css";
-import { Link } from "react-router-dom";
+import BJaurLogo from "../../assets/BJaurLogo.png";
+import SearchIcon from "../../assets/SearchIcon.png";
+// import MinimalistRamadan from "../../assets/MinimalistRamadan.png"
 //import img from '../../assets/Small-Design-Hero-Section.png';
 
 function HeroSection() {
@@ -30,26 +32,26 @@ function HeroSection() {
             <h1 className="hero-year">٢٠٢٥</h1>
 
             <div className="hero-text">
-              <span className="highlight-text">Berbuka</span>, 
-              <span className="highlight-box">B-Jaur</span>, 
+              <span className="highlight-text">Berbuka</span> 
+              <img src={BJaurLogo} alt="B-Jaur Logo" className="b-jaurLogo" /> 
               <span className="normal-text">Bersahur</span>
             </div>
 
-            <p className="hero-description">
-              Discover Brunei’s Best Sungkai, Sahur & Late-Night Eats <br/>
-              – Your Guide to Ramadhan Dining!
-            </p>
-
-            <div className="search-container-restaurant">
-              <input type="text" placeholder="Search for restaurants, stalls..." className="search-restaurant" />
-              <button className="look-button">🔍</button>
+            <div className="hero-descriptionBox">
+              <p className="hero-description">
+                Discover Brunei’s Best Sungkai, Sahur & Late-Night Eats <br/>
+                – Your Guide to Ramadhan Dining!
+              </p>
             </div>
 
-            <button className="Buffet-button">
-              <Link to="/BuffetSection">
-                <button className="Buffet-button">Buffet</button>
-              </Link>
-            </button>
+            <div className="search-container-restaurantBox">
+              <div className="search-container-restaurant">
+                <input type="text" placeholder="Search for restaurants, stalls..." className="search-restaurant" />
+                <button className="look-button">
+                  <img src={SearchIcon} alt="Search" className="search-icon" />
+                </button>
+              </div>
+            </div>
 
             <button className="down-arrow" onClick={scrollToMapSection}>
               <FaChevronDown />
