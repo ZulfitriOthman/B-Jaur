@@ -133,26 +133,10 @@ import restaurant132 from "../assets/BuffetSungkai/Ya-Nur(Gadong).jpg";
 import restaurant133 from "../assets/BuffetSungkai/Ya-NurRestaurant(BatuApoi).jpg";
 import restaurant134 from "../assets/BuffetSungkai/YugoBBQ.jpg";
 import restaurant135 from "../assets/BuffetSungkai/Yusrifnaza.jpg";
-// import restaurant136 from "../assets/BuffetSungkai/";
-// import restaurant137 from "../assets/BuffetSungkai/";
-// import restaurant138 from "../assets/BuffetSungkai/";
-// import restaurant139 from "../assets/BuffetSungkai/";
-// import restaurant140 from "../assets/BuffetSungkai/";
-// import restaurant141 from "../assets/BuffetSungkai/";
-// import restaurant142 from "../assets/BuffetSungkai/";
-// import restaurant143 from "../assets/BuffetSungkai/";
-// import restaurant144 from "../assets/BuffetSungkai/";
-// import restaurant145 from "../assets/BuffetSungkai/";
-// import restaurant146 from "../assets/BuffetSungkai/";
-// import restaurant147 from "../assets/BuffetSungkai/";
-// import restaurant148 from "../assets/BuffetSungkai/";
-// import restaurant149 from "../assets/BuffetSungkai/";
-// import restaurant150 from "../assets/BuffetSungkai/";
-
 
 
 // Named Export
-export const initialCards = [
+export const BuffetSungkaiCards = [
     {
         id: 1,
         image: restaurant1,

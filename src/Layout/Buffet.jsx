@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 import "./Buffet.css";
 import HeaderBG from "../assets/PurpleSky.png";
 import HeaderIcon from "../assets/HeaderIcon.png";
-import { initialCards } from "./BuffetSungkai.jsx";
+import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
+import { BuffetSahurCards } from "./BuffetSahur.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
 import "./TimePicker.css";
 
 function Buffet() {
+  // Combine both card types into a single array
+  const allCards = [...BuffetSungkaiCards, ...BuffetSahurCards];
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortedCards, setSortedCards] = useState(initialCards);
+  const [sortedCards, setSortedCards] = useState(allCards);
   const [showPriceSort, setShowPriceSort] = useState(false);
   const [selectedPriceOption, setSelectedPriceOption] = useState("");
   const [showFilter, setShowFilter] = useState(false);
@@ -26,6 +29,7 @@ function Buffet() {
   
   const cardsPerPage = 15;
 
+
   // Handle Search Input Change
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -33,7 +37,7 @@ function Buffet() {
 
   // Filter cards based on search query
   useEffect(() => {
-    const filteredCards = initialCards.filter((card) => {
+    const filteredCards = allCards.filter((card) => {
       const queryLower = searchQuery.toLowerCase();
       return (
         card.title.toLowerCase().includes(queryLower) ||
@@ -52,7 +56,7 @@ function Buffet() {
   const handleSortChange = (sortOrder) => {
     setSelectedPriceOption(sortOrder === "low-to-high" ? "Price: Low to High" : "Price: High to Low");
 
-    const sortedData = [...initialCards];
+    const sortedData = [...allCards];
     sortedData.sort((a, b) => {
       const priceA = parseFloat(a.price.replace(/[^0-9.-]+/g, ""));
       const priceB = parseFloat(b.price.replace(/[^0-9.-]+/g, ""));
@@ -74,9 +78,9 @@ function Buffet() {
     setSelectedCategory(category);
 
     if (category === "") {
-      setSortedCards(initialCards); // Show all when no filter
+      setSortedCards(allCards); // Show all when no filter
     } else {
-      const filteredCards = initialCards.filter((card) => card.option === category);
+      const filteredCards = allCards.filter((card) => card.option === category);
       setSortedCards(filteredCards);
     }
 
@@ -105,7 +109,7 @@ function Buffet() {
       setMaxPrice(newRange[1]);
   
       // Filter cards based on price range
-      const filteredCards = initialCards.filter((card) => {
+      const filteredCards = allCards.filter((card) => {
         const cardPrice = parseFloat(card.price.replace(/[^0-9.]/g, "")); // Extract numeric price
         return cardPrice >= newRange[0] && cardPrice <= newRange[1];
       });
@@ -133,9 +137,9 @@ function Buffet() {
     setSelectedDistrict(district);
 
     if (district === "") {
-      setSortedCards(initialCards); // Show all when no filter
+      setSortedCards(allCards); // Show all when no filter
     } else {
-      const filteredCards = initialCards.filter((card) => card.district === district);
+      const filteredCards = allCards.filter((card) => card.district === district);
       setSortedCards(filteredCards);
     }
 
@@ -147,7 +151,7 @@ function Buffet() {
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = sortedCards.slice(indexOfFirstCard, indexOfLastCard);
-  const totalPages = Math.ceil(initialCards.length / cardsPerPage);
+  const totalPages = Math.ceil(sortedCards.length / cardsPerPage);
 
   // Scroll to top of the card section when changing pages
   useEffect(() => {
