@@ -6,7 +6,7 @@
   overflow: hidden; /* Prevent scrolling */
   display: flex;
   flex: 1; 
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 /* Background container (fixed size) */
@@ -63,3 +63,72 @@
   fill: #ff8248;
 }
 
+@media (max-width: 999px) {
+  .DistrictMap-container {
+    height: 60vh;
+  }
+
+  .DistrictBackground-container {
+    top: 50%; /* Adjust the vertical position */
+    left: 48%;
+  }
+
+  
+}
+
+@media (max-width: 768px) {
+  .DistrictMap-container {
+    height: 80vh; /* Adjust the height for smaller screens */
+  }
+
+  .DistrictBackground-container,
+  .DistrictOverlay-container,
+  .svg-container {
+    width: 70%; /* Adjust width to take up more of the available space */
+    height: auto; /* Allow height to adjust proportionally */
+  }
+
+  .DistrictBackground-container {
+    top: 40%; /* Adjust the vertical position */
+    left: 50%;
+  }
+
+  .DistrictOverlay-container {
+    top: 40%; /* Adjust the vertical position */
+    left: 50%;
+  }
+
+  .svg-container {
+    top: 20%; /* Adjust the vertical position */
+    right: 10px;
+  }
+}
+
+/* For mobile devices (480px and smaller) */
+@media (max-width: 480px) {
+  .DistrictMap-container {
+    height: 90vh; /* Adjust the height for very small screens */
+  }
+
+  .DistrictBackground-container,
+  .DistrictOverlay-container,
+  .svg-container {
+    width: 90%; /* Make the elements take up most of the screen width */
+    height: auto;
+  }
+
+  .DistrictBackground-container {
+    top: 35%;
+    left: 50%;
+  }
+
+  .DistrictOverlay-container {
+    top: 35%;
+    left: 50%;
+  }
+
+  .svg-container {
+    top: 10%;
+    right: 5px;
+  }
+}
