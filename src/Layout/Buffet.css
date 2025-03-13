@@ -451,7 +451,7 @@ hr {
   
   
   /* Opening Hours Filter */
-  .hour-select {
+  .openHour-select {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -466,87 +466,71 @@ hr {
     outline: none;
   }
   
-  .hour-select:focus {
+  .openHour-select:focus {
     background-color: transparent;
     outline: none;
     border: none; 
   }
   
-  .hour-select:active {
+  .openHour-select:active {
     background-color: transparent;
     outline: none; 
     border: none; 
   }
   
-  .hour-filter-container {
+  .openHour-filter-container {
     margin-top: 20px;
   }
   
-  .hour-filter {
+  .openHour-filter {
     font-size: 16px;
     margin-bottom: 10px;
   }
   
-  .hour-label {
+  .openHour-label {
     color: #000000;
   }
-  
-  .hour-range-slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 90%;
-    height: 5px;
-    margin-top: 45px;
-    margin-left: 12px;
-    background-color: #f2643962;
-    border-radius: 5px;
-  }
-  
-  .hour-slider-track {
-    position: absolute;
-    height: 100%;
-    background-color: #f26339;
-    border-radius: 5px;
-  }
-  
-  /* Hide default track styles for range inputs */
-  .hour-range-slider input[type="range"] {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    transform: translateY(-50%);
-    background: none;
-    pointer-events: none;
-    appearance: none;
-    height: 5px;
-  }
-  
-  .hour-tooltip {
-    position: absolute;
-    transform: translateX(-50%);
-    background-color: #f26339;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 8px;
-    font-size: 14px;
-    white-space: nowrap;
-    transition: left 0.1s ease;
-  }
-  
-  .hour-range-slider input[type="range"]::-webkit-slider-thumb {
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background: #f26339;
-    pointer-events: auto;
-    appearance: none;
-    cursor: pointer;
-  }
 
-  .hour-min-val, .hour-max-val {
+
+  /* Closing Hours Filter */
+  .closeHour-select {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0px 15px 0px;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    gap: 5px;
+    color: rgb(0, 0, 0);
     border: none;
+    outline: none;
+  }
+  
+  .closeHour-select:focus {
+    background-color: transparent;
+    outline: none;
+    border: none; 
+  }
+  
+  .closeHour-select:active {
+    background-color: transparent;
+    outline: none; 
+    border: none; 
+  }
+  
+  .closeHour-filter-container {
+    margin-top: 20px;
+  }
+  
+  .closeHour-filter {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .closeHour-label {
+    color: #000000;
   }
   
   

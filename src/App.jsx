@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HeroSection from './Elements/HeroSection/HeroSection';
 import MapSection from './Elements/MapSection/MapSection';  // Uncomment if needed
-import AboutSection from './Elements/AboutSection/AboutSection';
-import Footer from './Elements/Footer/Footer';
+// import AboutSection from './Elements/AboutSection/AboutSection';
+// import Footer from './Elements/Footer/Footer';
 import Buffet from './Layout/Buffet';
 import Bazaar from './Layout/Bazaar';
 import Moreh from './Layout/Moreh';
@@ -18,8 +18,6 @@ function App() {
             <>
               <HeroSection />
               <MapSection />
-              <AboutSection />
-              <Footer />
             </>
           }
         />

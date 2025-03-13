@@ -37,19 +37,25 @@
 
 /* Arabic year */
 .hero-year {
-  margin-top: 70px;
-  font-size: 2.5rem;
+  margin-top: 30px;
+  font-size: 2.7rem;
   font-weight: bold;
   color: #FFFFFF;
   margin-bottom: 10px;
 }
 
+
+.b-jaurLogo {
+  width: 220px;
+  height: auto;
+}
+
 /* Text container */
 .hero-text {
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   font-weight: bold;
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
   justify-content: center;
 }
@@ -72,21 +78,33 @@
 }
 
 /* Description */
+.hero-descriptionBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .hero-description {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #FFFFFF;
   max-width: auto;
-  margin-top: 10px;
+  margin: 0px;
   text-align: left;
 }
 
 /* Search container */
+.search-container-restaurantBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 25px;
+}
+
 .search-container-restaurant {
   display: flex;
   align-items: center;
-  margin-top: 20px;
   border-radius: 25px;
-  width: 100%; /* Ensure it takes full width of the parent container */
+  width: 65%; /* Ensure it takes full width of the parent container */
   background-color: #776AFB;
 }
 
@@ -98,8 +116,7 @@
   outline: none;
   flex: 1; /* Takes all available space */
   background-color: #fff;
-  border-top-left-radius: 25px;  /* Applies border radius only to the top-left */
-  border-bottom-left-radius: 25px; /* Applies border radius only to the bottom-left */
+  border-radius: 20px 0px 0px 20px;
 }
 
 /* Search button */
@@ -109,9 +126,16 @@
   cursor: pointer;
   font-size: 1rem;
   padding: 10px;
-  border-top-right-radius: 25px;  /* Applies border radius only to the top-left */
-  border-bottom-right-radius: 25px; /* Applies border radius only to the bottom-left */
 }
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  width: 20px; 
+  height: 20px;
+}
+
 
 .hero-image {
   position: absolute;

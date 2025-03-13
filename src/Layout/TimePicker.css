@@ -1,20 +1,19 @@
-/* TimePicker.css */
-
-.time-picker {
+/* Opening TimePicker */
+.openTime-picker {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: black;
   }
   
-  .time-dropdown {
+  .openTime-dropdown {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
   }
   
-  .time-select {
+  .openTime-select {
     width: 80px;
     height: 40px;
     font-size: 18px;
@@ -30,24 +29,78 @@
   }
   
   /* Control the scroll behavior and look of the dropdown */
-  .time-select option {
+  .openTime-select option {
     padding: 10px;
     height: 10%;
   }
   
   /* Scroll styling */
-  .time-select::-webkit-scrollbar {
+  .openTime-select::-webkit-scrollbar {
     width: 8px;
     height: 10px;
   }
   
-  .time-select::-webkit-scrollbar-thumb {
+  .openTime-select::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 10px;
     height: 20px;
   }
   
-  .time-select::-webkit-scrollbar-track {
+  .openTime-select::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    height: 10px;
+  }
+  
+
+  /* Closing TimePicker */
+.closeTime-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+  }
+  
+  .closeTime-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .closeTime-select {
+    width: 80px;
+    height: 40px;
+    font-size: 18px;
+    text-align: center;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  /* Control the scroll behavior and look of the dropdown */
+  .closeTime-select option {
+    padding: 10px;
+    height: 10%;
+  }
+  
+  /* Scroll styling */
+  .closeTime-select::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+  }
+  
+  .closeTime-select::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    height: 20px;
+  }
+  
+  .closeTime-select::-webkit-scrollbar-track {
     background: #f1f1f1;
     height: 10px;
   }

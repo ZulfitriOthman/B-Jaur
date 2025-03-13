@@ -22,10 +22,19 @@ function Buffet() {
   const [priceRange, setPriceRange] = useState([0, 100]);
   const [minPrice, setMinPrice] = useState(priceRange[0]);
   const [maxPrice, setMaxPrice] = useState(priceRange[1]);
-  const [showHoursButtons, setShowHoursButtons] = useState(false);
+  const [showOpenHoursButtons, setShowOpenHoursButtons] = useState(false);
+  const [showCloseHoursButtons, setShowCloseHoursButtons] = useState(false);
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [showDistrictButtons, setShowDistrictButtons] = useState(false);
+  const [hour, setHour] = useState("00");
+  const [minute, setMinute] = useState("00");
+  const [ampm, setAmpm] = useState("AM");
   const [searchQuery, setSearchQuery] = useState("");
+
+
+  const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
+  const minutes = Array.from({ length: 60 }, (_, i) => (i < 10 ? `0${i}` : i.toString()));
+  const ampmOptions = ["AM", "PM"];
   
   const cardsPerPage = 15;
 
@@ -49,9 +58,31 @@ function Buffet() {
     });
     setSortedCards(filteredCards); // Update the displayed cards
   }, [searchQuery]); // Trigger the filter when the search query changes
-  
-  
 
+
+  // Filter by opening hours
+  const filterByTime = () => {
+    const selectedTime = `${hour.padStart(2, "0")}${minute.padStart(2, "0")}${ampm === "PM" ? "12" : ""}`; // Convert selected time to 24-hour format
+    const filteredCards = initialCards.filter((card) => {
+      const openTime = card.openTime;
+      const closeTime = card.closeTime;
+
+      // Compare selected time with open and close hours
+      if (parseInt(selectedTime) >= parseInt(openTime) && parseInt(selectedTime) <= parseInt(closeTime)) {
+        return true;
+      }
+      return false;
+    });
+
+    setSortedCards(filteredCards);
+  };
+
+  // Handle time changes and filter
+  const handleTimeChange = () => {
+    filterByTime();
+  };
+  
+  
   // Handle sorting order change
   const handleSortChange = (sortOrder) => {
     setSelectedPriceOption(sortOrder === "low-to-high" ? "Price: Low to High" : "Price: High to Low");
@@ -119,18 +150,6 @@ function Buffet() {
       return newRange;
     });
   };
-
-   // Hour Slider Handler 
-   const [hour, setHour] = useState("12");
-  const [minute, setMinute] = useState("00");
-  const [ampm, setAmpm] = useState("AM");
-
-  const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
-  const minutes = Array.from({ length: 60 }, (_, i) =>
-    i < 10 ? `0${i}` : i.toString()
-  );
-  const ampmOptions = ["AM", "PM"];
-
 
   // Handle district filter change
   const handleDistrictFilter = (district) => {
@@ -377,24 +396,26 @@ function Buffet() {
                 </div>
 
 
-                {/* Opening Hours Filter with Slider */}
-                <div className="hour-filter-container">
-                  <div className="hour-filter">
+                {/* Opening Hours Filter */}
+                <div className="openHour-filter-container">
+                  <div className="openHour-filter">
                     <button
-                      className="hour-select"
-                      onClick={() => setShowHoursButtons(!showHoursButtons)}
+                      className="openHour-select"
+                      onClick={() => setShowOpenHoursButtons(!showOpenHoursButtons)}
                     >
                       Opening Hours
-                      <span className="arrow">{showHoursButtons ? "▲" : "▼"}</span>
+                      <span className="arrow">{showOpenHoursButtons ? "▲" : "▼"}</span>
                     </button>
-
-                    {showHoursButtons && (
-                      <div className="time-picker">
-                        <div className="time-dropdown">
+                    {showOpenHoursButtons && (
+                      <div className="openTime-picker">
+                        <div className="openTime-dropdown">
                           <select
                             value={hour}
-                            onChange={(e) => setHour(e.target.value)}
-                            className="time-select"
+                            onChange={(e) => {
+                              setHour(e.target.value);
+                              handleTimeChange();
+                            }}
+                            className="openTime-select"
                           >
                             {hours.map((hour) => (
                               <option key={hour} value={hour}>
@@ -405,8 +426,11 @@ function Buffet() {
 
                           <select
                             value={minute}
-                            onChange={(e) => setMinute(e.target.value)}
-                            className="time-select"
+                            onChange={(e) => {
+                              setMinute(e.target.value);
+                              handleTimeChange();
+                            }}
+                            className="openTime-select"
                           >
                             {minutes.map((minute) => (
                               <option key={minute} value={minute}>
@@ -417,8 +441,11 @@ function Buffet() {
 
                           <select
                             value={ampm}
-                            onChange={(e) => setAmpm(e.target.value)}
-                            className="time-select"
+                            onChange={(e) => {
+                              setAmpm(e.target.value);
+                              handleTimeChange();
+                            }}
+                            className="openTime-select"
                           >
                             {ampmOptions.map((option) => (
                               <option key={option} value={option}>
@@ -427,30 +454,29 @@ function Buffet() {
                             ))}
                           </select>
                         </div>
-
-                        <p>
-                          Selected Time: {hour}:{minute} {ampm}
-                        </p>
                       </div>
                     )}
                   </div>
+                </div>
 
-                  <div className="hour-filter">
+                {/* closing Hours Filter with Slider */}
+                <div className="closeHour-filter-container">
+                  <div className="closeHour-filter">
                     <button
-                      className="hour-select"
-                      onClick={() => setShowHoursButtons(!showHoursButtons)}
+                      className="closeHour-select"
+                      onClick={() => setShowCloseHoursButtons(!showCloseHoursButtons)}
                     >
                       Closing Hours
-                      <span className="arrow">{showHoursButtons ? "▲" : "▼"}</span>
+                      <span className="arrow">{showCloseHoursButtons ? "▲" : "▼"}</span>
                     </button>
 
-                    {showHoursButtons && (
-                      <div className="time-picker">
-                        <div className="time-dropdown">
+                    {showCloseHoursButtons && (
+                      <div className="closeTime-picker">
+                        <div className="closeTime-dropdown">
                           <select
                             value={hour}
                             onChange={(e) => setHour(e.target.value)}
-                            className="time-select"
+                            className="closeTime-select"
                           >
                             {hours.map((hour) => (
                               <option key={hour} value={hour}>
@@ -462,7 +488,7 @@ function Buffet() {
                           <select
                             value={minute}
                             onChange={(e) => setMinute(e.target.value)}
-                            className="time-select"
+                            className="closeTime-select"
                           >
                             {minutes.map((minute) => (
                               <option key={minute} value={minute}>
@@ -474,7 +500,7 @@ function Buffet() {
                           <select
                             value={ampm}
                             onChange={(e) => setAmpm(e.target.value)}
-                            className="time-select"
+                            className="closeTime-select"
                           >
                             {ampmOptions.map((option) => (
                               <option key={option} value={option}>
@@ -574,7 +600,7 @@ function Buffet() {
               </a>
             ))}
           </div>
-        </section>
+      </section>
         
         {/* Pagination */}
         {totalPages > 1 && (
