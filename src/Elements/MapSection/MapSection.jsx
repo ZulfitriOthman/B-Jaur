@@ -1,24 +1,32 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MapView from "./MapView";
-import MapSearch from "./MapSearch";
+import YellowSun from "../../assets/yellow.png";
+import PinkMoon from "../../assets/pink.png";
+import BlueCandy from "../../assets/blue.png";
 import { useNavigate } from "react-router-dom";
 import "./MapSection.css";
 
 function MapSection() {
-  const [showHiddenSection, setShowHiddenSection] = useState(false);
   const [activeDistrict, setActiveDistrict] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState(null);
   const [showSecondaryFilters, setShowSecondaryFilters] = useState(false);
   const [isDistrictSelected, setIsDistrictSelected] = useState(false);
-  const [showSearchBar, setShowSearchBar] = useState(false);
 
   const navigate = useNavigate();
 
   const handleDistrictClick = (district) => {
     setActiveDistrict(district);
-    setShowHiddenSection(true);
-    setShowSearchBar(true);
+    // Set the filter based on the district clicked
+    const districtFilters = {
+      "Brunei-Muara": "Brunei-Muara",
+      "Tutong": "Tutong",
+      "Kuala Belait": "Kuala Belait",
+      "Temburong": "Temburong",
+    };
+    setSelectedFilter(districtFilters[district]);
+    setIsDistrictSelected(true);
+    setShowSecondaryFilters(true);
   };
 
   const handleFilterClick = (filter) => {
@@ -53,9 +61,24 @@ function MapSection() {
   return (
     <div className="map-box" id="map-section">
       <div className="featured-properties-box">
-        <header className="map-header">
+      <header className="map-header">
+        {!isDistrictSelected ? (
           <h1 className="map-title">Don’t know where to eat? We’ll assist you!</h1>
-        </header>
+        ) : (
+          <motion.h3
+            className="secondary-title"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="district">{selectedFilter}</span>
+            <br />
+            <span className="subtitle">Ramadhan eats & treats</span>
+          </motion.h3>
+        )}
+      </header>
+
 
         <div className="content-overlay">
           <div className="content-left">
@@ -97,21 +120,11 @@ function MapSection() {
                 )}
               </AnimatePresence>
             </div>
-
-            {showSearchBar && activeDistrict && isDistrictSelected && (
-              <div>
-                <h3 className="district-title">{activeDistrict} District</h3>
-                <MapSearch
-                  selectedDistrict={activeDistrict}
-                  onSearch={() => console.log("Search triggered")}
-                />
-              </div>
-            )}
           </div>
 
           {/* Map Section */}
           {!showSecondaryFilters && (
-            <div className="DistrictMap-container">
+            <div className="Map-container">
               <MapView
                 onDistrictClick={handleDistrictClick}
                 activeDistrict={activeDistrict}
@@ -119,29 +132,6 @@ function MapSection() {
             </div>
           )}
         </div>
-
-        {/* Hidden Section */}
-        <AnimatePresence>
-          {showHiddenSection && activeDistrict && (
-            <motion.div
-              key="hidden-section"
-              className="hidden-section"
-              initial={{ opacity: 0, filter: "blur(10px)" }}
-              animate={{ opacity: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, filter: "blur(10px)" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <h3>{activeDistrict} District</h3>
-              <p>Details about {activeDistrict} will be displayed here.</p>
-              <button
-                className="back-button"
-                onClick={() => setShowHiddenSection(false)}
-              >
-                Close
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {/* Secondary Filter Images */}
         <AnimatePresence>
@@ -160,8 +150,10 @@ function MapSection() {
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.5 }}
               >
-                {`${selectedFilter} - Ramadhan eats & treats`}
               </motion.h3>
+              <img src={YellowSun} alt="Sun Icon" className="yellow-sun" />
+              <img src={PinkMoon} alt="Moon Icon" className="pink-moon" />
+              <img src={BlueCandy} alt="Candy Icon" className="blue-candy" />
 
               {/* Image Grid */}
               <motion.div
@@ -171,6 +163,7 @@ function MapSection() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
+                <img src={YellowSun} alt="Sun Icon" className="yellow-sun" />
                 {["Buffet.jpg", "Bazaar.jpg", "Moreh.jpg"].map(
                   (image, index) => (
                     <motion.button
