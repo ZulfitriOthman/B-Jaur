@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Buffet.css";
 import HeaderBG from "../assets/PurpleSky.png";
 import HeaderIcon from "../assets/HeaderIcon.png";
-import { initialCards } from "./BuffetData.jsx";
+import { initialCards } from "./BuffetSungkai.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
 import "./TimePicker.css";
 
