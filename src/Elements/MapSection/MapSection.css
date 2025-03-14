@@ -178,7 +178,7 @@
 
   .image-title-section {
     margin-bottom: 10px; /* Adds space between title and button */
-    font-size: 27px; /* Font size */
+    font-size: 2rem; /* Font size */
   }
 
   .image-description {
@@ -186,13 +186,13 @@
     top: 35%; /* Adjust the position as needed */
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 14px;
+    font-size: 1.35rem;
     font-weight: normal;
     color: #f0f0f0; /* Light text color */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     margin-top: 5px; /* Adds space between title and description */
     text-align: center;
-    max-width: 80%; /* Adjust width for readability */
+    max-width: 90%; /* Adjust width for readability */
     z-index: 1;
   }
   
@@ -200,6 +200,7 @@
     position: absolute;
     bottom: 5%; /* Adjust the position as needed */
     left: 50%;
+    width: 150px;
     transform: translate(-50%, -50%);
     padding: 8px 16px;
     background-color: #fff;
@@ -218,20 +219,22 @@
   }
 
   .image-grid {
-    width: 100%;
+    width: 90%;
     height: 450px;
     display: flex;           
     flex-direction: row;     
     gap: 25px;  
     border-radius: 25px;              
     justify-content: center; 
+    padding: 30px 0px;
   }
 
   .image-container {
+    position: relative;
     width: 100%; 
     height: 100%;
     border-radius: 25px; 
-    overflow: hidden; 
+    overflow: visible; 
   }
 
   .district {
@@ -258,10 +261,10 @@
 
   /* Heading Style for Secondary Filters */
   .secondary-buttons h3 {
-    font-size: 24px;
+    font-size: 0px;
     color: #000000;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 
   /* Adjusting the primary button container for 2x2 layout */
@@ -324,27 +327,31 @@
 
 
   .yellow-sun {
-    position: absolute; 
-    top: 130vh; 
-    left: 12vw;
-    width: 280px; 
-    z-index: 10
+    position: absolute;
+    z-index: 10;
+    width: 300px; 
+    height: auto;
+    top: -80px;
+    left: -130px;
+    
   }
 
   .pink-moon {
-    position: absolute; 
-    top: 176vh; 
-    left: 50vw;
-    width: 280px; 
-    z-index: 10
+    position: absolute;
+    z-index: 10;
+    width: 300px; 
+    height: auto;
+    top: 330px;
+    left: 140px;
   }
 
   .blue-candy {
-    position: absolute; 
-    top: 1190px; 
-    left: 72vw;
-    width: 300px; 
-    z-index: 10
+    position: absolute;
+    z-index: 10;
+    width: 350px; 
+    height: auto;
+    top: -90px;
+    left: 160px;
   }
   
 
