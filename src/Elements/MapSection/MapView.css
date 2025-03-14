@@ -1,46 +1,46 @@
 /* Wrapper to prevent scaling or resizing */
-.DistrictMap-container {
+.Map-container {
   position: relative;
-  width: 100vw; /* Use the full viewport width */
-  height: 60vh; /* Use the full viewport height */
-  overflow: hidden; /* Prevent scrolling */
+  width: 100vw; 
+  height: 60vh;
+  overflow: hidden;
   display: flex;
   flex: 1; 
   justify-content: flex-end;
 }
 
-/* Background container (fixed size) */
+/* Background container */
 .DistrictBackground-container {
   position: absolute;
-  top: 50%; /* Centered vertically */
-  left: 50%; /* Centered horizontally */
-  width: 430px; /* Fixed width */
-  height: 430px; /* Fixed height */
+  top: 50%; 
+  left: 50%; 
+  width: 430px; 
+  height: 430px; 
   background: #776AFB;
   border-radius: 30px;
-  transform: translate(-50%, -50%); /* Center it */
+  transform: translate(-50%, -50%); 
   z-index: 0;
 }
 
-/* Overlay container (fixed size) */
+/* Overlay container */
 .DistrictOverlay-container {
   position: absolute;
   top: 46%;
   left: 54%;
-  width: 380px; /* Fixed width */
-  height: 380px; /* Fixed height */
+  width: 380px; 
+  height: 380px; 
   background: none;
   border: 6px solid #ff8248;
   border-radius: 30px;
   padding: 20px;
-  transform: translate(-50%, -50%); /* Center it */
+  transform: translate(-50%, -50%); 
   z-index: 1;
 }
 
-/* SVG container (fixed size) */
+/* SVG container */
 .svg-container {
-  width: 420px; /* Fixed width */
-  height: 420px; /* Fixed height */
+  width: 420px; 
+  height: 420px; 
   background-color: none;
   border-radius: 25px;
   right: 40px;
@@ -69,7 +69,7 @@
   }
 
   .DistrictBackground-container {
-    top: 50%; /* Adjust the vertical position */
+    top: 50%; 
     left: 48%;
   }
 
@@ -78,14 +78,14 @@
 
 @media (max-width: 768px) {
   .DistrictMap-container {
-    height: 80vh; /* Adjust the height for smaller screens */
+    height: 80vh; 
   }
 
   .DistrictBackground-container,
   .DistrictOverlay-container,
   .svg-container {
-    width: 70%; /* Adjust width to take up more of the available space */
-    height: auto; /* Allow height to adjust proportionally */
+    width: 70%; 
+    height: auto; 
   }
 
   .DistrictBackground-container {
