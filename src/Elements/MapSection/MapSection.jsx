@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MapView from "./MapView";
-import YellowSun from "../../assets/yellow.png";
-import PinkMoon from "../../assets/pink.png";
-import BlueCandy from "../../assets/blue.png";
+// import YellowSun from "../../assets/yellow.png";
+// import PinkMoon from "../../assets/pink.png";
+// import BlueCandy from "../../assets/blue.png";
 import { useNavigate } from "react-router-dom";
 import "./MapSection.css";
 
@@ -190,14 +190,14 @@ function MapSection() {
                           className="filter-image"
                         />
 
-                        {image === "src\assets\brunei-muara\Buffet.jpg" && (
-                          <img src={YellowSun} alt="Sun Icon" className="yellow-sun" />
+                        {image === "Buffet.jpg" && (
+                          <img src={`/yellow.png`} alt="Sun Icon" className="yellow-sun" />
                         )}
-                        {image === "src\assets\brunei-muara\Bazaar.jpg" && (
-                          <img src={PinkMoon} alt="Moon Icon" className="pink-moon" />
+                        {image === "Bazaar.jpg" && (
+                          <img src={`/pink.png`} alt="Sun Icon" className="yellow-sun" />
                         )}
-                        {image === "src\assets\brunei-muara\Moreh.jpg" && (
-                          <img src={BlueCandy} alt="Candy Icon" className="blue-candy" />
+                        {image === "Moreh.jpg" && (
+                          <img src={`/blue.png`} alt="Sun Icon" className="yellow-sun" />
                         )}
 
                         <div className="overlay-text">
