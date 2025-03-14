@@ -1,33 +1,134 @@
-/* MapView.css */
-.map-container {
-    position: relative;
-    width: 50%;
-    height: 50%; /* Full-screen height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #776AFB; /* Light gray background */
+/* Wrapper to prevent scaling or resizing */
+.Map-container {
+  position: relative;
+  width: 100vw; 
+  height: 60vh;
+  overflow: hidden;
+  display: flex;
+  flex: 1; 
+  justify-content: flex-end;
+}
+
+/* Background container */
+.DistrictBackground-container {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  width: 430px; 
+  height: 430px; 
+  background: #776AFB;
+  border-radius: 30px;
+  transform: translate(-50%, -50%); 
+  z-index: 0;
+}
+
+/* Overlay container */
+.DistrictOverlay-container {
+  position: absolute;
+  top: 46%;
+  left: 54%;
+  width: 380px; 
+  height: 380px; 
+  background: none;
+  border: 6px solid #ff8248;
+  border-radius: 30px;
+  padding: 20px;
+  transform: translate(-50%, -50%); 
+  z-index: 1;
+}
+
+/* SVG container */
+.svg-container {
+  width: 420px; 
+  height: 420px; 
+  background-color: none;
+  border-radius: 25px;
+  right: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Scoped styles for SVG paths */
+.svg-container path {
+  cursor: pointer;
+  fill: #f3f2ec;
+  transition: fill 0.3s ease;
+}
+
+.svg-container path:hover {
+  fill: #ff8248;
+}
+
+.svg-container .active path {
+  fill: #ff8248;
+}
+
+@media (max-width: 999px) {
+  .DistrictMap-container {
+    height: 60vh;
   }
 
-/* SVG styling */
-.svg-container {
-    width: 100%;
-    height: 500px;
-    background-color: #776AFB; /* Light gray background */
-    border-radius: 25px;
+  .DistrictBackground-container {
+    top: 50%; 
+    left: 48%;
   }
+
   
-  /* Scoped styles for SVG paths */
-  .svg-container path {
-    cursor: pointer;
-    fill: #f3f2ec; 
-    transition: fill 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .DistrictMap-container {
+    height: 80vh; 
   }
-  
-  .svg-container path:hover {
-    fill: #D2A034; 
+
+  .DistrictBackground-container,
+  .DistrictOverlay-container,
+  .svg-container {
+    width: 70%; 
+    height: auto; 
   }
-  
-  .svg-container .active path {
-    fill: #D2A034;
+
+  .DistrictBackground-container {
+    top: 40%; /* Adjust the vertical position */
+    left: 50%;
   }
+
+  .DistrictOverlay-container {
+    top: 40%; /* Adjust the vertical position */
+    left: 50%;
+  }
+
+  .svg-container {
+    top: 20%; /* Adjust the vertical position */
+    right: 10px;
+  }
+}
+
+/* For mobile devices (480px and smaller) */
+@media (max-width: 480px) {
+  .DistrictMap-container {
+    height: 90vh; /* Adjust the height for very small screens */
+  }
+
+  .DistrictBackground-container,
+  .DistrictOverlay-container,
+  .svg-container {
+    width: 90%; /* Make the elements take up most of the screen width */
+    height: auto;
+  }
+
+  .DistrictBackground-container {
+    top: 35%;
+    left: 50%;
+  }
+
+  .DistrictOverlay-container {
+    top: 35%;
+    left: 50%;
+  }
+
+  .svg-container {
+    top: 10%;
+    right: 5px;
+  }
+}

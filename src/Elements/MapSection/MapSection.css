@@ -8,7 +8,7 @@
   }
   
   .featured-properties-box {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     /* background-color: #1a1a1a; */
     border-radius: 10px;
@@ -33,13 +33,16 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: 30px;
     color: white;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
   }
-  
+
   .map-title {
-    color: #000000;
+    color: #ff6131;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 2.5rem;
   }
   
@@ -47,32 +50,32 @@
     color: #000000;
     text-align: left;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2.75rem;
     margin-bottom: 2.5rem;
   }
 
   .map-description span {
     display: block; /* Ensures each span is on a new line */
   }  
-    
-  .map-container {
+ 
+  /* .map-container {
     flex: 1; 
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Needed for the pseudo-element */
-    border: 2px solid #FF6131; /* Inner border color */
+    position: relative; 
+    border: 2px solid #FF6131; 
     border-radius: 25px;
-    background-color: #fff; /* Optional: Background for the content */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15), -5px -5px 15px rgba(255, 255, 255, 0.3); /* 3D floating effect */
-    transform: perspective(300px) rotateX(0deg) rotateY(0deg); /* Creates the 3D effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  }
+    background-color: #fff; 
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15), -5px -5px 15px rgba(255, 255, 255, 0.3);
+    transform: perspective(300px) rotateX(0deg) rotateY(0deg); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  } */
 
-  .map-container:hover {
-    transform: perspective(300px) rotateX(0deg) rotateY(-5deg) translateZ(-10px); /* Pushes back slightly */
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2), -3px -3px 10px rgba(255, 255, 255, 0.2); /* Adjust shadow */
-  }
+  /* .map-container:hover {
+    transform: perspective(300px) rotateX(0deg) rotateY(-5deg) translateZ(-10px); 
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2), -3px -3px 10px rgba(255, 255, 255, 0.2); 
+  } */
 
   .map-container::before {
     content: '';
@@ -91,16 +94,16 @@
   }
 
   /* 🎯 Filter Buttons */
-  .filter-container {
+  .MapFilter-container {
     display: flex;
     flex-direction: column;
   }
 
 /* Primary Filter Buttons */
-  .primary-buttons {
+  .MapPrimary-buttons {
     display: grid;
     grid-template-columns: repeat(2, auto); /* Auto-sizing columns */
-    gap: 5px; /* Space between buttons */
+    gap: 10px; /* Space between buttons */
     justify-content: start; /* Aligns buttons to the left */
     align-items: start; /* Ensures vertical alignment */
     width: fit-content; /* Ensures it only takes the necessary width */
@@ -108,38 +111,41 @@
 }
 
   /* Button Styles */
-  .filter-button {
-    padding: 10px 20px;
+  .MapFilter-button {
+    padding: 12px 30px;
+    width: 200px;
     font-size: 16px;
-    background-color: #FFB89E; 
-    border: 2px solid #F26339; 
-    border-radius: 5px;
+    font-weight: bold;
+    background-color: #FFF0EC; 
+    border: 3px solid #F26339; 
+    border-radius: 20px;
     color: rgb(0, 0, 0);
     cursor: pointer;
     transition: background-color 0.3s ease;
-    border-radius: 25px;
+    border-radius: 20px;
   }
 
-  .filter-button:hover {
+  .MapFilter-button:hover {
     background: #F26339;
+    border: 3px solid #F26339; 
     color: rgb(255, 255, 255);
   }
 
-  .filter-button.active {
+  .MapFilter-button.active {
     background: #F26339;
     color: white;
     font-weight: bold;
   }
 
   .filter-image {
-    width: 250px; 
-    height: 300px; 
+    width: 100%; 
+    height: 100%; 
     border-radius: 25px; 
-    object-fit: cover; /* Scale the image to cover the button while maintaining aspect ratio */
+    object-fit: cover; 
   } 
 
   .filter-image-button::before {
-    content: ''; /* Create the overlay */
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -147,14 +153,14 @@
     bottom: 0;
     border-radius: 25px; 
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0)); /* Dark to light gradient */
-    z-index: 1; /* Ensure the overlay is on top of the image */
+    z-index: 1; 
   }
 
   .filter-image-button {
-    position: relative; /* Ensure the button has a defined size */
-    width: 100%; /* Make sure the button is fully stretched */
-    height: 100%; /* Make sure the button is fully stretched */
-    padding: 0; /* Remove any default padding */
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    padding: 0; 
     border-radius: 25px; 
   }
 
@@ -172,7 +178,7 @@
 
   .image-title-section {
     margin-bottom: 10px; /* Adds space between title and button */
-    font-size: 27px; /* Font size */
+    font-size: 2rem; /* Font size */
   }
 
   .image-description {
@@ -180,13 +186,13 @@
     top: 35%; /* Adjust the position as needed */
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 14px;
+    font-size: 1.35rem;
     font-weight: normal;
     color: #f0f0f0; /* Light text color */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     margin-top: 5px; /* Adds space between title and description */
     text-align: center;
-    max-width: 80%; /* Adjust width for readability */
+    max-width: 90%; /* Adjust width for readability */
     z-index: 1;
   }
   
@@ -194,6 +200,7 @@
     position: absolute;
     bottom: 5%; /* Adjust the position as needed */
     left: 50%;
+    width: 150px;
     transform: translate(-50%, -50%);
     padding: 8px 16px;
     background-color: #fff;
@@ -212,25 +219,52 @@
   }
 
   .image-grid {
-    display: flex;            /* This sets the container as a flex container */
-    flex-direction: row;      /* Align items horizontally (row direction is the default) */
-    gap: 15px;                /* Optional: Adds space between the images */
-    justify-content: center;  /* Optional: Centers images within the container */
+    width: 90%;
+    height: 450px;
+    display: flex;           
+    flex-direction: row;     
+    gap: 25px;  
+    border-radius: 25px;              
+    justify-content: center; 
+    padding: 30px 0px;
   }
+
+  .image-container {
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    border-radius: 25px; 
+    overflow: visible; 
+  }
+
+  .district {
+    color: #ff6131;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }  
+
+  .subtitle {
+    color: #ff6131;
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 0rem;
+  }  
 
   /* Secondary Filter Buttons */
   .secondary-buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: -50px;
   }
 
   /* Heading Style for Secondary Filters */
   .secondary-buttons h3 {
-    font-size: 24px;
+    font-size: 0px;
     color: #000000;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 
   /* Adjusting the primary button container for 2x2 layout */
@@ -292,5 +326,70 @@
   }
 
 
+  .yellow-sun {
+    position: absolute;
+    z-index: 10;
+    width: 300px; 
+    height: auto;
+    top: -80px;
+    left: -130px;
+    
+  }
 
+  .pink-moon {
+    position: absolute;
+    z-index: 10;
+    width: 300px; 
+    height: auto;
+    top: 330px;
+    left: 140px;
+  }
+
+  .blue-candy {
+    position: absolute;
+    z-index: 10;
+    width: 350px; 
+    height: auto;
+    top: -90px;
+    left: 160px;
+  }
+  
+
+  @media (max-width: 999px) {
+    /* .featured-properties-box {
+      margin-top: 200px;
+    }
+
+    .content-overlay {
+      display: flex;
+      flex-direction: column;
+    } */
+
+    .content-left {
+      flex: 1; 
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 0px;
+      margin-bottom: 30px;
+      color: white;
+      overflow: hidden; 
+      padding: 0px 50px;
+    }
+
+    .map-title {
+      color: #ff6131;
+      font-weight: bold;
+      font-size: 2.8rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .map-description {
+      color: #000000;
+      text-align: left;
+      font-weight: bold;
+      font-size: 2.75rem;
+      margin-bottom: 2.5rem;
+    }
+  }
     
