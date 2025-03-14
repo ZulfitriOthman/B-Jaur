@@ -202,7 +202,7 @@ function Buffet() {
         <div className="breadcrumb">
           <a href="/" className="breadcrumb-link">Home</a>
           <span className="breadcrumb-separator"> &gt; </span>
-          <span className="breadcrumb-current">Buffet</span>
+          <span className="breadcrumb-current">Bazaar</span>
         </div>
 
         {/* Search Bar */}
@@ -305,7 +305,7 @@ function Buffet() {
                 </div>
 
                 {/* Price Range Filter with Slider */}
-                <div className="price-filter-container">
+                {/* <div className="price-filter-container">
                   <div className="price-filter">
                     <button
                       className="price-select"
@@ -364,10 +364,10 @@ function Buffet() {
                               name="max"
                               onChange={handlePriceSliderChange}
                               className="slider-max-val"
-                            />
+                            /> */}
 
                             {/* Price Tooltip (Display price above thumb) */}
-                            <div
+                            {/* <div
                               className="price-tooltip min-tooltip"
                               style={{
                                 left: `calc(${(minPrice / 100) * 100}%)`,
@@ -393,11 +393,11 @@ function Buffet() {
                       </>
                     )}
                   </div>
-                </div>
+                </div> */}
 
 
                 {/* Opening Hours Filter */}
-                <div className="openHour-filter-container">
+                {/* <div className="openHour-filter-container">
                   <div className="openHour-filter">
                     <button
                       className="openHour-select"
@@ -457,10 +457,10 @@ function Buffet() {
                       </div>
                     )}
                   </div>
-                </div>
+                </div> */}
 
                 {/* closing Hours Filter with Slider */}
-                <div className="closeHour-filter-container">
+                {/* <div className="closeHour-filter-container">
                   <div className="closeHour-filter">
                     <button
                       className="closeHour-select"
@@ -516,7 +516,7 @@ function Buffet() {
                       </div>
                     )}
                   </div>
-                </div>
+                </div> */}
 
 
                 {/* District Filter */}
@@ -633,7 +633,7 @@ function Buffet() {
       </div>
       
       {/* AboutSection */}
-      <AboutSection />
+      {/* <AboutSection /> */}
     
     </div>
   );

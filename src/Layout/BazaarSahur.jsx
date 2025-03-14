@@ -1,13 +1,13 @@
-import bazaar1 from "../assets/BazaarSahur/LakastahMoreh.jpg"; 
-import bazaar2 from "../assets/BazaarSahur/LepakSahur.jpg";
-import bazaar3 from "../assets/BazaarSahur/MalamMoreh.jpg";
-import bazaar4 from "../assets/BazaarSahur/MorehLu.jpg";
-import bazaar5 from "../assets/BazaarSahur/RamadhanLepakMoreh.png";
-import bazaar6 from "../assets/BazaarSahur/SahurBazaarRamadhanBatuSatu.jpg";
-import bazaar7 from "../assets/BazaarSahur/SahurSaturday.jpg";
-import bazaar8 from "../assets/BazaarSahur/SahurSengkarai.jpg";
-import bazaar9 from "../assets/BazaarSahur/SantaiMoreh&Sahur.jpg";
-import bazaar10 from "../assets/BazaarSahur/WeekendSuhoor.jpg";
+import bazaar1 from "../assets/BazaarSahur/SahurSaturday.jpg";
+import bazaar2 from "../assets/BazaarSahur/SahurSengkarai.jpg";
+import bazaar3 from "../assets/BazaarSahur/WeekendSuhoor.jpg";
+import bazaar4 from "../assets/BazaarSahur/LepakSahur.jpg";
+import bazaar5 from "../assets/BazaarSahur/SahurBazaarRamadhanBatuSatu.jpg";
+import bazaar6 from "../assets/BazaarSahur/SantaiMoreh&Sahur.jpg";
+import bazaar7 from "../assets/BazaarSahur/LakastahMoreh.jpg"; 
+import bazaar8 from "../assets/BazaarSahur/MalamMoreh.jpg";
+import bazaar9 from "../assets/BazaarSahur/MorehLu.jpg";
+import bazaar10 from "../assets/BazaarSahur/RamadhanLepakMoreh.png";
 import bazaar11 from "../assets/BazaarSahur/SinggahTapao.jpg";
 
 // Named Export
@@ -145,7 +145,7 @@ export const BazaarSahurCards = [
   {
     id: 11,
     image: bazaar11,
-    title: "Singgah Tapao (13=15 March)",
+    title: "Singgah Tapao (13-15 March)",
     date: "Thursday - Saturday",
     time: "8 pm - 2 am",
     location: "Batches Coffee, Batu Satu",

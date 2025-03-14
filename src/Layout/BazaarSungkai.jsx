@@ -1,11 +1,18 @@
-import bazaar1 from "../assets/BazaarSungkai/BazaarRamadanBelait.jpg"; 
-import bazaar2 from "../assets/BazaarSungkai/BazaarRamadanTutong.jpg"; 
-import bazaar3 from "../assets/BazaarSungkai/BazaarRamadhanBatuSatu.jpg"; 
-import bazaar4 from "../assets/BazaarSungkai/BazaarRamadhanStadium.jpg"; 
+
+
+
+
+
+
+import bazaar1 from "../assets/BazaarSungkai/RamadhanEcoBazaar.jpg"; 
+import bazaar2 from "../assets/BazaarSungkai/BazaarRamadhanStadium.jpg"; 
+import bazaar3 from "../assets/BazaarSungkai/PasarMalam.jpg"; 
+import bazaar4 from "../assets/BazaarSungkai/BazaarRamadhanBatuSatu.jpg"; 
 import bazaar5 from "../assets/BazaarSungkai/IftarSouqRamadan.jpg"; 
-import bazaar6 from "../assets/BazaarSungkai/PasarMalam.jpg"; 
-import bazaar7 from "../assets/BazaarSungkai/RamadhanEcoBazaar.jpg"; 
-import bazaar8 from "../assets/BazaarSungkai/YayasanComplex.jpg"; 
+import bazaar6 from "../assets/BazaarSungkai/YayasanComplex.jpg"; 
+import bazaar7 from "../assets/BazaarSungkai/BazaarRamadanTutong.jpg"; 
+import bazaar8 from "../assets/BazaarSungkai/BazaarRamadanBelait.jpg"; 
+
 
 // Named Export
 export const BazaarSungkaiCards = [
@@ -25,7 +32,7 @@ export const BazaarSungkaiCards = [
   {
     id: 2,
     image: bazaar2,
-    title: "Bazaar Ramadhan",
+    title: "Bazaar Ramadhan Stadium",
     date: "Daily",
     time: "2 pm - 7 pm",
     location: "Stadium Parking Lot",
@@ -33,7 +40,7 @@ export const BazaarSungkaiCards = [
     option: "Bazaar Sungkai",
     openTime: "1400",
     closeTime: "1900",
-    link: ""
+    // link: ""
   },
   {
     id: 3,
@@ -46,7 +53,7 @@ export const BazaarSungkaiCards = [
     option: "Bazaar Sungkai",
     openTime: "1400",
     closeTime: "2100",
-    link: ""
+    // link: ""
   },
   {
     id: 4,
@@ -56,7 +63,7 @@ export const BazaarSungkaiCards = [
     time: "2 pm - 7.30 pm",
     location: "Batu Satu (In front of First Emporium & Supermarket)",
     district: "Brunei-Muara",
-    option: "Bazaar Sahur",
+    option: "Bazaar Sungkai",
     openTime: "1400",
     closeTime: "1930",
     link: "https://www.instagram.com/p/DGu33olvrs7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
@@ -69,7 +76,7 @@ export const BazaarSungkaiCards = [
     time: "12 pm - 6 pm",
     location: "Garden's Veranda, Rimba Garden Central",
     district: "Tutong",
-    option: "Bazaar Sahur",
+    option: "Bazaar Sungkai",
     openTime: "1200",
     closeTime: "1800",
     link: "https://www.instagram.com/reel/DGw7HhAyrUw/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
@@ -82,7 +89,7 @@ export const BazaarSungkaiCards = [
     time: "3 pm - 10 pm",
     location: "The Yayasan Complex",
     district: "Brunei-Muara",
-    option: "Bazaar Sahur",
+    option: "Bazaar Sungkai",
     openTime: "1500",
     closeTime: "2200",
     link: "https://www.instagram.com/p/DGr1pAyxDkW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
@@ -95,10 +102,10 @@ export const BazaarSungkaiCards = [
     time: "2 pm - 7.30 pm",
     location: "In Front of the Pengiran Muda Mahkota Pengiran Muda Haji Al-Muhtadee Billah Hospital",
     district: "Tutong",
-    option: "Bazaar Sahur",
+    option: "Bazaar Sungkai",
     openTime: "1400",
     closeTime: "1930",
-    link: ""
+    // link: ""
   },
   {
     id: 8,
@@ -111,7 +118,7 @@ export const BazaarSungkaiCards = [
     option: "Bazaar Sungkai",
     openTime: "1400",
     closeTime: "1930",
-    link: ""
+    // link: ""
   }
   
       

@@ -148,7 +148,7 @@ export const BuffetSungkaiCards = [
         option: "Sungkai Buffet",
         openTime: "1830",
         closeTime: "2100",
-        link: "https://www.instagram.com/p/DGci30dyVZ8/?igsh=cnZzZzY0dHhpcGEy"
+        link: "https://www.instagram.com/p/DGrXs_Xhoqz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
     },
     {
         id: 2,
@@ -1539,7 +1539,7 @@ export const BuffetSungkaiCards = [
         option: "Sungkai Buffet",
         openTime: "1800",
         closeTime: "",
-        link: ""
+        // link: ""
       },
       {
         id: 109,
