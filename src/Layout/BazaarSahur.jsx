@@ -8,6 +8,7 @@ import bazaar7 from "../assets/BazaarSahur/SahurSaturday.jpg";
 import bazaar8 from "../assets/BazaarSahur/SahurSengkarai.jpg";
 import bazaar9 from "../assets/BazaarSahur/SantaiMoreh&Sahur.jpg";
 import bazaar10 from "../assets/BazaarSahur/WeekendSuhoor.jpg";
+import bazaar11 from "../assets/BazaarSahur/SinggahTapao.jpg";
 
 // Named Export
 export const BazaarSahurCards = [
@@ -141,7 +142,19 @@ export const BazaarSahurCards = [
     closeTime: "0100",
     link: "https://www.instagram.com/reel/DGiaTvpvCri/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
-  
+  {
+    id: 11,
+    image: bazaar11,
+    title: "Singgah Tapao (13=15 March)",
+    date: "Thursday - Saturday",
+    time: "8 pm - 2 am",
+    location: "Batches Coffee, Batu Satu",
+    district: "Brunei-Muara",
+    option: "Bazaar Sahur",
+    openTime: "2000",
+    closeTime: "0200",
+    link: "https://www.instagram.com/p/DHGyGmfTDjH/?utm_source=ig_web_copy_link"
+  },
       
   ];
   

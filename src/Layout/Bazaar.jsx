@@ -1,179 +1,124 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Bazaar.css";
-import shop1 from "../assets/Night-Market-1.jpg"; 
 import HeaderBG from "../assets/PurpleSky.png";
 import HeaderIcon from "../assets/HeaderIcon.png";
+import { BazaarSahurCards } from "./BazaarSahur.jsx";
+import { BazaarSungkaiCards } from "./BazaarSungkai.jsx";
+import AboutSection from '../Elements/AboutSection/AboutSection';
+import "./TimePicker.css";
 
-
-// Card data
-const initialCards = [
-  {
-    id: 1,
-    image: shop1,
-    title: "The Empire Brunei",
-    priceDisplay: "Adult: $48 | Child: $24",
-    time: "6.30 pm - 9 pm",
-    district: "Brunei-Muara",
-    price: "$48",
-  },
-  {
-    id: 2,
-    image: shop1,
-    title: "The Grand Buffet",
-    priceDisplay: "Adult: $55 | Child: $28",
-    time: "6 pm - 9.30 pm",
-    district: "Bandar Seri Begawan",
-    price: "$55",
-  },
-  {
-    id: 3,
-    image: shop1,
-    title: "Royal Feast",
-    priceDisplay: "Adult: $60 | Child: $30",
-    time: "7 pm - 10 pm",
-    district: "Kota Batu",
-    price: "$60",
-  },
-  {
-    id: 4,
-    image: shop1,
-    title: "Sunset Dining",
-    priceDisplay: "Adult: $50 | Child: $25",
-    time: "5.30 pm - 8.30 pm",
-    district: "Seria",
-    price: "$50",
-  },
-  {
-    id: 5,
-    image: shop1,
-    title: "Ocean Breeze Buffet",
-    priceDisplay: "Adult: $45 | Child: $22",
-    time: "6 pm - 9 pm",
-    district: "Muara",
-    price: "$45",
-  },
-  {
-    id: 6,
-    image: shop1,
-    title: "Luxury Buffet",
-    priceDisplay: "Adult: $65 | Child: $32",
-    time: "7 pm - 10 pm",
-    district: "Rimba",
-    price: "$65",
-  },
-  {
-    id: 7,
-    image: shop1,
-    title: "Cultural Feast",
-    priceDisplay: "Adult: $40 | Child: $20",
-    time: "6 pm - 9 pm",
-    district: "Tutong",
-    price: "$40",
-  },
-  {
-    id: 8,
-    image: shop1,
-    title: "Traditional Delights",
-    priceDisplay: "Adult: $38 | Child: $19",
-    time: "6 pm - 9 pm",
-    district: "Lumut",
-    price: "$38",
-  },
-  {
-    id: 9,
-    image: shop1,
-    title: "Easter Brunch",
-    priceDisplay: "Adult: $50 | Child: $25",
-    time: "10 am - 2 pm",
-    district: "Kuala Belait",
-    price: "$50",
-  },
-  {
-    id: 10,
-    image: shop1,
-    title: "Beachside Buffet",
-    priceDisplay: "Adult: $55 | Child: $27",
-    time: "6 pm - 9 pm",
-    district: "Temburong",
-    price: "$55",
-  },
-  {
-    id: 11,
-    image: shop1,
-    title: "City Feast",
-    priceDisplay: "Adult: $48 | Child: $24",
-    time: "6 pm - 9 pm",
-    district: "Serusop",
-    price: "$48",
-  },
-  {
-    id: 12,
-    image: shop1,
-    title: "Mountain Dining",
-    priceDisplay: "Adult: $60 | Child: $30",
-    time: "5.30 pm - 8.30 pm",
-    district: "Sungai Akar",
-    price: "$60",
-  },
-  {
-    id: 13,
-    image: shop1,
-    title: "River View Buffet",
-    priceDisplay: "Adult: $58 | Child: $29",
-    time: "7 pm - 10 pm",
-    district: "Bangar",
-    price: "$58",
-  }
-];
-
-function Bazaar() {
+function Buffet() {
+  // Combine both card types into a single array
+  const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOrder, setSortOrder] = useState("low-to-high");
+  const [sortedCards, setSortedCards] = useState(allCards);
+  const [showPriceSort, setShowPriceSort] = useState(false);
+  const [selectedPriceOption, setSelectedPriceOption] = useState("");
   const [showFilter, setShowFilter] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [showCategoryButtons, setShowCategoryButtons] = useState(false);
   const [showPriceButtons, setShowPriceButtons] = useState(false);
   const [priceRange, setPriceRange] = useState([0, 100]);
   const [minPrice, setMinPrice] = useState(priceRange[0]);
   const [maxPrice, setMaxPrice] = useState(priceRange[1]);
-  const [showHoursButtons, setShowHoursButtons] = useState(false);
-  const [hourRange, setHourRange] = useState([0, 100]);
-  const [minHour, setMinHour] = useState(hourRange[0]);
-  const [maxHour, setMaxHour] = useState(hourRange[1]);
+  const [showOpenHoursButtons, setShowOpenHoursButtons] = useState(false);
+  const [showCloseHoursButtons, setShowCloseHoursButtons] = useState(false);
+  const [selectedDistrict, setSelectedDistrict] = useState("");
   const [showDistrictButtons, setShowDistrictButtons] = useState(false);
+  const [hour, setHour] = useState("00");
+  const [minute, setMinute] = useState("00");
+  const [ampm, setAmpm] = useState("AM");
+  const [searchQuery, setSearchQuery] = useState("");
+
+
+  const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
+  const minutes = Array.from({ length: 60 }, (_, i) => (i < 10 ? `0${i}` : i.toString()));
+  const ampmOptions = ["AM", "PM"];
   
-  
-  const cardsPerPage = 12;
+  const cardsPerPage = 15;
 
 
-  // Sort the cards based on the selected order price
-  const sortedCards = [...initialCards].sort((a, b) => {
-    if (sortOrder === "low-to-high") {
-      return parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)); // Convert price to number for comparison
-    } else if (sortOrder === "high-to-low") {
-      return parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1));
-    }
-    return 0; 
-  });
-
-  // Pagination logic
-  const indexOfLastCard = currentPage * cardsPerPage;
-  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
-  const currentCards = sortedCards.slice(indexOfFirstCard, indexOfLastCard);
-
-  // Handle page navigation
-  const totalPages = Math.ceil(initialCards.length / cardsPerPage);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+  // Handle Search Input Change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
 
+  // Filter cards based on search query
+  useEffect(() => {
+    const filteredCards = allCards.filter((card) => {
+      const queryLower = searchQuery.toLowerCase();
+      return (
+        card.title.toLowerCase().includes(queryLower) ||
+        card.priceDisplay.toLowerCase().includes(queryLower) ||
+        card.option.toLowerCase().includes(queryLower) ||
+        card.openTime.toLowerCase().includes(queryLower) ||
+        card.closeTime.toLowerCase().includes(queryLower)
+      );
+    });
+    setSortedCards(filteredCards); // Update the displayed cards
+  }, [searchQuery]); // Trigger the filter when the search query changes
+
+
+  // Filter by opening hours
+  const filterByTime = () => {
+    const selectedTime = `${hour.padStart(2, "0")}${minute.padStart(2, "0")}${ampm === "PM" ? "12" : ""}`; // Convert selected time to 24-hour format
+    const filteredCards = initialCards.filter((card) => {
+      const openTime = card.openTime;
+      const closeTime = card.closeTime;
+
+      // Compare selected time with open and close hours
+      if (parseInt(selectedTime) >= parseInt(openTime) && parseInt(selectedTime) <= parseInt(closeTime)) {
+        return true;
+      }
+      return false;
+    });
+
+    setSortedCards(filteredCards);
+  };
+
+  // Handle time changes and filter
+  const handleTimeChange = () => {
+    filterByTime();
+  };
+  
+  
   // Handle sorting order change
-  const handleSortChange = (event) => {
-    setSortOrder(event.target.value);
+  const handleSortChange = (sortOrder) => {
+    setSelectedPriceOption(sortOrder === "low-to-high" ? "Price: Low to High" : "Price: High to Low");
+
+    const sortedData = [...allCards];
+    sortedData.sort((a, b) => {
+      const priceA = parseFloat(a.price.replace(/[^0-9.-]+/g, ""));
+      const priceB = parseFloat(b.price.replace(/[^0-9.-]+/g, ""));
+
+      if (sortOrder === "low-to-high") {
+        return priceA - priceB; // Ascending order
+      } else {
+        return priceB - priceA; // Descending order
+      }
+    });
+
+    setSortedCards(sortedData); // Update the sorted state
+    setCurrentPage(1); // Reset pagination to the first page
+    setShowPriceSort(false); // Close the dropdown after selection
   };
 
-  // Slider Handler
+  // Handle category filter change
+  const handleCategoryFilter = (category) => {
+    setSelectedCategory(category);
+
+    if (category === "") {
+      setSortedCards(allCards); // Show all when no filter
+    } else {
+      const filteredCards = allCards.filter((card) => card.option === category);
+      setSortedCards(filteredCards);
+    }
+
+    setCurrentPage(1); // Reset pagination
+  };
+
+  // Price Slider Handler
   const handlePriceSliderChange = (e) => {
     const { name, value } = e.target;
     const numericValue = Number(value);
@@ -193,379 +138,505 @@ function Bazaar() {
   
       setMinPrice(newRange[0]);
       setMaxPrice(newRange[1]);
+  
+      // Filter cards based on price range
+      const filteredCards = allCards.filter((card) => {
+        const cardPrice = parseFloat(card.price.replace(/[^0-9.]/g, "")); // Extract numeric price
+        return cardPrice >= newRange[0] && cardPrice <= newRange[1];
+      });
+  
+      setSortedCards(filteredCards); // Update the displayed cards
+  
       return newRange;
     });
   };
 
-   // Slider Handler
-   const handleHourSliderChange = (e) => {
-    const { name, value } = e.target;
-    const numericValue = Number(value);
-  
-    setHourRange((prev) => {
-      const newRange = [...prev];
-  
-      if (name === "min") {
-        if (numericValue < newRange[1]) {
-          newRange[0] = numericValue;
-        }
-      } else if (name === "max") {
-        if (numericValue > newRange[0]) {
-          newRange[1] = numericValue;
-        }
-      }
-  
-      setMinHour(newRange[0]);
-      setMaxHour(newRange[1]);
-      return newRange;
-    });
+  // Handle district filter change
+  const handleDistrictFilter = (district) => {
+    setSelectedDistrict(district);
+
+    if (district === "") {
+      setSortedCards(allCards); // Show all when no filter
+    } else {
+      const filteredCards = allCards.filter((card) => card.district === district);
+      setSortedCards(filteredCards);
+    }
+
+    setCurrentPage(1); // Reset pagination
   };
+
+  // Pagination logic
+  // Get the current slice of cards for the page
+  const indexOfLastCard = currentPage * cardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const currentCards = sortedCards.slice(indexOfFirstCard, indexOfLastCard);
+  const totalPages = Math.ceil(sortedCards.length / cardsPerPage);
+
+  // Scroll to top of the card section when changing pages
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+
 
   return (
-    <div className="bazaar-container">
-      <div className="bazaar-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
-        <div className="bazaar-header-content">
-          <h1 className="bazaar-title">Bazaar</h1>
-          <p className="bazaar-description">
-            Explore the best bazaar options for Ramadhan eats & treats!
+    <div className="buffet-container">
+      <div className="buffet-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
+        <div className="buffet-header-content">
+          <h1 className="buffet-title">Bazaar</h1>
+          <p className="buffet-description">
+          Endless choices, blessed bazaars
           </p>
         </div>
         
         {/* Header Icon */}
-        <img src={HeaderIcon} alt="Header Icon" className="bazaar-header-icon" />
+        <img src={HeaderIcon} alt="Header Icon" className="buffet-header-icon" />
       </div>
 
-      {/* Breadcrumb Navigation */}
-      <div className="breadcrumb">
-        <a href="/" className="breadcrumb-link">Home</a>
-        <span className="breadcrumb-separator"> &gt; </span>
-        <span className="breadcrumb-current">Bazaar</span>
-      </div>
-
-      {/* Search Bar */}
-      <div className="bazaar-search">
-        <input type="text" className="search-input" placeholder="Find buffets or bazaars!" />
-        <button className="search-button">Search</button>
-      </div>
-
-      {/* Dropdown for Price Sorting */}
-      <div className="filters-container">
-        <select className="price-sort" aria-label="Sort by price" onChange={handleSortChange}>
-          <option value="low-to-high">Price: Low to High</option>
-          <option value="high-to-low">Price: High to Low</option>
-        </select>
-       
-
-        {/* Buttons */}
-        <div className="button-container">
-          <Link to="/buffet">
-            <button className="buffet-button">Buffet</button>
-          </Link>
-          <Link to="/bazaar">
-            <button className="bazaar-button">Bazaar</button>
-          </Link>
-          <Link to="/moreh">
-            <button className="moreh-button">Moreh</button>
-          </Link>
+      <div className="content-container">
+        {/* Breadcrumb Navigation */}
+        <div className="breadcrumb">
+          <a href="/" className="breadcrumb-link">Home</a>
+          <span className="breadcrumb-separator"> &gt; </span>
+          <span className="breadcrumb-current">Buffet</span>
         </div>
 
+        {/* Search Bar */}
+        <div className="buffet-search">
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Find buffets or bazaars!"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+          <button className="search-button">Search</button>
+        </div>
 
-        {/* Filter Button and Dropdown */}
-        <div className="filter-container">
-          <button className="filter-button" onClick={() => setShowFilter(!showFilter)}>
-            Filter
-          </button>
+        {/* Dropdown for Price Sorting */}
+        <div className="filters-container">
+          <div className="custom-dropdown">
+            <button
+              className="price-sort-button"
+              onClick={() => setShowPriceSort(!showPriceSort)}
+            >
+              {selectedPriceOption || "Sort by price"}{" "}
+              <span className="arrow">{showPriceSort ? "▲" : "▼"}</span>
+            </button>
 
-          {showFilter && (
-            <div className="filter-dropdown">
-
-              {/* Category Filter */}
-              <div className="category-filter">
-                <button
-                  className="category-select"
-                  onClick={() => setShowCategoryButtons(!showCategoryButtons)}
+            {showPriceSort && (
+              <div className="dropdown-pricesorts">
+                <div
+                  className="dropdown-pricesort"
+                  onClick={() => handleSortChange("low-to-high")}
                 >
-                  Category
-                  <span className="arrow">{showCategoryButtons ? "▲" : "▼"}</span>
-                </button>
-
-                {showCategoryButtons && (
-                  <div className="category-buttons">
-                    <button className="category-btn">Sungkai Buffet</button>
-                    <button className="category-btn">Sahur Buffet</button>
-                  </div>
-                )}
-              </div>
-
-
-              {/* Price Range Filter with Slider */}
-              <div className="price-filter-container">
-                <div className="price-filter">
-                  <button
-                    className="price-select"
-                    onClick={() => setShowPriceButtons(!showPriceButtons)}
-                  >
-                    Price Range
-                    <span className="arrow">{showPriceButtons ? "▲" : "▼"}</span>
-                  </button>
-
-                  {showPriceButtons && (
-                    <>
-                      <div className="price-double-slider-box">
-                        <div className="price-input-box">
-                          <div
-                            className="price-min-box"
-                            style={{
-                              left: `calc(${(minPrice / 100) * 100}%)`,
-                              transform: "translateX(0%)",
-                            }}
-                          >
-                          </div>
-
-                          <div
-                            className="price-max-box"
-                            style={{
-                              left: `calc(${(maxPrice / 100) * 100}%)`,
-                              transform: "translateX(-50%)",
-                            }}
-                          >
-                          </div>
-                        </div>
-                        
-                        <div className="price-range-slider">
-                          <div
-                            className="price-slider-track"
-                            style={{
-                              left: `${(minPrice / 100) * 100}%`,
-                              width: `${((maxPrice - minPrice) / 100) * 100}%`,
-                            }}
-                          ></div>
-
-                          <input
-                            type="range"
-                            min="0"
-                            max="100"
-                            value={minPrice}
-                            name="min"
-                            onChange={handlePriceSliderChange}
-                            className="min-val"
-                          />
-                          <input
-                            type="range"
-                            min="0"
-                            max="100"
-                            value={maxPrice}
-                            name="max"
-                            onChange={handlePriceSliderChange}
-                            className="max-val"
-                          />
-
-                          {/* Price Tooltip (Display price above thumb) */}
-                          <div
-                            className="price-tooltip min-tooltip"
-                            style={{
-                              left: `calc(${(minPrice / 100) * 100}%)`,
-                              transform: "translateX(-50%)", // This ensures the tooltip is centered above the thumb
-                              top: "-40px", // Adjust the value to move the tooltip above the thumb
-                            }}
-                          >
-                            ${minPrice}
-                          </div>
-                          <div
-                            className="price-tooltip max-tooltip"
-                            style={{
-                              left: `calc(${(maxPrice / 100) * 100}%)`,
-                              transform: "translateX(-50%)", // Ensures the tooltip is centered above the thumb
-                              top: "-40px", // Adjust this for the max input tooltip
-                            }}
-                          >
-                            ${maxPrice}
-                          </div>
-                        </div>
-                        <hr/>
-                      </div>
-                    </>
-                  )}
+                  Price: Low to High
+                </div>
+                <div
+                  className="dropdown-pricesort"
+                  onClick={() => handleSortChange("high-to-low")}
+                >
+                  Price: High to Low
                 </div>
               </div>
+            )}
+          </div>
+        
+        
+          {/* Buttons */}
+          <div className="buffet-button-container">
+            <Link to="/buffet">
+              <button className="buffet-button">Buffet</button>
+            </Link>
+            <Link to="/bazaar">
+              <button className="bazaar-button">Bazaar</button>
+            </Link>
+            <Link to="/moreh">
+              <button className="moreh-button">Moreh</button>
+            </Link>
+          </div>
 
 
-              {/* Opening Hours Filter with Slider */}
-              <div className="hour-filter-container">
-                <div className="hour-filter">
+          {/* Filter Button and Dropdown */}
+          <div className="filter-container">
+            <button className="filterdropdown-button" onClick={() => setShowFilter(!showFilter)}>
+              Filter
+            </button>
+
+            {showFilter && (
+              <div className="filter-dropdown">
+
+                {/* Category Filter */}
+                <div className="category-filter">
                   <button
-                    className="hour-select"
-                    onClick={() => setShowHoursButtons(!showHoursButtons)}
+                    className="category-select"
+                    onClick={() => setShowCategoryButtons(!showCategoryButtons)}
                   >
-                    Opening Hours
-                    <span className="arrow">{showHoursButtons ? "▲" : "▼"}</span>
+                    Category
+                    <span className="arrow">{showCategoryButtons ? "▲" : "▼"}</span>
                   </button>
 
-                  {showHoursButtons && (
-                    <>
-                      <div className="hour-double-slider-box">
-                        <div className="hour-input-box">
-                          <div
-                            className="hour-min-box"
-                            style={{
-                              left: `calc(${(minHour / 24) * 100}%)`, // Assuming min/max range is from 0 to 24 hours
-                              transform: "translateX(0%)",
-                            }}
-                          >
-                            {/* Input box for min hour */}
-                          </div>
-
-                          <div
-                            className="hour-max-box"
-                            style={{
-                              left: `calc(${(maxHour / 24) * 100}%)`,
-                              transform: "translateX(-50%)",
-                            }}
-                          >
-                            {/* Input box for max hour */}
-                          </div>
-                        </div>
-                        
-                        <div className="hour-range-slider">
-                          <div
-                            className="hour-slider-track"
-                            style={{
-                              left: `${(minHour / 24) * 100}%`,
-                              width: `${((maxHour - minHour) / 24) * 100}%`, // Width adjusted for 24-hour range
-                            }}
-                          ></div>
-
-                          <input
-                            type="range"
-                            min="0"
-                            max="24"
-                            value={minHour}
-                            name="min"
-                            onChange={handleHourSliderChange}
-                            className="min-val"
-                          />
-                          <input
-                            type="range"
-                            min="0"
-                            max="24"
-                            value={maxHour}
-                            name="max"
-                            onChange={handleHourSliderChange}
-                            className="max-val"
-                          />
-
-                          {/* Tooltip for opening hours */}
-                          <div
-                            className="hour-tooltip min-tooltip"
-                            style={{
-                              left: `calc(${(minHour / 24) * 100}%)`,
-                              transform: "translateX(-50%)", // Ensures the tooltip is centered above the thumb
-                              top: "-40px",
-                            }}
-                          >
-                            {minHour}:00
-                          </div>
-                          <div
-                            className="hour-tooltip max-tooltip"
-                            style={{
-                              left: `calc(${(maxHour / 24) * 100}%)`,
-                              transform: "translateX(-50%)", // Ensures the tooltip is centered above the thumb
-                              top: "-40px", 
-                            }}
-                          >
-                            {maxHour}:00
-                          </div>
-                        </div>
-                        <hr/>
-                      </div>
-                    </>
+                  {showCategoryButtons && (
+                    <div className="filtercategory-buttons">
+                      <button 
+                        className={`filtercategory-button ${selectedCategory === "Bazaar Sungkai" ? "active" : ""}`}
+                        onClick={() => handleCategoryFilter("Bazaar Sungkai")}
+                      >
+                        Bazaar Sungkai
+                      </button>
+                      <button 
+                        className={`filtercategory-button ${selectedCategory === "Bazaar Sahur" ? "active" : ""}`}
+                        onClick={() => handleCategoryFilter("Bazaar Sahur")}
+                      >
+                        Bazaar Sahur
+                      </button>
+                      <button 
+                        className="filtercategory-button" 
+                        onClick={() => handleCategoryFilter("")}
+                      >
+                        Show All
+                      </button>
+                    </div>
                   )}
                 </div>
-              </div>
 
+                {/* Price Range Filter with Slider */}
+                <div className="price-filter-container">
+                  <div className="price-filter">
+                    <button
+                      className="price-select"
+                      onClick={() => setShowPriceButtons(!showPriceButtons)}
+                    >
+                      Price Range
+                      <span className="arrow">{showPriceButtons ? "▲" : "▼"}</span>
+                    </button>
 
-              {/* District Filter */}
-              <div className="district-filter">
-                <button
-                  className="district-select"
-                  onClick={() => setShowDistrictButtons(!showDistrictButtons)}
-                >
-                  District
-                  <span className="arrow">{showDistrictButtons ? "▲" : "▼"}</span>
-                </button>
+                    {showPriceButtons && (
+                      <>
+                        <div className="price-double-slider-box">
+                          <div className="price-input-box">
+                            <div
+                              className="price-min-box"
+                              style={{
+                                left: `calc(${(minPrice / 100) * 100}%)`,
+                                transform: "translateX(0%)",
+                              }}
+                            >
+                            </div>
 
-                {showDistrictButtons && (
-                  <div className="district-buttons">
-                    <button className="district-btn">Brunei-Muara</button>
-                    <button className="district-btn">Tutong</button>
-                    <button className="district-btn">Belait</button>
-                    <button className="district-btn">Temburong</button>
+                            <div
+                              className="price-max-box"
+                              style={{
+                                left: `calc(${(maxPrice / 100) * 100}%)`,
+                                transform: "translateX(-50%)",
+                              }}
+                            >
+                            </div>
+                          </div>
+                          
+                          <div className="price-range-slider">
+                            <div
+                              className="price-slider-track"
+                              style={{
+                                left: `${(minPrice / 100) * 100}%`,
+                                width: `${((maxPrice - minPrice) / 100) * 100}%`,
+                              }}
+                            ></div>
+
+                            <input
+                              type="range"
+                              min="0"
+                              max="100"
+                              value={minPrice}
+                              name="min"
+                              onChange={handlePriceSliderChange}
+                              className="slider-min-val"
+                            />
+                            <input
+                              type="range"
+                              min="0"
+                              max="100"
+                              value={maxPrice}
+                              name="max"
+                              onChange={handlePriceSliderChange}
+                              className="slider-max-val"
+                            />
+
+                            {/* Price Tooltip (Display price above thumb) */}
+                            <div
+                              className="price-tooltip min-tooltip"
+                              style={{
+                                left: `calc(${(minPrice / 100) * 100}%)`,
+                                transform: "translateX(-50%)", // This ensures the tooltip is centered above the thumb
+                                top: "-40px", // Adjust the value to move the tooltip above the thumb
+                              }}
+                            >
+                              ${minPrice}
+                            </div>
+                            <div
+                              className="price-tooltip max-tooltip"
+                              style={{
+                                left: `calc(${(maxPrice / 100) * 100}%)`,
+                                transform: "translateX(-50%)", // Ensures the tooltip is centered above the thumb
+                                top: "-40px", // Adjust this for the max input tooltip
+                              }}
+                            >
+                              ${maxPrice}
+                            </div>
+                          </div>
+                          <hr/>
+                        </div>
+                      </>
+                    )}
                   </div>
-                )}
+                </div>
+
+
+                {/* Opening Hours Filter */}
+                <div className="openHour-filter-container">
+                  <div className="openHour-filter">
+                    <button
+                      className="openHour-select"
+                      onClick={() => setShowOpenHoursButtons(!showOpenHoursButtons)}
+                    >
+                      Opening Hours
+                      <span className="arrow">{showOpenHoursButtons ? "▲" : "▼"}</span>
+                    </button>
+                    {showOpenHoursButtons && (
+                      <div className="openTime-picker">
+                        <div className="openTime-dropdown">
+                          <select
+                            value={hour}
+                            onChange={(e) => {
+                              setHour(e.target.value);
+                              handleTimeChange();
+                            }}
+                            className="openTime-select"
+                          >
+                            {hours.map((hour) => (
+                              <option key={hour} value={hour}>
+                                {hour}
+                              </option>
+                            ))}
+                          </select>
+
+                          <select
+                            value={minute}
+                            onChange={(e) => {
+                              setMinute(e.target.value);
+                              handleTimeChange();
+                            }}
+                            className="openTime-select"
+                          >
+                            {minutes.map((minute) => (
+                              <option key={minute} value={minute}>
+                                {minute}
+                              </option>
+                            ))}
+                          </select>
+
+                          <select
+                            value={ampm}
+                            onChange={(e) => {
+                              setAmpm(e.target.value);
+                              handleTimeChange();
+                            }}
+                            className="openTime-select"
+                          >
+                            {ampmOptions.map((option) => (
+                              <option key={option} value={option}>
+                                {option}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* closing Hours Filter with Slider */}
+                <div className="closeHour-filter-container">
+                  <div className="closeHour-filter">
+                    <button
+                      className="closeHour-select"
+                      onClick={() => setShowCloseHoursButtons(!showCloseHoursButtons)}
+                    >
+                      Closing Hours
+                      <span className="arrow">{showCloseHoursButtons ? "▲" : "▼"}</span>
+                    </button>
+
+                    {showCloseHoursButtons && (
+                      <div className="closeTime-picker">
+                        <div className="closeTime-dropdown">
+                          <select
+                            value={hour}
+                            onChange={(e) => setHour(e.target.value)}
+                            className="closeTime-select"
+                          >
+                            {hours.map((hour) => (
+                              <option key={hour} value={hour}>
+                                {hour}
+                              </option>
+                            ))}
+                          </select>
+
+                          <select
+                            value={minute}
+                            onChange={(e) => setMinute(e.target.value)}
+                            className="closeTime-select"
+                          >
+                            {minutes.map((minute) => (
+                              <option key={minute} value={minute}>
+                                {minute}
+                              </option>
+                            ))}
+                          </select>
+
+                          <select
+                            value={ampm}
+                            onChange={(e) => setAmpm(e.target.value)}
+                            className="closeTime-select"
+                          >
+                            {ampmOptions.map((option) => (
+                              <option key={option} value={option}>
+                                {option}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+
+                        <p>
+                          Selected Time: {hour}:{minute} {ampm}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+
+                {/* District Filter */}
+                <div className="filterdistrict-filter">
+                  <button
+                    className="filterdistrict-select"
+                    onClick={() => setShowDistrictButtons(!showDistrictButtons)}
+                  >
+                    District
+                    <span className="arrow">{showDistrictButtons ? "▲" : "▼"}</span>
+                  </button>
+
+                  {showDistrictButtons && (
+                    <div className="filterdistrict-buttons">
+                      <button 
+                        className={`filterdistrict-button ${selectedDistrict === "Brunei-Muara" ? "active" : ""}`}
+                        onClick={() => handleDistrictFilter("Brunei-Muara")}
+                      >
+                        Brunei-Muara
+                      </button>
+                      <button 
+                        className={`filterdistrict-button ${selectedDistrict === "Tutong" ? "active" : ""}`}
+                        onClick={() => handleDistrictFilter("Tutong")}
+                      >
+                        Tutong
+                      </button>
+                      <button 
+                        className={`filterdistrict-button ${selectedDistrict === "Belait" ? "active" : ""}`}
+                        onClick={() => handleDistrictFilter("Belait")}
+                      >
+                        Belait
+                      </button>
+                      <button 
+                        className={`filterdistrict-button ${selectedDistrict === "Temburong" ? "active" : ""}`}
+                        onClick={() => handleDistrictFilter("Temburong")}
+                      >
+                        Temburong
+                      </button>
+                      <button 
+                        className="filterdistrict-button" 
+                        onClick={() => handleDistrictFilter("")}
+                      >
+                        Show All
+                      </button>
+                    </div>
+                  )}
+                </div>
+              
+                {/* <h3>District</h3>
+                <select className="filter-select">
+                  <option value="all">Districts</option>
+                  <option value="brunei-muara">Brunei-Muara</option>
+                  <option value="kota-batu">Tutong</option>
+                  <option value="seria">Belait</option>
+                  <option value="muara">Temburong</option>
+                </select> */}
               </div>
-
-              {/* <h3>District</h3>
-              <select className="filter-select">
-                <option value="all">Districts</option>
-                <option value="brunei-muara">Brunei-Muara</option>
-                <option value="kota-batu">Tutong</option>
-                <option value="seria">Belait</option>
-                <option value="muara">Temburong</option>
-              </select> */}
-            </div>
-          )}
+            )}
+          </div>
         </div>
-      </div>
 
-      {/* Cards Section */}
-      <section className="BazaarCard-dropdown-section">
-        <div className="BazaarCard-container">
-          {currentCards.map((card) => (
-            <div key={card.id} className="BazaarCard">
-              <img src={card.image} alt={card.title} className="BazaarCard-image" />
-              <h3 className="BazaarCard-title">{card.title}</h3>
-              <p className="BazaarCard-price">{card.priceDisplay}</p>
-              <p className="BazaarCard-time">{card.time}</p>
-              <p className="BazaarCard-district">{card.district}</p>
-            </div>
-          ))}
-        </div>
+        {/* Cards Section */}
+        <section className="BuffetCard-dropdown-section">
+          <div className="BuffetCard-container">
+            {currentCards.map((card) => (
+              <a
+                key={card.id}
+                href={card.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="BuffetCard"
+              >
+                <div className="card-image-container">
+                  <img src={card.image} alt={card.title} className="BuffetCard-image" />
+                </div>
+                <p className="BuffetCard-option">{card.option}</p>
+                <h3 className="BuffetCard-title">{card.title}</h3>
+                <p className="BuffetCard-price">{card.priceDisplay}</p>
+                <p className="BuffetCard-time">{card.time}</p>
+                <p className="BuffetCard-district">{card.district}</p>
+              </a>
+            ))}
+          </div>
       </section>
+        
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="card-pagination">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Prev
+            </button>
 
-      {/* Pagination */}
-      <div className="pagination">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Prev
-        </button>
+            {[...Array(totalPages)].map((_, index) => (
+              <button
+                key={index}
+                className={currentPage === index + 1 ? "active" : ""}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
 
-        {/* Page Numbers */}
-        {[...Array(totalPages)].map((_, index) => (
-          <button
-            key={index}
-            className={currentPage === index + 1 ? "active" : ""}
-            onClick={() => handlePageChange(index + 1)}
-          >
-            {index + 1}
-          </button>
-        ))}
-
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
-
-      {/* Button to go back to Home Page */}
-      <Link to="/">
-        <button className="back-button">Go Back</button>
-      </Link>
+      
+      {/* AboutSection */}
+      <AboutSection />
+    
     </div>
   );
 }
 
-export default Bazaar;
+export default Buffet;
