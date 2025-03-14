@@ -35,16 +35,27 @@ function MapSection() {
     setShowSecondaryFilters(true);
   };
 
-  const randomMessages = [
-    "Lapar ku eh Maghrib pukul berapa?",
-    "Bah, ke stadium tani?",
-    "Lepas terawih moreh mana?",
-    "Makan apa karang?",
-    "Elek, chill, kami makan sini lah",
-  ];
-
-  const getRandomMessage = () => {
-    return randomMessages[Math.floor(Math.random() * randomMessages.length)];
+  const getRandomMessage = (image) => {
+    // Messages for Buffet and Bazaar (same messages)
+    const buffetBazaarMessages = [
+      "Lapar ku eh Maghrib pukul berapa?",
+      "Bah, ke stadium tani?",
+      "Makan apa karang?",
+      "Elek, chill, kami makan sini lah",
+    ];
+  
+    // Message for Moreh
+    const morehMessages = [
+      "Lepas terawih moreh mana?",
+      "Singgah cafe dulu eh, sebelum balik",
+    ];
+    
+    // Return messages based on the image
+    if (image === "Buffet.jpg" || image === "Bazaar.jpg") {
+      return buffetBazaarMessages[Math.floor(Math.random() * buffetBazaarMessages.length)];
+    } else if (image === "Moreh.jpg") {
+      return morehMessages[Math.floor(Math.random() * morehMessages.length)];
+    }
   };
 
   // Navigate based on the image clicked
@@ -151,9 +162,6 @@ function MapSection() {
                 transition={{ duration: 0.5 }}
               >
               </motion.h3>
-              <img src={YellowSun} alt="Sun Icon" className="yellow-sun" />
-              <img src={PinkMoon} alt="Moon Icon" className="pink-moon" />
-              <img src={BlueCandy} alt="Candy Icon" className="blue-candy" />
 
               {/* Image Grid */}
               <motion.div
@@ -163,7 +171,7 @@ function MapSection() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <img src={YellowSun} alt="Sun Icon" className="yellow-sun" />
+        
                 {["Buffet.jpg", "Bazaar.jpg", "Moreh.jpg"].map(
                   (image, index) => (
                     <motion.button
@@ -181,13 +189,24 @@ function MapSection() {
                           alt={`Location ${index + 1}`}
                           className="filter-image"
                         />
+
+                        {image === "Buffet.jpg" && (
+                          <img src={YellowSun} alt="Sun Icon" className="yellow-sun" />
+                        )}
+                        {image === "Bazaar.jpg" && (
+                          <img src={PinkMoon} alt="Moon Icon" className="pink-moon" />
+                        )}
+                        {image === "Moreh.jpg" && (
+                          <img src={BlueCandy} alt="Candy Icon" className="blue-candy" />
+                        )}
+
                         <div className="overlay-text">
                           <div className="image-title-section">
                             {image.replace(/\.[^/.]+$/, "")}
                           </div>
                         </div>
                         <div className="image-description">
-                          {getRandomMessage()}
+                          {getRandomMessage(image)}
                         </div>
                         <button className="explore-button">Explore</button>
                       </div>
