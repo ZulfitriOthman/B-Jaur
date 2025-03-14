@@ -185,7 +185,7 @@ function MapSection() {
                     >
                       <div className="image-container">
                         <img
-                          src={`/src/assets/${selectedFilter.toLowerCase()}/${image}`}
+                          src={`/${selectedFilter.toLowerCase()}/${image}`}
                           alt={`Location ${index + 1}`}
                           className="filter-image"
                         />
