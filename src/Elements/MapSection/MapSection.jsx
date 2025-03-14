@@ -190,13 +190,13 @@ function MapSection() {
                           className="filter-image"
                         />
 
-                        {image === "Buffet.jpg" && (
+                        {image === "src\assets\brunei-muara\Buffet.jpg" && (
                           <img src={YellowSun} alt="Sun Icon" className="yellow-sun" />
                         )}
-                        {image === "Bazaar.jpg" && (
+                        {image === "src\assets\brunei-muara\Bazaar.jpg" && (
                           <img src={PinkMoon} alt="Moon Icon" className="pink-moon" />
                         )}
-                        {image === "Moreh.jpg" && (
+                        {image === "src\assets\brunei-muara\Moreh.jpg" && (
                           <img src={BlueCandy} alt="Candy Icon" className="blue-candy" />
                         )}
 
