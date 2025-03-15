@@ -21,7 +21,7 @@ function MapSection() {
     const districtFilters = {
       "Brunei-Muara": "Brunei-Muara",
       "Tutong": "Tutong",
-      "Kuala Belait": "Kuala Belait",
+      "Belait": "Belait",
       "Temburong": "Temburong",
     };
     setSelectedFilter(districtFilters[district]);
@@ -194,10 +194,10 @@ function MapSection() {
                           <img src={`/yellow.png`} alt="Sun Icon" className="yellow-sun" />
                         )}
                         {image === "Bazaar.jpg" && (
-                          <img src={`/pink.png`} alt="Sun Icon" className="yellow-sun" />
+                          <img src={`/pink.png`} alt="Sun Icon" className="pink-moon" />
                         )}
                         {image === "Moreh.jpg" && (
-                          <img src={`/blue.png`} alt="Sun Icon" className="yellow-sun" />
+                          <img src={`/blue.png`} alt="Sun Icon" className="blue-candy" />
                         )}
 
                         <div className="overlay-text">

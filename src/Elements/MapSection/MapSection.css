@@ -405,6 +405,8 @@
     }
   }
 
+
+
   @media (max-width: 360px) {
     .map-box {
       display: flex;
@@ -416,12 +418,13 @@
     }
 
     .map-title {
-      font-size: 2rem;
+      font-size: 1.75rem;
       margin-bottom: 2.5rem;
+      padding: 0px 20px;
     }
     
     .map-description {
-      font-size: 2rem;
+      font-size: 1.25rem;
       margin-bottom: 2rem;
     }
 

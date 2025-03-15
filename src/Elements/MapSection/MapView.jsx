@@ -1,7 +1,6 @@
 // app/MapView/MapView.js
 
 'use client';
-import React from 'react';
 import './MapView.css';
 
 const MapView = ({ onDistrictClick, activeDistrict }) => {
