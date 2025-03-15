@@ -179,3 +179,19 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero-year {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-year {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 360px) {
+  .hero-year {
+    font-size: 1.5rem;
+  }
+}

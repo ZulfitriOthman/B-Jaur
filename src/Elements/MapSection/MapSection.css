@@ -392,4 +392,90 @@
       margin-bottom: 2.5rem;
     }
   }
+
+  @media (max-width: 768px) {
+    .hero-year {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-year {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .map-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 160vh;
+      background: url('../../assets/Orange.svg') no-repeat center center;
+      background-size: cover; /* Ensure the image covers the element */
+    }
+
+    .map-title {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .map-description {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .content-overlay {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    .content-left {
+      flex: 1; 
+      padding: 0px 20px;
+      text-align: justify;
+      margin-top: 0px;
+    }
+
+    /* Button Styles */
+    .MapFilter-button {
+      padding: 10px 0px;
+      width: 130px;
+      font-size: 0.85rem;
+      border-radius: 20px;
+    }
+
+  
+    .image-grid {
+      width: 90%;
+      height: 240px;
+      display: flex;           
+      flex-direction: column;     
+      gap: 15px;  
+      border-radius: 25px;              
+      justify-content: center; 
+      padding: 200px 0px;
+      margin-top: 100px;
+    }
+  
+    .image-container {
+      position: relative;
+      width: 100%; 
+      height: 100%;
+      border-radius: 25px; 
+      overflow: visible; 
+    }
+
+    .district {
+      font-size: 2rem;
+      margin-bottom: 0rem;
+    }  
+  
+    .subtitle {
+      font-size: 2rem;
+    }  
+  
+  }
     
