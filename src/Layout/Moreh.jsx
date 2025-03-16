@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Bazaar.css";
+import "./Moreh.css";
 import HeaderBG from "../assets/PurpleSky.png";
 import HeaderIcon from "../assets/HeaderIcon.png";
 import { MorehCards } from "./MorehData.jsx";
@@ -209,7 +209,7 @@ function Buffet() {
           <input
             type="text"
             className="search-input"
-            placeholder="Find buffets or bazaars!"
+            placeholder="Find moreh spots!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
@@ -219,13 +219,13 @@ function Buffet() {
         {/* Dropdown for Price Sorting */}
         <div className="filters-container">
           <div className="custom-dropdown">
-            <button
+            {/* <button
               className="price-sort-button"
               onClick={() => setShowPriceSort(!showPriceSort)}
             >
               {selectedPriceOption || "Sort by price"}{" "}
               <span className="arrow">{showPriceSort ? "▲" : "▼"}</span>
-            </button>
+            </button> */}
 
             {showPriceSort && (
               <div className="dropdown-pricesorts">
@@ -255,7 +255,7 @@ function Buffet() {
               <button className="bazaar-button">Bazaar</button>
             </Link>
             <Link to="/moreh">
-              <button className="moreh-button">Moreh</button>
+              <button className="moreh-button active-button">Moreh</button>
             </Link>
           </div>
 
@@ -632,7 +632,7 @@ function Buffet() {
       </div>
       
       {/* AboutSection */}
-      {/* <AboutSection /> */}
+      <AboutSection />
     
     </div>
   );

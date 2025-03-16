@@ -210,7 +210,7 @@ function Buffet() {
           <input
             type="text"
             className="search-input"
-            placeholder="Find buffets or bazaars!"
+            placeholder="Find bazaars!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
@@ -220,13 +220,13 @@ function Buffet() {
         {/* Dropdown for Price Sorting */}
         <div className="filters-container">
           <div className="custom-dropdown">
-            <button
+            {/* <button
               className="price-sort-button"
               onClick={() => setShowPriceSort(!showPriceSort)}
             >
               {selectedPriceOption || "Sort by price"}{" "}
               <span className="arrow">{showPriceSort ? "▲" : "▼"}</span>
-            </button>
+            </button> */}
 
             {showPriceSort && (
               <div className="dropdown-pricesorts">
@@ -253,7 +253,7 @@ function Buffet() {
               <button className="buffet-button">Buffet</button>
             </Link>
             <Link to="/bazaar">
-              <button className="bazaar-button">Bazaar</button>
+              <button className="bazaar-button active-button">Bazaar</button>
             </Link>
             <Link to="/moreh">
               <button className="moreh-button">Moreh</button>
@@ -633,7 +633,7 @@ function Buffet() {
       </div>
       
       {/* AboutSection */}
-      {/* <AboutSection /> */}
+      <AboutSection />
     
     </div>
   );

@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MapView from "./MapView";
-// import YellowSun from "../../assets/yellow.png";
-// import PinkMoon from "../../assets/pink.png";
-// import BlueCandy from "../../assets/blue.png";
 import { useNavigate } from "react-router-dom";
 import "./MapSection.css";
 
@@ -70,7 +67,7 @@ function MapSection() {
   };
 
   return (
-    <div className="map-box" id="map-section">
+    <div className={showSecondaryFilters ? "map-box" : ""} id="map-section">
       <div className="featured-properties-box">
       <header className="map-header">
         {!isDistrictSelected ? (
@@ -194,10 +191,10 @@ function MapSection() {
                           <img src={`/yellow.png`} alt="Sun Icon" className="yellow-sun" />
                         )}
                         {image === "Bazaar.jpg" && (
-                          <img src={`/pink.png`} alt="Sun Icon" className="pink-moon" />
+                          <img src={`/pink.png`} alt="Moon Icon" className="pink-moon" />
                         )}
                         {image === "Moreh.jpg" && (
-                          <img src={`/blue.png`} alt="Sun Icon" className="blue-candy" />
+                          <img src={`/blue.png`} alt="Candy Icon" className="blue-candy" />
                         )}
 
                         <div className="overlay-text">
