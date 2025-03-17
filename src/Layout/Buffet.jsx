@@ -5,9 +5,8 @@ import HeaderBG from "../assets/PurpleSky.png";
 import HeaderIcon from "../assets/HeaderIcon.png";
 import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
 import { BuffetSahurCards } from "./BuffetSahur.jsx";
-import { useMemo } from "react";
-import AboutSection from '../Elements/AboutSection/AboutSection';
-import "./TimePicker.css";
+import AboutSection from '../../Elements/AboutSection/AboutSection.jsx';
+import "../TimePicker.css";
 
 function Buffet() {
   // Combine both card types into a single array
@@ -238,6 +237,8 @@ function Buffet() {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+
 
   return (
     <div className="buffet-container">
@@ -518,6 +519,7 @@ function Buffet() {
                       </div>
                     )}
                   </div>
+                </div>
 
                 {/* closing Hours Filter with Slider */}
                 {/* <div className="closeHour-filter-container">

@@ -76,6 +76,35 @@
   
 }
 
+@media (max-width: 768px) {
+  
+  .DistrictMap-container {
+    height: 80vh; 
+  }
+
+  .DistrictBackground-container,
+  .DistrictOverlay-container,
+  .svg-container {
+    width: 70%; 
+    height: auto; 
+  }
+
+  .DistrictBackground-container {
+    top: 40%; /* Adjust the vertical position */
+    left: 50%;
+  }
+
+  .DistrictOverlay-container {
+    top: 40%; /* Adjust the vertical position */
+    left: 50%;
+  }
+
+  .svg-container {
+    top: 20%; /* Adjust the vertical position */
+    right: 10px;
+  }
+}
+
 /* For mobile devices (480px and smaller) */
 @media (max-width: 400px) {
   .Map-container {
