@@ -5,8 +5,8 @@ import HeaderBG from "../assets/PurpleSky.png";
 import HeaderIcon from "../assets/HeaderIcon.png";
 import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
 import { BuffetSahurCards } from "./BuffetSahur.jsx";
-import AboutSection from '../../Elements/AboutSection/AboutSection.jsx';
-import "../TimePicker.css";
+import AboutSection from '../Elements/AboutSection/AboutSection.jsx';
+import "./TimePicker.css";
 
 function Buffet() {
   // Combine both card types into a single array

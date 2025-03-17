@@ -215,40 +215,8 @@
 }
 
 @media (max-width: 768px) {
-}
-
-@media (max-width: 400px) {
-  .hero-frame-container {
-    overflow: hidden; 
-    margin-top: -200px;
-    width: 100%;
-    height: 200vh; 
-  }
-
-  .hero-frame {
-    width: 600px; 
-    height: auto; 
-  }
-
-  .hero-content {
-    top: 65%;
-    left: 50%;
-    height: 80vh;
-  }
-
   .hero-year {
-    font-size: 3rem;
-  }
-
-  .b-jaurLogo {
-    width: 250px;
-    height: auto;
-    margin: 0px;
-  }
-
-  /* Text container */
-  .hero-text {
-    font-size: 3rem;
+    font-size: 1.5rem;
   }
 }
 
