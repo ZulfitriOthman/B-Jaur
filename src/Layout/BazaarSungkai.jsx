@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import bazaar1 from "../assets/BazaarSungkai/RamadhanEcoBazaar.jpg"; 
 import bazaar2 from "../assets/BazaarSungkai/BazaarRamadhanStadium.jpg"; 
 import bazaar3 from "../assets/BazaarSungkai/PasarMalam.jpg"; 

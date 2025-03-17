@@ -6,6 +6,14 @@
     background: url('../../assets/Orange.svg') no-repeat center center;
     background-size: cover; /* Ensure the image covers the element */
   }
+
+  #map-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover; /* Ensure the image covers the element */
+  }
   
   .featured-properties-box {
     width: 100%;

@@ -210,7 +210,7 @@ function Buffet() {
           <input
             type="text"
             className="search-input"
-            placeholder="Find buffets or bazaars!"
+            placeholder="Find buffets!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
@@ -250,7 +250,7 @@ function Buffet() {
           {/* Buttons */}
           <div className="buffet-button-container">
             <Link to="/buffet">
-              <button className="buffet-button">Buffet</button>
+              <button className="buffet-button active-button">Buffet</button>
             </Link>
             <Link to="/bazaar">
               <button className="bazaar-button">Bazaar</button>
@@ -633,7 +633,7 @@ function Buffet() {
       </div>
       
       {/* AboutSection */}
-      {/* <AboutSection /> */}
+      <AboutSection />
     
     </div>
   );
