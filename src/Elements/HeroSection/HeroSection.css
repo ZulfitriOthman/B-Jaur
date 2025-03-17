@@ -214,27 +214,6 @@
   }
 }
 
-<<<<<<< HEAD
-@media (max-width: 800px) {
-  .hero-section {
-    height: auto;
-    text-align: center;
-    background-position: center;
-  }
-
-  .hero-border-container {
-    flex-direction: column;
-    margin-top: 20px;
-  }
-
-  .hero-content {
-    position: absolute;
-    top: auto;
-    left: auto;
-    transform: none;
-  }
-
-=======
 @media (max-width: 768px) {
   .hero-year {
     font-size: 1.5rem;
@@ -242,20 +221,10 @@
 }
 
 @media (max-width: 480px) {
->>>>>>> parent of 8f9b28b (Update Landing Page)
   .hero-year {
     font-size: 1.5rem;
   }
 }
-<<<<<<< HEAD
-
-@media (max-width: 480px) {
-  .hero-year {
-    font-size: 1.5rem;
-  }
-}
-=======
->>>>>>> parent of 8f9b28b (Update Landing Page)
 @media (max-width: 360px) {
   .hero-year {
     font-size: 1.5rem;
