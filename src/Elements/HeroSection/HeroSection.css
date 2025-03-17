@@ -212,9 +212,73 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
+  .hero-section {
+    height: auto;
+    text-align: center;
+    background-position: center;
+  }
+
+  .hero-border-container {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .hero-content {
+    position: absolute;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
   .hero-year {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin-top: 15px;
+  }
+
+  .b-jaurLogo {
+    width: 150px;
+  }
+
+  .hero-text {
+    font-size: 2rem;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .hero-descriptionBox {
+    margin-top: 25px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .search-container-restaurant {
+    display: none;
+  }
+
+  .search-restaurant {
+    font-size: 0.9rem;
+  }
+
+  .look-button {
+    font-size: 0.9rem;
+  }
+
+  .hero-image {
+    width: 70%;
+    right: auto;
+    left: auto;
+  }
+
+  .down-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 8px;
   }
 
   .b-jaurLogo {
