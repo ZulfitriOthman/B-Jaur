@@ -232,107 +232,17 @@
   }
 
   .hero-year {
-    font-size: 2rem;
-    margin-top: 15px;
+    font-size: 1.5rem;
   }
+}
 
-  .b-jaurLogo {
-    width: 150px;
+@media (max-width: 480px) {
+  .hero-year {
+    font-size: 1.5rem;
   }
-
-  .hero-text {
-    font-size: 2rem;
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  .hero-descriptionBox {
-    margin-top: 25px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .search-container-restaurant {
-    display: none;
-  }
-
-  .search-restaurant {
-    font-size: 0.9rem;
-  }
-
-  .look-button {
-    font-size: 0.9rem;
-  }
-
-  .hero-image {
-    width: 70%;
-    right: auto;
-    left: auto;
-  }
-
-  .down-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 8px;
-  }
-
-  .b-jaurLogo {
-    width: 250px;
-    height: auto;
-    margin: 0px;
-  }
-
-  /* Text container */
-  .hero-text {
-    font-size: 3rem;
-    flex-direction: column;
-    gap: 0px;
-    margin: 30px 0px;
-    padding: 0px;
-  }
-
-  .highlight-text {
-    margin-bottom: -10px;
-    padding: 0px;
-  }
-
-  .normal-text {
-    margin-top: -10px;
-    margin-bottom: 20px;
-  }
-
-  .hero-description {
-    font-size: 1.15rem;
-    width: 100%;
-    margin: 0px;
-    text-align: justify;
-  }
-
-  .down-arrow {
-    bottom: 3%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    cursor: pointer;
-    animation: bounce 1.5s infinite;
-    color: white;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .down-arrow-icon {
-    font-size: 25px;
+}
+@media (max-width: 360px) {
+  .hero-year {
+    font-size: 1.5rem;
   }
 }

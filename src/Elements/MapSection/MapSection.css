@@ -422,8 +422,42 @@
     .subtitle {
       font-size: 2rem;
     }  
-  }
+
+    .yellow-sun {
+      position: absolute;
+      z-index: 10;
+      width: 300px; 
+      height: auto;
+      top: -80px;
+      left: -130px;
+    }
+
+    /* Secondary Filter Buttons */
+    .secondary-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0px;
+    }
   
+    .pink-moon {
+      position: absolute;
+      z-index: 10;
+      width: 300px; 
+      height: auto;
+      top: 125px;
+      left: -125px;
+    }
+  
+    .blue-candy {
+      position: absolute;
+      z-index: 10;
+      width: 350px; 
+      height: auto;
+      top: -300px;
+      left: 475px;
+    }
+  }
   
   @media (max-width: 480px) {
     .map-title {
@@ -496,8 +530,6 @@
       font-size: 2rem;
     }  
   }
-
-
 
   @media (max-width: 360px) {
     .map-box {
