@@ -291,7 +291,8 @@ form {
     color: white !important;
   }
   
-  .success-message {
+  .about-section .success-message h2,
+  .about-section .success-message p {
     text-align: center;
     padding: 2rem;
     background-color: rgba(240, 249, 235, 0.8);
