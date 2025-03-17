@@ -466,7 +466,24 @@
   }
   
   
-  @media (max-width: 480px) {
+  @media (max-width: 400px) {
+    .featured-properties-box {
+      width: 100%;
+      height: auto;
+      max-width: 1200px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #map-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120vh;
+      background-size: cover; 
+      background-color: #ffffff;
+    }
+
     .map-title {
       font-size: 1.5rem;
       text-align: justify;

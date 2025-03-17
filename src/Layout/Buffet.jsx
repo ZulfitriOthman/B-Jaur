@@ -5,7 +5,7 @@ import HeaderBG from "../assets/PurpleSky.png";
 import HeaderIcon from "../assets/HeaderIcon.png";
 import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
 import { BuffetSahurCards } from "./BuffetSahur.jsx";
-import AboutSection from '../Elements/AboutSection/AboutSection.jsx';
+import AboutSection from '../Elements/AboutSection/AboutSection';
 import "./TimePicker.css";
 
 function Buffet() {
@@ -519,7 +519,7 @@ function Buffet() {
                       </div>
                     )}
                   </div>
-                </div>
+                </div> */}
 
                 {/* closing Hours Filter with Slider */}
                 {/* <div className="closeHour-filter-container">
