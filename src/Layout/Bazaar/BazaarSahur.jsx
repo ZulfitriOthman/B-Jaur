@@ -155,18 +155,18 @@ export const BazaarSahurCards = [
     closeTime: "0200",
     link: "https://www.instagram.com/p/DHGyGmfTDjH/?utm_source=ig_web_copy_link"
   },
-  {
-    id: 12,
-    image: bazaar12,
-    title: "Baiduri Santai Sahur (22 & 28 March)",
-    date: "22 & 28 March",
-    time: "8.30 pm – 1.30 am",
-    location: "Level 2, Multi-storey carpark & Baiduri South Lawn, Baiduri Bank Headquarters.",
-    district: "Brunei-Muara",
-    option: "Bazaar Sahur",
-    openTime: "2030",
-    closeTime: "0130",
-    link: "https://www.instagram.com/p/DHQSFImMzmK/?utm_source=ig_web_copy_link"
-  },    
+  // {
+  //   id: 12,
+  //   image: bazaar12,
+  //   title: "Baiduri Santai Sahur (22 & 28 March)",
+  //   date: "22 & 28 March",
+  //   time: "8.30 pm – 1.30 am",
+  //   location: "Level 2, Multi-storey carpark & Baiduri South Lawn, Baiduri Bank Headquarters.",
+  //   district: "Brunei-Muara",
+  //   option: "Bazaar Sahur",
+  //   openTime: "2030",
+  //   closeTime: "0130",
+  //   link: "https://www.instagram.com/p/DHQSFImMzmK/?utm_source=ig_web_copy_link"
+  // },    
   ];
   
