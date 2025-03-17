@@ -458,7 +458,7 @@ function Buffet() {
 
 
                 {/* Opening Hours Filter */}
-                <div className="openHour-filter-container">
+                {/* <div className="openHour-filter-container">
                   <div className="openHour-filter">
                     <button
                       className="openHour-select"
@@ -521,7 +521,7 @@ function Buffet() {
                 </div>
 
                 {/* closing Hours Filter with Slider */}
-                <div className="closeHour-filter-container">
+                {/* <div className="closeHour-filter-container">
                   <div className="closeHour-filter">
                     <button
                       className="closeHour-select"
@@ -577,7 +577,7 @@ function Buffet() {
                       </div>
                     )}
                   </div>
-                </div>
+                </div> */}
 
 
                 {/* District Filter */}
