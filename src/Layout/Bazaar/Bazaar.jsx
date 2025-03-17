@@ -5,8 +5,9 @@ import HeaderBG from "../../assets/PurpleSky.png";
 import HeaderIcon from "../../assets/HeaderIcon.png";
 import { BazaarSahurCards } from "./BazaarSahur.jsx";
 import { BazaarSungkaiCards } from "./BazaarSungkai.jsx";
-import AboutSection from '../../Elements/AboutSection/AboutSection.jsx';
-import "../TimePicker.css";
+import AboutSection from '../../Elements/AboutSection/AboutSection';
+import ".././TimePicker.css";
+import { useMemo } from "react";
 
 function Buffet() {
   // Combine both card types into a single array
@@ -46,6 +47,7 @@ function Buffet() {
 
   // Filter cards based on search query
   useEffect(() => {
+    window.scrollTo(0, 0);
     const filteredCards = allCards.filter((card) => {
       const queryLower = searchQuery.toLowerCase();
       return (
