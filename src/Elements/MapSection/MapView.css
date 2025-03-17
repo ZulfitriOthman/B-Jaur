@@ -2,7 +2,7 @@
 .Map-container {
   position: relative;
   width: 100vw; 
-  height: 60vh;
+  height: 70vh;
   overflow: hidden;
   display: flex;
   flex: 1; 
@@ -65,7 +65,7 @@
 
 @media (max-width: 999px) {
   .DistrictMap-container {
-    height: 60vh;
+    height: 80vh;
   }
 
   .DistrictBackground-container {
@@ -77,6 +77,7 @@
 }
 
 @media (max-width: 768px) {
+  
   .DistrictMap-container {
     height: 80vh; 
   }
@@ -106,30 +107,70 @@
 
 /* For mobile devices (480px and smaller) */
 @media (max-width: 480px) {
-  .DistrictMap-container {
-    height: 90vh; /* Adjust the height for very small screens */
+  .Map-container {
+    position: relative;
+    width: 100vw; 
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex: 1; 
+    justify-content: flex-end;
+    margin: 0px 10px;
   }
-
-  .DistrictBackground-container,
-  .DistrictOverlay-container,
-  .svg-container {
-    width: 90%; /* Make the elements take up most of the screen width */
-    height: auto;
-  }
-
+  
+  /* Background container */
   .DistrictBackground-container {
-    top: 35%;
-    left: 50%;
+    position: absolute;
+    top: 30%; 
+    left: 44%; 
+    width: 265px; 
+    height: 265px; 
+    background: #776AFB;
+    border-radius: 30px;
+    transform: translate(-50%, -50%); 
+    z-index: 0;
   }
-
+  
+  /* Overlay container */
   .DistrictOverlay-container {
-    top: 35%;
-    left: 50%;
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    width: 220px; 
+    height: 220px; 
+    background: none;
+    border: 6px solid #ff8248;
+    border-radius: 30px;
+    padding: 20px;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
   }
-
+  
+  /* SVG container */
   .svg-container {
-    top: 10%;
-    right: 5px;
+    width: 300px; 
+    height: 265px; 
+    top: -7%;
+    background-color: none;
+    border-radius: 25px;
+    right: 46px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Scoped styles for SVG paths */
+  .svg-container path {
+    cursor: pointer;
+    fill: #f3f2ec;
+    transition: fill 0.3s ease;
+  }
+  
+  .svg-container path:hover {
+    fill: #ff8248;
+  }
+  
+  .svg-container .active path {
+    fill: #ff8248;
   }
 }
 
@@ -148,7 +189,7 @@
   /* Background container */
   .DistrictBackground-container {
     position: absolute;
-    top: 23%; 
+    top: 30%; 
     left: 44%; 
     width: 265px; 
     height: 265px; 

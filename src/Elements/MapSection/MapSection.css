@@ -1,8 +1,8 @@
-.map-box {
+  .map-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     background: url('../../assets/Orange.svg') no-repeat center center;
     background-size: cover; /* Ensure the image covers the element */
   }
@@ -394,15 +394,132 @@
   }
 
   @media (max-width: 768px) {
-    .hero-year {
+    .map-title {
       font-size: 1.5rem;
+      text-align: justify;
+      margin-bottom: 1rem;
+      padding: 0px 20px;
     }
+    
+    .map-description {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .content-overlay {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+    }
+
+    .content-left {
+      flex: 1; 
+      padding: 0px 20px;
+      text-align: justify;
+      margin-top: 0px;
+    }
+
+    /* Button Styles */
+    .MapFilter-button {
+      padding: 10px 0px;
+      font-size: 0.85rem;
+      width: 160px;
+    }
+  
+    .image-grid {
+      width: 90%;
+      height: 240px;
+      display: flex;           
+      flex-direction: column;     
+      gap: 15px;  
+      border-radius: 25px;              
+      justify-content: center; 
+      padding: 200px 0px;
+      margin-top: 100px;
+    }
+  
+    .image-container {
+      position: relative;
+      width: 100%; 
+      height: 100%;
+      border-radius: 25px; 
+      overflow: visible; 
+    }
+
+    .district {
+      font-size: 2rem;
+      margin-bottom: 0rem;
+    }  
+  
+    .subtitle {
+      font-size: 2rem;
+    }  
   }
   
+  
   @media (max-width: 480px) {
-    .hero-year {
+    .map-title {
       font-size: 1.5rem;
+      text-align: justify;
+      margin-bottom: 1rem;
+      padding: 0px 20px;
     }
+    
+    .map-description {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .content-overlay {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    .content-left {
+      flex: 1; 
+      padding: 0px 20px;
+      text-align: justify;
+      margin-top: 0px;
+    }
+
+    /* Button Styles */
+    .MapFilter-button {
+      padding: 10px 0px;
+      font-size: 0.85rem;
+      width: 170px;
+    }
+  
+    .image-grid {
+      width: 90%;
+      height: 240px;
+      display: flex;           
+      flex-direction: column;     
+      gap: 15px;  
+      border-radius: 25px;              
+      justify-content: center; 
+      padding: 200px 0px;
+      margin-top: 100px;
+    }
+  
+    .image-container {
+      position: relative;
+      width: 100%; 
+      height: 100%;
+      border-radius: 25px; 
+      overflow: visible; 
+    }
+
+    .district {
+      font-size: 2rem;
+      margin-bottom: 0rem;
+    }  
+  
+    .subtitle {
+      font-size: 2rem;
+    }  
   }
 
 
@@ -418,13 +535,14 @@
     }
 
     .map-title {
-      font-size: 1.75rem;
-      margin-bottom: 2.5rem;
+      font-size: 1.5rem;
+      text-align: justify;
+      margin-bottom: 1rem;
       padding: 0px 20px;
     }
     
     .map-description {
-      font-size: 1.25rem;
+      font-size: 0.9rem;
       margin-bottom: 2rem;
     }
 
