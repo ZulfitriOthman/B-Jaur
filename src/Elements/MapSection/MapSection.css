@@ -516,16 +516,24 @@
       font-size: 0.85rem;
       width: 170px;
     }
+
+    .secondary-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0px;
+      height: 800px;
+    }
   
     .image-grid {
-      width: 90%;
-      height: 240px;
+      width: 80%;
+      height: 220px;
       display: flex;           
       flex-direction: column;     
       gap: 15px;  
       border-radius: 25px;              
       justify-content: center; 
-      padding: 200px 0px;
+      padding: 120px 0px 0px 0px;
       margin-top: 100px;
     }
   
@@ -538,13 +546,49 @@
     }
 
     .district {
-      font-size: 2rem;
+      font-size: 1.6rem;
       margin-bottom: 0rem;
     }  
   
     .subtitle {
-      font-size: 2rem;
-    }  
+      font-size: 1.7rem;
+    }
+    
+    .yellow-sun {
+      width: 220px; 
+      height: auto;
+      top: -50px;
+      left: -100px;
+      
+    }
+  
+    .pink-moon {
+      width: 220px; 
+      height: auto;
+      top: 360px;
+      left: -120px;
+    }
+  
+    .blue-candy {
+      width: 270px; 
+      height: auto;
+      top: -290px;
+      left: 170px;
+    }
+
+    .image-description {
+      position: absolute;
+      top: 38%; 
+      left: 50%;
+      width: 85%;
+      transform: translate(-50%, -50%);
+      font-size: 1.25rem;
+      z-index: 1;
+    }
+
+    .image-title-section {
+      font-size: 1.75rem; 
+    }
   }
 
 
