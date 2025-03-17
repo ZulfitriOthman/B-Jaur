@@ -110,74 +110,11 @@
   .Map-container {
     position: relative;
     width: 100vw; 
-    height: 80vh;
     overflow: hidden;
     display: flex;
     flex: 1; 
     justify-content: flex-end;
-    margin: 0px 10px;
-  }
-  
-  /* Background container */
-  .DistrictBackground-container {
-    position: absolute;
-    top: 30%; 
-    left: 44%; 
-    width: 265px; 
-    height: 265px; 
-    background: #776AFB;
-    border-radius: 30px;
-    transform: translate(-50%, -50%); 
-    z-index: 0;
-  }
-  
-  /* Overlay container */
-  .DistrictOverlay-container {
-    position: absolute;
-    top: 45%;
-    left: 55%;
-    width: 220px; 
-    height: 220px; 
-    background: none;
-    border: 6px solid #ff8248;
-    border-radius: 30px;
-    padding: 20px;
-    transform: translate(-50%, -50%); 
-    z-index: 1;
-  }
-  
-  /* SVG container */
-  .svg-container {
-    width: 70%; 
-    height: auto; 
-  }
-
-  .DistrictBackground-container {
-    top: 40%; /* Adjust the vertical position */
-    left: 50%;
-  }
-
-  .DistrictOverlay-container {
-    top: 40%; /* Adjust the vertical position */
-    left: 50%;
-  }
-
-  .svg-container {
-    top: 20%; /* Adjust the vertical position */
-    right: 10px;
-  }
-}
-
-@media (max-width: 360px) {
-  .Map-container {
-    position: relative;
-    width: 100vw; 
-    height:80vh;
-    overflow: hidden;
-    display: flex;
-    flex: 1; 
-    justify-content: flex-end;
-    margin: 0px 10px;
+    margin: 0px;
   }
   
   /* Background container */
