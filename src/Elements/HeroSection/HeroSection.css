@@ -1,11 +1,10 @@
 .hero-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  justify-content: center; 
+  align-items: center;     
   height: 100vh;
-  width: auto;
+  width: 100%;
   background: url('../../assets/Pasar Ramadan.jpg') no-repeat center center/cover;
   color: white;
   position: relative;
@@ -21,17 +20,17 @@
   overflow: hidden;
 }
 
-.hero-border-container {
+.hero-frame-container {
   position: relative;
-  width: 100%; 
+  width: 100%;
   height: 100%; 
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
-.hero-border {
+.hero-frame {
   width: 100%;
   height: 100%;
   object-fit: contain; 
@@ -39,8 +38,9 @@
 
 .hero-content {
   position: absolute;
-  top: 50%;
+  top: 54%;
   left: 50%;
+  height: 80vh;
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
@@ -65,34 +65,28 @@
   /* background-image: url('../../assets/Border.png'); */
 }
 
-.hero-content{
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 /* Arabic year */
 .hero-year {
-  margin-top: 30px;
-  font-size: 2.7rem;
+  font-size: 5rem;
   font-weight: bold;
   color: #FFFFFF;
-  margin-bottom: 10px;
+  margin: 0px;
 }
 
-
 .b-jaurLogo {
-  width: 220px;
+  width: 350px;
   height: auto;
 }
 
 /* Text container */
 .hero-text {
-  font-size: 2.7rem;
+  font-size: 5rem;
   font-weight: bold;
   display: flex;
-  gap: 15px;
+  gap: 40px;
   align-items: center;
   justify-content: center;
+  margin: 20px 0px;
 }
 
 /* Orange text */
@@ -119,11 +113,12 @@
   justify-content: center;
 }
 .hero-description {
-  font-size: 1.25rem;
+  font-size: 2rem;
   color: #FFFFFF;
   max-width: auto;
-  margin: 0px;
+  margin: 10px;
   text-align: left;
+  font-weight: bold;
 }
 
 /* Search container */
@@ -139,14 +134,14 @@
   display: flex;
   align-items: center;
   border-radius: 25px;
-  width: 65%; /* Ensure it takes full width of the parent container */
+  width: 70%;
   background-color: #776AFB;
 }
 
 /* Search input */
 .search-restaurant {
   border: none;
-  padding: 10px;
+  padding: 15px;
   font-size: 1rem;
   outline: none;
   flex: 1; /* Takes all available space */
@@ -171,26 +166,25 @@
   height: 20px;
 }
 
-
 .hero-image {
   position: absolute;
   bottom: 0px;
   right: 0px;
-  width: 45%; /* Adjust size as needed */
+  width: 45%; 
   height: auto;
-  z-index: 10; /* Ensure the image is on top of other content */
+  z-index: 10;
 }
 
 .down-arrow {
   position: absolute;
-  bottom: 10px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-  border: 2px solid white; /* White border */
-  border-radius: 50%; /* Makes it round */
-  width: 50px; /* Set width */
-  height: 50px; /* Set height */
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,6 +193,10 @@
   animation: bounce 1.5s infinite;
   color: white;
   transition: background 0.3s ease-in-out;
+}
+
+.down-arrow-icon {
+  font-size: 25px;
 }
 
 .down-arrow:hover {
@@ -215,18 +213,83 @@
 }
 
 @media (max-width: 768px) {
-  .hero-year {
-    font-size: 1.5rem;
-  }
 }
 
-@media (max-width: 480px) {
-  .hero-year {
-    font-size: 1.5rem;
+@media (max-width: 400px) {
+  .hero-frame-container {
+    overflow: hidden; 
+    margin-top: -200px;
+    width: 100%;
+    height: 200vh; 
   }
-}
-@media (max-width: 360px) {
+
+  .hero-frame {
+    width: 600px; 
+    height: auto; 
+  }
+
+  .hero-content {
+    top: 65%;
+    left: 50%;
+    height: 80vh;
+  }
+
   .hero-year {
-    font-size: 1.5rem;
+    font-size: 3rem;
+  }
+
+  .b-jaurLogo {
+    width: 250px;
+    height: auto;
+    margin: 0px;
+  }
+
+  /* Text container */
+  .hero-text {
+    font-size: 3rem;
+    flex-direction: column;
+    gap: 0px;
+    margin: 30px 0px;
+    padding: 0px;
+  }
+
+  .highlight-text {
+    margin-bottom: -10px;
+    padding: 0px;
+  }
+
+  .normal-text {
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+
+  .hero-description {
+    font-size: 1.15rem;
+    width: 100%;
+    margin: 0px;
+    text-align: justify;
+  }
+
+  .down-arrow {
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+    color: white;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .down-arrow-icon {
+    font-size: 25px;
   }
 }

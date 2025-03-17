@@ -106,84 +106,15 @@
 }
 
 /* For mobile devices (480px and smaller) */
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .Map-container {
     position: relative;
     width: 100vw; 
-    height: 80vh;
     overflow: hidden;
     display: flex;
     flex: 1; 
     justify-content: flex-end;
-    margin: 0px 10px;
-  }
-  
-  /* Background container */
-  .DistrictBackground-container {
-    position: absolute;
-    top: 30%; 
-    left: 44%; 
-    width: 265px; 
-    height: 265px; 
-    background: #776AFB;
-    border-radius: 30px;
-    transform: translate(-50%, -50%); 
-    z-index: 0;
-  }
-  
-  /* Overlay container */
-  .DistrictOverlay-container {
-    position: absolute;
-    top: 45%;
-    left: 55%;
-    width: 220px; 
-    height: 220px; 
-    background: none;
-    border: 6px solid #ff8248;
-    border-radius: 30px;
-    padding: 20px;
-    transform: translate(-50%, -50%); 
-    z-index: 1;
-  }
-  
-  /* SVG container */
-  .svg-container {
-    width: 300px; 
-    height: 265px; 
-    top: -7%;
-    background-color: none;
-    border-radius: 25px;
-    right: 46px;
-    position: relative;
-    z-index: 2;
-  }
-  
-  /* Scoped styles for SVG paths */
-  .svg-container path {
-    cursor: pointer;
-    fill: #f3f2ec;
-    transition: fill 0.3s ease;
-  }
-  
-  .svg-container path:hover {
-    fill: #ff8248;
-  }
-  
-  .svg-container .active path {
-    fill: #ff8248;
-  }
-}
-
-@media (max-width: 360px) {
-  .Map-container {
-    position: relative;
-    width: 100vw; 
-    height:80vh;
-    overflow: hidden;
-    display: flex;
-    flex: 1; 
-    justify-content: flex-end;
-    margin: 0px 10px;
+    margin: 0px;
   }
   
   /* Background container */
