@@ -97,12 +97,11 @@
   .Map-container {
     position: relative;
     width: 100vw; 
-    height: 80vh;
     overflow: hidden;
     display: flex;
     flex: 1; 
     justify-content: flex-end;
-    margin: 0px 10px;
+    margin: 0px;
   }
   
   /* Background container */
