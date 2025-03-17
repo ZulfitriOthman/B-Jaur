@@ -1,11 +1,11 @@
-import bazaar1 from "../assets/BazaarSungkai/RamadhanEcoBazaar.jpg"; 
-import bazaar2 from "../assets/BazaarSungkai/BazaarRamadhanStadium.jpg"; 
-import bazaar3 from "../assets/BazaarSungkai/PasarMalam.jpg"; 
-import bazaar4 from "../assets/BazaarSungkai/BazaarRamadhanBatuSatu.jpg"; 
-import bazaar5 from "../assets/BazaarSungkai/IftarSouqRamadan.jpg"; 
-import bazaar6 from "../assets/BazaarSungkai/YayasanComplex.jpg"; 
-import bazaar7 from "../assets/BazaarSungkai/BazaarRamadanTutong.jpg"; 
-import bazaar8 from "../assets/BazaarSungkai/BazaarRamadanBelait.jpg"; 
+import bazaar1 from "../../assets/BazaarSungkai/RamadhanEcoBazaar.jpg"; 
+import bazaar2 from "../../assets/BazaarSungkai/BazaarRamadhanStadium.jpg"; 
+import bazaar3 from "../../assets/BazaarSungkai/PasarMalam.jpg"; 
+import bazaar4 from "../../assets/BazaarSungkai/BazaarRamadhanBatuSatu.jpg"; 
+import bazaar5 from "../../assets/BazaarSungkai/IftarSouqRamadan.jpg"; 
+import bazaar6 from "../../assets/BazaarSungkai/YayasanComplex.jpg"; 
+import bazaar7 from "../../assets/BazaarSungkai/BazaarRamadanTutong.jpg"; 
+import bazaar8 from "../../assets/BazaarSungkai/BazaarRamadanBelait.jpg"; 
 
 
 // Named Export

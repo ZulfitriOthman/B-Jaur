@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Moreh.css";
-import HeaderBG from "../assets/PurpleSky.png";
-import HeaderIcon from "../assets/HeaderIcon.png";
-import { MorehCards } from "./MorehData.jsx";
-import AboutSection from '../Elements/AboutSection/AboutSection';
-import "./TimePicker.css";
+import "./Buffet.css";
+import HeaderBG from "../../assets/PurpleSky.png";
+import HeaderIcon from "../../assets/HeaderIcon.png";
+import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
+import { BuffetSahurCards } from "./BuffetSahur.jsx";
+import AboutSection from '../../Elements/AboutSection/AboutSection.jsx';
+import "../TimePicker.css";
 
 function Buffet() {
   // Combine both card types into a single array
-  // const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
+  const allCards = [...BuffetSungkaiCards, ...BuffetSahurCards];
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortedCards, setSortedCards] = useState(MorehCards);
+  const [sortedCards, setSortedCards] = useState(allCards);
   const [showPriceSort, setShowPriceSort] = useState(false);
   const [selectedPriceOption, setSelectedPriceOption] = useState("");
   const [showFilter, setShowFilter] = useState(false);
@@ -45,7 +46,7 @@ function Buffet() {
 
   // Filter cards based on search query
   useEffect(() => {
-    const filteredCards = MorehCards.filter((card) => {
+    const filteredCards = allCards.filter((card) => {
       const queryLower = searchQuery.toLowerCase();
       return (
         card.title.toLowerCase().includes(queryLower) ||
@@ -86,7 +87,7 @@ function Buffet() {
   const handleSortChange = (sortOrder) => {
     setSelectedPriceOption(sortOrder === "low-to-high" ? "Price: Low to High" : "Price: High to Low");
 
-    const sortedData = [...MorehCards];
+    const sortedData = [...allCards];
     sortedData.sort((a, b) => {
       const priceA = parseFloat(a.price.replace(/[^0-9.-]+/g, ""));
       const priceB = parseFloat(b.price.replace(/[^0-9.-]+/g, ""));
@@ -108,9 +109,9 @@ function Buffet() {
     setSelectedCategory(category);
 
     if (category === "") {
-      setSortedCards(MorehCards); // Show all when no filter
+      setSortedCards(allCards); // Show all when no filter
     } else {
-      const filteredCards = MorehCards.filter((card) => card.option === category);
+      const filteredCards = allCards.filter((card) => card.option === category);
       setSortedCards(filteredCards);
     }
 
@@ -139,7 +140,7 @@ function Buffet() {
       setMaxPrice(newRange[1]);
   
       // Filter cards based on price range
-      const filteredCards = MorehCards.filter((card) => {
+      const filteredCards = allCards.filter((card) => {
         const cardPrice = parseFloat(card.price.replace(/[^0-9.]/g, "")); // Extract numeric price
         return cardPrice >= newRange[0] && cardPrice <= newRange[1];
       });
@@ -155,9 +156,9 @@ function Buffet() {
     setSelectedDistrict(district);
 
     if (district === "") {
-      setSortedCards(MorehCards); // Show all when no filter
+      setSortedCards(allCards); // Show all when no filter
     } else {
-      const filteredCards = MorehCards.filter((card) => card.district === district);
+      const filteredCards = allCards.filter((card) => card.district === district);
       setSortedCards(filteredCards);
     }
 
@@ -180,15 +181,13 @@ function Buffet() {
     setCurrentPage(pageNumber);
   };
 
-
-
   return (
     <div className="buffet-container">
       <div className="buffet-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
         <div className="buffet-header-content">
-          <h1 className="buffet-title">Moreh</h1>
+          <h1 className="buffet-title">Buffet</h1>
           <p className="buffet-description">
-          Sweet sustenance after Taraweeh
+            Explore the best buffet options for Ramadhan eats & treats!
           </p>
         </div>
         
@@ -201,7 +200,7 @@ function Buffet() {
         <div className="breadcrumb">
           <a href="/" className="breadcrumb-link">Home</a>
           <span className="breadcrumb-separator"> &gt; </span>
-          <span className="breadcrumb-current">Moreh</span>
+          <span className="breadcrumb-current">Buffet</span>
         </div>
 
         {/* Search Bar */}
@@ -209,7 +208,7 @@ function Buffet() {
           <input
             type="text"
             className="search-input"
-            placeholder="Find moreh spots!"
+            placeholder="Find buffets!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
@@ -219,13 +218,13 @@ function Buffet() {
         {/* Dropdown for Price Sorting */}
         <div className="filters-container">
           <div className="custom-dropdown">
-            {/* <button
-              className="price-sort-button"
+            <button
+              className="buffet-price-sort-button"
               onClick={() => setShowPriceSort(!showPriceSort)}
             >
               {selectedPriceOption || "Sort by price"}{" "}
               <span className="arrow">{showPriceSort ? "▲" : "▼"}</span>
-            </button> */}
+            </button>
 
             {showPriceSort && (
               <div className="dropdown-pricesorts">
@@ -249,13 +248,13 @@ function Buffet() {
           {/* Buttons */}
           <div className="buffet-button-container">
             <Link to="/buffet">
-              <button className="buffet-button">Buffet</button>
+              <button className="buffet-button active-button">Buffet</button>
             </Link>
             <Link to="/bazaar">
               <button className="bazaar-button">Bazaar</button>
             </Link>
             <Link to="/moreh">
-              <button className="moreh-button active-button">Moreh</button>
+              <button className="moreh-button">Moreh</button>
             </Link>
           </div>
 
@@ -269,7 +268,7 @@ function Buffet() {
             {showFilter && (
               <div className="filter-dropdown">
 
-                {/* Category Filter
+                {/* Category Filter */}
                 <div className="category-filter">
                   <button
                     className="category-select"
@@ -301,10 +300,10 @@ function Buffet() {
                       </button>
                     </div>
                   )}
-                </div> */}
+                </div>
 
                 {/* Price Range Filter with Slider */}
-                {/* <div className="price-filter-container">
+                <div className="price-filter-container">
                   <div className="price-filter">
                     <button
                       className="price-select"
@@ -363,10 +362,10 @@ function Buffet() {
                               name="max"
                               onChange={handlePriceSliderChange}
                               className="slider-max-val"
-                            /> */}
+                            />
 
                             {/* Price Tooltip (Display price above thumb) */}
-                            {/* <div
+                            <div
                               className="price-tooltip min-tooltip"
                               style={{
                                 left: `calc(${(minPrice / 100) * 100}%)`,
@@ -392,11 +391,11 @@ function Buffet() {
                       </>
                     )}
                   </div>
-                </div> */}
+                </div>
 
 
                 {/* Opening Hours Filter */}
-                {/* <div className="openHour-filter-container">
+                <div className="openHour-filter-container">
                   <div className="openHour-filter">
                     <button
                       className="openHour-select"
@@ -456,10 +455,10 @@ function Buffet() {
                       </div>
                     )}
                   </div>
-                </div> */}
+                </div>
 
                 {/* closing Hours Filter with Slider */}
-                {/* <div className="closeHour-filter-container">
+                <div className="closeHour-filter-container">
                   <div className="closeHour-filter">
                     <button
                       className="closeHour-select"
@@ -515,7 +514,7 @@ function Buffet() {
                       </div>
                     )}
                   </div>
-                </div> */}
+                </div>
 
 
                 {/* District Filter */}

@@ -86,8 +86,6 @@ function MapSection() {
           </motion.h3>
         )}
       </header>
-
-
         <div className="content-overlay">
           <div className="content-left">
             {!showSecondaryFilters && (

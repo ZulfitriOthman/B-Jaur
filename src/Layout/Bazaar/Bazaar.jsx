@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Buffet.css";
-import HeaderBG from "../assets/PurpleSky.png";
-import HeaderIcon from "../assets/HeaderIcon.png";
-import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
-import { BuffetSahurCards } from "./BuffetSahur.jsx";
-import AboutSection from '../Elements/AboutSection/AboutSection';
-import "./TimePicker.css";
+import "./Bazaar.css";
+import HeaderBG from "../../assets/PurpleSky.png";
+import HeaderIcon from "../../assets/HeaderIcon.png";
+import { BazaarSahurCards } from "./BazaarSahur.jsx";
+import { BazaarSungkaiCards } from "./BazaarSungkai.jsx";
+import AboutSection from '../../Elements/AboutSection/AboutSection.jsx';
+import "../TimePicker.css";
 
 function Buffet() {
   // Combine both card types into a single array
-  const allCards = [...BuffetSungkaiCards, ...BuffetSahurCards];
+  const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
   const [currentPage, setCurrentPage] = useState(1);
   const [sortedCards, setSortedCards] = useState(allCards);
   const [showPriceSort, setShowPriceSort] = useState(false);
@@ -184,17 +184,17 @@ function Buffet() {
 
 
   return (
-    <div className="buffet-container">
-      <div className="buffet-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
-        <div className="buffet-header-content">
-          <h1 className="buffet-title">Buffet</h1>
-          <p className="buffet-description">
-            Explore the best buffet options for Ramadhan eats & treats!
+    <div className="bazaar-container">
+      <div className="bazaar-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
+        <div className="bazaar-header-content">
+          <h1 className="bazaar-title">Bazaar</h1>
+          <p className="bazaar-description">
+          Endless choices, blessed bazaars
           </p>
         </div>
         
         {/* Header Icon */}
-        <img src={HeaderIcon} alt="Header Icon" className="buffet-header-icon" />
+        <img src={HeaderIcon} alt="Header Icon" className="bazaar-header-icon" />
       </div>
 
       <div className="content-container">
@@ -202,15 +202,15 @@ function Buffet() {
         <div className="breadcrumb">
           <a href="/" className="breadcrumb-link">Home</a>
           <span className="breadcrumb-separator"> &gt; </span>
-          <span className="breadcrumb-current">Buffet</span>
+          <span className="breadcrumb-current">Bazaar</span>
         </div>
 
         {/* Search Bar */}
-        <div className="buffet-search">
+        <div className="bazaar-search">
           <input
             type="text"
             className="search-input"
-            placeholder="Find buffets!"
+            placeholder="Find bazaars!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
@@ -220,13 +220,13 @@ function Buffet() {
         {/* Dropdown for Price Sorting */}
         <div className="filters-container">
           <div className="custom-dropdown">
-            <button
+            {/* <button
               className="price-sort-button"
               onClick={() => setShowPriceSort(!showPriceSort)}
             >
               {selectedPriceOption || "Sort by price"}{" "}
               <span className="arrow">{showPriceSort ? "▲" : "▼"}</span>
-            </button>
+            </button> */}
 
             {showPriceSort && (
               <div className="dropdown-pricesorts">
@@ -248,12 +248,12 @@ function Buffet() {
         
         
           {/* Buttons */}
-          <div className="buffet-button-container">
+          <div className="bazaar-button-container">
             <Link to="/buffet">
-              <button className="buffet-button active-button">Buffet</button>
+              <button className="buffet-button">Buffet</button>
             </Link>
             <Link to="/bazaar">
-              <button className="bazaar-button">Bazaar</button>
+              <button className="bazaar-button active-button">Bazaar</button>
             </Link>
             <Link to="/moreh">
               <button className="moreh-button">Moreh</button>
@@ -283,16 +283,16 @@ function Buffet() {
                   {showCategoryButtons && (
                     <div className="filtercategory-buttons">
                       <button 
-                        className={`filtercategory-button ${selectedCategory === "Sungkai Buffet" ? "active" : ""}`}
-                        onClick={() => handleCategoryFilter("Sungkai Buffet")}
+                        className={`filtercategory-button ${selectedCategory === "Bazaar Sungkai" ? "active" : ""}`}
+                        onClick={() => handleCategoryFilter("Bazaar Sungkai")}
                       >
-                        Sungkai Buffet
+                        Bazaar Sungkai
                       </button>
                       <button 
-                        className={`filtercategory-button ${selectedCategory === "Sahur Buffet" ? "active" : ""}`}
-                        onClick={() => handleCategoryFilter("Sahur Buffet")}
+                        className={`filtercategory-button ${selectedCategory === "Bazaar Sahur" ? "active" : ""}`}
+                        onClick={() => handleCategoryFilter("Bazaar Sahur")}
                       >
-                        Sahur Buffet
+                        Bazaar Sahur
                       </button>
                       <button 
                         className="filtercategory-button" 
@@ -305,7 +305,7 @@ function Buffet() {
                 </div>
 
                 {/* Price Range Filter with Slider */}
-                <div className="price-filter-container">
+                {/* <div className="price-filter-container">
                   <div className="price-filter">
                     <button
                       className="price-select"
@@ -364,10 +364,10 @@ function Buffet() {
                               name="max"
                               onChange={handlePriceSliderChange}
                               className="slider-max-val"
-                            />
+                            /> */}
 
                             {/* Price Tooltip (Display price above thumb) */}
-                            <div
+                            {/* <div
                               className="price-tooltip min-tooltip"
                               style={{
                                 left: `calc(${(minPrice / 100) * 100}%)`,
@@ -393,11 +393,11 @@ function Buffet() {
                       </>
                     )}
                   </div>
-                </div>
+                </div> */}
 
 
                 {/* Opening Hours Filter */}
-                <div className="openHour-filter-container">
+                {/* <div className="openHour-filter-container">
                   <div className="openHour-filter">
                     <button
                       className="openHour-select"
@@ -460,7 +460,7 @@ function Buffet() {
                 </div> */}
 
                 {/* closing Hours Filter with Slider */}
-                <div className="closeHour-filter-container">
+                {/* <div className="closeHour-filter-container">
                   <div className="closeHour-filter">
                     <button
                       className="closeHour-select"
@@ -516,7 +516,7 @@ function Buffet() {
                       </div>
                     )}
                   </div>
-                </div>
+                </div> */}
 
 
                 {/* District Filter */}
@@ -579,24 +579,24 @@ function Buffet() {
         </div>
 
         {/* Cards Section */}
-        <section className="BuffetCard-dropdown-section">
-          <div className="BuffetCard-container">
+        <section className="bazaarCard-dropdown-section">
+          <div className="bazaarCard-container">
             {currentCards.map((card) => (
               <a
                 key={card.id}
                 href={card.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="BuffetCard"
+                className="bazaarCard"
               >
                 <div className="card-image-container">
-                  <img src={card.image} alt={card.title} className="BuffetCard-image" />
+                  <img src={card.image} alt={card.title} className="bazaarCard-image" />
                 </div>
-                <p className="BuffetCard-option">{card.option}</p>
-                <h3 className="BuffetCard-title">{card.title}</h3>
-                <p className="BuffetCard-price">{card.priceDisplay}</p>
-                <p className="BuffetCard-time">{card.time}</p>
-                <p className="BuffetCard-district">{card.district}</p>
+                <p className="bazaarCard-option">{card.option}</p>
+                <h3 className="bazaarCard-title">{card.title}</h3>
+                <p className="bazaarCard-price">{card.priceDisplay}</p>
+                <p className="bazaarCard-time">{card.time}</p>
+                <p className="bazaarCard-district">{card.district}</p>
               </a>
             ))}
           </div>
