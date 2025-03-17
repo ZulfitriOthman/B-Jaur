@@ -134,41 +134,28 @@
 /* For mobile devices (480px and smaller) */
 @media (max-width: 400px) {
   .Map-container {
-    position: relative;
     width: 100vw; 
-    overflow: hidden;
-    display: flex;
-    flex: 1; 
-    justify-content: flex-end;
     margin: 0px;
   }
   
   /* Background container */
   .DistrictBackground-container {
-    position: absolute;
-    top: 30%; 
-    left: 44%; 
+    top: 25%; 
+    left: 47%; 
     width: 265px; 
     height: 265px; 
-    background: #776AFB;
-    border-radius: 30px;
-    transform: translate(-50%, -50%); 
-    z-index: 0;
   }
   
   /* Overlay container */
   .DistrictOverlay-container {
-    position: absolute;
-    top: 45%;
-    left: 55%;
+    top: 120px;
+    left: 145px;
     width: 220px; 
     height: 220px; 
-    background: none;
-    border: 6px solid #ff8248;
-    border-radius: 30px;
     padding: 20px;
-    transform: translate(-50%, -50%); 
-    z-index: 1;
+    flex: auto;
+    justify-items: center;
+    justify-content: center;
   }
   
   /* SVG container */

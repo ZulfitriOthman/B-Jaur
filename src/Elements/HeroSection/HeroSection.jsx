@@ -1,8 +1,8 @@
 import { FaChevronDown } from "react-icons/fa";
 import "./HeroSection.css";
 import BJaurLogo from "../../assets/BJaurLogo.png";
-// import SearchIcon from "../../assets/SearchIcon.png";
-import Frame from "../../assets/Masjid-Frame.png"; 
+import SearchIcon from "../../assets/SearchIcon.png";
+import Border from "../../assets/Border.png"; // Importing the border image
 
 function HeroSection() {
   const scrollToMapSection = () => {
@@ -17,8 +17,8 @@ function HeroSection() {
 
   return (
     <section id="hero" className="hero-section">
-      <div className="hero-frame-container">
-        <img src={Frame} alt="Frame" className="hero-frame" />
+      <div className="hero-border-container">
+        <img src={Border} alt="Border" className="hero-border" />
         <div className="hero-content">
           <h1 className="hero-year">٢٠٢٥</h1>
 
@@ -35,7 +35,7 @@ function HeroSection() {
             </p>
           </div>
 
-          {/* <div className="search-container-restaurantBox">
+          <div className="search-container-restaurantBox">
             <div className="search-container-restaurant">
               <input
                 type="text"
@@ -46,10 +46,10 @@ function HeroSection() {
                 <img src={SearchIcon} alt="Search" className="search-icon" />
               </button>
             </div>
-          </div> */}
+          </div>
 
           <button className="down-arrow" onClick={scrollToMapSection}>
-            <FaChevronDown className="down-arrow-icon" />
+            <FaChevronDown />
           </button>
         </div>
       </div>
