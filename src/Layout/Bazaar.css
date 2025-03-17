@@ -5,13 +5,13 @@ hr {
   margin: 30px 0px 10px 10px; 
 }
 
-.bazaar-container {
+.buffet-container {
     text-align: left;
     background-color: #ffffff;
     height: auto;
 }
 
-.bazaar-header {
+.buffet-header {
     display: flex;
     align-items: center;
     justify-content: space-between; 
@@ -21,21 +21,21 @@ hr {
     background-size: cover;
 }
 
-.bazaar-header-content {
+.buffet-header-content {
     flex: 1;
 }
 
-.bazaar-header-icon {
+.buffet-header-icon {
     width: 580px; 
     height: auto;
 }
 
-.bazaar-header-background {
+.buffet-header-background {
     width: 100%;
     height: 100%;
 }
 
-.bazaar-title {
+.buffet-title {
     font-size: 3rem;
     margin-bottom: 10px;
     color: #ffffff;
@@ -43,7 +43,7 @@ hr {
     text-align: left;
 }
 
-.bazaar-description {
+.buffet-description {
     font-size: 1.2rem;
     margin-bottom: 20px;
     color: #ffffff;
@@ -87,7 +87,7 @@ hr {
 }
 
 /* SEARCH BAR */
-.bazaar-search {
+.buffet-search {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,7 +193,7 @@ hr {
 
 
 /* Three Buttons (Buffet, Bazaar, Moreh) */
-.bazaar-button-container {
+.buffet-button-container {
   display: flex;
   justify-content: center;
   gap: 10px; 
@@ -630,7 +630,7 @@ hr {
 
 
 /* Card Layout */
-.bazaarCard {
+.BuffetCard {
   width: 100%; 
   max-width: 400px; 
   box-sizing: border-box;
@@ -664,14 +664,14 @@ hr {
 }
 
 /* Other styles remain unchanged */
-.bazaarCard-dropdown-section {
+.BuffetCard-dropdown-section {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-bottom: 20px;
 }
 
-.bazaarCard-container {
+.BuffetCard-container {
   display: grid;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -684,12 +684,12 @@ hr {
 }
 
 /* Pseudo-element to fill remaining space */
-.bazaarCard-container::after {
+.BuffetCard-container::after {
   content: "";
   flex: auto;
 }
 
-.bazaarCard-option {
+.BuffetCard-option {
   font-size: 1rem;
   margin: 10px 0;
   color: #776afb;
@@ -701,7 +701,7 @@ hr {
   width: fit-content;
 }
 
-.bazaarCard-title {
+.BuffetCard-title {
   font-size: 1.15rem;
   margin: 10px 0;
   color: #000000;
@@ -710,7 +710,7 @@ hr {
   margin: 0px;
 }
 
-.bazaarCard-price, .bazaarCard-time {
+.BuffetCard-price, .BuffetCard-time {
   font-size: 1rem;
   color: #505050;
   text-align: left;
@@ -718,7 +718,7 @@ hr {
   margin: 0px;
 }
 
-.bazaarCard-district {
+.BuffetCard-district {
   font-size: 1rem;
   color: #505050;
   text-align: left;
@@ -765,222 +765,51 @@ hr {
     text-decoration: none;
 }
 
-@media (max-width: 1040px) {
-  /* Header */
-  .bazaar-header {
-    height: 200px;
-  }
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .BuffetCard {
+        width: calc(33.33% - 20px); 
+    }
+}
 
-  .bazaar-title {
-    font-size: 2.5rem;
-    padding: 0px 0 0 50px;
-  }
+@media (max-width: 900px) {
+    .BuffetCard {
+        width: calc(50% - 20px); 
+    }
 
-  .bazaar-description {
-    font-size: 1rem;
-    padding: 10px 0 0 50px;
-  }
+    .BuffetCard-container {
+        padding: 20px 30px;
+        gap: 15px;
+    }
 
-  /* Content Container */
-  .content-container {
-    margin: 0px 0px 0px 0px;
-  }
+    .BuffetCard-title {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
 
-  /* Breadcrumb */
-  .breadcrumb {
-    font-size: 0.9rem;
-    flex-direction: row;
-  }
+    .BuffetCard-address, .BuffetCard-category, .BuffetCard-content {
+        font-size: 0.7rem;
+        padding: 0 10px;
+    }
+}
 
-  .breadcrumb-link {
-    font-size: 1rem;
-  }
+@media (max-width: 600px) {
+    .BuffetCard {
+        width: calc(100% - 20px); 
+    }
 
-  /* Search Bar */
-  .buffet-search {
-    flex-direction: row;
-    gap: 15px;
-  }
+    .BuffetCard-container {
+        padding: 20px;
+        gap: 10px;
+    }
 
-  .search-button {
-    width: 100%;
-    font-size: 1rem;
-    height: 40px;
-  }
+    .BuffetCard-title {
+        font-size: 0.8rem;
+        padding: 0 10px;
+    }
 
-  /* Filters */
-  .filters-container {
-    grid-template-columns: 1fr; /* Single column on small screens */
-    grid-gap: 15px;
-  }
-
-  /* Price Sort Dropdown */
-  .bazaar-price-sort-button {
-    font-size: 1rem;
-    padding: 5px 5px;
-  }
-
-  .dropdown-pricesorts {
-    width: 100%;
-  }
-
-  /* Buttons */
-  .bazaar-button-container {
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .buffet-button, .bazaar-button, .moreh-button {
-    font-size: 1rem;
-    padding: 12px 25px;
-  }
-
-  .filter-container {
-    width: 90%;
-    margin: 10px 0;
-  }
-
-  .filterdropdown-button {
-    width: 100%;
-    font-size: 1rem;
-    padding: 12px 20px;
-  }
-
-  .filter-dropdown {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .filter-select {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  /* Category Filter */
-  .category-select {
-    font-size: 1rem;
-    padding: 12px 0;
-  }
-
-  .filtercategory-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .filtercategory-button {
-    width: 100%;
-    font-size: 1rem;
-    padding: 12px 15px;
-  }
-
-  /* Update active button style for better contrast on small screens */
-  .active-button {
-    color: #F26339 !important;
-    border: 2px solid #F26339 !important;
-  }
-
-  /* Price Filter */
-  .price-select {
-    font-size: 13px; /* Adjust font size for smaller screens */
-    padding: 8px 0px 10px 0px;
-  }
-
-  .price-filter-container {
-    margin-top: 15px;
-  }
-
-  .price-range-slider {
-    width: 80%; /* Reduce the width of the price slider */
-    margin-top: 35px;
-  }
-
-  .price-slider-track {
-    height: 4px; /* Adjust the track height */
-  }
-
-  .price-tooltip {
-    font-size: 12px; /* Adjust tooltip font size */
-    padding: 3px 6px;
-  }
-
-  /* Opening Hours Filter */
-  .openHour-select {
-    font-size: 13px;
-    padding: 8px 0px 10px 0px;
-  }
-
-  .openHour-filter-container {
-    margin-top: 15px;
-  }
-
-  /* Closing Hours Filter */
-  .closeHour-select {
-    font-size: 13px;
-    padding: 8px 0px 10px 0px;
-  }
-
-  .closeHour-filter-container {
-    margin-top: 15px;
-  }
-
-  /* District Filter */
-  .filterdistrict-select {
-    font-size: 13px;
-    padding: 8px 0px 10px 0px;
-  }
-
-  .filterdistrict-button {
-    padding: 8px;
-    font-size: 13px;
-    border-radius: 8px; /* Adjust border radius for smaller screens */
-  }
-
-  .filterdistrict-button.active {
-    background-color: #f26339;
-    border-color: #f26339;
-    color: white;
-  }
-
-  /* Card Layout */
-  .bazaarCard {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-  }
-
-  .card-image-container {
-    height: 200px; /* Reduce the height of the image container */
-  }
-
-  .card-image-container img {
-    object-fit: cover;
-  }
-
-  .bazaarCard-title {
-    font-size: 1rem;
-  }
-
-  .bazaarCard-price, .bazaarCard-time, .bazaarCard-district {
-    font-size: 0.9rem; /* Reduce font size for better fit */
-  }
-
-  .bazaarCard-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on smaller screens */
-    gap: 15px;
-    padding: 15px;
-  }
-
-  /* Pagination */
-  .card-pagination button {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
-
-  /* Back button styling */
-  .back-button {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-  }
+    .BuffetCard-address, .BuffetCard-category, .BuffetCard-content {
+        font-size: 0.6rem;
+        padding: 0 10px;
+    }
 }

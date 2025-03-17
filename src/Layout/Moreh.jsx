@@ -1,19 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Buffet.css";
-import HeaderBG from "../../assets/PurpleSky.png";
-import HeaderIcon from "../../assets/HeaderIcon.png";
-import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
-import { BuffetSahurCards } from "./BuffetSahur.jsx";
-import AboutSection from '../../Elements/AboutSection/AboutSection';
-import "./../TimePicker.css";
-import { useMemo } from "react";
+import "./Moreh.css";
+import HeaderBG from "../assets/PurpleSky.png";
+import HeaderIcon from "../assets/HeaderIcon.png";
+import { MorehCards } from "./MorehData.jsx";
+import AboutSection from '../Elements/AboutSection/AboutSection';
+import "./TimePicker.css";
 
 function Buffet() {
   // Combine both card types into a single array
-  const allCards = useMemo(() => [...BuffetSungkaiCards, ...BuffetSahurCards], [BuffetSungkaiCards, BuffetSahurCards]);
+  // const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortedCards, setSortedCards] = useState(allCards);
+  const [sortedCards, setSortedCards] = useState(MorehCards);
   const [showPriceSort, setShowPriceSort] = useState(false);
   const [selectedPriceOption, setSelectedPriceOption] = useState("");
   const [showFilter, setShowFilter] = useState(false);
@@ -32,7 +30,6 @@ function Buffet() {
   const [minute, setMinute] = useState("00");
   const [ampm, setAmpm] = useState("AM");
   const [searchQuery, setSearchQuery] = useState("");
-  
 
 
   const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
@@ -45,7 +42,7 @@ function Buffet() {
     const { name, value } = e.target;
     const numericValue = Number(value);
   
-    setTempPriceRange((prev) => { 
+    setTempPriceRange((prev) => {
       const newRange = [...prev];
   
       if (name === "min" && numericValue < newRange[1]) {
@@ -64,6 +61,8 @@ function Buffet() {
   };
 
 
+
+
   // Handle Search Input Change
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -72,50 +71,18 @@ function Buffet() {
   // Filter cards based on search query
   useEffect(() => {
     window.scrollTo(0, 0);
-    let filteredCards = allCards;
-  
-    // Apply search filter
-    if (searchQuery) {
+    const filteredCards = MorehCards.filter((card) => {
       const queryLower = searchQuery.toLowerCase();
-      filteredCards = filteredCards.filter((card) =>
+      return (
         card.title.toLowerCase().includes(queryLower) ||
         card.priceDisplay.toLowerCase().includes(queryLower) ||
         card.option.toLowerCase().includes(queryLower) ||
         card.openTime.toLowerCase().includes(queryLower) ||
         card.closeTime.toLowerCase().includes(queryLower)
       );
-    }
-  
-    // Apply category filter
-    if (selectedCategory) {
-      filteredCards = filteredCards.filter((card) => card.option === selectedCategory);
-    }
-  
-    // Apply district filter
-    if (selectedDistrict) {
-      filteredCards = filteredCards.filter((card) => card.district === selectedDistrict);
-    }
-  
-    // Apply price range filter
-    filteredCards = filteredCards.filter((card) => {
-      const cardPrice = parseFloat(card.price.replace(/[^0-9.]/g, ""));
-      return cardPrice >= minPrice && cardPrice <= maxPrice;
     });
-  
-    // Apply sorting
-    if (selectedPriceOption) {
-      filteredCards = [...filteredCards].sort((a, b) => {
-        const priceA = parseFloat(a.price.replace(/[^0-9.]/g, ""));
-        const priceB = parseFloat(b.price.replace(/[^0-9.]/g, ""));
-        return selectedPriceOption === "Price: Low to High" ? priceA - priceB : priceB - priceA;
-      });
-    }
-  
-    setSortedCards(filteredCards);
-    setCurrentPage(1); // Reset to first page when filters change
-  
-  }, [searchQuery, selectedCategory, selectedDistrict, minPrice, maxPrice, selectedPriceOption, allCards]);
-  
+    setSortedCards(filteredCards); // Update the displayed cards
+  }, [searchQuery]); // Trigger the filter when the search query changes
 
 
   // Filter by opening hours
@@ -145,7 +112,7 @@ function Buffet() {
   const handleSortChange = (sortOrder) => {
     setSelectedPriceOption(sortOrder === "low-to-high" ? "Price: Low to High" : "Price: High to Low");
 
-    const sortedData = [...allCards];
+    const sortedData = [...MorehCards];
     sortedData.sort((a, b) => {
       const priceA = parseFloat(a.price.replace(/[^0-9.-]+/g, ""));
       const priceB = parseFloat(b.price.replace(/[^0-9.-]+/g, ""));
@@ -167,9 +134,9 @@ function Buffet() {
     setSelectedCategory(category);
 
     if (category === "") {
-      setSortedCards(allCards); // Show all when no filter
+      setSortedCards(MorehCards); // Show all when no filter
     } else {
-      const filteredCards = allCards.filter((card) => card.option === category);
+      const filteredCards = MorehCards.filter((card) => card.option === category);
       setSortedCards(filteredCards);
     }
 
@@ -198,7 +165,7 @@ function Buffet() {
       setMaxPrice(newRange[1]);
   
       // Filter cards based on price range
-      const filteredCards = allCards.filter((card) => {
+      const filteredCards = MorehCards.filter((card) => {
         const cardPrice = parseFloat(card.price.replace(/[^0-9.]/g, "")); // Extract numeric price
         return cardPrice >= newRange[0] && cardPrice <= newRange[1];
       });
@@ -214,9 +181,9 @@ function Buffet() {
     setSelectedDistrict(district);
 
     if (district === "") {
-      setSortedCards(allCards); // Show all when no filter
+      setSortedCards(MorehCards); // Show all when no filter
     } else {
-      const filteredCards = allCards.filter((card) => card.district === district);
+      const filteredCards = MorehCards.filter((card) => card.district === district);
       setSortedCards(filteredCards);
     }
 
@@ -239,13 +206,15 @@ function Buffet() {
     setCurrentPage(pageNumber);
   };
 
+
+
   return (
     <div className="buffet-container">
       <div className="buffet-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
         <div className="buffet-header-content">
-          <h1 className="buffet-title">Buffet</h1>
+          <h1 className="buffet-title">Moreh</h1>
           <p className="buffet-description">
-            Explore the best buffet options for Ramadhan eats & treats!
+          Sweet sustenance after Taraweeh
           </p>
         </div>
         
@@ -258,7 +227,7 @@ function Buffet() {
         <div className="breadcrumb">
           <a href="/" className="breadcrumb-link">Home</a>
           <span className="breadcrumb-separator"> &gt; </span>
-          <span className="breadcrumb-current">Buffet</span>
+          <span className="breadcrumb-current">Moreh</span>
         </div>
 
         {/* Search Bar */}
@@ -266,7 +235,7 @@ function Buffet() {
           <input
             type="text"
             className="search-input"
-            placeholder="Find buffets!"
+            placeholder="Find moreh spots!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
@@ -276,13 +245,13 @@ function Buffet() {
         {/* Dropdown for Price Sorting */}
         <div className="filters-container">
           <div className="custom-dropdown">
-            <button
-              className="buffet-price-sort-button"
+            {/* <button
+              className="price-sort-button"
               onClick={() => setShowPriceSort(!showPriceSort)}
             >
               {selectedPriceOption || "Sort by price"}{" "}
               <span className="arrow">{showPriceSort ? "▲" : "▼"}</span>
-            </button>
+            </button> */}
 
             {showPriceSort && (
               <div className="dropdown-pricesorts">
@@ -306,13 +275,13 @@ function Buffet() {
           {/* Buttons */}
           <div className="buffet-button-container">
             <Link to="/buffet">
-              <button className="buffet-button active-button">Buffet</button>
+              <button className="buffet-button">Buffet</button>
             </Link>
             <Link to="/bazaar">
               <button className="bazaar-button">Bazaar</button>
             </Link>
             <Link to="/moreh">
-              <button className="moreh-button">Moreh</button>
+              <button className="moreh-button active-button">Moreh</button>
             </Link>
           </div>
 
@@ -326,7 +295,7 @@ function Buffet() {
             {showFilter && (
               <div className="filter-dropdown">
 
-                {/* Category Filter */}
+                {/* Category Filter
                 <div className="category-filter">
                   <button
                     className="category-select"
@@ -358,10 +327,10 @@ function Buffet() {
                       </button>
                     </div>
                   )}
-                </div>
+                </div> */}
 
                 {/* Price Range Filter with Slider */}
-                <div className="price-filter-container">
+                {/* <div className="price-filter-container">
                   <div className="price-filter">
                     <button
                       className="price-select"
@@ -398,8 +367,8 @@ function Buffet() {
                             <div
                               className="price-slider-track"
                               style={{
-                                left: `${(tempPriceRange[0] / 100) * 100}%`,
-                                width: `${((tempPriceRange[1] - tempPriceRange[0]) / 100) * 100}%`,
+                                left: `${(minPrice / 100) * 100}%`,
+                                width: `${((maxPrice - minPrice) / 100) * 100}%`,
                               }}
                             ></div>
 
@@ -407,46 +376,41 @@ function Buffet() {
                               type="range"
                               min="0"
                               max="100"
+                              value={minPrice}
                               name="min"
-                              value={tempPriceRange[0]}
-                              onChange={handleTempPriceChange}
-                              onMouseUp={handlePriceCommit} // Update the actual filter only when user stops dragging
-                              onTouchEnd={handlePriceCommit} // For mobile
+                              onChange={handlePriceSliderChange}
                               className="slider-min-val"
                             />
-
                             <input
                               type="range"
                               min="0"
                               max="100"
+                              value={maxPrice}
                               name="max"
-                              value={tempPriceRange[1]}
-                              onChange={handleTempPriceChange}
-                              onMouseUp={handlePriceCommit}
-                              onTouchEnd={handlePriceCommit}
+                              onChange={handlePriceSliderChange}
                               className="slider-max-val"
-                            />
+                            /> */}
 
                             {/* Price Tooltip (Display price above thumb) */}
-                            <div
+                            {/* <div
                               className="price-tooltip min-tooltip"
                               style={{
-                                left: `calc(${(tempPriceRange[0] / 100) * 100}%)`,
+                                left: `calc(${(minPrice / 100) * 100}%)`,
                                 transform: "translateX(-50%)", // This ensures the tooltip is centered above the thumb
                                 top: "-40px", // Adjust the value to move the tooltip above the thumb
                               }}
                             >
-                              ${tempPriceRange[0]}
+                              ${minPrice}
                             </div>
                             <div
                               className="price-tooltip max-tooltip"
                               style={{
-                                left: `calc(${(tempPriceRange[1] / 100) * 100}%)`,
+                                left: `calc(${(maxPrice / 100) * 100}%)`,
                                 transform: "translateX(-50%)", // Ensures the tooltip is centered above the thumb
                                 top: "-40px", // Adjust this for the max input tooltip
                               }}
                             >
-                              ${tempPriceRange[1]}
+                              ${maxPrice}
                             </div>
                           </div>
                           <hr/>
@@ -454,7 +418,7 @@ function Buffet() {
                       </>
                     )}
                   </div>
-                </div>
+                </div> */}
 
 
                 {/* Opening Hours Filter */}
@@ -518,7 +482,7 @@ function Buffet() {
                       </div>
                     )}
                   </div>
-                </div>
+                </div> */}
 
                 {/* closing Hours Filter with Slider */}
                 {/* <div className="closeHour-filter-container">
@@ -625,7 +589,15 @@ function Buffet() {
                     </div>
                   )}
                 </div>
-            
+              
+                {/* <h3>District</h3>
+                <select className="filter-select">
+                  <option value="all">Districts</option>
+                  <option value="brunei-muara">Brunei-Muara</option>
+                  <option value="kota-batu">Tutong</option>
+                  <option value="seria">Belait</option>
+                  <option value="muara">Temburong</option>
+                </select> */}
               </div>
             )}
           </div>

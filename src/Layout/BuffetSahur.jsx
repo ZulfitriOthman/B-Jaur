@@ -1,10 +1,10 @@
-import restaurant1 from "../../assets/BuffetSahur/StarLodge.jpg"; 
-import restaurant2 from "../../assets/BuffetSahur/ParkviewHotel.jpg"; 
-import restaurant3 from "../../assets/BuffetSahur/SeoulGarden.jpg"; 
-import restaurant4 from "../../assets/BuffetSahur/MuliaHotel.jpg"; 
-import restaurant5 from "../../assets/BuffetSahur/AnjungSaujana.jpg"; 
-import restaurant6 from "../../assets/BuffetSahur/ILotus.jpg"; 
-import restaurant7 from "../../assets/BuffetSahur/Ricardos.png"; 
+import restaurant1 from "../assets/BuffetSahur/StarLodge.jpg"; 
+import restaurant2 from "../assets/BuffetSahur/ParkviewHotel.jpg"; 
+import restaurant3 from "../assets/BuffetSahur/SeoulGarden.jpg"; 
+import restaurant4 from "../assets/BuffetSahur/MuliaHotel.jpg"; 
+import restaurant5 from "../assets/BuffetSahur/AnjungSaujana.jpg"; 
+import restaurant6 from "../assets/BuffetSahur/ILotus.jpg"; 
+import restaurant7 from "../assets/BuffetSahur/Ricardos.png"; 
 
 // Named Export
 export const BuffetSahurCards = [

@@ -78,6 +78,8 @@ function AboutSection() {
     emailData.hasData_selectedDays = true;
   }
   
+    
+  
     // Using your actual EmailJS credentials
     const serviceId = "service_86c4dmr";
     const templateId = "template_hdo3d5j";

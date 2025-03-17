@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Moreh.css";
-import HeaderBG from "../../assets/PurpleSky.png";
-import HeaderIcon from "../../assets/HeaderIcon.png";
-import { MorehCards } from "./MorehData.jsx";
-import AboutSection from '../../Elements/AboutSection/AboutSection.jsx';
-import "../TimePicker.css";
+import "./Bazaar.css";
+import HeaderBG from "../assets/PurpleSky.png";
+import HeaderIcon from "../assets/HeaderIcon.png";
+import { BazaarSahurCards } from "./BazaarSahur.jsx";
+import { BazaarSungkaiCards } from "./BazaarSungkai.jsx";
+import AboutSection from '../Elements/AboutSection/AboutSection';
+import "./TimePicker.css";
 
 function Buffet() {
   // Combine both card types into a single array
-  // const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
+  const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortedCards, setSortedCards] = useState(MorehCards);
+  const [sortedCards, setSortedCards] = useState(allCards);
   const [showPriceSort, setShowPriceSort] = useState(false);
   const [selectedPriceOption, setSelectedPriceOption] = useState("");
   const [showFilter, setShowFilter] = useState(false);
@@ -21,7 +22,6 @@ function Buffet() {
   const [priceRange, setPriceRange] = useState([0, 100]);
   const [minPrice, setMinPrice] = useState(priceRange[0]);
   const [maxPrice, setMaxPrice] = useState(priceRange[1]);
-  const [tempPriceRange, setTempPriceRange] = useState([minPrice, maxPrice]);
   const [showOpenHoursButtons, setShowOpenHoursButtons] = useState(false);
   const [showCloseHoursButtons, setShowCloseHoursButtons] = useState(false);
   const [selectedDistrict, setSelectedDistrict] = useState("");
@@ -38,30 +38,6 @@ function Buffet() {
   
   const cardsPerPage = 15;
 
-  const handleTempPriceChange = (e) => {
-    const { name, value } = e.target;
-    const numericValue = Number(value);
-  
-    setTempPriceRange((prev) => {
-      const newRange = [...prev];
-  
-      if (name === "min" && numericValue < newRange[1]) {
-        newRange[0] = numericValue;
-      } else if (name === "max" && numericValue > newRange[0]) {
-        newRange[1] = numericValue;
-      }
-  
-      return newRange;
-    });
-  };
-
-  const handlePriceCommit = () => {
-    setMinPrice(tempPriceRange[0]);
-    setMaxPrice(tempPriceRange[1]);
-  };
-
-
-
 
   // Handle Search Input Change
   const handleSearchChange = (e) => {
@@ -71,7 +47,7 @@ function Buffet() {
   // Filter cards based on search query
   useEffect(() => {
     window.scrollTo(0, 0);
-    const filteredCards = MorehCards.filter((card) => {
+    const filteredCards = allCards.filter((card) => {
       const queryLower = searchQuery.toLowerCase();
       return (
         card.title.toLowerCase().includes(queryLower) ||
@@ -112,7 +88,7 @@ function Buffet() {
   const handleSortChange = (sortOrder) => {
     setSelectedPriceOption(sortOrder === "low-to-high" ? "Price: Low to High" : "Price: High to Low");
 
-    const sortedData = [...MorehCards];
+    const sortedData = [...allCards];
     sortedData.sort((a, b) => {
       const priceA = parseFloat(a.price.replace(/[^0-9.-]+/g, ""));
       const priceB = parseFloat(b.price.replace(/[^0-9.-]+/g, ""));
@@ -134,9 +110,9 @@ function Buffet() {
     setSelectedCategory(category);
 
     if (category === "") {
-      setSortedCards(MorehCards); // Show all when no filter
+      setSortedCards(allCards); // Show all when no filter
     } else {
-      const filteredCards = MorehCards.filter((card) => card.option === category);
+      const filteredCards = allCards.filter((card) => card.option === category);
       setSortedCards(filteredCards);
     }
 
@@ -165,7 +141,7 @@ function Buffet() {
       setMaxPrice(newRange[1]);
   
       // Filter cards based on price range
-      const filteredCards = MorehCards.filter((card) => {
+      const filteredCards = allCards.filter((card) => {
         const cardPrice = parseFloat(card.price.replace(/[^0-9.]/g, "")); // Extract numeric price
         return cardPrice >= newRange[0] && cardPrice <= newRange[1];
       });
@@ -181,9 +157,9 @@ function Buffet() {
     setSelectedDistrict(district);
 
     if (district === "") {
-      setSortedCards(MorehCards); // Show all when no filter
+      setSortedCards(allCards); // Show all when no filter
     } else {
-      const filteredCards = MorehCards.filter((card) => card.district === district);
+      const filteredCards = allCards.filter((card) => card.district === district);
       setSortedCards(filteredCards);
     }
 
@@ -209,17 +185,17 @@ function Buffet() {
 
 
   return (
-    <div className="moreh-container">
-      <div className="moreh-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
-        <div className="moreh-header-content">
-          <h1 className="moreh-title">Moreh</h1>
-          <p className="moreh-description">
-          Sweet sustenance after Taraweeh
+    <div className="buffet-container">
+      <div className="buffet-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
+        <div className="buffet-header-content">
+          <h1 className="buffet-title">Bazaar</h1>
+          <p className="buffet-description">
+          Endless choices, blessed bazaars
           </p>
         </div>
         
         {/* Header Icon */}
-        <img src={HeaderIcon} alt="Header Icon" className="moreh-header-icon" />
+        <img src={HeaderIcon} alt="Header Icon" className="buffet-header-icon" />
       </div>
 
       <div className="content-container">
@@ -227,15 +203,15 @@ function Buffet() {
         <div className="breadcrumb">
           <a href="/" className="breadcrumb-link">Home</a>
           <span className="breadcrumb-separator"> &gt; </span>
-          <span className="breadcrumb-current">Moreh</span>
+          <span className="breadcrumb-current">Bazaar</span>
         </div>
 
         {/* Search Bar */}
-        <div className="moreh-search">
+        <div className="buffet-search">
           <input
             type="text"
             className="search-input"
-            placeholder="Find moreh spots!"
+            placeholder="Find bazaars!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
@@ -273,15 +249,15 @@ function Buffet() {
         
         
           {/* Buttons */}
-          <div className="moreh-button-container">
+          <div className="buffet-button-container">
             <Link to="/buffet">
               <button className="buffet-button">Buffet</button>
             </Link>
             <Link to="/bazaar">
-              <button className="bazaar-button">Bazaar</button>
+              <button className="bazaar-button active-button">Bazaar</button>
             </Link>
             <Link to="/moreh">
-              <button className="moreh-button active-button">Moreh</button>
+              <button className="moreh-button">Moreh</button>
             </Link>
           </div>
 
@@ -295,7 +271,7 @@ function Buffet() {
             {showFilter && (
               <div className="filter-dropdown">
 
-                {/* Category Filter
+                {/* Category Filter */}
                 <div className="category-filter">
                   <button
                     className="category-select"
@@ -308,16 +284,16 @@ function Buffet() {
                   {showCategoryButtons && (
                     <div className="filtercategory-buttons">
                       <button 
-                        className={`filtercategory-button ${selectedCategory === "Sungkai Buffet" ? "active" : ""}`}
-                        onClick={() => handleCategoryFilter("Sungkai Buffet")}
+                        className={`filtercategory-button ${selectedCategory === "Bazaar Sungkai" ? "active" : ""}`}
+                        onClick={() => handleCategoryFilter("Bazaar Sungkai")}
                       >
-                        Sungkai Buffet
+                        Bazaar Sungkai
                       </button>
                       <button 
-                        className={`filtercategory-button ${selectedCategory === "Sahur Buffet" ? "active" : ""}`}
-                        onClick={() => handleCategoryFilter("Sahur Buffet")}
+                        className={`filtercategory-button ${selectedCategory === "Bazaar Sahur" ? "active" : ""}`}
+                        onClick={() => handleCategoryFilter("Bazaar Sahur")}
                       >
-                        Sahur Buffet
+                        Bazaar Sahur
                       </button>
                       <button 
                         className="filtercategory-button" 
@@ -327,7 +303,7 @@ function Buffet() {
                       </button>
                     </div>
                   )}
-                </div> */}
+                </div>
 
                 {/* Price Range Filter with Slider */}
                 {/* <div className="price-filter-container">
@@ -604,24 +580,24 @@ function Buffet() {
         </div>
 
         {/* Cards Section */}
-        <section className="morehCard-dropdown-section">
-          <div className="morehCard-container">
+        <section className="BuffetCard-dropdown-section">
+          <div className="BuffetCard-container">
             {currentCards.map((card) => (
               <a
                 key={card.id}
                 href={card.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="morehCard"
+                className="BuffetCard"
               >
                 <div className="card-image-container">
-                  <img src={card.image} alt={card.title} className="morehCard-image" />
+                  <img src={card.image} alt={card.title} className="BuffetCard-image" />
                 </div>
-                <p className="morehCard-option">{card.option}</p>
-                <h3 className="morehCard-title">{card.title}</h3>
-                <p className="morehCard-price">{card.priceDisplay}</p>
-                <p className="morehCard-time">{card.time}</p>
-                <p className="morehCard-district">{card.district}</p>
+                <p className="BuffetCard-option">{card.option}</p>
+                <h3 className="BuffetCard-title">{card.title}</h3>
+                <p className="BuffetCard-price">{card.priceDisplay}</p>
+                <p className="BuffetCard-time">{card.time}</p>
+                <p className="BuffetCard-district">{card.district}</p>
               </a>
             ))}
           </div>

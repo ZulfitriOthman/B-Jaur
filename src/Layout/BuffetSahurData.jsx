@@ -1,5 +1,5 @@
-import restaurant1 from "../../assets/BuffetSahur/EmpireBrunei.jpg"; 
-import restaurant2 from "../../assets/BuffetSahur/RizqunHotel.jpg"; 
+import restaurant1 from "../assets/BuffetSahur/EmpireBrunei.jpg"; 
+import restaurant2 from "../assets/BuffetSahur/RizqunHotel.jpg"; 
 
 // Named Export
 export const initialCards = [

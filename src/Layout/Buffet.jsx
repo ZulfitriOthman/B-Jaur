@@ -8,6 +8,15 @@ import { BuffetSahurCards } from "./BuffetSahur.jsx";
 import AboutSection from '../Elements/AboutSection';
 import "./TimePicker.css";
 import { useMemo } from "react";
+import HeaderBG from "../assets/PurpleSky.png";
+import HeaderIcon from "../assets/HeaderIcon.png";
+import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
+import { BuffetSahurCards } from "./BuffetSahur.jsx";
+import AboutSection from '../../Elements/AboutSection/AboutSection';
+import "./../TimePicker.css";
+import { useMemo } from "react";
+import AboutSection from '../Elements/AboutSection/AboutSection';
+import "./TimePicker.css";
 
 function Buffet() {
   // Combine both card types into a single array
@@ -277,7 +286,7 @@ function Buffet() {
         <div className="filters-container">
           <div className="custom-dropdown">
             <button
-              className="buffet-price-sort-button"
+              className="price-sort-button"
               onClick={() => setShowPriceSort(!showPriceSort)}
             >
               {selectedPriceOption || "Sort by price"}{" "}
@@ -518,7 +527,6 @@ function Buffet() {
                       </div>
                     )}
                   </div>
-                </div>
 
                 {/* closing Hours Filter with Slider */}
                 {/* <div className="closeHour-filter-container">

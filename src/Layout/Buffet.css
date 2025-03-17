@@ -138,7 +138,7 @@ hr {
     display: inline-block;
   }
   
-  .buffet-price-sort-button {
+  .price-sort-button {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -151,20 +151,20 @@ hr {
     cursor: pointer;
   }
 
-  .buffet-price-sort-button:hover {
+  .price-sort-button:hover {
     background-color: #ffffff;
     border: 1px solid #f26339;
     color: #f26339;
   }
   
-  .buffet-price-sort-button:active {
+  .price-sort-button:active {
     background-color: #ffffff;
     border: 1px solid #f26339;
     color: #f26339;
   }
   
   .arrow {
-    margin-left: 0px;
+    margin-left: 35px;
     font-size: 12px;
   }
 
@@ -778,224 +778,52 @@ hr {
       text-decoration: none;
   }
   
-  @media (max-width: 1040px) {
-    /* Header */
-    .buffet-header {
-      height: 200px;
-    }
-
-    .buffet-title {
-      font-size: 2.5rem;
-      padding: 0px 0 0 50px;
-    }
-
-    .buffet-description {
-      font-size: 1rem;
-      padding: 10px 0 0 50px;
-    }
-
-    /* Content Container */
-    .content-container {
-      margin: 0px 0px 0px 0px;
-    }
-
-    /* Breadcrumb */
-    .breadcrumb {
-      font-size: 0.9rem;
-      flex-direction: row;
-    }
-
-    .breadcrumb-link {
-      font-size: 1rem;
-    }
-
-    /* Search Bar */
-    .buffet-search {
-      flex-direction: row;
-      gap: 15px;
-    }
-
-    .search-button {
-      width: 50%;
-      font-size: 1rem;
-      height: 40px;
-      margin-right: 15px;
-    }
-
-    /* Filters */
-    .filters-container {
-      grid-template-columns: 1fr; /* Single column on small screens */
-      grid-gap: 15px;
-    }
-
-    /* Price Sort Dropdown */
-    .buffet-price-sort-button {
-      font-size: 1rem;
-      padding: 5px 5px;
-    }
-
-    .dropdown-pricesorts {
-      width: 100%;
-    }
-
-    /* Buttons */
-    .buffet-button-container {
-      flex-direction: row;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .buffet-button, .bazaar-button, .moreh-button {
-      font-size: 1rem;
-      padding: 12px 25px;
-    }
-
-    .filter-container {
-      width: 90%;
-      margin: 10px 0;
-    }
-
-    .filterdropdown-button {
-      width: 100%;
-      font-size: 1rem;
-      padding: 12px 20px;
-    }
-
-    .filter-dropdown {
-      width: 100%;
-      padding: 15px;
-    }
-
-    .filter-select {
-      font-size: 16px;
-      padding: 10px;
-    }
-
-    /* Category Filter */
-    .category-select {
-      font-size: 1rem;
-      padding: 12px 0;
-    }
-
-    .filtercategory-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .filtercategory-button {
-      width: 100%;
-      font-size: 1rem;
-      padding: 12px 15px;
-    }
-
-    /* Update active button style for better contrast on small screens */
-    .active-button {
-      color: #F26339 !important;
-      border: 2px solid #F26339 !important;
-    }
-
-    /* Price Filter */
-    .price-select {
-      font-size: 13px; /* Adjust font size for smaller screens */
-      padding: 8px 0px 10px 0px;
-    }
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+      .BuffetCard {
+          width: calc(33.33% - 20px); 
+      }
+  }
   
-    .price-filter-container {
-      margin-top: 15px;
-    }
+  @media (max-width: 900px) {
+      .BuffetCard {
+          width: calc(50% - 20px); 
+      }
   
-    .price-range-slider {
-      width: 80%; /* Reduce the width of the price slider */
-      margin-top: 35px;
-    }
+      .BuffetCard-container {
+          padding: 20px 30px;
+          gap: 15px;
+      }
   
-    .price-slider-track {
-      height: 4px; /* Adjust the track height */
-    }
+      .BuffetCard-title {
+          font-size: 0.9rem;
+          padding: 0 10px;
+      }
   
-    .price-tooltip {
-      font-size: 12px; /* Adjust tooltip font size */
-      padding: 3px 6px;
-    }
+      .BuffetCard-address, .BuffetCard-category, .BuffetCard-content {
+          font-size: 0.7rem;
+          padding: 0 10px;
+      }
+  }
   
-    /* Opening Hours Filter */
-    .openHour-select {
-      font-size: 13px;
-      padding: 8px 0px 10px 0px;
-    }
+  @media (max-width: 600px) {
+      .BuffetCard {
+          width: calc(100% - 20px); 
+      }
   
-    .openHour-filter-container {
-      margin-top: 15px;
-    }
+      .BuffetCard-container {
+          padding: 20px;
+          gap: 10px;
+      }
   
-    /* Closing Hours Filter */
-    .closeHour-select {
-      font-size: 13px;
-      padding: 8px 0px 10px 0px;
-    }
+      .BuffetCard-title {
+          font-size: 0.8rem;
+          padding: 0 10px;
+      }
   
-    .closeHour-filter-container {
-      margin-top: 15px;
-    }
-  
-    /* District Filter */
-    .filterdistrict-select {
-      font-size: 13px;
-      padding: 8px 0px 10px 0px;
-    }
-  
-    .filterdistrict-button {
-      padding: 8px;
-      font-size: 13px;
-      border-radius: 8px; /* Adjust border radius for smaller screens */
-    }
-  
-    .filterdistrict-button.active {
-      background-color: #f26339;
-      border-color: #f26339;
-      color: white;
-    }
-  
-    /* Card Layout */
-    .BuffetCard {
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      margin-bottom: 15px;
-    }
-  
-    .card-image-container {
-      height: 200px; /* Reduce the height of the image container */
-    }
-  
-    .card-image-container img {
-      object-fit: cover;
-    }
-  
-    .BuffetCard-title {
-      font-size: 1rem;
-    }
-  
-    .BuffetCard-price, .BuffetCard-time, .BuffetCard-district {
-      font-size: 0.9rem; /* Reduce font size for better fit */
-    }
-  
-    .BuffetCard-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 cards per row on smaller screens */
-      gap: 15px;
-      padding: 15px;
-    }
-  
-    /* Pagination */
-    .card-pagination button {
-      font-size: 0.9rem;
-      padding: 8px 12px;
-    }
-  
-    /* Back button styling */
-    .back-button {
-      padding: 8px 12px;
-      font-size: 0.9rem;
-    }
+      .BuffetCard-address, .BuffetCard-category, .BuffetCard-content {
+          font-size: 0.6rem;
+          padding: 0 10px;
+      }
   }
   
