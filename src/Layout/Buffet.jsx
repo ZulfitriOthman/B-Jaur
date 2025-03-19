@@ -255,47 +255,47 @@ function Buffet() {
         <img src={HeaderIcon} alt="Header Icon" className="buffet-header-icon" />
       </div>
 
-      <div className="content-container">
+      <div className="buffet-content-container">
         {/* Breadcrumb Navigation */}
-        <div className="breadcrumb">
-          <a href="/" className="breadcrumb-link">Home</a>
-          <span className="breadcrumb-separator"> &gt; </span>
-          <span className="breadcrumb-current">Buffet</span>
+        <div className="buffet-breadcrumb">
+          <a href="/" className="buffet-breadcrumb-link">Home</a>
+          <span className="buffet-breadcrumb-separator"> &gt; </span>
+          <span className="buffet-breadcrumb-current">Buffet</span>
         </div>
 
         {/* Search Bar */}
         <div className="buffet-search">
           <input
             type="text"
-            className="search-input"
+            className="buffet-search-input"
             placeholder="Find buffets!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
-          <button className="search-button">Search</button>
+          <button className="buffet-search-button">Search</button>
         </div>
 
         {/* Dropdown for Price Sorting */}
-        <div className="filters-container">
-          <div className="custom-dropdown">
+        <div className="buffet-filters-container">
+          <div className="buffet-custom-dropdown">
             <button
-              className="price-sort-button"
+              className="buffet-price-sort-button"
               onClick={() => setShowPriceSort(!showPriceSort)}
             >
               {selectedPriceOption || "Sort by price"}{" "}
-              <span className="arrow">{showPriceSort ? "▲" : "▼"}</span>
+              <span className="buffet-arrow">{showPriceSort ? "▲" : "▼"}</span>
             </button>
 
             {showPriceSort && (
-              <div className="dropdown-pricesorts">
+              <div className="buffet-dropdown-pricesorts">
                 <div
-                  className="dropdown-pricesort"
+                  className="buffet-dropdown-pricesort"
                   onClick={() => handleSortChange("low-to-high")}
                 >
                   Price: Low to High
                 </div>
                 <div
-                  className="dropdown-pricesort"
+                  className="buffet-dropdown-pricesort"
                   onClick={() => handleSortChange("high-to-low")}
                 >
                   Price: High to Low
@@ -320,40 +320,40 @@ function Buffet() {
 
 
           {/* Filter Button and Dropdown */}
-          <div className="filter-container">
-            <button className="filterdropdown-button" onClick={() => setShowFilter(!showFilter)}>
+          <div className="buffet-filter-container">
+            <button className="buffet-filterdropdown-button" onClick={() => setShowFilter(!showFilter)}>
               Filter
             </button>
 
             {showFilter && (
-              <div className="filter-dropdown">
+              <div className="buffet-filter-dropdown">
 
                 {/* Category Filter */}
-                <div className="category-filter">
+                <div className="buffet-category-filter">
                   <button
-                    className="category-select"
+                    className="buffet-category-select"
                     onClick={() => setShowCategoryButtons(!showCategoryButtons)}
                   >
                     Category
-                    <span className="arrow">{showCategoryButtons ? "▲" : "▼"}</span>
+                    <span className="buffet-arrow">{showCategoryButtons ? "▲" : "▼"}</span>
                   </button>
 
                   {showCategoryButtons && (
-                    <div className="filtercategory-buttons">
+                    <div className="buffet-filtercategory-buttons">
                       <button 
-                        className={`filtercategory-button ${selectedCategory === "Sungkai Buffet" ? "active" : ""}`}
+                        className={`buffet-filtercategory-button ${selectedCategory === "Sungkai Buffet" ? "active" : ""}`}
                         onClick={() => handleCategoryFilter("Sungkai Buffet")}
                       >
                         Sungkai Buffet
                       </button>
                       <button 
-                        className={`filtercategory-button ${selectedCategory === "Sahur Buffet" ? "active" : ""}`}
+                        className={`buffet-filtercategory-button ${selectedCategory === "Sahur Buffet" ? "active" : ""}`}
                         onClick={() => handleCategoryFilter("Sahur Buffet")}
                       >
                         Sahur Buffet
                       </button>
                       <button 
-                        className="filtercategory-button" 
+                        className="buffet-filtercategory-button" 
                         onClick={() => handleCategoryFilter("")}
                       >
                         Show All
@@ -363,22 +363,22 @@ function Buffet() {
                 </div>
 
                 {/* Price Range Filter with Slider */}
-                <div className="price-filter-container">
-                  <div className="price-filter">
+                {/* <div className="buffet-price-filter-container">
+                  <div className="buffet-price-filter">
                     <button
-                      className="price-select"
+                      className="buffet-price-select"
                       onClick={() => setShowPriceButtons(!showPriceButtons)}
                     >
                       Price Range
-                      <span className="arrow">{showPriceButtons ? "▲" : "▼"}</span>
+                      <span className="buffet-arrow">{showPriceButtons ? "▲" : "▼"}</span>
                     </button>
 
                     {showPriceButtons && (
                       <>
-                        <div className="price-double-slider-box">
-                          <div className="price-input-box">
+                        <div className="buffet-price-double-slider-box">
+                          <div className="buffet-price-input-box">
                             <div
-                              className="price-min-box"
+                              className="buffet-price-min-box"
                               style={{
                                 left: `calc(${(minPrice / 100) * 100}%)`,
                                 transform: "translateX(0%)",
@@ -387,7 +387,7 @@ function Buffet() {
                             </div>
 
                             <div
-                              className="price-max-box"
+                              className="buffet-price-max-box"
                               style={{
                                 left: `calc(${(maxPrice / 100) * 100}%)`,
                                 transform: "translateX(-50%)",
@@ -396,9 +396,9 @@ function Buffet() {
                             </div>
                           </div>
                           
-                          <div className="price-range-slider">
+                          <div className="buffet-price-range-slider">
                             <div
-                              className="price-slider-track"
+                              className="buffet-price-slider-track"
                               style={{
                                 left: `${(tempPriceRange[0] / 100) * 100}%`,
                                 width: `${((tempPriceRange[1] - tempPriceRange[0]) / 100) * 100}%`,
@@ -412,9 +412,9 @@ function Buffet() {
                               name="min"
                               value={tempPriceRange[0]}
                               onChange={handleTempPriceChange}
-                              onMouseUp={handlePriceCommit} // Update the actual filter only when user stops dragging
-                              onTouchEnd={handlePriceCommit} // For mobile
-                              className="slider-min-val"
+                              onMouseUp={handlePriceCommit} 
+                              onTouchEnd={handlePriceCommit} 
+                              className="buffet-slider-min-val"
                             />
 
                             <input
@@ -426,26 +426,25 @@ function Buffet() {
                               onChange={handleTempPriceChange}
                               onMouseUp={handlePriceCommit}
                               onTouchEnd={handlePriceCommit}
-                              className="slider-max-val"
+                              className="buffet-slider-max-val"
                             />
 
-                            {/* Price Tooltip (Display price above thumb) */}
                             <div
-                              className="price-tooltip min-tooltip"
+                              className="buffet-price-tooltip buffet-min-tooltip"
                               style={{
                                 left: `calc(${(tempPriceRange[0] / 100) * 100}%)`,
-                                transform: "translateX(-50%)", // This ensures the tooltip is centered above the thumb
-                                top: "-40px", // Adjust the value to move the tooltip above the thumb
+                                transform: "translateX(-50%)", 
+                                top: "-40px", 
                               }}
                             >
                               ${tempPriceRange[0]}
                             </div>
                             <div
-                              className="price-tooltip max-tooltip"
+                              className="buffet-price-tooltip buffet-max-tooltip"
                               style={{
                                 left: `calc(${(tempPriceRange[1] / 100) * 100}%)`,
-                                transform: "translateX(-50%)", // Ensures the tooltip is centered above the thumb
-                                top: "-40px", // Adjust this for the max input tooltip
+                                transform: "translateX(-50%)", 
+                                top: "-40px", 
                               }}
                             >
                               ${tempPriceRange[1]}
@@ -456,7 +455,7 @@ function Buffet() {
                       </>
                     )}
                   </div>
-                </div>
+                </div> */}
 
 
                 {/* Opening Hours Filter */}
@@ -583,43 +582,43 @@ function Buffet() {
 
 
                 {/* District Filter */}
-                <div className="filterdistrict-filter">
+                <div className="buffet-filterdistrict-filter">
                   <button
-                    className="filterdistrict-select"
+                    className="buffet-filterdistrict-select"
                     onClick={() => setShowDistrictButtons(!showDistrictButtons)}
                   >
                     District
-                    <span className="arrow">{showDistrictButtons ? "▲" : "▼"}</span>
+                    <span className="buffet-arrow">{showDistrictButtons ? "▲" : "▼"}</span>
                   </button>
 
                   {showDistrictButtons && (
-                    <div className="filterdistrict-buttons">
+                    <div className="buffet-filterdistrict-buttons">
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Brunei-Muara" ? "active" : ""}`}
+                        className={`buffet-filterdistrict-button ${selectedDistrict === "Brunei-Muara" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Brunei-Muara")}
                       >
                         Brunei-Muara
                       </button>
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Tutong" ? "active" : ""}`}
+                        className={`buffet-filterdistrict-button ${selectedDistrict === "Tutong" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Tutong")}
                       >
                         Tutong
                       </button>
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Belait" ? "active" : ""}`}
+                        className={`buffet-filterdistrict-button ${selectedDistrict === "Belait" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Belait")}
                       >
                         Belait
                       </button>
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Temburong" ? "active" : ""}`}
+                        className={`buffet-filterdistrict-button ${selectedDistrict === "Temburong" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Temburong")}
                       >
                         Temburong
                       </button>
                       <button 
-                        className="filterdistrict-button" 
+                        className="buffet-filterdistrict-button" 
                         onClick={() => handleDistrictFilter("")}
                       >
                         Show All
@@ -634,57 +633,73 @@ function Buffet() {
         </div>
 
         {/* Cards Section */}
-        <section className="BuffetCard-dropdown-section">
-          <div className="BuffetCard-container">
+        <section className="buffetCard-dropdown-section">
+          <div className="buffetCard-container">
             {currentCards.map((card) => (
               <a
                 key={card.id}
                 href={card.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="BuffetCard"
+                className="buffetCard"
               >
-                <div className="card-image-container">
-                  <img src={card.image} alt={card.title} className="BuffetCard-image" />
+                <div className="buffet-card-image-container">
+                  <img src={card.image} alt={card.title} className="buffetCard-image" />
                 </div>
-                <p className="BuffetCard-option">{card.option}</p>
-                <h3 className="BuffetCard-title">{card.title}</h3>
-                <p className="BuffetCard-price">{card.priceDisplay}</p>
-                <p className="BuffetCard-time">{card.time}</p>
-                <p className="BuffetCard-district">{card.district}</p>
+                <p className="buffetCard-option">{card.option}</p>
+                <h3 className="buffetCard-title">{card.title}</h3>
+                <p className="buffetCard-price">{card.priceDisplay}</p>
+                <p className="buffetCard-time">{card.time}</p>
+                <p className="buffetCard-district">{card.district}</p>
               </a>
             ))}
           </div>
       </section>
         
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="card-pagination">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              Prev
-            </button>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="buffet-card-pagination">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
 
-            {[...Array(totalPages)].map((_, index) => (
-              <button
-                key={index}
-                className={currentPage === index + 1 ? "active" : ""}
-                onClick={() => handlePageChange(index + 1)}
-              >
-                {index + 1}
-              </button>
-            ))}
+          {/* Logic to display page numbers */}
+          {[...Array(totalPages)].map((_, index) => {
+            const pageNum = index + 1;
 
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </button>
-          </div>
-        )}
+            // If there are more than 7 pages, display a range of 7 numbers
+            if (
+              pageNum <= 4 || 
+              pageNum > totalPages - 3 || 
+              (pageNum >= currentPage - 3 && pageNum <= currentPage + 3)
+            ) {
+              return (
+                <button
+                  key={pageNum}
+                  className={currentPage === pageNum ? "active" : ""}
+                  onClick={() => handlePageChange(pageNum)}
+                >
+                  {pageNum}
+                </button>
+              );
+            } else if (pageNum === 5 && currentPage < totalPages - 3) {
+              return <span key="ellipsis">...</span>;
+            }
+
+            return null;
+          })}
+
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
       </div>
       
       {/* AboutSection */}
