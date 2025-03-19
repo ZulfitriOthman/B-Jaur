@@ -8,7 +8,7 @@ import { BazaarSungkaiCards } from "./BazaarSungkai.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
 import "./TimePicker.css";
 
-function Buffet() {
+function Bazaar() {
   // Combine both card types into a single array
   const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
   const [currentPage, setCurrentPage] = useState(1);
@@ -640,4 +640,4 @@ function Buffet() {
   );
 }
 
-export default Buffet;
+export default Bazaar;
