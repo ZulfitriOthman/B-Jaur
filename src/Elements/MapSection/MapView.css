@@ -63,44 +63,56 @@
   fill: #ff8248;
 }
 
-@media (max-width: 999px) {
+@media (max-width: 400px) {
+  .Map-container {
+    width: 100vw; 
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    flex: 1; 
+    justify-content: none;
+  }
+
   .DistrictMap-container {
-    height: 80vh;
+    height: 60vh; 
   }
 
   .DistrictBackground-container {
-    top: 50%; 
-    left: 48%;
+    position: absolute;
+    top: 35%; 
+    left: 47%; 
+    width: 270px; 
+    height: 270px; 
+    background: #776AFB;
+    border-radius: 30px;
+    transform: translate(-50%, -50%); 
+    z-index: 0;
   }
-
   
-}
-
-@media (max-width: 768px) {
-  
-  .DistrictMap-container {
-    height: 80vh; 
-  }
-
-  .DistrictBackground-container,
-  .DistrictOverlay-container,
-  .svg-container {
-    width: 70%; 
-    height: auto; 
-  }
-
-  .DistrictBackground-container {
-    top: 40%; /* Adjust the vertical position */
-    left: 50%;
-  }
-
+  /* Overlay container */
   .DistrictOverlay-container {
-    top: 40%; /* Adjust the vertical position */
-    left: 50%;
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    width: 220px; 
+    height: 220px; 
+    background: none;
+    border: 6px solid #ff8248;
+    border-radius: 30px;
+    padding: 20px;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
   }
-
+  
+  /* SVG container */
   .svg-container {
-    top: 20%; /* Adjust the vertical position */
-    right: 10px;
+    width: 270px; 
+    height: 270px; 
+    background-color: none;
+    border-radius: 25px;
+    top: -20px;
+    right: 30px;
+    position: relative;
+    z-index: 2;
   }
 }
