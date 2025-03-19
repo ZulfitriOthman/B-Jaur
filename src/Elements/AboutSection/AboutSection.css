@@ -352,4 +352,75 @@ form {
     padding: 10px;
   }
 
+  /* Media Query for Phone View */
+@media (max-width: 440px) {
+  .about-section {
+      padding: 40px 20px;  /* Adjust padding */
+      min-height: 100vh;  /* Make sure section takes full height */
+  }
+
+  .about-content {
+      position: relative;
+      left: 0;
+      top: 0;
+      transform: translateY(0);
+      padding: 20px; /* Reduce padding for mobile view */
+      max-width: 100%;  /* Allow it to take full width */
+      box-shadow: none; /* Optionally remove the box-shadow */
+  }
+
+  h2 {
+      font-size: 1.25rem; /* Adjust font size for small screens */
+  }
+
+  p {
+      font-size: 0.9rem; /* Adjust paragraph font size for mobile */
+  }
+
+  .about-btn {
+      width: 100%; /* Button takes full width on mobile */
+      padding: 12px;
+      font-size: 1.1rem;
+  }
+
+  form input {
+      font-size: 0.9rem; /* Adjust input font size */
+      padding: 12px; /* Make inputs slightly larger */
+  }
+
+  .category-buttons {
+      flex-direction: column; /* Stack the buttons vertically */
+      align-items: center; /* Center the buttons */
+      margin-top: 15px;
+  }
+
+  .category-buttons button {
+      width: 100%; /* Make buttons take full width */
+      font-size: 1rem;
+      margin-bottom: 10px;  /* Space between buttons */
+  }
+
+  .form-group {
+      flex-direction: column; /* Stack inputs vertically on mobile */
+      gap: 10px;
+  }
+
+  .form-group input {
+      width: 100%;  /* Make inputs take full width */
+      padding-right: 30px;
+  }
+
+  /* Adjust success and error messages */
+  .success-message, .error-message {
+      padding: 1rem;
+      font-size: 1rem;
+  }
+
+  .button-container button {
+      width: 100%; /* Make buttons full-width */
+      padding: 12px;
+      font-size: 1.1rem;
+  }
+}
+
   

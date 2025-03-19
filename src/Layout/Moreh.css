@@ -15,6 +15,7 @@ hr {
     text-align: left;
     background-color: #ffffff;
     height: auto;
+    width: auto;
 }
 
 .moreh-header {
@@ -832,8 +833,13 @@ SEARCH BAR
 }
 
 @media (max-width: 440px) {
-    .moreh-container {
-    max-width: 440px;
+
+    .moreh-header{
+      background-size: cover; /* Ensures it still covers the screen */
+    }
+
+    .moreh-header-icon {
+    display: none;
     }
 
     .moreh-title, .moreh-description {
@@ -856,6 +862,10 @@ SEARCH BAR
 
     .moreh-filters-container {
     padding-left: 10px;
+    }
+
+    .moreh-filter-container {
+      width: 110px;
     }
 
     .morehCard {

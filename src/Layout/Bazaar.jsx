@@ -185,42 +185,42 @@ function Bazaar() {
 
 
   return (
-    <div className="buffet-container">
-      <div className="buffet-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
-        <div className="buffet-header-content">
-          <h1 className="buffet-title">Bazaar</h1>
-          <p className="buffet-description">
+    <div className="bazaar-container">
+      <div className="bazaar-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
+        <div className="bazaar-header-content">
+          <h1 className="bazaar-title">Bazaar</h1>
+          <p className="bazaar-description">
           Endless choices, blessed bazaars
           </p>
         </div>
         
         {/* Header Icon */}
-        <img src={HeaderIcon} alt="Header Icon" className="buffet-header-icon" />
+        <img src={HeaderIcon} alt="Header Icon" className="bazaar-header-icon" />
       </div>
 
-      <div className="content-container">
+      <div className="bazaar-content-container">
         {/* Breadcrumb Navigation */}
-        <div className="breadcrumb">
-          <a href="/" className="breadcrumb-link">Home</a>
-          <span className="breadcrumb-separator"> &gt; </span>
-          <span className="breadcrumb-current">Bazaar</span>
+        <div className="bazaar-breadcrumb">
+          <a href="/" className="bazaar-breadcrumb-link">Home</a>
+          <span className="bazaar-breadcrumb-separator"> &gt; </span>
+          <span className="bazaar-breadcrumb-current">Bazaar</span>
         </div>
 
         {/* Search Bar */}
-        <div className="buffet-search">
+        <div className="bazaar-search">
           <input
             type="text"
-            className="search-input"
+            className="bazaar-search-input"
             placeholder="Find bazaars!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
-          <button className="search-button">Search</button>
+          <button className="bazaar-search-button">Search</button>
         </div>
 
         {/* Dropdown for Price Sorting */}
-        <div className="filters-container">
-          <div className="custom-dropdown">
+        <div className="bazaar-filters-container">
+          <div className="bazaar-custom-dropdown">
             {/* <button
               className="price-sort-button"
               onClick={() => setShowPriceSort(!showPriceSort)}
@@ -230,15 +230,15 @@ function Bazaar() {
             </button> */}
 
             {showPriceSort && (
-              <div className="dropdown-pricesorts">
+              <div className="bazaar-dropdown-pricesorts">
                 <div
-                  className="dropdown-pricesort"
+                  className="bazaar-dropdown-pricesort"
                   onClick={() => handleSortChange("low-to-high")}
                 >
                   Price: Low to High
                 </div>
                 <div
-                  className="dropdown-pricesort"
+                  className="bazaar-dropdown-pricesort"
                   onClick={() => handleSortChange("high-to-low")}
                 >
                   Price: High to Low
@@ -249,7 +249,7 @@ function Bazaar() {
         
         
           {/* Buttons */}
-          <div className="buffet-button-container">
+          <div className="bazaar-button-container">
             <Link to="/buffet">
               <button className="buffet-button">Buffet</button>
             </Link>
@@ -263,40 +263,40 @@ function Bazaar() {
 
 
           {/* Filter Button and Dropdown */}
-          <div className="filter-container">
-            <button className="filterdropdown-button" onClick={() => setShowFilter(!showFilter)}>
+          <div className="bazaar-filter-container">
+            <button className="bazaar-filterdropdown-button" onClick={() => setShowFilter(!showFilter)}>
               Filter
             </button>
 
             {showFilter && (
-              <div className="filter-dropdown">
+              <div className="bazaar-filter-dropdown">
 
                 {/* Category Filter */}
-                <div className="category-filter">
+                <div className="bazaar-category-filter">
                   <button
-                    className="category-select"
+                    className="bazaar-category-select"
                     onClick={() => setShowCategoryButtons(!showCategoryButtons)}
                   >
                     Category
-                    <span className="arrow">{showCategoryButtons ? "▲" : "▼"}</span>
+                    <span className="bazaar-arrow">{showCategoryButtons ? "▲" : "▼"}</span>
                   </button>
 
                   {showCategoryButtons && (
-                    <div className="filtercategory-buttons">
+                    <div className="bazaar-filtercategory-buttons">
                       <button 
-                        className={`filtercategory-button ${selectedCategory === "Bazaar Sungkai" ? "active" : ""}`}
+                        className={`bazaar-filtercategory-button ${selectedCategory === "Bazaar Sungkai" ? "active" : ""}`}
                         onClick={() => handleCategoryFilter("Bazaar Sungkai")}
                       >
                         Bazaar Sungkai
                       </button>
                       <button 
-                        className={`filtercategory-button ${selectedCategory === "Bazaar Sahur" ? "active" : ""}`}
+                        className={`bazaar-filtercategory-button ${selectedCategory === "Bazaar Sahur" ? "active" : ""}`}
                         onClick={() => handleCategoryFilter("Bazaar Sahur")}
                       >
                         Bazaar Sahur
                       </button>
                       <button 
-                        className="filtercategory-button" 
+                        className="bazaar-filtercategory-button" 
                         onClick={() => handleCategoryFilter("")}
                       >
                         Show All
@@ -521,43 +521,43 @@ function Bazaar() {
 
 
                 {/* District Filter */}
-                <div className="filterdistrict-filter">
+                <div className="bazaar-filterdistrict-filter">
                   <button
-                    className="filterdistrict-select"
+                    className="bazaar-filterdistrict-select"
                     onClick={() => setShowDistrictButtons(!showDistrictButtons)}
                   >
                     District
-                    <span className="arrow">{showDistrictButtons ? "▲" : "▼"}</span>
+                    <span className="bazaar-arrow">{showDistrictButtons ? "▲" : "▼"}</span>
                   </button>
 
                   {showDistrictButtons && (
-                    <div className="filterdistrict-buttons">
+                    <div className="bazaar-filterdistrict-buttons">
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Brunei-Muara" ? "active" : ""}`}
+                        className={`bazaar-filterdistrict-button ${selectedDistrict === "Brunei-Muara" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Brunei-Muara")}
                       >
                         Brunei-Muara
                       </button>
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Tutong" ? "active" : ""}`}
+                        className={`bazaar-filterdistrict-button ${selectedDistrict === "Tutong" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Tutong")}
                       >
                         Tutong
                       </button>
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Belait" ? "active" : ""}`}
+                        className={`bazaar-filterdistrict-button ${selectedDistrict === "Belait" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Belait")}
                       >
                         Belait
                       </button>
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Temburong" ? "active" : ""}`}
+                        className={`bazaar-filterdistrict-button ${selectedDistrict === "Temburong" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Temburong")}
                       >
                         Temburong
                       </button>
                       <button 
-                        className="filterdistrict-button" 
+                        className="bazaar-filterdistrict-button" 
                         onClick={() => handleDistrictFilter("")}
                       >
                         Show All
@@ -580,57 +580,73 @@ function Bazaar() {
         </div>
 
         {/* Cards Section */}
-        <section className="BuffetCard-dropdown-section">
-          <div className="BuffetCard-container">
+        <section className="bazaarCard-dropdown-section">
+          <div className="bazaarCard-container">
             {currentCards.map((card) => (
               <a
                 key={card.id}
                 href={card.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="BuffetCard"
+                className="bazaarCard"
               >
-                <div className="card-image-container">
-                  <img src={card.image} alt={card.title} className="BuffetCard-image" />
+                <div className="bazaar-card-image-container">
+                  <img src={card.image} alt={card.title} className="bazaarCard-image" />
                 </div>
-                <p className="BuffetCard-option">{card.option}</p>
-                <h3 className="BuffetCard-title">{card.title}</h3>
-                <p className="BuffetCard-price">{card.priceDisplay}</p>
-                <p className="BuffetCard-time">{card.time}</p>
-                <p className="BuffetCard-district">{card.district}</p>
+                <p className="bazaarCard-option">{card.option}</p>
+                <h3 className="bazaarCard-title">{card.title}</h3>
+                <p className="bazaarCard-price">{card.priceDisplay}</p>
+                <p className="bazaarCard-time">{card.time}</p>
+                <p className="bazaarCard-district">{card.district}</p>
               </a>
             ))}
           </div>
       </section>
         
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="card-pagination">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              Prev
-            </button>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="bazaar-card-pagination">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
 
-            {[...Array(totalPages)].map((_, index) => (
-              <button
-                key={index}
-                className={currentPage === index + 1 ? "active" : ""}
-                onClick={() => handlePageChange(index + 1)}
-              >
-                {index + 1}
-              </button>
-            ))}
+          {/* Logic to display page numbers */}
+          {[...Array(totalPages)].map((_, index) => {
+            const pageNum = index + 1;
+            
+            // Show first 5 pages, then "..." if there are more than 5, and show last page
+            if (
+              pageNum <= 5 || 
+              pageNum > totalPages - 3 || 
+              (pageNum >= currentPage - 2 && pageNum <= currentPage + 2)
+            ) {
+              return (
+                <button
+                  key={pageNum}
+                  className={currentPage === pageNum ? "active" : ""}
+                  onClick={() => handlePageChange(pageNum)}
+                >
+                  {pageNum}
+                </button>
+              );
+            } else if (pageNum === 6 && currentPage < totalPages - 2) {
+              return <span key="ellipsis">...</span>;
+            }
 
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </button>
-          </div>
-        )}
+            return null;
+          })}
+
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
       </div>
       
       {/* AboutSection */}

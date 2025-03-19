@@ -65,41 +65,6 @@
   .map-description span {
     display: block; /* Ensures each span is on a new line */
   }  
- 
-  /* .map-container {
-    flex: 1; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; 
-    border: 2px solid #FF6131; 
-    border-radius: 25px;
-    background-color: #fff; 
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15), -5px -5px 15px rgba(255, 255, 255, 0.3);
-    transform: perspective(300px) rotateX(0deg) rotateY(0deg); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-  } */
-
-  /* .map-container:hover {
-    transform: perspective(300px) rotateX(0deg) rotateY(-5deg) translateZ(-10px); 
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2), -3px -3px 10px rgba(255, 255, 255, 0.2); 
-  } */
-
-  .map-container::before {
-    content: '';
-    position: absolute;
-    top: -10px; /* Raised effect */
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 2px solid #FF6131; /* Outer border color */
-    border-radius: 30px; /* Slightly larger to match curvature */
-    z-index: -1; /* Behind the container */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Soft shadow for floating effect */
-    filter: blur(5px); /* Soft glow effect */
-    transform: translateY(-5px); /* Lift effect */
-    opacity: 0.8; /* Slightly transparent for a natural effect */
-  }
 
   /* 🎯 Filter Buttons */
   .MapFilter-container {
@@ -116,7 +81,7 @@
     align-items: start; /* Ensures vertical alignment */
     width: fit-content; /* Ensures it only takes the necessary width */
     max-width: 400px; /* Optional: to prevent it from stretching too wide */
-}
+  }
 
   /* Button Styles */
   .MapFilter-button {
@@ -470,7 +435,7 @@
     .featured-properties-box {
       width: 100%;
       height: auto;
-      max-width: 1200px;
+      max-width: 400px;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -479,21 +444,23 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 120vh;
+      height: auto;
       background-size: cover; 
       background-color: #ffffff;
+      padding: 30px 0px;
     }
 
     .map-title {
       font-size: 1.5rem;
       text-align: justify;
-      margin-bottom: 1rem;
+      margin-bottom: 30px;
       padding: 0px 20px;
     }
     
     .map-description {
       font-size: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 20px;
+      text-align: justify;
     }
 
     .content-overlay {
@@ -505,16 +472,19 @@
 
     .content-left {
       flex: 1; 
-      padding: 0px 20px;
+      margin-right: 20px;
+      padding: 0px 0px 0px 20px;
       text-align: justify;
-      margin-top: 0px;
     }
 
-    /* Button Styles */
+    .MapPrimary-buttons {
+      margin-right: 20px;
+    }
+
     .MapFilter-button {
+      width: 160px;
       padding: 10px 0px;
       font-size: 0.85rem;
-      width: 170px;
     }
   
     .image-grid {
@@ -544,84 +514,13 @@
   
     .subtitle {
       font-size: 2rem;
-    }  
+    } 
   }
 
-
-
-  @media (max-width: 360px) {
-    .map-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 160vh;
-      background: url('../../assets/Orange.svg') no-repeat center center;
-      background-size: cover; /* Ensure the image covers the element */
-    }
-
-    .map-title {
-      font-size: 1.5rem;
-      text-align: justify;
-      margin-bottom: 1rem;
-      padding: 0px 20px;
-    }
-    
-    .map-description {
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-    }
-
-    .content-overlay {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
-    }
-
-    .content-left {
-      flex: 1; 
-      padding: 0px 20px;
-      text-align: justify;
-      margin-top: 0px;
-    }
-
-    /* Button Styles */
+  @media (max-width: 370px) {
     .MapFilter-button {
+      width: 135px;
       padding: 10px 0px;
-      width: 130px;
       font-size: 0.85rem;
-      border-radius: 20px;
     }
-
-  
-    .image-grid {
-      width: 90%;
-      height: 240px;
-      display: flex;           
-      flex-direction: column;     
-      gap: 15px;  
-      border-radius: 25px;              
-      justify-content: center; 
-      padding: 200px 0px;
-      margin-top: 100px;
-    }
-  
-    .image-container {
-      position: relative;
-      width: 100%; 
-      height: 100%;
-      border-radius: 25px; 
-      overflow: visible; 
-    }
-
-    .district {
-      font-size: 2rem;
-      margin-bottom: 0rem;
-    }  
-  
-    .subtitle {
-      font-size: 2rem;
-    }  
-  
   }
-    

@@ -1,3 +1,9 @@
+/* 
+==================
+HEADER
+================== 
+*/
+
 hr {
   width: 92%;
   border: 0;
@@ -5,13 +11,14 @@ hr {
   margin: 30px 0px 10px 10px; 
 }
 
-.buffet-container {
+.bazaar-container {
     text-align: left;
     background-color: #ffffff;
     height: auto;
+    width: auto;
 }
 
-.buffet-header {
+.bazaar-header {
     display: flex;
     align-items: center;
     justify-content: space-between; 
@@ -21,21 +28,21 @@ hr {
     background-size: cover;
 }
 
-.buffet-header-content {
+.bazaar-header-content {
     flex: 1;
 }
 
-.buffet-header-icon {
+.bazaar-header-icon {
     width: 580px; 
     height: auto;
 }
 
-.buffet-header-background {
+.bazaar-header-background {
     width: 100%;
     height: 100%;
 }
 
-.buffet-title {
+.bazaar-title {
     font-size: 3rem;
     margin-bottom: 10px;
     color: #ffffff;
@@ -43,7 +50,7 @@ hr {
     text-align: left;
 }
 
-.buffet-description {
+.bazaar-description {
     font-size: 1.2rem;
     margin-bottom: 20px;
     color: #ffffff;
@@ -51,42 +58,57 @@ hr {
     padding: 10px 0 0 100px;
 }
 
-/* CONTENT CONTAINER */
-.content-container {
+/* 
+==================
+CONTENT CONTAINER
+================== 
+*/
+
+.bazaar-content-container {
   justify-content: center;
   margin: 20px 100px 0px 100px;
 }
 
-/* BREADCRUMB */
-.breadcrumb {
+/* 
+==================
+   BREADCRUMB 
+==================
+*/
+
+.bazaar-breadcrumb {
     display: flex;
     font-size: 1rem;
     color: #333;
     margin: 10px 0px;
 }
 
-.breadcrumb-link {
+.bazaar-breadcrumb-link {
     text-decoration: none;
     color: #f26339; 
     font-weight: bold;
 }
 
-.breadcrumb-link:hover {
+.bazaar-breadcrumb-link:hover {
     text-decoration: underline;
 }
 
-.breadcrumb-separator {
+.bazaar-breadcrumb-separator {
     margin: 0 10px;
     color: #000000;
 }
 
-.breadcrumb-current {
+.bazaar-breadcrumb-current {
     color: #000000;
     font-weight: bold;
 }
 
-/* SEARCH BAR */
-.buffet-search {
+/* 
+==================
+SEARCH BAR 
+==================
+*/
+
+.bazaar-search {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +116,7 @@ hr {
     background-color: #ffffff; 
 }
 
-.search-input {
+.bazaar-search-input {
     width: 100%;
     height: 20px;
     margin: 10px 0px;
@@ -105,7 +127,7 @@ hr {
     background-color: #ffffff;
 }
 
-.search-button {
+.bazaar-search-button {
     width: 200px;
     height: 43px;
     padding: 10px 15px;
@@ -118,25 +140,33 @@ hr {
     transition: 0.3s;
 }
 
-.search-button:hover {
+.bazaar-search-button:hover {
     background-color: #ff7e57;
 }
 
-/* Filters */
-.filters-container {
+/* 
+==================
+   FILTER CONTENT
+==================
+*/
+.bazaar-filters-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns */
   grid-gap: 10px; /* Optional, adds space between grid items */
   padding: 10px 0px;
 }
 
-/* Price Sort Dropdown */
-.custom-dropdown {
+/* 
+==================
+   PRICE DROPDOWN 
+==================
+*/
+.bazaar-custom-dropdown {
   position: relative;
   display: inline-block;
 }
 
-.price-sort-button {
+.bazaar-price-sort-button {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -149,24 +179,24 @@ hr {
   cursor: pointer;
 }
 
-.price-sort-button:hover {
+.bazaar-price-sort-button:hover {
   background-color: #ffffff;
   border: 1px solid #f26339;
   color: #f26339;
 }
 
-.price-sort-button:active {
+.bazaar-price-sort-button:active {
   background-color: #ffffff;
   border: 1px solid #f26339;
   color: #f26339;
 }
 
-.arrow {
+.bazaar-arrow {
   margin-left: 35px;
   font-size: 12px;
 }
 
-.dropdown-pricesorts {
+.bazaar-dropdown-pricesorts {
   position: absolute;
   top: 45px; /* Position the dropdown below the button */
   left: 0; /* Align the dropdown to the left of the button */
@@ -179,31 +209,24 @@ hr {
   font-size: 0.9rem;
 }
 
-.dropdown-pricesort {
+.bazaar-dropdown-pricesort {
   padding: 10px;
   cursor: pointer;
 }
 
-.dropdown-pricesort:hover {
+.bazaar-dropdown-pricesort:hover {
   background-color: #f0f0f0;
 }
 
-/* Three Buttons (Buffet, Bazaar, Moreh) */
-.buffet-button-container {
+/* 
+==================
+   (THREE BUTTONS) BAZAAR, MOREH, BUFFET 
+==================
+*/
+.bazaar-button-container {
   display: flex;
   justify-content: center;
   gap: 10px; 
-}
-
-.buffet-button, .bazaar-button, .moreh-button {
-  padding: 10px 20px;
-  font-size: 0.9rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #ffffff;
-  color: #000000;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .buffet-button, .bazaar-button, .moreh-button {
@@ -230,20 +253,24 @@ hr {
   color: #f26339;
 } */
 
-.active-button {
+.bazaar-active-button {
   color: #F26339 !important;
   border: 2px solid #F26339 !important;
 }
 
-/* Filter Button */
-.filter-container {
+/* 
+==================
+   FILTER BUTTON 
+==================
+*/
+.bazaar-filter-container {
   display: flex;
   margin-left: auto;
   width: 175px;
   position: relative;
 }
 
-.filterdropdown-button {
+.bazaar-filterdropdown-button {
   padding: 10px 20px;
   font-size: 0.9rem;
   border: 1px solid #ccc;
@@ -255,21 +282,21 @@ hr {
   transition: background-color 0.3s ease;
 }
 
-.filterdropdown-button:hover {
+.bazaar-filterdropdown-button:hover {
   background-color: #ffffff;
   border: 1px solid #f26339;
   color: #f26339;
 }
 
-.filterdropdown-button:active {
+.bazaar-filterdropdown-button:active {
   background-color: #ffffff;
   border: 1px solid #f26339;
   color: #f26339;
 }
 
-.filter-dropdown {
+.bazaar-filter-dropdown {
   position: absolute;
-  top: 45px; /* Position the dropdown below the button */
+  top: 45px; 
   right: 0;
   background-color: white;
   border: 1px solid #ccc;
@@ -279,7 +306,7 @@ hr {
   z-index: 10;
 }
 
-.filter-select {
+.bazaar-filter-select {
   width: 100%;
   padding: 8px 12px;
   margin-bottom: 10px;
@@ -288,14 +315,14 @@ hr {
   border-radius: 5px;
 }
 
-.filter-dropdown h3 {
+.bazaar-filter-dropdown h3 {
   margin-top: 0;
   font-size: 15px;
   font-weight: bold;
   color: rgb(0, 0, 0);
 }
 
-.filter-dropdown-content {
+.bazaar-filter-dropdown-content {
   padding: 10px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -303,8 +330,12 @@ hr {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Category Filter */
-.category-select {
+/* 
+==================
+   CATEGORY FILTER 
+==================
+*/
+.bazaar-category-select {
   display: flex; 
   justify-content: space-between;
   width: 100%;
@@ -319,25 +350,25 @@ hr {
   outline: none;
 }
 
-.category-select:focus {
+.bazaar-category-select:focus {
   background-color: transparent;
   outline: none;
   border: none; 
 }
 
-.category-select:active {
+.bazaar-category-select:active {
   background-color: transparent;
   outline: none; 
   border: none; 
 }
 
-.filtercategory-buttons {
+.bazaar-filtercategory-buttons {
   display: flex;
   gap: 15px;
   margin: 10px 0px;
 }
 
-.filtercategory-button {
+.bazaar-filtercategory-button {
   width: 100%;
   padding: 10px 10px;
   border: 1px solid #000000;
@@ -349,20 +380,24 @@ hr {
   outline: none !important;
 }
 
-.filtercategory-button:hover {
+.bazaar-filtercategory-button:hover {
   background-color: #ffffff;
   border: 1px solid #f26339;
   color: #f26339;
 }
 
-.filtercategory-button.active {
+.bazaar-filtercategory-button.active {
   background-color: #ffffff;
   border: 1px solid #f26339;
   color: #f26339;
 }
 
-/* Price Filter */
-.price-select {
+/* 
+==================
+   PRICE FILTER 
+==================
+*/
+/* .moreh-price-select {
   display: flex; 
   justify-content: space-between;
   width: 100%;
@@ -420,11 +455,12 @@ hr {
   position: absolute;
   height: 100%;
   background-color: #f26339;
-  border-radius: 5px;
-}
+  border-radius: 5px; 
+}*/
 
 /* Hide default track styles for range inputs */
-.price-range-slider input[type="range"] {
+
+/* .price-range-slider input[type="range"] {
   position: absolute;
   width: 100%;
   top: 0;
@@ -459,10 +495,14 @@ hr {
 
 .slider-min-val, .slider-max-val {
   border: none;
-}
+} */
 
-/* Opening Hours Filter */
-.openHour-select {
+/* 
+==================
+   OPENING FILTER 
+==================
+*/
+/* .openHour-select {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -500,10 +540,14 @@ hr {
 
 .openHour-label {
   color: #000000;
-}
+} */
 
-/* Closing Hours Filter */
-.closeHour-select {
+/* 
+==================
+   CLOSING FILTER 
+==================
+*/
+/* .closeHour-select {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -541,10 +585,14 @@ hr {
 
 .closeHour-label {
   color: #000000;
-}
+} */
 
-/* District Filter */
-.filterdistrict-select {
+/* 
+==================
+   DISTRIC FILTER 
+==================
+*/
+.bazaar-filterdistrict-select {
   display: flex; 
   justify-content: space-between;
   width: 100%;
@@ -559,26 +607,26 @@ hr {
   outline: none;
 }
 
-.filterdistrict-select:focus {
+.bazaar-filterdistrict-select:focus {
   background-color: transparent;
   outline: none;
   border: none; 
 }
 
-.filterdistrict-select:active {
+.bazaar-filterdistrict-select:active {
   background-color: transparent;
   outline: none; 
   border: none; 
 }
 
-.filterdistrict-buttons {
+.bazaar-filterdistrict-buttons {
   display: grid;               
   grid-template-columns: repeat(2, 1fr);  /* Two columns */
   gap: 10px;   
   margin: 10px 0px 20px 0px;               
 }
 
-.filterdistrict-button {
+.bazaar-filterdistrict-button {
   padding: 10px 10px;
   margin-bottom: 0px;
   border: 1px solid #000000;
@@ -589,20 +637,24 @@ hr {
   border-radius: 10px;
 }
 
-.filterdistrict-button:hover {
+.bazaar-filterdistrict-button:hover {
   background-color: #ffffff;
   border: 1px solid #f26339;
   color: #f26339;
 }
 
-.filterdistrict-button.active {
+.bazaar-filterdistrict-button.active {
   background-color: #ffffff;
   border: 1px solid #f26339;
   color: #f26339;
 }
 
-/* Card Layout */
-.BuffetCard {
+/* 
+==================
+   CARD LAYOUT 
+==================
+*/
+.bazaarCard {
   width: 100%; 
   max-width: 400px; 
   box-sizing: border-box;
@@ -618,7 +670,7 @@ hr {
   margin-bottom: 20px;
 }
 
-.card-image-container {
+.bazaar-card-image-container {
   width: 100%; /* Make the image container span the full width of the card */
   height: 300px; /* Set a fixed height for the image container */
   overflow: hidden;
@@ -628,13 +680,13 @@ hr {
   align-items: center;
 }
 
-.card-image-container img {
+.bazaar-card-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensures the image fills the container and maintains its aspect ratio */
 }
 
-.card-image-container {
+.bazaar-card-image-container {
   width: 100%; /* Make the image container span the full width of the card */
   height: 250px; /* Set a fixed height for the image container */
   overflow: hidden;
@@ -645,21 +697,20 @@ hr {
   align-items: center;
 }
 
-.card-image-container img {
+.bazaar-card-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensures the image fills the container and maintains its aspect ratio */
 }
 
-/* Other styles remain unchanged */
-.BuffetCard-dropdown-section {
+.bazaarCard-dropdown-section {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-bottom: 20px;
 }
 
-.BuffetCard-container {
+.bazaarCard-container {
   display: grid;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -668,16 +719,14 @@ hr {
   padding: 30px 0px;
   gap: 30px;
   width: 100%;
-
 }
 
-/* Pseudo-element to fill remaining space */
-.BuffetCard-container::after {
+.bazaarCard-container::after {
   content: "";
   flex: auto;
 }
 
-.BuffetCard-option {
+.bazaarCard-option {
   font-size: 1rem;
   margin: 10px 0;
   color: #776afb;
@@ -689,7 +738,7 @@ hr {
   width: fit-content;
 }
 
-.BuffetCard-title {
+.bazaarCard-title {
   font-size: 1.15rem;
   margin: 10px 0;
   color: #000000;
@@ -698,7 +747,7 @@ hr {
   margin: 0px;
 }
 
-.BuffetCard-price, .BuffetCard-time {
+.bazaarCard-price, .bazaarCard-time {
   font-size: 1rem;
   color: #505050;
   text-align: left;
@@ -706,7 +755,7 @@ hr {
   margin: 0px;
 }
 
-.BuffetCard-district {
+.bazaarCard-district {
   font-size: 1rem;
   color: #505050;
   text-align: left;
@@ -714,14 +763,18 @@ hr {
   margin: 0px;
 }
 
-/* Pagination */
-.card-pagination {
+/* 
+==================
+   PAGINATION 
+==================
+*/
+.bazaar-card-pagination {
     display: flex;
     justify-content: center;
     margin-bottom: 80px;
 }
 
-.card-pagination button {
+.bazaar-card-pagination button {
   font-size: 1rem;
     margin: 0 5px;
     padding: 10px 15px;
@@ -731,18 +784,18 @@ hr {
     outline: none !important; 
 }
 
-.card-pagination button.active {
+.bazaar-card-pagination button.active {
     background-color: #F26339;
     color: white;
 }
 
-.card-pagination button:disabled {
+.bazaar-card-pagination button:disabled {
     background-color: #FFF0EC;
     cursor: not-allowed;
 }
 
 /* Back button styling */
-.back-button {
+/* .moreh-back-button {
     padding: 10px 15px;
     background-color: #007bff;
     color: white;
@@ -750,14 +803,13 @@ hr {
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-}
+} */
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .BuffetCard {
-        width: calc(33.33% - 20px); 
-    }
-}
+/* 
+==================
+   REPONSIVE DESIGN 
+==================
+*/
 
 @media (max-width: 900px) {
     .BuffetCard {
@@ -780,23 +832,71 @@ hr {
     }
 }
 
-@media (max-width: 600px) {
-    .BuffetCard {
-        width: calc(100% - 20px); 
+@media (max-width: 440px) {
+
+    .bazaar-header{
+      background-size: cover; /* Ensures it still covers the screen */
     }
 
-    .BuffetCard-container {
-        padding: 20px;
-        gap: 10px;
+    .bazaar-header-icon {
+    display: none;
     }
 
-    .BuffetCard-title {
-        font-size: 0.8rem;
-        padding: 0 10px;
+    .bazaar-title, .bazaar-description {
+    padding: 0 0 0 0;
+    margin: 5px 50px;
     }
 
-    .BuffetCard-address, .BuffetCard-category, .BuffetCard-content {
-        font-size: 0.6rem;
-        padding: 0 10px;
+    .bazaar-content-container {
+    max-width: 440px;
+    margin: 0 0 0 0;
+    }
+
+    .bazaar-breadcrumb {
+    margin-left: 50px;
+    }
+
+    .bazaar-search {
+    padding: 0 15px;
+    }
+
+    .bazaar-filters-container {
+    padding-left: 10px;
+    }
+
+    .bazaar-filter-container {
+      width: 110px;
+    }
+
+    .bazaarCard {
+    flex: 1 1 100%; /* Single card per row */
+    max-width: 100%;
+    margin-bottom: 15px;
+    }
+
+    .bazaarCard-container {
+    padding: 20px;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bazaarCard-title {
+    font-size: 0.8rem;
+    padding: 0 10px;
+    }
+
+    .bazaarCard-address, .bazaarCard-category, .bazaarCard-content {
+    font-size: 0.6rem;
+    padding: 0 10px;  
+    }
+
+    .bazaar-card-pagination {
+      margin-bottom: 50px;
+    }
+    
+    .bazaar-card-pagination button {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      margin: 0 3px;
     }
 }
