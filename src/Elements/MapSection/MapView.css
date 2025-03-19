@@ -63,6 +63,60 @@
   fill: #ff8248;
 }
 
+@media (max-width: 768px) {
+  .Map-container {
+    width: 100vw; 
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    flex: 1; 
+    justify-content: none;
+  }
+
+  .DistrictMap-container {
+    height: 60vh; 
+  }
+
+  .DistrictBackground-container {
+    position: absolute;
+    top: 30%; 
+    left: 42%; 
+    width: 270px; 
+    height: 270px; 
+    background: #776AFB;
+    border-radius: 30px;
+    transform: translate(-50%, -50%); 
+    z-index: 0;
+  }
+  
+  /* Overlay container */
+  .DistrictOverlay-container {
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    width: 220px; 
+    height: 220px; 
+    background: none;
+    border: 6px solid #ff8248;
+    border-radius: 30px;
+    padding: 20px;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+  }
+  
+  /* SVG container */
+  .svg-container {
+    width: 270px; 
+    height: 270px; 
+    background-color: none;
+    border-radius: 25px;
+    top: -20px;
+    right: 30px;
+    position: relative;
+    z-index: 2;
+  }
+}
+
 @media (max-width: 400px) {
   .Map-container {
     width: 100vw; 
