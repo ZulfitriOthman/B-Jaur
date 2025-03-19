@@ -23,20 +23,20 @@ function Buffet() {
   const [minPrice, setMinPrice] = useState(priceRange[0]);
   const [maxPrice, setMaxPrice] = useState(priceRange[1]);
   const [tempPriceRange, setTempPriceRange] = useState([minPrice, maxPrice]);
-  const [showOpenHoursButtons, setShowOpenHoursButtons] = useState(false);
-  const [showCloseHoursButtons, setShowCloseHoursButtons] = useState(false);
+  // const [showOpenHoursButtons, setShowOpenHoursButtons] = useState(false);
+  // const [showCloseHoursButtons, setShowCloseHoursButtons] = useState(false);
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [showDistrictButtons, setShowDistrictButtons] = useState(false);
-  const [hour, setHour] = useState("00");
-  const [minute, setMinute] = useState("00");
-  const [ampm, setAmpm] = useState("AM");
+  // const [hour, setHour] = useState("00");
+  // const [minute, setMinute] = useState("00");
+  // const [ampm, setAmpm] = useState("AM");
   const [searchQuery, setSearchQuery] = useState("");
   
 
 
-  const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
-  const minutes = Array.from({ length: 60 }, (_, i) => (i < 10 ? `0${i}` : i.toString()));
-  const ampmOptions = ["AM", "PM"];
+  // const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
+  // const minutes = Array.from({ length: 60 }, (_, i) => (i < 10 ? `0${i}` : i.toString()));
+  // const ampmOptions = ["AM", "PM"];
   
   const cardsPerPage = 15;
 
@@ -117,27 +117,27 @@ function Buffet() {
   
 
 
-  // Filter by opening hours
-  const filterByTime = () => {
-    const selectedTime = `${hour.padStart(2, "0")}${minute.padStart(2, "0")}${ampm === "PM" ? "12" : ""}`; // Convert selected time to 24-hour format
-    const filteredCards = initialCards.filter((card) => {
-      const openTime = card.openTime;
-      const closeTime = card.closeTime;
+  // // Filter by opening hours
+  // const filterByTime = () => {
+  //   const selectedTime = `${hour.padStart(2, "0")}${minute.padStart(2, "0")}${ampm === "PM" ? "12" : ""}`; // Convert selected time to 24-hour format
+  //   const filteredCards = initialCards.filter((card) => {
+  //     const openTime = card.openTime;
+  //     const closeTime = card.closeTime;
 
-      // Compare selected time with open and close hours
-      if (parseInt(selectedTime) >= parseInt(openTime) && parseInt(selectedTime) <= parseInt(closeTime)) {
-        return true;
-      }
-      return false;
-    });
+  //     // Compare selected time with open and close hours
+  //     if (parseInt(selectedTime) >= parseInt(openTime) && parseInt(selectedTime) <= parseInt(closeTime)) {
+  //       return true;
+  //     }
+  //     return false;
+  //   });
 
-    setSortedCards(filteredCards);
-  };
+  //   setSortedCards(filteredCards);
+  // };
 
-  // Handle time changes and filter
-  const handleTimeChange = () => {
-    filterByTime();
-  };
+  // // Handle time changes and filter
+  // const handleTimeChange = () => {
+  //   filterByTime();
+  // };
   
   
   // Handle sorting order change
