@@ -9,11 +9,57 @@
 
   #map-section {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-size: cover; /* Ensure the image covers the element */
     background-color: #ffffff;
+  }
+
+  .banner-container {
+    display: flex;
+    flex: 1;
+    align-items: center; 
+    justify-content: space-between;
+    padding: 0px 150px;
+    background-color: #FFF0EC;
+  }
+  
+  .banner-title {
+    font-size: 3rem; 
+    color: #FF6131;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .banner-images {
+    display: flex;
+    align-items: center;
+  }
+  
+  .banner-bubble-image,
+  .banner-amir-image,
+  .banner-signage-image {
+    margin: 0 10px; 
+  }
+  
+  .Bubble-icon {
+    width: 150px;
+    height: auto;
+    margin-top: 150px;
+  }
+
+  .Amir-icon {
+    width: 100px; 
+    height: auto;
+    margin-top: 200px;
+  }
+
+  .Signage-icon {
+    width: 200px; 
+    height: auto;
+    margin-top: 70px;
   }
   
   .featured-properties-box {
@@ -41,7 +87,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 30px;
+    margin-top: 0px;
     color: white;
     overflow: hidden; /* Prevent scrolling */
     display: flex;
@@ -328,33 +374,26 @@
   }
   
 
-  @media (max-width: 999px) {
-    /* .featured-properties-box {
-      margin-top: 200px;
-    }
-
-    .content-overlay {
+  @media (max-width: 1024px) {
+    .banner-container {
       display: flex;
-      flex-direction: column;
-    } */
+      flex: 1;
+      align-items: center; 
+      justify-content: space-between;
+      padding: 0px 50px;
+      background-color: #FFF0EC;
+    }
 
     .content-left {
       flex: 1; 
       padding: 20px;
       display: flex;
       flex-direction: column;
-      margin-top: 0px;
+      margin-top: 10px;
       margin-bottom: 30px;
       color: white;
       overflow: hidden; 
       padding: 0px 50px;
-    }
-
-    .map-title {
-      color: #ff6131;
-      font-weight: bold;
-      font-size: 2.8rem;
-      margin-bottom: 2.5rem;
     }
     
     .map-description {
@@ -363,6 +402,34 @@
       font-weight: bold;
       font-size: 2.75rem;
       margin-bottom: 2.5rem;
+    }
+
+    .yellow-sun {
+      position: absolute;
+      z-index: 10;
+      width: 250px; 
+      height: auto;
+      top: -60px;
+      left: -110px;
+      
+    }
+  
+    .pink-moon {
+      position: absolute;
+      z-index: 10;
+      width: 250px;
+      height: auto;
+      top: 350px;
+      left: 120px;
+    }
+    
+    .blue-candy {
+      position: absolute;
+      z-index: 10;
+      width: 320px; 
+      height: auto;
+      top: -5rem;
+      left: 7.5rem;
     }
   }
 
@@ -382,14 +449,16 @@
       height: auto;
       background-size: cover; 
       background-color: #ffffff;
-      padding: 30px 0px;
+      padding: 0px 0px;
     }
 
-    .map-title {
-      font-size: 1.85rem;
-      text-align: justify;
-      margin-bottom: 20px 0px 20px 0px;
+    .banner-container {
+      display: flex;
+      flex: 1;
+      align-items: center; 
+      justify-content: space-between;
       padding: 0px 20px;
+      background-color: #FFF0EC;
     }
     
     .map-description {
@@ -500,23 +569,6 @@
       max-width: 400px;
       border-radius: 10px;
       overflow: hidden;
-    }
-
-    #map-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: auto;
-      background-size: cover; 
-      background-color: #ffffff;
-      padding: 30px 0px;
-    }
-
-    .map-title {
-      font-size: 1.5rem;
-      text-align: justify;
-      margin-bottom: 30px;
-      padding: 0px 20px;
     }
     
     .map-description {
