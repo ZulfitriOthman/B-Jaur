@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Buffet.css";
@@ -10,7 +11,7 @@ import "./TimePicker.css";
 
 function Buffet() {
   // Combine both card types into a single array
-  const allCards = [...BuffetSungkaiCards, ...BuffetSahurCards];
+  const allCards = useMemo(() => [...BuffetSungkaiCards, ...BuffetSahurCards], [BuffetSungkaiCards, BuffetSahurCards]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortedCards, setSortedCards] = useState(allCards);
   const [showPriceSort, setShowPriceSort] = useState(false);
@@ -22,21 +23,45 @@ function Buffet() {
   const [priceRange, setPriceRange] = useState([0, 100]);
   const [minPrice, setMinPrice] = useState(priceRange[0]);
   const [maxPrice, setMaxPrice] = useState(priceRange[1]);
-  const [showOpenHoursButtons, setShowOpenHoursButtons] = useState(false);
-  const [showCloseHoursButtons, setShowCloseHoursButtons] = useState(false);
+  const [tempPriceRange, setTempPriceRange] = useState([minPrice, maxPrice]);
+  // const [showOpenHoursButtons, setShowOpenHoursButtons] = useState(false);
+  // const [showCloseHoursButtons, setShowCloseHoursButtons] = useState(false);
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [showDistrictButtons, setShowDistrictButtons] = useState(false);
-  const [hour, setHour] = useState("00");
-  const [minute, setMinute] = useState("00");
-  const [ampm, setAmpm] = useState("AM");
+  // const [hour, setHour] = useState("00");
+  // const [minute, setMinute] = useState("00");
+  // const [ampm, setAmpm] = useState("AM");
   const [searchQuery, setSearchQuery] = useState("");
+  
 
 
-  const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
-  const minutes = Array.from({ length: 60 }, (_, i) => (i < 10 ? `0${i}` : i.toString()));
-  const ampmOptions = ["AM", "PM"];
+  // const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
+  // const minutes = Array.from({ length: 60 }, (_, i) => (i < 10 ? `0${i}` : i.toString()));
+  // const ampmOptions = ["AM", "PM"];
   
   const cardsPerPage = 15;
+
+  const handleTempPriceChange = (e) => {
+    const { name, value } = e.target;
+    const numericValue = Number(value);
+  
+    setTempPriceRange((prev) => { 
+      const newRange = [...prev];
+  
+      if (name === "min" && numericValue < newRange[1]) {
+        newRange[0] = numericValue;
+      } else if (name === "max" && numericValue > newRange[0]) {
+        newRange[1] = numericValue;
+      }
+  
+      return newRange;
+    });
+  };
+
+  const handlePriceCommit = () => {
+    setMinPrice(tempPriceRange[0]);
+    setMaxPrice(tempPriceRange[1]);
+  };
 
 
   // Handle Search Input Change
@@ -46,41 +71,74 @@ function Buffet() {
 
   // Filter cards based on search query
   useEffect(() => {
-    const filteredCards = allCards.filter((card) => {
+    window.scrollTo(0, 0);
+    let filteredCards = allCards;
+  
+    // Apply search filter
+    if (searchQuery) {
       const queryLower = searchQuery.toLowerCase();
-      return (
+      filteredCards = filteredCards.filter((card) =>
         card.title.toLowerCase().includes(queryLower) ||
         card.priceDisplay.toLowerCase().includes(queryLower) ||
         card.option.toLowerCase().includes(queryLower) ||
         card.openTime.toLowerCase().includes(queryLower) ||
         card.closeTime.toLowerCase().includes(queryLower)
       );
+    }
+  
+    // Apply category filter
+    if (selectedCategory) {
+      filteredCards = filteredCards.filter((card) => card.option === selectedCategory);
+    }
+  
+    // Apply district filter
+    if (selectedDistrict) {
+      filteredCards = filteredCards.filter((card) => card.district === selectedDistrict);
+    }
+  
+    // Apply price range filter
+    filteredCards = filteredCards.filter((card) => {
+      const cardPrice = parseFloat(card.price.replace(/[^0-9.]/g, ""));
+      return cardPrice >= minPrice && cardPrice <= maxPrice;
     });
-    setSortedCards(filteredCards); // Update the displayed cards
-  }, [searchQuery]); // Trigger the filter when the search query changes
-
-
-  // Filter by opening hours
-  const filterByTime = () => {
-    const selectedTime = `${hour.padStart(2, "0")}${minute.padStart(2, "0")}${ampm === "PM" ? "12" : ""}`; // Convert selected time to 24-hour format
-    const filteredCards = initialCards.filter((card) => {
-      const openTime = card.openTime;
-      const closeTime = card.closeTime;
-
-      // Compare selected time with open and close hours
-      if (parseInt(selectedTime) >= parseInt(openTime) && parseInt(selectedTime) <= parseInt(closeTime)) {
-        return true;
-      }
-      return false;
-    });
-
+  
+    // Apply sorting
+    if (selectedPriceOption) {
+      filteredCards = [...filteredCards].sort((a, b) => {
+        const priceA = parseFloat(a.price.replace(/[^0-9.]/g, ""));
+        const priceB = parseFloat(b.price.replace(/[^0-9.]/g, ""));
+        return selectedPriceOption === "Price: Low to High" ? priceA - priceB : priceB - priceA;
+      });
+    }
+  
     setSortedCards(filteredCards);
-  };
+    setCurrentPage(1); // Reset to first page when filters change
+  
+  }, [searchQuery, selectedCategory, selectedDistrict, minPrice, maxPrice, selectedPriceOption, allCards]);
+  
 
-  // Handle time changes and filter
-  const handleTimeChange = () => {
-    filterByTime();
-  };
+
+  // // Filter by opening hours
+  // const filterByTime = () => {
+  //   const selectedTime = `${hour.padStart(2, "0")}${minute.padStart(2, "0")}${ampm === "PM" ? "12" : ""}`; // Convert selected time to 24-hour format
+  //   const filteredCards = initialCards.filter((card) => {
+  //     const openTime = card.openTime;
+  //     const closeTime = card.closeTime;
+
+  //     // Compare selected time with open and close hours
+  //     if (parseInt(selectedTime) >= parseInt(openTime) && parseInt(selectedTime) <= parseInt(closeTime)) {
+  //       return true;
+  //     }
+  //     return false;
+  //   });
+
+  //   setSortedCards(filteredCards);
+  // };
+
+  // // Handle time changes and filter
+  // const handleTimeChange = () => {
+  //   filterByTime();
+  // };
   
   
   // Handle sorting order change
@@ -342,8 +400,8 @@ function Buffet() {
                             <div
                               className="price-slider-track"
                               style={{
-                                left: `${(minPrice / 100) * 100}%`,
-                                width: `${((maxPrice - minPrice) / 100) * 100}%`,
+                                left: `${(tempPriceRange[0] / 100) * 100}%`,
+                                width: `${((tempPriceRange[1] - tempPriceRange[0]) / 100) * 100}%`,
                               }}
                             ></div>
 
@@ -351,18 +409,23 @@ function Buffet() {
                               type="range"
                               min="0"
                               max="100"
-                              value={minPrice}
                               name="min"
-                              onChange={handlePriceSliderChange}
+                              value={tempPriceRange[0]}
+                              onChange={handleTempPriceChange}
+                              onMouseUp={handlePriceCommit} // Update the actual filter only when user stops dragging
+                              onTouchEnd={handlePriceCommit} // For mobile
                               className="slider-min-val"
                             />
+
                             <input
                               type="range"
                               min="0"
                               max="100"
-                              value={maxPrice}
                               name="max"
-                              onChange={handlePriceSliderChange}
+                              value={tempPriceRange[1]}
+                              onChange={handleTempPriceChange}
+                              onMouseUp={handlePriceCommit}
+                              onTouchEnd={handlePriceCommit}
                               className="slider-max-val"
                             />
 
@@ -370,22 +433,22 @@ function Buffet() {
                             <div
                               className="price-tooltip min-tooltip"
                               style={{
-                                left: `calc(${(minPrice / 100) * 100}%)`,
+                                left: `calc(${(tempPriceRange[0] / 100) * 100}%)`,
                                 transform: "translateX(-50%)", // This ensures the tooltip is centered above the thumb
                                 top: "-40px", // Adjust the value to move the tooltip above the thumb
                               }}
                             >
-                              ${minPrice}
+                              ${tempPriceRange[0]}
                             </div>
                             <div
                               className="price-tooltip max-tooltip"
                               style={{
-                                left: `calc(${(maxPrice / 100) * 100}%)`,
+                                left: `calc(${(tempPriceRange[1] / 100) * 100}%)`,
                                 transform: "translateX(-50%)", // Ensures the tooltip is centered above the thumb
                                 top: "-40px", // Adjust this for the max input tooltip
                               }}
                             >
-                              ${maxPrice}
+                              ${tempPriceRange[1]}
                             </div>
                           </div>
                           <hr/>
@@ -564,15 +627,7 @@ function Buffet() {
                     </div>
                   )}
                 </div>
-              
-                {/* <h3>District</h3>
-                <select className="filter-select">
-                  <option value="all">Districts</option>
-                  <option value="brunei-muara">Brunei-Muara</option>
-                  <option value="kota-batu">Tutong</option>
-                  <option value="seria">Belait</option>
-                  <option value="muara">Temburong</option>
-                </select> */}
+            
               </div>
             )}
           </div>

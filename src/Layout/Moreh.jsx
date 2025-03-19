@@ -21,6 +21,7 @@ function Buffet() {
   const [priceRange, setPriceRange] = useState([0, 100]);
   const [minPrice, setMinPrice] = useState(priceRange[0]);
   const [maxPrice, setMaxPrice] = useState(priceRange[1]);
+  const [tempPriceRange, setTempPriceRange] = useState([minPrice, maxPrice]);
   const [showOpenHoursButtons, setShowOpenHoursButtons] = useState(false);
   const [showCloseHoursButtons, setShowCloseHoursButtons] = useState(false);
   const [selectedDistrict, setSelectedDistrict] = useState("");
@@ -37,6 +38,30 @@ function Buffet() {
   
   const cardsPerPage = 15;
 
+  const handleTempPriceChange = (e) => {
+    const { name, value } = e.target;
+    const numericValue = Number(value);
+  
+    setTempPriceRange((prev) => {
+      const newRange = [...prev];
+  
+      if (name === "min" && numericValue < newRange[1]) {
+        newRange[0] = numericValue;
+      } else if (name === "max" && numericValue > newRange[0]) {
+        newRange[1] = numericValue;
+      }
+  
+      return newRange;
+    });
+  };
+
+  const handlePriceCommit = () => {
+    setMinPrice(tempPriceRange[0]);
+    setMaxPrice(tempPriceRange[1]);
+  };
+
+
+
 
   // Handle Search Input Change
   const handleSearchChange = (e) => {
@@ -45,6 +70,7 @@ function Buffet() {
 
   // Filter cards based on search query
   useEffect(() => {
+    window.scrollTo(0, 0);
     const filteredCards = MorehCards.filter((card) => {
       const queryLower = searchQuery.toLowerCase();
       return (
@@ -180,45 +206,43 @@ function Buffet() {
     setCurrentPage(pageNumber);
   };
 
-
-
   return (
-    <div className="buffet-container">
-      <div className="buffet-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
-        <div className="buffet-header-content">
-          <h1 className="buffet-title">Moreh</h1>
-          <p className="buffet-description">
+    <div className="moreh-container">
+      <div className="moreh-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
+        <div className="moreh-header-content">
+          <h1 className="moreh-title">Moreh</h1>
+          <p className="moreh-description">
           Sweet sustenance after Taraweeh
           </p>
         </div>
         
         {/* Header Icon */}
-        <img src={HeaderIcon} alt="Header Icon" className="buffet-header-icon" />
+        <img src={HeaderIcon} alt="Header Icon" className="moreh-header-icon" />
       </div>
 
-      <div className="content-container">
+      <div className="moreh-content-container">
         {/* Breadcrumb Navigation */}
-        <div className="breadcrumb">
-          <a href="/" className="breadcrumb-link">Home</a>
-          <span className="breadcrumb-separator"> &gt; </span>
-          <span className="breadcrumb-current">Moreh</span>
+        <div className="moreh-breadcrumb">
+          <a href="/" className="moreh-breadcrumb-link">Home</a>
+          <span className="moreh-breadcrumb-separator"> &gt; </span>
+          <span className="moreh-breadcrumb-current">Moreh</span>
         </div>
 
         {/* Search Bar */}
-        <div className="buffet-search">
+        <div className="moreh-search">
           <input
             type="text"
-            className="search-input"
+            className="moreh-search-input"
             placeholder="Find moreh spots!"
             value={searchQuery}
             onChange={handleSearchChange}
           />
-          <button className="search-button">Search</button>
+          <button className="moreh-search-button">Search</button>
         </div>
 
         {/* Dropdown for Price Sorting */}
-        <div className="filters-container">
-          <div className="custom-dropdown">
+        <div className="moreh-filters-container">
+          <div className="moreh-custom-dropdown">
             {/* <button
               className="price-sort-button"
               onClick={() => setShowPriceSort(!showPriceSort)}
@@ -228,15 +252,15 @@ function Buffet() {
             </button> */}
 
             {showPriceSort && (
-              <div className="dropdown-pricesorts">
+              <div className="moreh-dropdown-pricesorts">
                 <div
-                  className="dropdown-pricesort"
+                  className="moreh-dropdown-pricesort"
                   onClick={() => handleSortChange("low-to-high")}
                 >
                   Price: Low to High
                 </div>
                 <div
-                  className="dropdown-pricesort"
+                  className="moreh-dropdown-pricesort"
                   onClick={() => handleSortChange("high-to-low")}
                 >
                   Price: High to Low
@@ -247,7 +271,7 @@ function Buffet() {
         
         
           {/* Buttons */}
-          <div className="buffet-button-container">
+          <div className="moreh-button-container">
             <Link to="/buffet">
               <button className="buffet-button">Buffet</button>
             </Link>
@@ -259,15 +283,14 @@ function Buffet() {
             </Link>
           </div>
 
-
           {/* Filter Button and Dropdown */}
-          <div className="filter-container">
-            <button className="filterdropdown-button" onClick={() => setShowFilter(!showFilter)}>
+          <div className="moreh-filter-container">
+            <button className="moreh-filterdropdown-button" onClick={() => setShowFilter(!showFilter)}>
               Filter
             </button>
 
             {showFilter && (
-              <div className="filter-dropdown">
+              <div className="moreh-filter-dropdown">
 
                 {/* Category Filter
                 <div className="category-filter">
@@ -519,43 +542,43 @@ function Buffet() {
 
 
                 {/* District Filter */}
-                <div className="filterdistrict-filter">
+                <div className="moreh-filterdistrict-filter">
                   <button
-                    className="filterdistrict-select"
+                    className="moreh-filterdistrict-select"
                     onClick={() => setShowDistrictButtons(!showDistrictButtons)}
                   >
                     District
-                    <span className="arrow">{showDistrictButtons ? "▲" : "▼"}</span>
+                    <span className="moreh-arrow">{showDistrictButtons ? "▲" : "▼"}</span>
                   </button>
 
                   {showDistrictButtons && (
-                    <div className="filterdistrict-buttons">
+                    <div className="moreh-filterdistrict-buttons">
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Brunei-Muara" ? "active" : ""}`}
+                        className={`moreh-filterdistrict-button ${selectedDistrict === "Brunei-Muara" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Brunei-Muara")}
                       >
                         Brunei-Muara
                       </button>
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Tutong" ? "active" : ""}`}
+                        className={`moreh-filterdistrict-button ${selectedDistrict === "Tutong" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Tutong")}
                       >
                         Tutong
                       </button>
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Belait" ? "active" : ""}`}
+                        className={`moreh-filterdistrict-button ${selectedDistrict === "Belait" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Belait")}
                       >
                         Belait
                       </button>
                       <button 
-                        className={`filterdistrict-button ${selectedDistrict === "Temburong" ? "active" : ""}`}
+                        className={`moreh-filterdistrict-button ${selectedDistrict === "Temburong" ? "active" : ""}`}
                         onClick={() => handleDistrictFilter("Temburong")}
                       >
                         Temburong
                       </button>
                       <button 
-                        className="filterdistrict-button" 
+                        className="moreh-filterdistrict-button" 
                         onClick={() => handleDistrictFilter("")}
                       >
                         Show All
@@ -578,24 +601,24 @@ function Buffet() {
         </div>
 
         {/* Cards Section */}
-        <section className="BuffetCard-dropdown-section">
-          <div className="BuffetCard-container">
+        <section className="morehCard-dropdown-section">
+          <div className="morehCard-container">
             {currentCards.map((card) => (
               <a
                 key={card.id}
                 href={card.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="BuffetCard"
+                className="morehCard"
               >
-                <div className="card-image-container">
-                  <img src={card.image} alt={card.title} className="BuffetCard-image" />
+                <div className="moreh-card-image-container">
+                  <img src={card.image} alt={card.title} className="morehCard-image" />
                 </div>
-                <p className="BuffetCard-option">{card.option}</p>
-                <h3 className="BuffetCard-title">{card.title}</h3>
-                <p className="BuffetCard-price">{card.priceDisplay}</p>
-                <p className="BuffetCard-time">{card.time}</p>
-                <p className="BuffetCard-district">{card.district}</p>
+                <p className="morehCard-option">{card.option}</p>
+                <h3 className="morehCard-title">{card.title}</h3>
+                <p className="morehCard-price">{card.priceDisplay}</p>
+                <p className="morehCard-time">{card.time}</p>
+                <p className="morehCard-district">{card.district}</p>
               </a>
             ))}
           </div>
@@ -603,7 +626,7 @@ function Buffet() {
         
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="card-pagination">
+          <div className="moreh-card-pagination">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}

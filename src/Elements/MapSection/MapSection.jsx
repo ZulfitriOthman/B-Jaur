@@ -58,11 +58,11 @@ function MapSection() {
   // Navigate based on the image clicked
   const handleExploreClick = (section) => {
     if (section === "Buffet.jpg") {
-      navigate("/buffet");
+      navigate(`/buffet`);
     } else if (section === "Bazaar.jpg") {
-      navigate("/bazaar");
+      navigate(`/bazaar`);
     } else if (section === "Moreh.jpg") {
-      navigate("/moreh");
+      navigate(`/moreh`);
     }
   };
 

@@ -8,7 +8,7 @@ import { BazaarSungkaiCards } from "./BazaarSungkai.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
 import "./TimePicker.css";
 
-function Buffet() {
+function Bazaar() {
   // Combine both card types into a single array
   const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,6 +46,7 @@ function Buffet() {
 
   // Filter cards based on search query
   useEffect(() => {
+    window.scrollTo(0, 0);
     const filteredCards = allCards.filter((card) => {
       const queryLower = searchQuery.toLowerCase();
       return (
@@ -639,4 +640,4 @@ function Buffet() {
   );
 }
 
-export default Buffet;
+export default Bazaar;
