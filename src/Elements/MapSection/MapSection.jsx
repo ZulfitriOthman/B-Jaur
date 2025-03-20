@@ -18,7 +18,6 @@ function MapSection() {
 
   const handleDistrictClick = (district) => {
     setActiveDistrict(district);
-    // Set the filter based on the district clicked
     const districtFilters = {
       "Brunei-Muara": "Brunei-Muara",
       "Tutong": "Tutong",
@@ -29,12 +28,15 @@ function MapSection() {
     setIsDistrictSelected(true);
     setShowSecondaryFilters(true);
   };
+  
 
   const handleFilterClick = (filter) => {
     setSelectedFilter(filter);
+    setActiveDistrict(filter);  
     setIsDistrictSelected(true);
     setShowSecondaryFilters(true);
   };
+  
 
   const getRandomMessage = (image) => {
     // Messages for Buffet and Bazaar (same messages)
@@ -121,7 +123,7 @@ function MapSection() {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
                     >
-                      {["Brunei-Muara", "Tutong", "Kuala Belait", "Temburong"].map(
+                      {["Brunei-Muara", "Tutong", "Belait", "Temburong"].map(
                         (filter) => (
                           <motion.button
                             key={filter}
