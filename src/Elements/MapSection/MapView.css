@@ -2,7 +2,7 @@
 .Map-container {
   position: relative;
   width: 100vw; 
-  height: 70vh;
+  height: 600px;
   overflow: hidden;
   display: flex;
   flex: 1; 
@@ -63,20 +63,102 @@
   fill: #ff8248;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1024px) {
   .Map-container {
     width: 100vw; 
-    height: 70vh;
+    height: 500px;
     overflow: hidden;
     display: flex;
     flex: 1; 
     justify-content: none;
   }
 
+  .DistrictBackground-container {
+    position: absolute;
+    top: 40%; 
+    left: 47%; 
+    width: 310px; 
+    height: 310px; 
+    background: #776AFB;
+    border-radius: 30px;
+    transform: translate(-50%, -50%); 
+    z-index: 0;
+  }
+  
+  /* Overlay container */
+  .DistrictOverlay-container {
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    width: 260px; 
+    height: 260px; 
+    background: none;
+    border: 6px solid #ff8248;
+    border-radius: 30px;
+    padding: 20px;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+  }
+  
+  /* SVG container */
+  .svg-container {
+    width: 310px; 
+    height: 310px; 
+    background-color: none;
+    border-radius: 25px;
+    top: -20px;
+    right: 30px;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 768px) {
   .DistrictMap-container {
-    height: 60vh; 
+    height: 450px; 
   }
 
+  .DistrictBackground-container {
+    position: absolute;
+    top: 40%; 
+    left: 47%; 
+    width: 310px; 
+    height: 310px; 
+    background: #776AFB;
+    border-radius: 30px;
+    transform: translate(-50%, -50%); 
+    z-index: 0;
+  }
+  
+  /* Overlay container */
+  .DistrictOverlay-container {
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    width: 260px; 
+    height: 260px; 
+    background: none;
+    border: 6px solid #ff8248;
+    border-radius: 30px;
+    padding: 20px;
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+  }
+  
+  /* SVG container */
+  .svg-container {
+    width: 310px; 
+    height: 310px; 
+    background-color: none;
+    border-radius: 25px;
+    top: -20px;
+    right: 30px;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 400px) {
   .DistrictBackground-container {
     position: absolute;
     top: 35%; 
