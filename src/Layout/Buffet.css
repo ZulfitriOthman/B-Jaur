@@ -449,6 +449,7 @@ SEARCH BAR
   margin-left: 12px;
   background-color: #f2643962;
   border-radius: 5px;
+  border: none;
 }
 
 .buffet-price-slider-track {
@@ -468,6 +469,7 @@ SEARCH BAR
   pointer-events: none;
   appearance: none;
   height: 5px;
+  border: none;
 }
 
 .buffet-price-tooltip {

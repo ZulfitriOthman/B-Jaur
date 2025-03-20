@@ -556,7 +556,7 @@ export const BuffetSungkaiCards = [
     {
         id: 33,
         image: restaurant33,
-        title: "BBQ Tonightl",
+        title: "BBQ Tonight",
         priceDisplay: "Adult: $21.00 | Child: $12.00",
         time: "6.00 pm",
         district: "Brunei-Muara",
