@@ -6,6 +6,7 @@ import "./MapSection.css";
 import AmirIcon from "../../assets/Amir_1.png";
 import SignageIcon from "../../assets/Signage_2.png";
 import BubbleIcon from "../../assets/Bubble_3.png";
+import { FaArrowLeft } from 'react-icons/fa';
 
 function MapSection() {
   const [activeDistrict, setActiveDistrict] = useState(null);
@@ -89,19 +90,16 @@ function MapSection() {
       <div className={showSecondaryFilters ? "map-box" : ""} id="map-section">
         <div className="featured-properties-box">
           <header className="map-header">
-            {!isDistrictSelected && (
-              <motion.h3
-                className="secondary-title"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 50 }}
-                transition={{ duration: 0.5 }}
-              >
-                <span className="district">{selectedFilter}</span>
-                <br />
-                <span className="subtitle">Ramadhan eats & treats</span>
-              </motion.h3>
-            )}
+          {isDistrictSelected && (
+            <motion.h3
+              className="secondary-title"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.5 }}
+            >
+            </motion.h3>
+          )}
           </header>
 
           <div className="content-overlay">
@@ -167,6 +165,24 @@ function MapSection() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
               >
+
+              <div className="back-and-title-container">
+                <motion.button
+                  className="back-button"
+                  onClick={() => {
+                    setShowSecondaryFilters(false);
+                    setIsDistrictSelected(false);
+                    setSelectedFilter(null);
+                    setActiveDistrict(null);
+                  }}
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaArrowLeft className="back-icon" />
+                </motion.button>
+
                 <motion.h3
                   className="secondary-title"
                   initial={{ opacity: 0, y: 50 }}
@@ -174,7 +190,11 @@ function MapSection() {
                   exit={{ opacity: 0, y: 50 }}
                   transition={{ duration: 0.5 }}
                 >
+                  <span className="district">{selectedFilter}</span>
+                  <br />
+                  <span className="subtitle">Ramadhan eats & treats</span>
                 </motion.h3>
+              </div>
 
                 {/* Image Grid */}
                 <motion.div

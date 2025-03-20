@@ -4,7 +4,7 @@
     align-items: center;
     height: 100%;
     background: url('../../assets/Orange.svg') no-repeat center center;
-    background-size: cover; /* Ensure the image covers the element */
+    background-size: cover; 
   }
 
   #map-section {
@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     height: 920px;
-    background-size: cover; /* Ensure the image covers the element */
+    background-size: cover;
     background-color: #ffffff;
   }
 
@@ -83,7 +83,7 @@
   
   .content-left {
     flex: 1; 
-    padding: 0px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     margin-top: 50px;
@@ -274,7 +274,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -50px;
+    margin-top: -90px;
   }
 
   /* Heading Style for Secondary Filters */
@@ -304,22 +304,6 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .back-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #1C1B1F;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .back-button:hover {
-    background-color: #444;
-  }
-  
-
   .search-button-container {
     margin-top: 15px; /* Add spacing between filter and search button */
   }
@@ -371,8 +355,45 @@
     top: -60px;
     left: 160px;
   }
-  
 
+  .back-and-title-container {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 0px; 
+    width: 90%;
+  }
+  
+  .secondary-title {
+    width: 100%;
+    font-size: 1.5rem; 
+    font-weight: bold;
+  }
+
+  .back-button {
+    position: absolute;
+    width: fit-content;
+    background-color: #776AFB;
+    color: white;
+    font-size: 25px;
+    padding: 12px 17px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 70px;
+    margin-left: -20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #766afbb4;
+  }
+
+  .back-icon {
+    margin-top: 4px;
+  }
+  
+  
   @media (max-width: 1024px) {
     .banner-container {
       display: flex;
@@ -522,10 +543,7 @@
     }
 
     .content-overlay {
-      display: flex;
       flex-direction: column;
-      width: 100%;
-      height: 100%;
     }
 
     .content-left {
@@ -541,11 +559,6 @@
       width: 175px;
       padding: 10px 0px;
       font-size: 0.85rem;
-    }
-
-    .secondary-title {
-      margin: 0px;
-      padding: 0px 10px;
     }
   
     .image-grid {
@@ -655,13 +668,6 @@
       text-align: justify;
     }
 
-    .content-overlay {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
-    }
-
     .content-left {
       flex: 1; 
       margin-right: 20px;
@@ -677,11 +683,6 @@
       width: 160px;
       padding: 10px 0px;
       font-size: 0.85rem;
-    }
-
-    .secondary-title {
-      margin: 0px;
-      padding: 0px 10px;
     }
   
     .image-grid {
