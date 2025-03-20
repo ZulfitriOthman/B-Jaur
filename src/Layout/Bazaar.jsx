@@ -254,7 +254,7 @@ function Bazaar() {
               <button className="buffet-button">Buffet</button>
             </Link>
             <Link to="/bazaar">
-              <button className="bazaar-button active-button">Bazaar</button>
+              <button className="bazaar-button bazaar-active-button">Bazaar</button>
             </Link>
             <Link to="/moreh">
               <button className="moreh-button">Moreh</button>

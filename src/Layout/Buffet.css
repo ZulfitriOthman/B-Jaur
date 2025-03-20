@@ -397,7 +397,7 @@ SEARCH BAR
    PRICE FILTER 
 ==================
 */
-/* .moreh-price-select {
+.buffet-price-select {
   display: flex; 
   justify-content: space-between;
   width: 100%;
@@ -412,33 +412,33 @@ SEARCH BAR
   outline: none;
 }
 
-.price-select:focus {
+.buffet-price-select:focus {
   background-color: transparent;
   outline: none;
   border: none; 
 }
 
-.price-select:active {
+.buffet-price-select:active {
   background-color: transparent;
   outline: none; 
   border: none; 
 }
 
-.price-filter-container {
+.buffet-price-filter-container {
   margin-top: 20px;
 }
 
-.price-filter {
+.buffet-price-filter {
   width: 100%;
   font-size: 16px;
   margin-bottom: 10px;
 }
 
-.price-label {
+.buffet-price-label {
   color: #000000;
 }
 
-.price-range-slider {
+.buffet-price-range-slider {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -451,16 +451,15 @@ SEARCH BAR
   border-radius: 5px;
 }
 
-.price-slider-track {
+.buffet-price-slider-track {
   position: absolute;
   height: 100%;
   background-color: #f26339;
   border-radius: 5px; 
-}*/
+}
 
 /* Hide default track styles for range inputs */
-
-/* .price-range-slider input[type="range"] {
+.buffet-price-range-slider input[type="range"] {
   position: absolute;
   width: 100%;
   top: 0;
@@ -471,7 +470,7 @@ SEARCH BAR
   height: 5px;
 }
 
-.price-tooltip {
+.buffet-price-tooltip {
   position: absolute;
   transform: translateX(-50%);
   background-color: #f26339;
@@ -483,7 +482,7 @@ SEARCH BAR
   transition: left 0.1s ease;
 }
 
-.price-range-slider input[type="range"]::-webkit-slider-thumb {
+.buffet-price-range-slider input[type="range"]::-webkit-slider-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -493,9 +492,9 @@ SEARCH BAR
   cursor: pointer;
 }
 
-.slider-min-val, .slider-max-val {
+.buffet-slider-min-val, .slider-max-val {
   border: none;
-} */
+}
 
 /* 
 ==================
@@ -880,16 +879,16 @@ SEARCH BAR
     }
 
     .buffet-filter-dropdown {
-      position: absolute;
-      top: 45px; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 20px;
-      width: 380px; 
-      z-index: 10;
+    position: absolute;
+    top: 45px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 200px; 
+    z-index: 10;
     }
 
     .buffetCard {
