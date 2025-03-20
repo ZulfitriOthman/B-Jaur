@@ -279,7 +279,7 @@ function Buffet() {
               <button className="bazaar-button">Bazaar</button>
             </Link>
             <Link to="/moreh">
-              <button className="moreh-button active-button">Moreh</button>
+              <button className="moreh-button moreh-active-button">Moreh</button>
             </Link>
           </div>
 
@@ -624,34 +624,50 @@ function Buffet() {
           </div>
       </section>
         
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="moreh-card-pagination">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              Prev
-            </button>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="moreh-card-pagination">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
 
-            {[...Array(totalPages)].map((_, index) => (
-              <button
-                key={index}
-                className={currentPage === index + 1 ? "active" : ""}
-                onClick={() => handlePageChange(index + 1)}
-              >
-                {index + 1}
-              </button>
-            ))}
+          {/* Logic to display page numbers */}
+          {[...Array(totalPages)].map((_, index) => {
+            const pageNum = index + 1;
+            
+            // Show first 5 pages, then "..." if there are more than 5, and show last page
+            if (
+              pageNum <= 3 || 
+              pageNum > totalPages - 3 || 
+              (pageNum >= currentPage - 2 && pageNum <= currentPage + 2)
+            ) {
+              return (
+                <button
+                  key={pageNum}
+                  className={currentPage === pageNum ? "active" : ""}
+                  onClick={() => handlePageChange(pageNum)}
+                >
+                  {pageNum}
+                </button>
+              );
+            } else if (pageNum === 6 && currentPage < totalPages - 2) {
+              return <span key="ellipsis">...</span>;
+            }
 
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </button>
-          </div>
-        )}
+            return null;
+          })}
+
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
       </div>
       
       {/* AboutSection */}

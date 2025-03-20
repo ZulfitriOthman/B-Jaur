@@ -8,6 +8,7 @@ import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
 import { BuffetSahurCards } from "./BuffetSahur.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
 import "./TimePicker.css";
+// import BuffetData from './BuffetData.jsx';
 
 function Buffet() {
   // Combine both card types into a single array
@@ -32,8 +33,6 @@ function Buffet() {
   // const [minute, setMinute] = useState("00");
   // const [ampm, setAmpm] = useState("AM");
   const [searchQuery, setSearchQuery] = useState("");
-  
-
 
   // const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
   // const minutes = Array.from({ length: 60 }, (_, i) => (i < 10 ? `0${i}` : i.toString()));
@@ -41,28 +40,29 @@ function Buffet() {
   
   const cardsPerPage = 15;
 
+  // Handle temporary slider changes
   const handleTempPriceChange = (e) => {
     const { name, value } = e.target;
     const numericValue = Number(value);
-  
-    setTempPriceRange((prev) => { 
+
+    setTempPriceRange((prev) => {
       const newRange = [...prev];
-  
+
       if (name === "min" && numericValue < newRange[1]) {
         newRange[0] = numericValue;
       } else if (name === "max" && numericValue > newRange[0]) {
         newRange[1] = numericValue;
       }
-  
+
       return newRange;
     });
   };
 
+  // Commit final price range selection
   const handlePriceCommit = () => {
     setMinPrice(tempPriceRange[0]);
     setMaxPrice(tempPriceRange[1]);
   };
-
 
   // Handle Search Input Change
   const handleSearchChange = (e) => {
@@ -239,8 +239,6 @@ function Buffet() {
     setCurrentPage(pageNumber);
   };
 
-
-
   return (
     <div className="buffet-container">
       <div className="buffet-header" style={{ backgroundImage: `url(${HeaderBG})` }}>
@@ -308,7 +306,7 @@ function Buffet() {
           {/* Buttons */}
           <div className="buffet-button-container">
             <Link to="/buffet">
-              <button className="buffet-button active-button">Buffet</button>
+              <button className="buffet-button buffet-active-button">Buffet</button>
             </Link>
             <Link to="/bazaar">
               <button className="bazaar-button">Bazaar</button>
@@ -362,100 +360,82 @@ function Buffet() {
                   )}
                 </div>
 
-                {/* Price Range Filter with Slider */}
-                {/* <div className="buffet-price-filter-container">
+                <div className="buffet-price-filter-container">
                   <div className="buffet-price-filter">
                     <button
                       className="buffet-price-select"
                       onClick={() => setShowPriceButtons(!showPriceButtons)}
                     >
-                      Price Range
+                      Price Range: ${tempPriceRange[0]} - ${tempPriceRange[1]}
                       <span className="buffet-arrow">{showPriceButtons ? "▲" : "▼"}</span>
                     </button>
 
                     {showPriceButtons && (
-                      <>
-                        <div className="buffet-price-double-slider-box">
-                          <div className="buffet-price-input-box">
-                            <div
-                              className="buffet-price-min-box"
-                              style={{
-                                left: `calc(${(minPrice / 100) * 100}%)`,
-                                transform: "translateX(0%)",
-                              }}
-                            >
-                            </div>
+                      <div className="buffet-price-double-slider-box">
+                        <div className="buffet-price-range-slider">
+                          <div
+                            className="buffet-price-slider-track"
+                            style={{
+                              left: `${(tempPriceRange[0] / priceRange[1]) * 100}%`,
+                              width: `${((tempPriceRange[1] - tempPriceRange[0]) / priceRange[1]) * 100}%`,
+                            }}
+                          ></div>
 
-                            <div
-                              className="buffet-price-max-box"
-                              style={{
-                                left: `calc(${(maxPrice / 100) * 100}%)`,
-                                transform: "translateX(-50%)",
-                              }}
-                            >
-                            </div>
+                          {/* Min Slider */}
+                          <input
+                            type="range"
+                            min={priceRange[0]}
+                            max={priceRange[1]}
+                            name="min"
+                            value={tempPriceRange[0]}
+                            onChange={handleTempPriceChange}
+                            className="buffet-slider-min-val"
+                          />
+
+                          {/* Max Slider */}
+                          <input
+                            type="range"
+                            min={priceRange[0]}
+                            max={priceRange[1]}
+                            name="max"
+                            value={tempPriceRange[1]}
+                            onChange={handleTempPriceChange}
+                            className="buffet-slider-max-val"
+                          />
+
+                          {/* Tooltips */}
+                          <div
+                            className="buffet-price-tooltip buffet-min-tooltip"
+                            style={{
+                              left: `calc(${(tempPriceRange[0] / priceRange[1]) * 100}%)`,
+                              transform: "translateX(-50%)",
+                              top: "-40px",
+                            }}
+                          >
+                            ${tempPriceRange[0]}
                           </div>
+                          <div
+                            className="buffet-price-tooltip buffet-max-tooltip"
+                            style={{
+                              left: `calc(${(tempPriceRange[1] / priceRange[1]) * 100}%)`,
+                              transform: "translateX(-50%)",
+                              top: "-40px",
+                            }}
+                          >
+                            ${tempPriceRange[1]}
+                          </div>
+
+                          {/* <BuffetData
+                            selectedCategory={selectedCategory}
+                            tempPriceRange={tempPriceRange}
+                          /> */}
                           
-                          <div className="buffet-price-range-slider">
-                            <div
-                              className="buffet-price-slider-track"
-                              style={{
-                                left: `${(tempPriceRange[0] / 100) * 100}%`,
-                                width: `${((tempPriceRange[1] - tempPriceRange[0]) / 100) * 100}%`,
-                              }}
-                            ></div>
-
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              name="min"
-                              value={tempPriceRange[0]}
-                              onChange={handleTempPriceChange}
-                              onMouseUp={handlePriceCommit} 
-                              onTouchEnd={handlePriceCommit} 
-                              className="buffet-slider-min-val"
-                            />
-
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              name="max"
-                              value={tempPriceRange[1]}
-                              onChange={handleTempPriceChange}
-                              onMouseUp={handlePriceCommit}
-                              onTouchEnd={handlePriceCommit}
-                              className="buffet-slider-max-val"
-                            />
-
-                            <div
-                              className="buffet-price-tooltip buffet-min-tooltip"
-                              style={{
-                                left: `calc(${(tempPriceRange[0] / 100) * 100}%)`,
-                                transform: "translateX(-50%)", 
-                                top: "-40px", 
-                              }}
-                            >
-                              ${tempPriceRange[0]}
-                            </div>
-                            <div
-                              className="buffet-price-tooltip buffet-max-tooltip"
-                              style={{
-                                left: `calc(${(tempPriceRange[1] / 100) * 100}%)`,
-                                transform: "translateX(-50%)", 
-                                top: "-40px", 
-                              }}
-                            >
-                              ${tempPriceRange[1]}
-                            </div>
-                          </div>
-                          <hr/>
                         </div>
-                      </>
+                        <hr />
+                      </div>
                     )}
                   </div>
-                </div> */}
+                </div>
 
 
                 {/* Opening Hours Filter */}
@@ -669,12 +649,12 @@ function Buffet() {
           {/* Logic to display page numbers */}
           {[...Array(totalPages)].map((_, index) => {
             const pageNum = index + 1;
-
-            // If there are more than 7 pages, display a range of 7 numbers
+            
+            // Show first 5 pages, then "..." if there are more than 5, and show last page
             if (
-              pageNum <= 4 || 
+              pageNum <= 3 || 
               pageNum > totalPages - 3 || 
-              (pageNum >= currentPage - 3 && pageNum <= currentPage + 3)
+              (pageNum >= currentPage - 2 && pageNum <= currentPage + 2)
             ) {
               return (
                 <button
@@ -685,7 +665,7 @@ function Buffet() {
                   {pageNum}
                 </button>
               );
-            } else if (pageNum === 5 && currentPage < totalPages - 3) {
+            } else if (pageNum === 6 && currentPage < totalPages - 2) {
               return <span key="ellipsis">...</span>;
             }
 
