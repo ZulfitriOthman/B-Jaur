@@ -595,7 +595,7 @@ function Bazaar() {
                 </div>
                 <p className="bazaarCard-option">{card.option}</p>
                 <h3 className="bazaarCard-title">{card.title}</h3>
-                <p className="bazaarCard-price">{card.priceDisplay}</p>
+                {/* <p className="bazaarCard-price">{card.priceDisplay}</p> */}
                 <p className="bazaarCard-time">{card.time}</p>
                 <p className="bazaarCard-district">{card.district}</p>
               </a>

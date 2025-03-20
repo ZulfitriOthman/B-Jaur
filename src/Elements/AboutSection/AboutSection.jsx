@@ -202,8 +202,8 @@ function AboutSection() {
 
                   <label>Opening Hours:</label>
                   <div className="form-group">
-                    <input type="time" name="opening_time" required />
-                    <input type="time" name="closing_time" required />
+                    <input type="time" name="opening_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
+                    <input type="time" name="closing_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
                   </div>
 
                   <label>Buffet Price Range:</label>
@@ -238,14 +238,14 @@ function AboutSection() {
 
                 <label>Event Period:</label>
                 <div className="form-group">
-                  <input type="date" name="start_date" required />
-                  <input type="date" name="end_date" required />
+                  <input type="date" name="start_date" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
+                  <input type="date" name="end_date" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
                 </div>
 
                 <label>Opening Hours:</label>
                 <div className="form-group">
-                  <input type="time" name="opening_time" required placeholder="Opening Time" />
-                  <input type="time" name="closing_time" required placeholder="Closing Time" />
+                  <input type="time" name="opening_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required placeholder="Opening Time" />
+                  <input type="time" name="closing_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required placeholder="Closing Time" />
                 </div>
 
                 <label>Location/Area Name:</label>
@@ -277,14 +277,14 @@ function AboutSection() {
 
                 <label>Opening Hours:</label>
                 <div className="form-group">
-                  <input type="time" name="opening_time" required />
-                  <input type="time" name="closing_time" required />
+                  <input type="time" name="opening_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
+                  <input type="time" name="closing_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
                 </div>
 
                 <label>Event Period:</label>
                 <div className="form-group">
-                  <input type="date" name="start_date" required />
-                  <input type="date" name="end_date" required />
+                  <input type="date" name="start_date" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
+                  <input type="date" name="end_date" onFocus={(e) => e.target.showPicker && e.target.showPicker()}   required />
                 </div>
 
                 <label>Buffet Price Range:</label>
@@ -319,14 +319,14 @@ function AboutSection() {
 
                 <label>Event Period:</label>
                 <div className="form-group">
-                  <input type="date" name="start_date" required />
-                  <input type="date" name="end_date" required />
+                  <input type="date" name="start_date" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
+                  <input type="date" name="end_date" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
                 </div>
 
                 <label>Opening Hours:</label>
                 <div className="form-group">
-                  <input type="time" name="opening_time" required placeholder="Opening Time" />
-                  <input type="time" name="closing_time" required placeholder="Closing Time" />
+                  <input type="time" name="opening_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required placeholder="Opening Time" />
+                  <input type="time" name="closing_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required placeholder="Closing Time" />
                 </div>
 
                 <label>Location/Area Name:</label>
@@ -358,8 +358,8 @@ function AboutSection() {
 
                 <label>Opening Hours:</label>
                 <div className="form-group">
-                  <input type="time" name="opening_time" required />
-                  <input type="time" name="closing_time" required />
+                  <input type="time" name="opening_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
+                  <input type="time" name="closing_time" onFocus={(e) => e.target.showPicker && e.target.showPicker()} required />
                 </div>
 
                 <label>Opening Days:</label>
