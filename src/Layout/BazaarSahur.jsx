@@ -1,21 +1,21 @@
-import bazaar1 from "../assets/BazaarSahur/SahurSaturday.jpg";
-import bazaar2 from "../assets/BazaarSahur/SahurSengkarai.jpg";
-import bazaar3 from "../assets/BazaarSahur/WeekendSuhoor.jpg";
-import bazaar4 from "../assets/BazaarSahur/LepakSahur.jpg";
-import bazaar5 from "../assets/BazaarSahur/SahurBazaarRamadhanBatuSatu.jpg";
-import bazaar6 from "../assets/BazaarSahur/SantaiMoreh&Sahur.jpg";
-import bazaar7 from "../assets/BazaarSahur/LakastahMoreh.jpg"; 
-import bazaar8 from "../assets/BazaarSahur/MalamMoreh.jpg";
-import bazaar9 from "../assets/BazaarSahur/MorehLu.jpg";
-import bazaar10 from "../assets/BazaarSahur/RamadhanLepakMoreh.png";
-import bazaar11 from "../assets/BazaarSahur/SinggahTapao.jpg";
-import bazaar12 from "../assets/BazaarSahur/BaiduriSantaiSahur.jpg";
+import bazaarSahur1 from "../assets/BazaarSahur/SahurSaturday.jpg";
+import bazaarSahur2 from "../assets/BazaarSahur/SahurSengkarai.jpg";
+import bazaarSahur3 from "../assets/BazaarSahur/WeekendSuhoor.jpg";
+import bazaarSahur4 from "../assets/BazaarSahur/LepakSahur.jpg";
+import bazaarSahur5 from "../assets/BazaarSahur/SahurBazaarRamadhanBatuSatu.jpg";
+import bazaarSahur6 from "../assets/BazaarSahur/SantaiMoreh&Sahur.jpg";
+import bazaarSahur7 from "../assets/BazaarSahur/LakastahMoreh.jpg"; 
+import bazaarSahur8 from "../assets/BazaarSahur/MalamMoreh.jpg";
+import bazaarSahur9 from "../assets/BazaarSahur/MorehLu.jpg";
+import bazaarSahur10 from "../assets/BazaarSahur/RamadhanLepakMoreh.png";
+import bazaarSahur11 from "../assets/BazaarSahur/SinggahTapao.jpg";
+import bazaarSahur12 from "../assets/BazaarSahur/BaiduriSantaiSahur.jpg";
 
 // Named Export
 export const BazaarSahurCards = [
   {
-    id: 1,
-    image: bazaar1,
+    id: bazaarSahur1,
+    image: bazaarSahur1,
     title: "Sahur Saturday",
     date: "8, 15 & 22 March ",
     time: "10 pm - 2 am",
@@ -27,8 +27,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/p/DGuWXs0y8o7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 2,
-    image: bazaar2,
+    id: bazaarSahur2,
+    image: bazaarSahur2,
     title: "Sahur Sengkarai",
     date: "Thu - Sun",
     time: "9 pm - 2 am",
@@ -40,8 +40,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/p/DGsF52BSwI5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 3,
-    image: bazaar3,
+    id: bazaarSahur3,
+    image: bazaarSahur3,
     title: "Weekend Suhoor",
     date: "8-9, 15-16, 22-23 March",
     time: "9 pm - 2 am",
@@ -53,8 +53,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/p/DGaMMdYPRg_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 4,
-    image: bazaar4,
+    id: bazaarSahur4,
+    image: bazaarSahur4,
     title: "Lepak Sahur",
     date: "Daily",
     time: "9pm - 2am",
@@ -66,8 +66,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/p/DGo7zmtyRhc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 5,
-    image: bazaar5,
+    id: bazaarSahur5,
+    image: bazaarSahur5,
     title: "Sahur Bazaar Ramadhan Batu Satu",
     date: "Thu - Sun",
     time: "8 pm - 1 am",
@@ -79,8 +79,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/p/DGu33olvrs7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 6,
-    image: bazaar6,
+    id: bazaarSahur6,
+    image: bazaarSahur6,
     title: "Santai Moreh & Sahur",
     date: "6-8, 20-22 March",
     time: "9 pm - 1 am",
@@ -92,8 +92,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/p/DGr5HvbJud_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 7,
-    image: bazaar7,
+    id: bazaarSahur7,
+    image: bazaarSahur7,
     title: "Lakastah Moreh",
     date: "Thu, Fri & Sat",
     time: "7.30 pm - 2 am",
@@ -105,8 +105,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/reel/DGoFV7eyJeF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 8,
-    image: bazaar9,
+    id: bazaarSahur8,
+    image: bazaarSahur8,
     title: "Malam Moreh",
     date: "Mon - Thur",
     time: "8pm -12 am",
@@ -118,8 +118,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/p/DGmcjhfyQEI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 9,
-    image: bazaar8,
+    id: bazaarSahur9,
+    image: bazaarSahur9,
     title: "Moreh Lu",
     date: "14 - 15 March",
     time: "9 pm - 2 am",
@@ -131,8 +131,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/p/DGvAu8BSyjC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 10,
-    image: bazaar10,
+    id: bazaarSahur10,
+    image: bazaarSahur10,
     title: "Lepak Moreh Weekend (15-30 March)",
     date: "Saturday & Sunday",
     time: "7.30 pm - 1 am",
@@ -144,8 +144,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/reel/DGiaTvpvCri/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 11,
-    image: bazaar11,
+    id: bazaarSahur11,
+    image: bazaarSahur11,
     title: "Singgah Tapao (13-15 March)",
     date: "Thursday - Saturday",
     time: "8 pm - 2 am",
@@ -157,8 +157,8 @@ export const BazaarSahurCards = [
     link: "https://www.instagram.com/p/DHGyGmfTDjH/?utm_source=ig_web_copy_link"
   },
   {
-    id: 12,
-    image: bazaar12,
+    id: bazaarSahur12,
+    image: bazaarSahur12,
     title: "Baiduri Santai Sahur (22 & 28 March)",
     date: "22 & 28 March",
     time: "8.30 pm – 1.30 am",

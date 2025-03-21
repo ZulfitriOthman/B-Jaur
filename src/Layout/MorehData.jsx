@@ -131,7 +131,7 @@ export const MorehCards = [
     option: "Moreh",
     openTime: "2000",
     closeTime: "0000",
-    link: "https://www.instagram.com/p/DGp5IaiyFwf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    link: "https://www.instagram.com/andcoffee.bn?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
   },
   {
     id: 2,

@@ -9,7 +9,7 @@ import restaurant7 from "../assets/BuffetSahur/Ricardos.png";
 // Named Export
 export const BuffetSahurCards = [
   {
-    id: 1,
+    id: "buffetSahur1",
     image: restaurant1,
     title: "Star Lodge",
     priceDisplay: "Adult: $9.90 | Child: $7.90",
@@ -22,7 +22,7 @@ export const BuffetSahurCards = [
     link: "https://www.instagram.com/p/DGuPu_CzBKc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 2,
+    id: "buffetSahur2",
     image: restaurant2,
     title: "Parkview Hotel",
     priceDisplay: "Adult: $8.00 | Child: $5.00",
@@ -35,7 +35,7 @@ export const BuffetSahurCards = [
     link: "https://www.instagram.com/p/DGwvWIpv7jb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 3,
+    id: "buffetSahur3",
     image: restaurant3,
     title: "Seoul Garden",
     priceDisplay: "Adult: $12.80 | Child: $10.80",
@@ -48,7 +48,7 @@ export const BuffetSahurCards = [
     link: "https://www.instagram.com/p/DGUYtx0PvU9/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 4,
+    id: "buffetSahur4",
     image: restaurant4,
     title: "Mulia Hotel / Vanda Chinese Restaurant",
     priceDisplay: "Adult: $25.00 | Child: $15.00",
@@ -61,7 +61,7 @@ export const BuffetSahurCards = [
     link: "https://www.instagram.com/p/DGh78ssBCcZ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 5,
+    id: "buffetSahur5",
     image: restaurant5,
     title: "Dynasty / Anjung Saujana",
     priceDisplay: "Adult: $30.00 | Child: $15.00",
@@ -74,7 +74,7 @@ export const BuffetSahurCards = [
     link: "https://www.instagram.com/p/DGiM64SB0P-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
   },
   {
-    id: 6,
+    id: "buffetSahur6",
     image: restaurant6,
     title: "I Lotus",
     priceDisplay: "Adult: $23.80 | Child: $13.80",
@@ -87,7 +87,7 @@ export const BuffetSahurCards = [
     link: "https://www.instagram.com/p/DG1xDX9SIP2/"
   },
   {
-    id: 7,
+    id: "buffetSahur7",
     image: restaurant7,
     title: "Ricardos",
     priceDisplay: "Adult: $30.00 | Child: $10.50",
