@@ -114,7 +114,7 @@ function MapSection() {
 
               {/* Filter Buttons */}
               <div className="MapFilter-container">
-                <AnimatePresence>
+                
                   {!showSecondaryFilters && !isDistrictSelected && (
                     <motion.div
                       className="MapPrimary-buttons"
@@ -142,7 +142,6 @@ function MapSection() {
                       )}
                     </motion.div>
                   )}
-                </AnimatePresence>
               </div>
             </div>
 
@@ -158,7 +157,7 @@ function MapSection() {
           </div>
 
           {/* Secondary Filter Images */}
-          <AnimatePresence>
+          
             {showSecondaryFilters && isDistrictSelected && (
               <motion.div
                 className="secondary-buttons"
@@ -251,7 +250,6 @@ function MapSection() {
                 </motion.div>
               </motion.div>
             )}
-          </AnimatePresence>
         </div>
       </div>
     </div>
