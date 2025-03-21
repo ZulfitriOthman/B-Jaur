@@ -6,6 +6,7 @@ import MapSection from './Elements/MapSection/MapSection';  // Uncomment if need
 import Buffet from './Layout/Buffet';
 import Bazaar from './Layout/Bazaar';
 import Moreh from './Layout/Moreh';
+import Footer from "./Elements/Footer/Footer";
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <>
               <HeroSection />
               <MapSection />
+              <Footer />
             </>
           }
         />

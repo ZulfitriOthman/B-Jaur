@@ -624,8 +624,6 @@
       top: 100px;
       left: -130px;
     }
-
-    
   }
   
   
@@ -667,6 +665,7 @@
     .map-description {
       font-size: 1rem;
       margin-bottom: 20px;
+      margin-left: 0px;
       text-align: justify;
     }
 
@@ -754,6 +753,14 @@
   }
 
   @media (max-width: 370px) {
+    .map-description {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      margin-right: 10px;
+      padding: 0px;
+      text-align: justify;
+    }
+
     .MapFilter-button {
       width: 135px;
       padding: 10px 0px;
