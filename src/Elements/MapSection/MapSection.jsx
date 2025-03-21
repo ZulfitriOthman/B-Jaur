@@ -64,11 +64,11 @@ function MapSection() {
   // Navigate based on the image clicked
   const handleExploreClick = (section) => {
     if (section === "Buffet.jpg") {
-      navigate(`/buffet`);
+      navigate(`/buffet?district=${selectedFilter}`);
     } else if (section === "Bazaar.jpg") {
-      navigate(`/bazaar`);
+      navigate(`/bazaar?district=${selectedFilter}`);
     } else if (section === "Moreh.jpg") {
-      navigate(`/moreh`);
+      navigate(`/moreh?district=${selectedFilter}`);
     }
   };
 

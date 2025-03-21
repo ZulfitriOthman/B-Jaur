@@ -664,6 +664,14 @@
     .back-icon {
       margin-top: 4px;
     }
+
+      .image-description {
+        margin-top: 16px;
+      }
+
+      .image-title-section {
+        margin-bottom: 16px;
+      }
   }
 
   
