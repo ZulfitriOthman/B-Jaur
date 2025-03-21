@@ -376,13 +376,11 @@
     background-color: #776AFB;
     color: white;
     font-size: 25px;
-    padding: 12px 17px;
+    padding: 6px 26px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    margin-bottom: 70px;
-    margin-left: -20px;
-    transition: background-color 0.3s ease;
+    margin-bottom: 60px;
   }
   
   .back-button:hover {
@@ -562,15 +560,16 @@
     }
   
     .image-grid {
-      width: 60%;
-      height: 220px;
+      width: 80%;
+      height: 240px;
       display: flex;           
       flex-direction: column;     
-      gap: 20px;  
+      gap: 30px;  
       border-radius: 25px;              
       justify-content: center; 
       padding: 280px 0px;
-      margin-top: 0px;
+      margin-top: 20px;
+      margin-bottom: 40px;
     }
   
     .image-container {
@@ -585,16 +584,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: -70px;
+      margin-top: -40px;
     }
 
     .district {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       margin-bottom: 0rem;
     }  
   
     .subtitle {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
     } 
 
     .yellow-sun {
@@ -612,8 +611,8 @@
       z-index: 10;
       width: 250px;
       height: auto;
-      top: 110px;
-      left: 300px;
+      top: 140px;
+      left: 450px;
     }
     
     .blue-candy {
@@ -621,10 +620,52 @@
       z-index: 10;
       width: 320px; 
       height: auto;
-      top: 100px;
-      left: -130px;
+      top: 120px;
+      left: -150px;
+    }
+
+    .back-button {
+      font-size: 20px;
+      padding: 6px 26px;
+      margin-bottom: 60px;
+      margin-left: -20px;
+    }
+    
+    .back-button:hover {
+      background-color: #766afbb4;
+    }
+  
+    .back-icon {
+      margin-top: 4px;
     }
   }
+
+  @media (max-width: 506px) {
+    .district {
+      font-size: 1.5rem;
+      margin-bottom: 0rem;
+    }  
+  
+    .subtitle {
+      font-size: 1.7rem;
+    } 
+
+    .back-button {
+      font-size: 18px;
+      padding: 1px 14px;
+      margin-bottom: 45px;
+      margin-left: 10px;
+    }
+    
+    .back-button:hover {
+      background-color: #766afbb4;
+    }
+  
+    .back-icon {
+      margin-top: 4px;
+    }
+  }
+
   
   
   @media (max-width: 400px) {
@@ -710,16 +751,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: -70px;
+      margin-top: -20px;
     }
 
     .district {
-      font-size: 2rem;
+      font-size: 1.55rem;
       margin-bottom: 0rem;
     }  
   
     .subtitle {
-      font-size: 2rem;
+      font-size: 1.8rem;
     } 
 
     .yellow-sun {
@@ -741,7 +782,6 @@
       left: 230px;
     }
     
-  
     .blue-candy {
       position: absolute;
       z-index: 10;
@@ -749,6 +789,21 @@
       height: auto;
       top: 120px;
       left: -100px;
+    }
+
+    .back-button {
+      font-size: 18px;
+      padding: 2px 16px;
+      margin-bottom: 50px;
+      margin-left: 10px;
+    }
+    
+    .back-button:hover {
+      background-color: #766afbb4;
+    }
+  
+    .back-icon {
+      margin-top: 4px;
     }
   }
 
@@ -765,5 +820,29 @@
       width: 135px;
       padding: 10px 0px;
       font-size: 0.85rem;
+    }
+
+    .district {
+      font-size: 1.45rem;
+      margin-bottom: 0rem;
+    }  
+  
+    .subtitle {
+      font-size: 1.5rem;
+    } 
+
+    .back-button {
+      font-size: 18px;
+      padding: 1px 14px;
+      margin-bottom: 45px;
+      margin-left: 10px;
+    }
+    
+    .back-button:hover {
+      background-color: #766afbb4;
+    }
+  
+    .back-icon {
+      margin-top: 4px;
     }
   }
