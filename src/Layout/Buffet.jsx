@@ -110,6 +110,7 @@ function Buffet() {
         return selectedPriceOption === "Price: Low to High" ? priceA - priceB : priceB - priceA;
       });
     }
+    console.log("Filtered and sorted cards:", filteredCards.length); // Debugging
   
     setSortedCards(filteredCards);
     setCurrentPage(1); // Reset to first page when filters change

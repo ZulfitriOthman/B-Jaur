@@ -671,15 +671,12 @@ SEARCH BAR
   margin-bottom: 20px;
 }
 
-.buffet-card-image-container {
-  width: 100%; /* Make the image container span the full width of the card */
-  height: 300px; /* Set a fixed height for the image container */
-  overflow: hidden;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.buffetCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+
 
 .buffet-card-image-container img {
   width: 100%;
@@ -752,16 +749,32 @@ SEARCH BAR
   font-size: 1rem;
   color: #505050;
   text-align: left;
-  padding: 0 20px;
+  padding: 5px 20px;
   margin: 0px;
 }
 
 .buffetCard-district {
   font-size: 1rem;
-  color: #505050;
+  color: #888;
   text-align: left;
-  padding: 0px 0px 20px 20px;
+  padding: 5px 20px 15px 20px;
   margin: 0px;
+}
+
+/* Icons for Price, Time, and District */
+.buffetCard-price::before {
+  content: "💰";
+  margin-right: 5px;
+}
+
+.buffetCard-time::before {
+  content: "⏰";
+  margin-right: 5px;
+}
+
+.buffetCard-district::before {
+  content: "📍";
+  margin-right: 5px;
 }
 
 /* 
@@ -879,6 +892,7 @@ SEARCH BAR
     margin-right: auto;
     position: relative;
     }
+    
 
     .buffet-filter-dropdown {
     position: absolute;
@@ -891,7 +905,7 @@ SEARCH BAR
     padding: 20px;
     width: 200px; 
     z-index: 10;
-    }
+    } 
 
     .buffetCard {
     flex: 1 1 100%; /* Single card per row */
@@ -906,8 +920,8 @@ SEARCH BAR
     }
 
     .buffetCard-title {
-    font-size: 0.8rem;
-    padding: 0 10px;
+      font-size: 1rem;
+      margin: 0 5px;
     }
 
     .buffetCard-address, .buffetCard-category, .buffetCard-content {

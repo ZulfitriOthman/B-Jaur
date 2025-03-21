@@ -11,7 +11,7 @@ import { useMemo } from "react";
 
 function Buffet() {
   // Combine both card types into a single array
-  const allCards = useMemo(() => [...BuffetSungkaiCards, ...BuffetSahurCards], [BuffetSungkaiCards, BuffetSahurCards]);
+  const allCards = [...BuffetSungkaiCards, ...BuffetSahurCards];
   const [currentPage, setCurrentPage] = useState(1);
   const [sortedCards, setSortedCards] = useState(allCards);
   const [showPriceSort, setShowPriceSort] = useState(false);
@@ -229,6 +229,14 @@ function Buffet() {
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = sortedCards.slice(indexOfFirstCard, indexOfLastCard);
   const totalPages = Math.ceil(sortedCards.length / cardsPerPage);
+
+  console.log("Pagination:", {
+    currentPage,
+    indexOfFirstCard,
+    indexOfLastCard,
+    totalPages,
+    sortedCardsLength: sortedCards.length,
+  }); // Debugging
 
   // Scroll to top of the card section when changing pages
   useEffect(() => {

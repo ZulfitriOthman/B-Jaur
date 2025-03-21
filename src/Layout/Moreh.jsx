@@ -616,7 +616,7 @@ function Buffet() {
                 </div>
                 <p className="morehCard-option">{card.option}</p>
                 <h3 className="morehCard-title">{card.title}</h3>
-                <p className="morehCard-price">{card.priceDisplay}</p>
+                {/* <p className="morehCard-price">{card.priceDisplay}</p> */}
                 <p className="morehCard-time">{card.time}</p>
                 <p className="morehCard-district">{card.district}</p>
               </a>
