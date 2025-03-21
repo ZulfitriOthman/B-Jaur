@@ -635,6 +635,7 @@ SEARCH BAR
   font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
+  outline: none !important; 
 }
 
 .bazaar-filterdistrict-button:hover {

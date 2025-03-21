@@ -5,11 +5,16 @@ import HeaderBG from "../assets/PurpleSky.png";
 import HeaderIcon from "../assets/HeaderIcon.png";
 import { MorehCards } from "./MorehData.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
+import { useLocation, useNavigate } from "react-router-dom";
 import "./TimePicker.css";
 
 function Buffet() {
   // Combine both card types into a single array
   // const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
+  const location = useLocation();
+  const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
+  const urlDistrict = queryParams.get("district");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortedCards, setSortedCards] = useState(MorehCards);
   const [showPriceSort, setShowPriceSort] = useState(false);
@@ -69,20 +74,40 @@ function Buffet() {
   };
 
   // Filter cards based on search query
+  // Filter cards based on search query
   useEffect(() => {
     window.scrollTo(0, 0);
-    const filteredCards = MorehCards.filter((card) => {
+    let filteredCards = MorehCards;
+  
+    if (urlDistrict && !selectedDistrict) {
+      setSelectedDistrict(urlDistrict);
+    }
+
+    // Apply search filter
+    if (searchQuery) {
       const queryLower = searchQuery.toLowerCase();
-      return (
+      filteredCards = filteredCards.filter((card) =>
         card.title.toLowerCase().includes(queryLower) ||
-        card.priceDisplay.toLowerCase().includes(queryLower) ||
         card.option.toLowerCase().includes(queryLower) ||
         card.openTime.toLowerCase().includes(queryLower) ||
         card.closeTime.toLowerCase().includes(queryLower)
       );
-    });
-    setSortedCards(filteredCards); // Update the displayed cards
-  }, [searchQuery]); // Trigger the filter when the search query changes
+    }
+  
+    // Apply category filter
+    if (selectedCategory) {
+      filteredCards = filteredCards.filter((card) => card.option === selectedCategory);
+    }
+  
+    // Apply district filter
+    if (selectedDistrict) {
+      filteredCards = filteredCards.filter((card) => card.district === selectedDistrict);
+    }
+
+    setSortedCards(filteredCards);
+    setCurrentPage(1); // Reset to first page when filters change
+
+  }, [urlDistrict, searchQuery, selectedCategory, selectedDistrict, MorehCards]); // Trigger the filter when the search query changes
 
 
   // Filter by opening hours
@@ -187,6 +212,7 @@ function Buffet() {
       setSortedCards(filteredCards);
     }
 
+    navigate("/moreh", { replace: true });
     setCurrentPage(1); // Reset pagination
   };
 

@@ -7,11 +7,16 @@ import HeaderIcon from "../assets/HeaderIcon.png";
 import { BuffetSungkaiCards } from "./BuffetSungkai.jsx";
 import { BuffetSahurCards } from "./BuffetSahur.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
+import { useLocation, useNavigate } from "react-router-dom";
 import "./TimePicker.css";  
 // import BuffetData from './BuffetData.jsx';
 
 function Buffet() {
   // Combine both card types into a single array
+  const location = useLocation();
+  const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
+  const urlDistrict = queryParams.get("district");
   const allCards = useMemo(() => [...BuffetSungkaiCards, ...BuffetSahurCards], [BuffetSungkaiCards, BuffetSahurCards]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortedCards, setSortedCards] = useState(allCards);
@@ -74,6 +79,10 @@ function Buffet() {
     window.scrollTo(0, 0);
     let filteredCards = allCards;
   
+    if (urlDistrict && !selectedDistrict) {
+      setSelectedDistrict(urlDistrict);
+    }
+
     // Apply search filter
     if (searchQuery) {
       const queryLower = searchQuery.toLowerCase();
@@ -110,12 +119,11 @@ function Buffet() {
         return selectedPriceOption === "Price: Low to High" ? priceA - priceB : priceB - priceA;
       });
     }
-    console.log("Filtered and sorted cards:", filteredCards.length); // Debugging
   
     setSortedCards(filteredCards);
     setCurrentPage(1); // Reset to first page when filters change
   
-  }, [searchQuery, selectedCategory, selectedDistrict, minPrice, maxPrice, selectedPriceOption, allCards]);
+  }, [urlDistrict, searchQuery, selectedCategory, selectedDistrict, minPrice, maxPrice, selectedPriceOption, allCards]);
   
 
 
@@ -221,6 +229,7 @@ function Buffet() {
       setSortedCards(filteredCards);
     }
 
+    navigate("/buffet", { replace: true });
     setCurrentPage(1); // Reset pagination
   };
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import "./Bazaar.css";
 import HeaderBG from "../assets/PurpleSky.png";
@@ -6,11 +7,16 @@ import HeaderIcon from "../assets/HeaderIcon.png";
 import { BazaarSahurCards } from "./BazaarSahur.jsx";
 import { BazaarSungkaiCards } from "./BazaarSungkai.jsx";
 import AboutSection from '../Elements/AboutSection/AboutSection';
+import { useLocation, useNavigate } from "react-router-dom";
 import "./TimePicker.css";
 
 function Bazaar() {
   // Combine both card types into a single array
-  const allCards = [...BazaarSahurCards, ...BazaarSungkaiCards];
+  const location = useLocation();
+  const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
+  const urlDistrict = queryParams.get("district");
+  const allCards = useMemo(() => [...BazaarSahurCards, ...BazaarSungkaiCards], [BazaarSahurCards, BazaarSungkaiCards]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortedCards, setSortedCards] = useState(allCards);
   const [showPriceSort, setShowPriceSort] = useState(false);
@@ -47,18 +53,37 @@ function Bazaar() {
   // Filter cards based on search query
   useEffect(() => {
     window.scrollTo(0, 0);
-    const filteredCards = allCards.filter((card) => {
+    let filteredCards = allCards;
+  
+    if (urlDistrict && !selectedDistrict) {
+      setSelectedDistrict(urlDistrict);
+    }
+
+    // Apply search filter
+    if (searchQuery) {
       const queryLower = searchQuery.toLowerCase();
-      return (
+      filteredCards = filteredCards.filter((card) =>
         card.title.toLowerCase().includes(queryLower) ||
-        card.priceDisplay.toLowerCase().includes(queryLower) ||
         card.option.toLowerCase().includes(queryLower) ||
         card.openTime.toLowerCase().includes(queryLower) ||
         card.closeTime.toLowerCase().includes(queryLower)
       );
-    });
-    setSortedCards(filteredCards); // Update the displayed cards
-  }, [searchQuery]); // Trigger the filter when the search query changes
+    }
+  
+    // Apply category filter
+    if (selectedCategory) {
+      filteredCards = filteredCards.filter((card) => card.option === selectedCategory);
+    }
+  
+    // Apply district filter
+    if (selectedDistrict) {
+      filteredCards = filteredCards.filter((card) => card.district === selectedDistrict);
+    }
+
+    setSortedCards(filteredCards);
+    setCurrentPage(1); // Reset to first page when filters change
+
+  }, [urlDistrict, searchQuery, selectedCategory, selectedDistrict, allCards]); // Trigger the filter when the search query changes
 
 
   // Filter by opening hours
@@ -163,6 +188,7 @@ function Bazaar() {
       setSortedCards(filteredCards);
     }
 
+    navigate("/bazaar", { replace: true });
     setCurrentPage(1); // Reset pagination
   };
 
