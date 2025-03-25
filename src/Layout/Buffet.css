@@ -1,0 +1,949 @@
+/* 
+==================
+HEADER
+================== 
+*/
+
+hr {
+  width: 92%;
+  border: 0;
+  border-top: 2px solid #dbdbdb; 
+  margin: 30px 0px 10px 10px; 
+}
+
+.buffet-container {
+    text-align: left;
+    background-color: #ffffff;
+    height: auto;
+    width: auto;
+}
+
+.buffet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.buffet-header-content {
+    flex: 1;
+}
+
+.buffet-header-icon {
+    width: 580px; 
+    height: auto;
+}
+
+.buffet-header-background {
+    width: 100%;
+    height: 100%;
+}
+
+.buffet-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    padding: 0px 0 0 100px;
+    text-align: left;
+}
+
+.buffet-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: left;
+    padding: 10px 0 0 100px;
+}
+
+/* 
+==================
+CONTENT CONTAINER
+================== 
+*/
+
+.buffet-content-container {
+  justify-content: center;
+  margin: 20px 100px 0px 100px;
+}
+
+/* 
+==================
+   BREADCRUMB 
+==================
+*/
+
+.buffet-breadcrumb {
+    display: flex;
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0px;
+}
+
+.buffet-breadcrumb-link {
+    text-decoration: none;
+    color: #f26339; 
+    font-weight: bold;
+}
+
+.buffet-breadcrumb-link:hover {
+    text-decoration: underline;
+}
+
+.buffet-breadcrumb-separator {
+    margin: 0 10px;
+    color: #000000;
+}
+
+.buffet-breadcrumb-current {
+    color: #000000;
+    font-weight: bold;
+}
+
+/* 
+==================
+SEARCH BAR 
+==================
+*/
+
+.buffet-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff; 
+}
+
+.buffet-search-input {
+    width: 100%;
+    height: 20px;
+    margin: 10px 0px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.buffet-search-button {
+    width: 200px;
+    height: 43px;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    background-color: #f26339;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buffet-search-button:hover {
+    background-color: #ff7e57;
+}
+
+/* 
+==================
+   FILTER CONTENT
+==================
+*/
+.buffet-filters-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-gap: 10px; 
+  padding: 10px 0px;
+}
+
+/* 
+==================
+   PRICE DROPDOWN 
+==================
+*/
+.buffet-custom-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.buffet-price-sort-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #000000;
+  font-size: 0.9rem;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.buffet-price-sort-button:hover {
+  background-color: #ffffff;
+  border: 1px solid #f26339;
+  color: #f26339;
+}
+
+.buffet-price-sort-button:active {
+  background-color: #ffffff;
+  border: 1px solid #f26339;
+  color: #f26339;
+}
+
+.buffet-arrow {
+  margin-left: 35px;
+  font-size: 12px;
+}
+
+.buffet-dropdown-pricesorts {
+  position: absolute;
+  top: 45px; /* Position the dropdown below the button */
+  left: 0; /* Align the dropdown to the left of the button */
+  color: #000000;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 185px;
+  z-index: 10;
+  font-size: 0.9rem;
+}
+
+.buffet-dropdown-pricesort {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.buffet-dropdown-pricesort:hover {
+  background-color: #f0f0f0;
+}
+
+/* 
+==================
+   (THREE BUTTONS) BAZAAR, MOREH, BUFFET 
+==================
+*/
+.buffet-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+}
+
+.buffet-button, .bazaar-button, .moreh-button {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  outline: none !important; 
+  transition: background-color 0.3s ease;
+}
+
+.buffet-button:hover, .bazaar-button:hover, .moreh-button:hover {
+  background-color: #ffffff;
+  border: 2px solid #f26339;
+  color: #f26339;
+}
+
+/* .buffet-button:active, .bazaar-button:active, .moreh-button:active  {
+  background-color: #ffffff;
+  border: 2px solid #f26339;
+  color: #f26339;
+} */
+
+.buffet-active-button {
+  color: #F26339 !important;
+  border: 2px solid #F26339 !important;
+}
+
+/* 
+==================
+   FILTER BUTTON 
+==================
+*/
+.buffet-filter-container {
+  display: flex;
+  margin-left: auto;
+  width: 175px;
+  position: relative;
+}
+
+.buffet-filterdropdown-button {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  outline: none !important; 
+  transition: background-color 0.3s ease;
+}
+
+.buffet-filterdropdown-button:hover {
+  background-color: #ffffff;
+  border: 1px solid #f26339;
+  color: #f26339;
+}
+
+.buffet-filterdropdown-button:active {
+  background-color: #ffffff;
+  border: 1px solid #f26339;
+  color: #f26339;
+}
+
+.buffet-filter-dropdown {
+  position: absolute;
+  top: 45px; 
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 380px;
+  z-index: 10;
+}
+
+.buffet-filter-select {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.buffet-filter-dropdown h3 {
+  margin-top: 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.buffet-filter-dropdown-content {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+==================
+   CATEGORY FILTER 
+==================
+*/
+.buffet-category-select {
+  display: flex; 
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0px 15px 0px;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: left;
+  gap: 5px;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+}
+
+.buffet-category-select:focus {
+  background-color: transparent;
+  outline: none;
+  border: none; 
+}
+
+.buffet-category-select:active {
+  background-color: transparent;
+  outline: none; 
+  border: none; 
+}
+
+.buffet-filtercategory-buttons {
+  display: flex;
+  gap: 15px;
+  margin: 10px 0px;
+}
+
+.buffet-filtercategory-button {
+  width: 100%;
+  padding: 10px 10px;
+  border: 1px solid #000000;
+  background-color: #ffffff; 
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  outline: none !important;
+}
+
+.buffet-filtercategory-button:hover {
+  background-color: #ffffff;
+  border: 1px solid #f26339;
+  color: #f26339;
+}
+
+.buffet-filtercategory-button.active {
+  background-color: #ffffff;
+  border: 1px solid #f26339;
+  color: #f26339;
+}
+
+/* 
+==================
+   PRICE FILTER 
+==================
+*/
+.buffet-price-select {
+  display: flex; 
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0px 15px 0px;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  gap: 5px;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+}
+
+.buffet-price-select:focus {
+  background-color: transparent;
+  outline: none;
+  border: none; 
+}
+
+.buffet-price-select:active {
+  background-color: transparent;
+  outline: none; 
+  border: none; 
+}
+
+.buffet-price-filter-container {
+  margin-top: 20px;
+}
+
+.buffet-price-filter {
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.buffet-price-label {
+  color: #000000;
+}
+
+.buffet-price-range-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 90%;
+  height: 5px;
+  margin-top: 45px;
+  margin-left: 12px;
+  background-color: #f2643962;
+  border-radius: 5px;
+  border: none;
+}
+
+.buffet-price-slider-track {
+  position: absolute;
+  height: 100%;
+  background-color: #f26339;
+  border-radius: 5px; 
+}
+
+/* Hide default track styles for range inputs */
+.buffet-price-range-slider input[type="range"] {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transform: translateY(-50%);
+  background: none;
+  pointer-events: none;
+  appearance: none;
+  height: 5px;
+  border: none;
+}
+
+.buffet-price-tooltip {
+  position: absolute;
+  transform: translateX(-50%);
+  background-color: #f26339;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: left 0.1s ease;
+}
+
+.buffet-price-range-slider input[type="range"]::-webkit-slider-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #f26339;
+  pointer-events: auto;
+  appearance: none;
+  cursor: pointer;
+}
+
+.buffet-slider-min-val, .slider-max-val {
+  border: none;
+}
+
+/* 
+==================
+   OPENING FILTER 
+==================
+*/
+/* .openHour-select {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0px 15px 0px;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  gap: 5px;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+}
+
+.openHour-select:focus {
+  background-color: transparent;
+  outline: none;
+  border: none; 
+}
+
+.openHour-select:active {
+  background-color: transparent;
+  outline: none; 
+  border: none; 
+}
+
+.openHour-filter-container {
+  margin-top: 20px;
+}
+
+.openHour-filter {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.openHour-label {
+  color: #000000;
+} */
+
+/* 
+==================
+   CLOSING FILTER 
+==================
+*/
+/* .closeHour-select {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0px 15px 0px;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  gap: 5px;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+}
+
+.closeHour-select:focus {
+  background-color: transparent;
+  outline: none;
+  border: none; 
+}
+
+.closeHour-select:active {
+  background-color: transparent;
+  outline: none; 
+  border: none; 
+}
+
+.closeHour-filter-container {
+  margin-top: 20px;
+}
+
+.closeHour-filter {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.closeHour-label {
+  color: #000000;
+} */
+
+/* 
+==================
+   DISTRIC FILTER 
+==================
+*/
+.buffet-filterdistrict-select {
+  display: flex; 
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0px 15px 0px;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  gap: 5px;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+}
+
+.buffet-filterdistrict-select:focus {
+  background-color: transparent;
+  outline: none;
+  border: none; 
+}
+
+.buffet-filterdistrict-select:active {
+  background-color: transparent;
+  outline: none; 
+  border: none; 
+}
+
+.buffet-filterdistrict-buttons {
+  display: grid;               
+  grid-template-columns: repeat(2, 1fr);  /* Two columns */
+  gap: 10px;   
+  margin: 10px 0px 20px 0px;               
+}
+
+.buffet-filterdistrict-button {
+  padding: 10px 10px;
+  margin-bottom: 0px;
+  border: 1px solid #000000;
+  background-color: #ffffff; 
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none !important; 
+}
+
+.buffet-filterdistrict-button:hover {
+  background-color: #ffffff;
+  border: 1px solid #f26339;
+  color: #f26339;
+}
+
+.buffet-filterdistrict-button.active {
+  background-color: #ffffff;
+  border: 1px solid #f26339;
+  color: #f26339;
+}
+
+/* 
+==================
+   CARD LAYOUT 
+==================
+*/
+.buffetCard {
+  width: 100%; 
+  max-width: 400px; 
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(20% - 30px);
+  /* flex: 1 1 calc(33.33% - 30px); 3 cards per row, with gap */
+  box-sizing: border-box; /* Include padding in the width */
+  margin-bottom: 20px;
+}
+
+.buffetCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.buffet-card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the container and maintains its aspect ratio */
+}
+
+.buffet-card-image-container {
+  width: 100%; /* Make the image container span the full width of the card */
+  height: 250px; /* Set a fixed height for the image container */
+  overflow: hidden;
+  border-radius: 20px; /* Rounded corners for the top of the image container */
+  display: flex;
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+.buffet-card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the container and maintains its aspect ratio */
+}
+
+.buffetCard-dropdown-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.buffetCard-container {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, auto);
+  padding: 30px 0px;
+  gap: 30px;
+  width: 100%;
+}
+
+.buffetCard-container::after {
+  content: "";
+  flex: auto;
+}
+
+.buffetCard-option {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #776afb;
+  border: 1px solid #776afb;
+  border-radius: 20px;
+  text-align: left;
+  padding: 2px 20px 2px 20px;
+  margin: 10px 0px 0px 10px;
+  width: fit-content;
+}
+
+.buffetCard-title {
+  font-size: 1.15rem;
+  margin: 10px 0;
+  color: #000000;
+  text-align: left;
+  padding: 10px 0px 10px 20px;
+  margin: 0px;
+}
+
+.buffetCard-price, .buffetCard-time {
+  font-size: 1rem;
+  color: #505050;
+  text-align: left;
+  padding: 5px 20px;
+  margin: 0px;
+}
+
+.buffetCard-district {
+  font-size: 1rem;
+  color: #888;
+  text-align: left;
+  padding: 5px 20px 15px 20px;
+  margin: 0px;
+}
+
+/* Icons for Price, Time, and District */
+.buffetCard-price::before {
+  content: "💰";
+  margin-right: 5px;
+}
+
+.buffetCard-time::before {
+  content: "⏰";
+  margin-right: 5px;
+}
+
+.buffetCard-district::before {
+  content: "📍";
+  margin-right: 5px;
+}
+
+/* 
+==================
+   PAGINATION 
+==================
+*/
+.buffet-card-pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.buffet-card-pagination button {
+  font-size: 1rem;
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: #FFF0EC;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    outline: none !important; 
+}
+
+.buffet-card-pagination button.active {
+    background-color: #F26339;
+    color: white;
+}
+
+.buffet-card-pagination button:disabled {
+    background-color: #FFF0EC;
+    cursor: not-allowed;
+}
+
+/* Back button styling */
+/* .moreh-back-button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+} */
+
+/* 
+==================
+   REPONSIVE DESIGN 
+==================
+*/
+
+@media (max-width: 900px) {
+    .BuffetCard {
+        width: calc(50% - 20px); 
+    }
+
+    .BuffetCard-container {
+        padding: 20px 30px;
+        gap: 15px;
+    }
+
+    .BuffetCard-title {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .BuffetCard-address, .BuffetCard-category, .BuffetCard-content {
+        font-size: 0.7rem;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 440px) {
+
+    .buffet-header{
+      background-size: cover; /* Ensures it still covers the screen */
+    }
+
+    .buffet-header-icon {
+    display: none;
+    }
+
+    .buffet-title, .buffet-description {
+    padding: 0 0 0 0;
+    margin: 5px 50px;
+    }
+
+    .buffet-filters-container{
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-gap: 10px; 
+    padding: 0px 0px;
+    padding-left: 0px;
+    justify-items: center;  
+    align-items: center;   
+    width: 100%;          
+    }
+
+    .buffet-content-container {
+    max-width: 440px;
+    margin: 0 0 0 0;
+    }
+
+    .buffet-breadcrumb {
+    margin-left: 50px;
+    }
+
+    .buffet-search {
+    padding: 0 15px;
+    }
+
+    .buffet-filter-container {
+    width: 75px;  
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    }
+
+    .buffet-filtercategory-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+  }
+    
+
+    .buffet-filter-dropdown {
+    position: absolute;
+    top: 45px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 200px; 
+    z-index: 10;
+    } 
+
+    .buffetCard {
+    flex: 1 1 100%; /* Single card per row */
+    max-width: 100%;
+    margin-bottom: 15px;
+    }
+
+    .buffetCard-container {
+    padding: 20px;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    }
+
+    .buffetCard-title {
+      font-size: 1rem;
+      margin: 0 5px;
+    }
+
+    .buffetCard-address, .buffetCard-category, .buffetCard-content {
+    font-size: 0.6rem;
+    padding: 0 10px;  
+    }
+
+    .buffet-card-pagination {
+      margin-bottom: 50px;
+    }
+    
+    .buffet-card-pagination button {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      margin: 0 3px;
+    }
+}

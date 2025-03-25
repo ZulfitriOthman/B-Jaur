@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/fonts/Core Sans M W01 45 Regular.ttf') format('truetype'),
+       url('/fonts/Core Sans M W01 65 Bold.ttf') format('truetype'),
+       url('/fonts/NotoNaskhArabic-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+  body {
+  font-family: 'MyCustomFont', sans-serif;
+}
+
 #root {
   margin: 0 auto;
   text-align: center;

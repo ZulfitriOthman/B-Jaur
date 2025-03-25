@@ -1,41 +1,426 @@
 .about-section {
     display: flex;
-    justify-content: center;
+    /* Remove fixed height or make it auto/min-height */
+    min-height: 80vh; /* Use min-height instead of fixed height */
     align-items: center;
     text-align: center;
+    justify-content: center;
     padding: 80px 20px;
-    background: linear-gradient(to right, #ff5733, #fad0c4);
-    position: relative;
-}
-
-/* Adding a subtle wave effect */
-.about-section::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 150px;
-    /* background: url('../../assets/layered-triangle.svg'); */
+    background: url('../../assets/Purple.svg') no-repeat;
     background-size: cover;
-    z-index: 0;
-    top: 0px;
-    left: 0;
+    position: relative;
 }
 
 .about-content {
     max-width: 700px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: black;
+    position: absolute;
+    left: 150px; /* Moves the box to the left */
+    top: 25%;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+    transform: translateY(-50%);
+}
+
+.form-content {
+    background: rgb(255, 255, 255);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    color: black;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.6;
 }
+
+.about-btn {
+    background-color: #776AFB;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+    border-radius: 25px;
+}
+
+.about-btn:hover {
+    background-color: #776AFB;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.5rem;
+    color: black;
+}
+
+button {
+    padding: 10px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header-form{
+    margin-top: -20px;
+    margin-bottom: 20px;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+}
+
+.category-header{
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+}
+
+.category-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.category-buttons button {
+    background-color: #776AFB;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none !important;
+    transition: background-color 0.3s, color 0.3s;
+    color: black;
+}
+
+.category-buttons button:hover {
+    background-color: #5a52d9;
+    color: white;
+}
+
+.category-buttons button.active {
+  background-color: #ffffff; /* Active button background */
+  color: #F26339; /* Active button text color */
+  border: 2px solid #F26339 !important;
+}
+
+.category-divider {
+    border: none;
+    height: 2px;
+    background-color: #ccc; /* Light gray */
+    margin: 50px 0; /* Adds space above and below */
+  }
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+  }
+  
+  /* Labels */
+  form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 23px;
+  }
+  
+  /* Inputs */
+  form input {
+    padding: 10px;
+    border: 1px solid #00000049;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #ffffff60;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 12px;
+  }
+
+  input::placeholder {
+    color: rgb(0, 0, 0);  /* Change to any color you'd like */
+    opacity: 0.5;
+  }
+  
+  /* Add a stronger shadow when focused */
+  form input:focus {
+    outline: none;
+    border-color: #776AFB;
+  }  
+
+  .form-group {
+    position: relative;
+    display: flex;
+    gap: 10px; /* Adds spacing between inputs */
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .form-group input {
+    flex: 1; /* Ensures inputs take equal width */
+    padding: 10px;
+    border: 1px solid #00000049;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #ffffff60;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    padding-right: 30px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #776AFB;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 20px; 
+    align-items: center;
+  }
+  
+  .calendar-icon {
+    position: absolute;
+    right: 10px; /* Place the icon inside the input box on the right */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem; /* Adjust the size of the icon */
+    color: #776AFB; /* Icon color */
+    cursor: pointer; /* Makes the icon clickable */
+  }
+  
+  /* Submit & Cancel Buttons */
+  form button {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px; /* Adjust the space between the buttons */
+    justify-content: center; /* Align buttons to the center */
+    margin-top: 20px; /* Optional, adjust as needed */
+  }
+  
+  .button-container button {
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 1rem; /* Button text size */
+    background-color: #776AFB; /* Button color */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-container button:hover {
+    background-color: #776AFB; /* Darker green on hover */
+  }
+  
+  .button-container button[type="button"] {
+    background-color: #bbb; /* Cancel button color */
+  }
+  
+  .button-container button[type="button"]:hover {
+    background-color: #bbb; /* Darker red on hover */
+  }
+  
+  .form-group-days {
+    display: flex;
+    flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+    gap: 10px; /* Adds space between buttons */
+  }
+  
+  .day-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .day-button:hover {
+    background-color: #776afb;
+    color: white;
+  }
+  
+  .day-button:focus {
+    outline: none;
+    border-color: #776afb;
+  }
+
+  .day-button.active {
+    background-color: #776afb !important;
+    color: white !important;
+  }
+  
+  .success-message {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(240, 249, 235, 0.8);
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+
+  .about-section .success-message h2,
+  .about-section .success-message p {
+    color: black;
+  }
+  
+  .error-message {
+    color: #d32f2f;
+    background-color: #ffebee;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .button-container button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+
+  .district-dropdown {
+    padding: 10px;
+    border: 1px solid #00000049;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #ffffff60;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Create custom arrow positioning */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23776AFB' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 12px) center;
+    padding-right: 30px; /* Make room for the arrow */
+  }
+
+  .district-dropdown:focus {
+    outline: none;
+    border-color: #776AFB;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .district-dropdown option {
+    background-color: white;
+    color: black;
+    padding: 10px;
+  }
+
+  /* Media Query for Phone View */
+@media (max-width: 440px) {
+  .about-section {
+      padding: 40px 20px;  /* Adjust padding */
+      min-height: 100vh;  /* Make sure section takes full height */
+  }
+
+  .about-content {
+      position: relative;
+      left: 0;
+      top: 0;
+      transform: translateY(0);
+      padding: 20px; /* Reduce padding for mobile view */
+      max-width: 100%;  /* Allow it to take full width */
+      box-shadow: none; /* Optionally remove the box-shadow */
+  }
+
+  h2 {
+      font-size: 1.25rem; /* Adjust font size for small screens */
+  }
+
+  p {
+      font-size: 0.9rem; /* Adjust paragraph font size for mobile */
+  }
+
+  .about-btn {
+      width: 100%; /* Button takes full width on mobile */
+      padding: 12px;
+      font-size: 1.1rem;
+  }
+
+  form input {
+      font-size: 0.9rem; /* Adjust input font size */
+      padding: 12px; /* Make inputs slightly larger */
+  }
+
+  .category-buttons {
+      flex-direction: column; /* Stack the buttons vertically */
+      align-items: center; /* Center the buttons */
+      margin-top: 15px;
+  }
+
+  .category-buttons button {
+      width: 100%; /* Make buttons take full width */
+      font-size: 1rem;
+      margin-bottom: 10px;  /* Space between buttons */
+  }
+
+  .form-group {
+      flex-direction: column; /* Stack inputs vertically on mobile */
+      gap: 10px;
+  }
+
+  .form-group input {
+      width: 100%;  /* Make inputs take full width */
+      padding-right: 30px;
+  }
+
+  /* Adjust success and error messages */
+  .success-message, .error-message {
+      padding: 1rem;
+      font-size: 1rem;
+  }
+
+  .button-container button {
+      width: 100%; /* Make buttons full-width */
+      padding: 12px;
+      font-size: 1.1rem;
+  }
+}
+
+  

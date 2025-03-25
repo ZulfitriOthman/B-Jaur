@@ -1,15 +1,70 @@
-.map-box {
+  .map-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #fff;
+    height: 100%;
+    background: url('../../assets/Orange.svg') no-repeat center center;
+    background-size: cover; 
+  }
+
+  #map-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 920px;
+    background-size: cover;
+    background-color: #ffffff;
+  }
+
+  .banner-container {
+    display: flex;
+    flex: 1;
+    align-items: center; 
+    justify-content: space-between;
+    padding: 0px 150px;
+    background-color: #FFF0EC;
+  }
+  
+  .banner-title {
+    font-size: 3rem; 
+    color: #FF6131;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .banner-images {
+    display: flex;
+    align-items: center;
+  }
+  
+  .banner-bubble-image,
+  .banner-amir-image,
+  .banner-signage-image {
+    margin: 0 10px; 
+  }
+  
+  .Bubble-icon {
+    width: 150px;
+    height: auto;
+    margin-top: 150px;
+  }
+
+  .Amir-icon {
+    width: 100px; 
+    height: auto;
+    margin-top: 200px;
+  }
+
+  .Signage-icon {
+    width: 200px; 
+    height: auto;
+    margin-top: 70px;
   }
   
   .featured-properties-box {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
-    /* background-color: #1a1a1a; */
     border-radius: 10px;
     overflow: hidden;
   }
@@ -31,15 +86,16 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    background-color: #ffffff;
+    margin-top: 50px;
     color: white;
+    overflow: hidden; 
+    display: flex;
   }
-  
+
   .map-title {
-    color: #FF6131;
+    color: #ff6131;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 2.5rem;
   }
   
@@ -47,120 +103,186 @@
     color: #000000;
     text-align: left;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2.75rem;
     margin-bottom: 2.5rem;
   }
 
   .map-description span {
     display: block; /* Ensures each span is on a new line */
   }  
-    
-  .map-container {
-    flex: 1; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Needed for the pseudo-element */
-    border: 2px solid #FF6131; /* Inner border color */
-    border-radius: 25px;
-    background-color: #fff; /* Optional: Background for the content */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15), -5px -5px 15px rgba(255, 255, 255, 0.3); /* 3D floating effect */
-    transform: perspective(300px) rotateX(0deg) rotateY(0deg); /* Creates the 3D effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  }
-
-  .map-container:hover {
-    transform: perspective(300px) rotateX(0deg) rotateY(-5deg) translateZ(-10px); /* Pushes back slightly */
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2), -3px -3px 10px rgba(255, 255, 255, 0.2); /* Adjust shadow */
-  }
-
-  .map-container::before {
-    content: '';
-    position: absolute;
-    top: -10px; /* Raised effect */
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 2px solid #FF6131; /* Outer border color */
-    border-radius: 30px; /* Slightly larger to match curvature */
-    z-index: -1; /* Behind the container */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Soft shadow for floating effect */
-    filter: blur(5px); /* Soft glow effect */
-    transform: translateY(-5px); /* Lift effect */
-    opacity: 0.8; /* Slightly transparent for a natural effect */
-  }
 
   /* 🎯 Filter Buttons */
-  .filter-container {
+  .MapFilter-container {
     display: flex;
     flex-direction: column;
   }
 
 /* Primary Filter Buttons */
-  .primary-buttons {
+  .MapPrimary-buttons {
     display: grid;
     grid-template-columns: repeat(2, auto); /* Auto-sizing columns */
-    gap: 5px; /* Space between buttons */
+    gap: 10px; /* Space between buttons */
     justify-content: start; /* Aligns buttons to the left */
     align-items: start; /* Ensures vertical alignment */
     width: fit-content; /* Ensures it only takes the necessary width */
     max-width: 400px; /* Optional: to prevent it from stretching too wide */
-}
+  }
 
   /* Button Styles */
-  .filter-button {
-    padding: 10px 20px;
+  .MapFilter-button {
+    padding: 12px 30px;
+    width: 200px;
     font-size: 16px;
-    background-color: #FFB89E; 
-    border: 2px solid #F26339; 
-    border-radius: 5px;
+    font-weight: bold;
+    background-color: #FFF0EC; 
+    border: 3px solid #F26339; 
+    border-radius: 20px;
     color: rgb(0, 0, 0);
     cursor: pointer;
     transition: background-color 0.3s ease;
-    border-radius: 25px;
+    border-radius: 20px;
   }
 
-  .filter-button:hover {
+  .MapFilter-button:hover {
     background: #F26339;
+    border: 3px solid #F26339; 
     color: rgb(255, 255, 255);
   }
 
-  .filter-button.active {
+  .MapFilter-button.active {
     background: #F26339;
     color: white;
     font-weight: bold;
   }
 
   .filter-image {
-    width: 150px; 
-    height: 200px;  
+    width: 100%; 
+    height: 100%; 
+    border-radius: 25px; 
+    object-fit: cover; 
   } 
 
-  .image-grid {
-    display: flex;            /* This sets the container as a flex container */
-    flex-direction: row;      /* Align items horizontally (row direction is the default) */
-    gap: 15px;                /* Optional: Adds space between the images */
-    justify-content: center;  /* Optional: Centers images within the container */
+  .filter-image-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 25px; 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0)); /* Dark to light gradient */
+    z-index: 1; 
   }
+
+  .filter-image-button {
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    padding: 0; 
+    border-radius: 25px; 
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 20%; /* Adjust the position as needed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Text color */
+    font-size: 20px; /* Font size */
+    font-weight: bold; /* Optional */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional text shadow */
+    z-index: 1;
+  }
+
+  .image-title-section {
+    margin-bottom: 10px; /* Adds space between title and button */
+    font-size: 2rem; /* Font size */
+  }
+
+  .image-description {
+    position: absolute;
+    top: 35%; /* Adjust the position as needed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.35rem;
+    font-weight: normal;
+    color: #f0f0f0; /* Light text color */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-top: 5px; /* Adds space between title and description */
+    text-align: center;
+    max-width: 90%; /* Adjust width for readability */
+    z-index: 1;
+  }
+  
+  .explore-button {
+    position: absolute;
+    bottom: 5%; /* Adjust the position as needed */
+    left: 50%;
+    width: 150px;
+    transform: translate(-50%, -50%);
+    padding: 8px 16px;
+    background-color: #fff;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 1;
+  }
+  
+  .explore-button:hover {
+    background-color: rgba(255, 140, 0, 1); /* Darker orange on hover */
+  }
+
+  .image-grid {
+    width: 90%;
+    height: 450px;
+    display: flex;           
+    flex-direction: row;     
+    gap: 25px;  
+    border-radius: 25px;              
+    justify-content: center; 
+    padding: 30px 0px;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    border-radius: 25px; 
+    overflow: visible; 
+  }
+
+  .district {
+    color: #ff6131;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }  
+
+  .subtitle {
+    color: #ff6131;
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 0rem;
+  }  
 
   /* Secondary Filter Buttons */
   .secondary-buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -35px;
-    background: radial-gradient(ellipse at center, 
-    #FFA657 5%, 
-    rgba(255, 165, 87, 0.7) 5%, 
-    rgba(255, 165, 87, 0) 100%);
+    margin-top: -90px;
   }
 
   /* Heading Style for Secondary Filters */
   .secondary-buttons h3 {
-    font-size: 24px;
-    color: #FF6131;
+    font-size: 0px;
+    color: #000000;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 
   /* Adjusting the primary button container for 2x2 layout */
@@ -182,22 +304,6 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .back-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #1C1B1F;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .back-button:hover {
-    background-color: #444;
-  }
-  
-
   .search-button-container {
     margin-top: 15px; /* Add spacing between filter and search button */
   }
@@ -222,4 +328,529 @@
   }
 
 
+  .yellow-sun {
+    position: absolute;
+    z-index: 10;
+    width: 300px; 
+    height: auto;
+    top: -60px;
+    left: -130px;
     
+  }
+
+  .pink-moon {
+    position: absolute;
+    z-index: 10;
+    width: 300px; 
+    height: auto;
+    top: 330px;
+    left: 140px;
+  }
+
+  .blue-candy {
+    position: absolute;
+    z-index: 10;
+    width: 350px; 
+    height: auto;
+    top: -60px;
+    left: 160px;
+  }
+
+  .back-and-title-container {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 0px; 
+    width: 90%;
+  }
+  
+  .secondary-title {
+    width: 100%;
+    font-size: 1.5rem; 
+    font-weight: bold;
+  }
+
+  .back-button {
+    position: absolute;
+    width: fit-content;
+    background-color: #776AFB;
+    color: white;
+    font-size: 25px;
+    padding: 6px 26px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 60px;
+  }
+  
+  .back-button:hover {
+    background-color: #766afbb4;
+  }
+
+  .back-icon {
+    margin-top: 4px;
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .banner-container {
+      display: flex;
+      flex: 1;
+      align-items: center; 
+      justify-content: space-between;
+      padding: 0px 0px;
+      background-color: #FFF0EC;
+    }
+
+    .banner-title {
+      font-size: 2.25rem;
+    }
+
+    .banner-container {
+        padding: 0px 30px;
+    }
+
+    .Bubble-icon {
+        width: 100px;
+        margin-top: 100px;
+    }
+
+    .Amir-icon {
+        width: 70px;
+        margin-top: 130px;
+    }
+
+    .Signage-icon {
+        width: 140px;
+        margin-top: 40px;
+    }
+
+    .content-left {
+      flex: 1; 
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      color: white;
+      overflow: hidden; 
+      padding: 0px
+    }
+
+    .map-description {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: justify;
+    }
+
+    .content-left {
+      flex: 1; 
+      width: 90%;
+      padding: 30px 0px 0px 30px;
+    }
+
+    .MapFilter-button {
+      width: 175px;
+      padding: 10px 0px;
+      font-size: 0.85rem;
+    }
+
+    .yellow-sun {
+      position: absolute;
+      z-index: 10;
+      width: 250px; 
+      height: auto;
+      top: -60px;
+      left: -110px;
+      
+    }
+  
+    .pink-moon {
+      position: absolute;
+      z-index: 10;
+      width: 250px;
+      height: auto;
+      top: 350px;
+      left: 120px;
+    }
+    
+    .blue-candy {
+      position: absolute;
+      z-index: 10;
+      width: 320px; 
+      height: auto;
+      top: -5rem;
+      left: 7.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .featured-properties-box {
+      width: 100%;
+      height: auto;
+      max-width: 1200px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #map-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      background-size: cover; 
+      background-color: #ffffff;
+      padding: 0px 0px;
+    }
+
+    .banner-container {
+      flex-direction: column;
+      padding: 0px 10px;
+    }
+
+    .banner-title {
+        font-size: 2.25rem;
+        text-align: center;
+        padding: 20px 0px
+    }
+
+    .banner-container {
+      padding: 0px 20px;
+    }
+
+    .Bubble-icon {
+        width: 100px;
+        margin-top: 80px;
+    }
+
+    .Amir-icon {
+        width: 70px;
+        margin-top: 100px;
+    }
+
+    .Signage-icon {
+        width: 140px;
+        margin-top: 0px;
+    }
+      
+    .map-description {
+      padding: 0px 20px;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .content-overlay {
+      flex-direction: column;
+    }
+
+    .content-left {
+      flex: 1; 
+      width: 90%;
+      margin-right: 0px;
+      padding: 20px 0px 0px 20px;
+      text-align: center;
+      align-items: center;
+    }
+
+    .MapFilter-button {
+      width: 175px;
+      padding: 10px 0px;
+      font-size: 0.85rem;
+    }
+  
+    .image-grid {
+      width: 80%;
+      height: 240px;
+      display: flex;           
+      flex-direction: column;     
+      gap: 30px;  
+      border-radius: 25px;              
+      justify-content: center; 
+      padding: 280px 0px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+  
+    .image-container {
+      position: relative;
+      width: 100%; 
+      height: 100%;
+      border-radius: 25px; 
+      overflow: visible; 
+    }
+
+    .secondary-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -40px;
+    }
+
+    .district {
+      font-size: 2.1rem;
+      margin-bottom: 0rem;
+    }  
+  
+    .subtitle {
+      font-size: 2.25rem;
+    } 
+
+    .yellow-sun {
+      position: absolute;
+      z-index: 10;
+      width: 250px; 
+      height: auto;
+      top: -60px;
+      left: -110px;
+      
+    }
+  
+    .pink-moon {
+      position: absolute;
+      z-index: 10;
+      width: 250px;
+      height: auto;
+      top: 140px;
+      left: 450px;
+    }
+    
+    .blue-candy {
+      position: absolute;
+      z-index: 10;
+      width: 320px; 
+      height: auto;
+      top: 120px;
+      left: -150px;
+    }
+
+    .back-button {
+      font-size: 20px;
+      padding: 6px 26px;
+      margin-bottom: 60px;
+      margin-left: -20px;
+    }
+    
+    .back-button:hover {
+      background-color: #766afbb4;
+    }
+  
+    .back-icon {
+      margin-top: 4px;
+    }
+  }
+
+  @media (max-width: 506px) {
+    .district {
+      font-size: 1.5rem;
+      margin-bottom: 0rem;
+    }  
+  
+    .subtitle {
+      font-size: 1.7rem;
+    } 
+
+    .back-button {
+      font-size: 18px;
+      padding: 1px 14px;
+      margin-bottom: 45px;
+      margin-left: 10px;
+    }
+    
+    .back-button:hover {
+      background-color: #766afbb4;
+    }
+  
+    .back-icon {
+      margin-top: 4px;
+    }
+
+      .image-description {
+        margin-top: 16px;
+      }
+
+      .image-title-section {
+        margin-bottom: 16px;
+      }
+  }
+
+  
+  
+  @media (max-width: 400px) {
+    .banner-container {
+      flex-direction: column;
+      padding: 0px 10px;
+    }
+
+    .banner-title {
+        font-size: 1.8rem;
+        text-align: center;
+        padding: 20px 0px
+    }
+
+    .Bubble-icon {
+      width: 80px;
+      margin-top: 60px;
+    }
+
+    .Amir-icon {
+        width: 60px;
+        margin-top: 80px;
+    }
+
+    .Signage-icon {
+        width: 120px;
+        margin-top: 0px;
+    }
+
+    .featured-properties-box {
+      width: 100%;
+      height: auto;
+      max-width: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .map-description {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      margin-left: 0px;
+      text-align: justify;
+    }
+
+    .content-left {
+      flex: 1; 
+      margin-right: 20px;
+      padding: 0px 0px 0px 20px;
+      text-align: justify;
+    }
+
+    .MapPrimary-buttons {
+      margin-right: 20px;
+    }
+
+    .MapFilter-button {
+      width: 160px;
+      padding: 10px 0px;
+      font-size: 0.85rem;
+    }
+  
+    .image-grid {
+      width: 90%;
+      height: 220px;
+      display: flex;           
+      flex-direction: column;     
+      gap: 15px;  
+      border-radius: 25px;              
+      justify-content: center; 
+      padding: 250px 0px;
+      margin-top: 30px;
+    }
+  
+    .image-container {
+      position: relative;
+      width: 100%; 
+      height: 100%;
+      border-radius: 25px; 
+      overflow: visible; 
+    }
+
+    .secondary-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -20px;
+    }
+
+    .district {
+      font-size: 1.55rem;
+      margin-bottom: 0rem;
+    }  
+  
+    .subtitle {
+      font-size: 1.8rem;
+    } 
+
+    .yellow-sun {
+      position: absolute;
+      z-index: 10;
+      width: 200px; 
+      height: auto;
+      top: -40px;
+      left: -80px;
+      
+    }
+  
+    .pink-moon {
+      position: absolute;
+      z-index: 10;
+      width: 200px;
+      height: auto;
+      top: 130px;
+      left: 230px;
+    }
+    
+    .blue-candy {
+      position: absolute;
+      z-index: 10;
+      width: 260px; 
+      height: auto;
+      top: 120px;
+      left: -100px;
+    }
+
+    .back-button {
+      font-size: 18px;
+      padding: 2px 16px;
+      margin-bottom: 50px;
+      margin-left: 10px;
+    }
+    
+    .back-button:hover {
+      background-color: #766afbb4;
+    }
+  
+    .back-icon {
+      margin-top: 4px;
+    }
+  }
+
+  @media (max-width: 370px) {
+    .map-description {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      margin-right: 10px;
+      padding: 0px;
+      text-align: justify;
+    }
+
+    .MapFilter-button {
+      width: 135px;
+      padding: 10px 0px;
+      font-size: 0.85rem;
+    }
+
+    .district {
+      font-size: 1.45rem;
+      margin-bottom: 0rem;
+    }  
+  
+    .subtitle {
+      font-size: 1.5rem;
+    } 
+
+    .back-button {
+      font-size: 18px;
+      padding: 1px 14px;
+      margin-bottom: 45px;
+      margin-left: 10px;
+    }
+    
+    .back-button:hover {
+      background-color: #766afbb4;
+    }
+  
+    .back-icon {
+      margin-top: 4px;
+    }
+  }

@@ -1,14 +1,51 @@
 .hero-section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 100vh;
-  width: auto;
+  position: relative;
+  width: 100%;
+  height: 920px;
   background: url('../../assets/Pasar Ramadan.jpg') no-repeat center center/cover;
   color: white;
-  position: relative;
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.hero-frame-container {
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.hero-frame {
+  margin-top: 100px;
+  width: 100%;
+  height:fit-content;
+  object-fit: scale-down; 
+  animation: fadeInFromBottom 2.5s ease-out;
+}
+
+@keyframes fadeInFromBottom {
+  from {
+    opacity: 0;
+    clip-path: inset(100% 0 0 0); 
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0); 
+  }
+}
+
+.hero-content {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* Promo Banner  */
@@ -23,34 +60,29 @@
   font-weight: bold;
 }
 
-.hero-svg {
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-  display: block;
-}
-
-.hero-content{
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 /* Arabic year */
 .hero-year {
-  margin-top: 70px;
-  font-size: 2.5rem;
+  font-size: 5rem;
   font-weight: bold;
   color: #FFFFFF;
-  margin-bottom: 10px;
+  margin: 0px;
+}
+
+.b-jaurLogo {
+  width: 23rem;
+  height: auto;
 }
 
 /* Text container */
 .hero-text {
-  font-size: 2.5rem;
+  width: 100%;
+  font-size: 5rem;
   font-weight: bold;
   display: flex;
-  gap: 10px;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
+  margin: 20px 0px;
 }
 
 /* Orange text */
@@ -71,34 +103,46 @@
 }
 
 /* Description */
+.hero-descriptionBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .hero-description {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #FFFFFF;
   max-width: auto;
-  margin-top: 10px;
+  margin: 10px;
   text-align: left;
+  font-weight: bold;
 }
 
 /* Search container */
+.search-container-restaurantBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 25px;
+}
+
 .search-container-restaurant {
   display: flex;
   align-items: center;
-  margin-top: 20px;
   border-radius: 25px;
-  width: 100%; /* Ensure it takes full width of the parent container */
+  width: 70%;
   background-color: #776AFB;
 }
 
 /* Search input */
 .search-restaurant {
   border: none;
-  padding: 10px;
+  padding: 15px;
   font-size: 1rem;
   outline: none;
   flex: 1; /* Takes all available space */
   background-color: #fff;
-  border-top-left-radius: 25px;  /* Applies border radius only to the top-left */
-  border-bottom-left-radius: 25px; /* Applies border radius only to the bottom-left */
+  border-radius: 20px 0px 0px 20px;
 }
 
 /* Search button */
@@ -108,29 +152,35 @@
   cursor: pointer;
   font-size: 1rem;
   padding: 10px;
-  border-top-right-radius: 25px;  /* Applies border radius only to the top-left */
-  border-bottom-right-radius: 25px; /* Applies border radius only to the bottom-left */
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  width: 20px; 
+  height: 20px;
 }
 
 .hero-image {
   position: absolute;
   bottom: 0px;
   right: 0px;
-  width: 45%; /* Adjust size as needed */
+  width: 45%; 
   height: auto;
-  z-index: 10; /* Ensure the image is on top of other content */
+  z-index: 10;
 }
 
 .down-arrow {
   position: absolute;
-  bottom: 10px;
+  bottom: -200px;            
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-  border: 2px solid white; /* White border */
-  border-radius: 50%; /* Makes it round */
-  width: 50px; /* Set width */
-  height: 50px; /* Set height */
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,6 +195,11 @@
   background: rgba(255, 255, 255, 0.4); /* Slightly brighter on hover */
 }
 
+.down-arrow-icon {
+  font-size: 25px;
+}
+
+
 @keyframes bounce {
   0%, 100% {
     transform: translateX(-50%) translateY(0);
@@ -154,3 +209,270 @@
   }
 }
 
+@media (max-width: 1440px) {
+  .hero-frame-container {
+    margin-top: 120px;
+  }
+
+  .hero-frame {
+    width: 100%;
+    height: 125%;
+    object-fit: cover; 
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+  }
+
+  .b-jaurLogo {
+    width: 300px;
+    height: auto;
+  }
+
+  .normal-text {
+    margin: -15px 0px 0px 0px;
+  }
+  
+  .hero-text {
+    font-size: 3.85rem;
+    display: flex;
+    flex-direction: row; 
+    margin: 20px 0px;
+    gap: 2rem;
+    padding: 0px;
+  }
+  
+  .hero-description {
+    font-size: 1.5rem;
+    margin: 20px 10px;
+    text-align: justify;
+  }
+  
+  .down-arrow {
+    position: absolute;
+    bottom: -180px;            
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-frame-container {
+    margin-top: 0px;
+  }
+
+  .hero-frame {
+    width: 100%;
+    height: 90%;
+    object-fit: cover; 
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+  }
+  
+  /* Arabic year */
+  .hero-year {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 0px 0px 20px 0px;
+  }
+
+  .b-jaurLogo {
+    width: 300px;
+    height: auto;
+  }
+
+  .normal-text {
+    margin: -15px 0px 0px 0px;
+  }
+  
+  .hero-text {
+    font-size: 3.85rem;
+    display: flex;
+    flex-direction: column; 
+    margin: 0px 0px;
+    gap: 0px;
+    padding: 0px;
+  }
+  
+  .hero-description {
+    font-size: 1.25rem;
+    margin: 20px 10px;
+    text-align: justify;
+    visibility: hidden;
+  }
+  
+  .down-arrow {
+    position: absolute;
+    bottom: -40px;            
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-frame-container {
+    margin-top: -50px;
+  }
+
+  .hero-frame {
+    width: 100%;
+    height: 80%;
+    object-fit: cover; 
+  }
+
+  .hero-content {
+    top: 55%;
+    left: 50%;
+  }
+  
+  /* Arabic year */
+  .hero-year {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 0px 0px 40px 0px;
+  }
+  
+  .highlight-text {
+    font-size: 4rem;
+    margin: 0px 0px -15px 0px;
+  }
+
+  .b-jaurLogo {
+    width: 300px;
+    height: auto;
+  }
+
+  .normal-text {
+    margin: -15px 0px 0px 0px;
+  }
+  
+  .hero-text {
+    font-size: 3.85rem;
+    display: flex;
+    flex-direction: column; 
+    margin: 0px 0px;
+    gap: 0px;
+    padding: 0px;
+  }
+  
+  .hero-description {
+    font-size: 1.25rem;
+    margin: 20px 10px;
+    text-align: justify;
+    visibility: hidden;
+  }
+  
+  .down-arrow {
+    position: absolute;
+    bottom: -50px;            
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-section {
+    height: 780px;
+    padding-top: 0px;
+  }
+
+  .hero-frame-container {
+    margin-top: -45px;
+  }
+
+  .hero-frame-container {
+    overflow: hidden; 
+  }
+
+  .hero-frame {
+    width: 100%;
+    height: 70%;
+    object-fit: cover; 
+  }
+
+  .hero-content {
+    position: absolute;
+    top: 470px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Arabic year */
+  .hero-year {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 0px 0px 40px 0px;
+  }
+  
+  .highlight-text {
+    font-size: 3.3rem;
+    margin: 0px 0px -15px 0px;
+  }
+
+  .b-jaurLogo {
+    width: 250px;
+    height: auto;
+  }
+
+  .normal-text {
+    margin: -15px 0px 0px 0px;
+  }
+  
+  .hero-text {
+    font-size: 3.25rem;
+    display: flex;
+    flex-direction: column; 
+    margin: 0px 0px;
+    gap: 0px;
+    padding: 0px;
+  }
+  
+  .hero-description {
+    font-size: 1.25rem;
+    margin: 20px 10px;
+    text-align: justify;
+    visibility: hidden;
+  }
+  
+  .down-arrow {
+    position: absolute;
+    bottom: -20px;            
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-frame-container {
+    margin-top: -50px;
+  }
+
+  .hero-section {
+    height: 730px;
+    padding-top: 0px;
+  }
+
+  .down-arrow {
+    position: absolute;
+    bottom: 40px;            
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-content {
+    top: 450px;
+  }
+}
