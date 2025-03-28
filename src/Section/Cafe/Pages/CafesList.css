@@ -1,0 +1,28 @@
+
+.cafesList-container {
+    display: flex; 
+    width: 100%;
+    background-color: white;
+}
+
+.cafesSearchFilter-container {
+    background: linear-gradient(135deg, #5E1AF4 20%, #9b92ff 80%);
+}
+  
+.cafesList-left {
+    flex: 1;
+    background-color: #f8f8f8; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.cafesList-right {
+    flex: 1;
+    background-color: #f8f8f8;
+}
+  
+
+.cafesList-left, .cafesList-right {
+    min-height: 500px;
+}
+

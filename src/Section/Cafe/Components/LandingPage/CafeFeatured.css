@@ -1,0 +1,59 @@
+.Cafe-Featured {
+    height: 700px;
+    background-color: #fff;
+    padding: 40px 180px;
+}
+  
+.CafeFeatured-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #5E1AF4 20%, #9b92ff 80%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+  
+.CafeFeatured-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+  
+.CafeFeatured-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+  
+.CafeFeatured-btn {
+    background-color: #5e1af4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+  
+.CafeFeatured-btn:hover {
+    background-color: #4a149d;
+}
+  
+.CafeFeatured-btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+  
+.CafeFeatured-explore-button {
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.cafe-ExploreRight-arrow {
+    margin-left: 10px;
+    margin-bottom: -2px;
+}

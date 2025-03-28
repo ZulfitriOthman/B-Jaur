@@ -1,0 +1,114 @@
+/* CafeSteps.css */
+.CafeSteps {
+    height: 600px;
+    margin: 0px;
+    padding: 60px 200px 200px;
+    background: white;
+}
+
+.CafeSteps-step-number1, .CafeSteps-step-number2, .CafeSteps-step-number3 {
+    font-size: 9rem;
+    font-weight: 800;
+    margin: 0px;
+    padding: 0px;
+}
+
+.CafeSteps-step-number1 {
+    color: #9b92ff;
+}
+
+.CafeStep-search {
+    font-size: 120px;
+    color: #f8bcca;
+    margin: 30px;
+}
+.CafeStep-cup {
+    display: flex;
+    position: absolute;
+    font-size: 60px;
+    color: #ffbe98;
+    margin-top: -135px;
+    margin-left: 180px;
+}
+
+.CafeSteps-step-number2 {
+    color: #ffbe98;
+}
+
+.CafeStep-website {
+    font-size: 170px;
+    color: #9b92ff;
+    margin: 10px;
+}
+
+.CafeSteps-step-number3 {
+    color: #f8bcca;
+}
+
+.CafeStep-store {
+    font-size: 110px;
+    color: #ffbe98;
+    margin-top: 60px;
+}
+.CafeStep-pin {
+    display: flex;
+    position: absolute;
+    font-size: 70px;
+    color: #9b92ff;
+    margin-top: -160px;
+    margin-left: 185px;
+}
+.CafeStep-cup2 {
+    display: flex;
+    position: absolute;
+    font-size: 35px;
+    color: #f8bcca;
+    margin-top: -148px;
+    margin-left: 204px;
+}
+  
+.CafeSteps-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #5E1AF4;
+    text-align: center;
+    margin-bottom: 50px;
+}
+  
+.CafeSteps-list {
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+    gap: 20px;
+}
+
+.CafeSteps-list1 {
+    width: 90%;
+}
+  
+.CafeSteps-item {
+    width: 90%;
+    height: 180px;
+    margin-top: -85px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 -30px 30px -15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    z-index: 10; 
+}
+  
+.CafeSteps-step-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+  
+.CafeSteps-description {
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+}
+  

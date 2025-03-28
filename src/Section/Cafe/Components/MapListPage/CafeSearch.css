@@ -1,0 +1,43 @@
+.CafeSearch-container {
+    display: flex;
+    padding: 40px 20px 0px 20px;
+}
+
+.CafeFilter-search {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.CafeSearch-input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+  
+.CafeSearch-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 40px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    outline: none;
+    background-color: #f8f8f8;
+}
+  
+.search-icon {
+    position: absolute;
+    left: 10px; 
+    color: #999;
+}
+
+.close-icon {
+    position: absolute;
+    right: 10px; 
+    color: #999;
+}
+  
+.CafeSearch-input:focus {
+    border-color: #5E1AF4;
+}

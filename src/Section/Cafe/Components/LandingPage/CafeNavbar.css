@@ -1,0 +1,48 @@
+/* CafeNavbar.css */
+.cafeNav-background {
+    background-color: white; 
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cafeNav-logo {
+    display: flex;
+    flex-direction: row; 
+}
+
+.b-jaurRoundLogo {
+    display: flex;
+    width: 4%;
+    padding: 10px;
+}
+  
+.cafeNav-title {
+    display: flex;
+    color: #5E1AF4;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0px 10px;
+    margin: 0px;
+    align-items: center;
+}
+  
+.cafeNav-list {
+    display: flex;
+    gap: 30px;
+}
+
+.cafeNav-list a{
+    font-size: 16px;
+    font-weight: bold;
+    color: #5E1AF4;
+}
+
+.cafeNav-list a:hover{
+    font-size: 16px;
+    font-weight: bold;
+    color: #766afbb7;
+    transition: color 0.3s ease;
+}
+
