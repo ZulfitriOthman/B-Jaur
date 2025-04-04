@@ -5,7 +5,7 @@ import './CafeList.css';
 
 const CafeList = () => {
   // Set the number of items per page
-  const itemsPerPage = 10;
+  const itemsPerPage = 6;
 
   // State for current page
   const [currentPage, setCurrentPage] = useState(1);

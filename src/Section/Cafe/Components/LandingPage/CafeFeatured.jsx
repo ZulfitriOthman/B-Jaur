@@ -15,7 +15,7 @@ const navigate = useNavigate();
       </p>
 
       <div className="CafeFeatured-cards">
-        {CafeData.map((cafe) => (
+        {CafeData.slice(0, 5).map((cafe) => (
           <CafeCard
             key={cafe.id}
             name={cafe.name}

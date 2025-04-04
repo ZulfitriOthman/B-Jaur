@@ -3,6 +3,8 @@ import SoulCoffee from "../../../assets/Cafes/CafesLists/SoulCoffee.jpeg";
 import Koicha from "../../../assets/Cafes/CafesLists/Koicha.jpeg";
 import Poursha from "../../../assets/Cafes/CafesLists/Poursha.jpeg";
 import Ceramint from "../../../assets/Cafes/CafesLists/Ceramint.jpeg";
+import RisCafe from "../../../assets/Cafes/CafesLists/Ceramint.jpeg";
+import InformalCaffeine from "../../../assets/Cafes/CafesLists/Ceramint.jpeg";
 
 const CafeData = [
   {
@@ -14,9 +16,9 @@ const CafeData = [
     place: "Gadong", 
     district: "Brunei-Muara",
     features: ["Outdoor Setting", "Free Wifi", "Card Payment"], 
-    isNew: true,
-    lat: 4.90863425077472,
-    lng: 114.92473473588434,
+    isNew: true,  
+    latitude: 4.90863425077472,
+    longitude: 114.92473473588434,
   },
   {
     id: 2,
@@ -28,8 +30,8 @@ const CafeData = [
     district: "Brunei-Muara",
     features: ["Free Wifi", "Desserts", "Charging Ports"], 
     isNew: false,  
-    lat: 4.948343088848195,
-    lng: 114.96394865889549,
+    latitude: 4.948343088848195,
+    longitude: 114.96394865889549,
   },
   {
     id: 3,
@@ -41,8 +43,8 @@ const CafeData = [
     district: "Tutong",
     features: ["Free Wifi", "Outdoor Setting"], 
     isNew: true,  
-    lat: 4.864738324367645, 
-    lng: 114.9022427201281,
+    latitude: 4.864738324367645, 
+    longitude: 114.9022427201281,
   },
   {
     id: 4,
@@ -54,8 +56,8 @@ const CafeData = [
     district: "Brunei-Muara",
     features: ["Outdoor Setting", "Card Payment", "Charging Ports"],
     isNew: false,  
-    lat: 4.907564821410114, 
-    lng: 114.92628774110445,
+    latitude: 4.907564821410114, 
+    longitude: 114.92628774110445,
   },
   {
     id: 5,
@@ -67,34 +69,34 @@ const CafeData = [
     district: "Tutong",
     features: ["Desserts", "Charging Ports"], 
     isNew: true, 
-    lat: 4.8225001507983345, 
-    lng: 114.68457384370132,
+    latitude: 4.8225001507983345, 
+    longitude: 114.68457384370132,
   },
   {
     id: 6,
-    name: "The Edge",
-    image: TheEdge,
+    name: "Ri's Cafe",
+    image: RisCafe,
     description: "Enjoy a cozy atmosphere with freshly brewed coffee and pastries.",
     rating: 4.5,
-    place: "Gadong", 
+    place: "The Promenade, Sungai Hanching", 
     district: "Brunei-Muara",
     features: ["Outdoor Setting", "Free Wifi", "Card Payment"], 
     isNew: true,
-    lat: 4.90863425077472,
-    lng: 114.92473473588434,
+    latitude: 4.971445516568768,
+    longitude: 114.97810268059342,
   },
   {
     id: 7,
-    name: "Soul Coffee",
-    image: SoulCoffee,
+    name: "Informal Caffeine",
+    image: InformalCaffeine,
     description: "A perfect place to relax with friends over some delicious drinks.",
     rating: 4.7,
     place: "Manggis", 
     district: "Brunei-Muara",
     features: ["Free Wifi", "Desserts", "Charging Ports"], 
     isNew: false,  
-    lat: 4.948343088848195,
-    lng: 114.96394865889549,
+    latitude: 4.948343088848195,
+    longitude: 114.96394865889549,
   },
   {
     id: 8,
@@ -106,8 +108,8 @@ const CafeData = [
     district: "Tutong",
     features: ["Free Wifi", "Outdoor Setting"], 
     isNew: true,  
-    lat: 4.864738324367645, 
-    lng: 114.9022427201281,
+    latitude: 4.864738324367645, 
+    longitude: 114.9022427201281,
   },
   {
     id: 9,
@@ -119,8 +121,8 @@ const CafeData = [
     district: "Brunei-Muara",
     features: ["Outdoor Setting", "Card Payment", "Charging Ports"],
     isNew: false,  
-    lat: 4.907564821410114, 
-    lng: 114.92628774110445,
+    latitude: 4.907564821410114, 
+    longitude: 114.92628774110445,
   },
   {
     id: 10,
@@ -132,8 +134,8 @@ const CafeData = [
     district: "Tutong",
     features: ["Desserts", "Charging Ports"], 
     isNew: true, 
-    lat: 4.8225001507983345, 
-    lng: 114.68457384370132,
+    latitude: 4.8225001507983345, 
+    longitude: 114.68457384370132,
   },
   {
     id: 11,
@@ -145,8 +147,8 @@ const CafeData = [
     district: "Brunei-Muara",
     features: ["Outdoor Setting", "Free Wifi", "Card Payment"], 
     isNew: true,
-    lat: 4.90863425077472,
-    lng: 114.92473473588434,
+    latitude: 4.90863425077472,
+    longitude: 114.92473473588434,
   },
   {
     id: 12,
@@ -158,8 +160,8 @@ const CafeData = [
     district: "Brunei-Muara",
     features: ["Free Wifi", "Desserts", "Charging Ports"], 
     isNew: false,  
-    lat: 4.948343088848195,
-    lng: 114.96394865889549,
+    latitude: 4.948343088848195,
+    longitude: 114.96394865889549,
   },
   {
     id: 13,
@@ -171,8 +173,8 @@ const CafeData = [
     district: "Tutong",
     features: ["Free Wifi", "Outdoor Setting"], 
     isNew: true,  
-    lat: 4.864738324367645, 
-    lng: 114.9022427201281,
+    latitude: 4.864738324367645, 
+    longitude: 114.9022427201281,
   },
   {
     id: 14,
@@ -184,8 +186,8 @@ const CafeData = [
     district: "Brunei-Muara",
     features: ["Outdoor Setting", "Card Payment", "Charging Ports"],
     isNew: false,  
-    lat: 4.907564821410114, 
-    lng: 114.92628774110445,
+    latitude: 4.907564821410114, 
+    longitude: 114.92628774110445,
   },
   {
     id: 15,
@@ -197,8 +199,8 @@ const CafeData = [
     district: "Tutong",
     features: ["Desserts", "Charging Ports"], 
     isNew: true, 
-    lat: 4.8225001507983345, 
-    lng: 114.68457384370132,
+    latitude: 4.8225001507983345, 
+    longitude: 114.68457384370132,
   },
 ];
 
